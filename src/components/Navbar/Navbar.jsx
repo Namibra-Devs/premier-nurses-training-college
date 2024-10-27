@@ -46,19 +46,19 @@ const Navbar = () => {
             </li>
           </ul>
           <ul className="text-white flex items-center gap-3">
-            <a href="#">
+            <a href="#" className="hover:text-gray-400">
               <ion-icon name="logo-linkedin"></ion-icon>
             </a>
-            <a href="#">
+            <a href="#" className="hover:text-gray-400">
               <ion-icon name="logo-instagram"></ion-icon>
             </a>
-            <a href="#">
+            <a href="#" className="hover:text-gray-400">
               <ion-icon name="logo-facebook"></ion-icon>
             </a>
-            <a href="#">
+            <a href="#" className="hover:text-gray-400">
               <ion-icon name="logo-whatsapp"></ion-icon>
             </a>
-            <a href="#">
+            <a href="#" className="hover:text-gray-400">
               <ion-icon name="logo-twitter"></ion-icon>
             </a>
           </ul>
@@ -187,7 +187,7 @@ const Navbar = () => {
               <li>
                 <Link
                   to="/"
-                  className="pb-2 pl-2 inline-block font-normal text-gray-900"
+                  className="pb-2 inline-block font-normal text-gray-900"
                 >
                   Home
                 </Link>
@@ -196,7 +196,7 @@ const Navbar = () => {
               <li>
                 <Link
                   to="/"
-                  className="pt-2 pl-2 inline-block font-normal text-gray-900"
+                  className="pt-2 inline-block font-normal text-gray-900"
                 >
                   Contact Us
                 </Link>

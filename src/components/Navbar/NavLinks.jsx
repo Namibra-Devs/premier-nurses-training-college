@@ -66,7 +66,7 @@ const NavLinks = () => {
           {/* Mobile menus */}
           <div
             className={`
-              md:hidden overflow-hidden transition-all duration-500 ease-in-out
+              md:hidden overflow-hidden transition-all duration-700 ease-in-out
               ${
                 heading === link.name
                   ? "max-h-screen opacity-100"
@@ -77,7 +77,7 @@ const NavLinks = () => {
             {/* Sublinks */}
             {link.sublinks.map((slinks) => (
               <div key={slinks.Head}>
-                <div className="my-4 ml-2 border-l-2 border-primary">
+                <div className="my-4  border-l-2 border-primary">
                   {slinks.sublink.map((slink) => (
                     <li
                       key={slink.name}

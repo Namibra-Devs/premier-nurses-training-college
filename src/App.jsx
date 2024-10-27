@@ -1,7 +1,7 @@
 import React from "react";
 import Navbar from "./components/Navbar/Navbar";
 import ButtonPrimary from "./components/Buttons/ButtonPrimary";
-import ButtonSecondary from "./components/Buttons/ButtonSecondary";
+import ButtonOutline from "./components/Buttons/ButtonOutline";
 
 const App = () => {
   return (
@@ -24,7 +24,7 @@ const App = () => {
           </p>
           <div className="text-xl flex items-center gap-4">
             <ButtonPrimary />
-            <ButtonSecondary/>
+            <ButtonOutline/>
           </div>
         </div>
       </header>
