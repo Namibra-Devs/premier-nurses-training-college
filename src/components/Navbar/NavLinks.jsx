@@ -62,19 +62,27 @@ const NavLinks = () => {
               </div>
             )}
           </div>
-          
+
           {/* Mobile menus */}
           <div
             className={`
-            ${heading === link.name ? "md:hidden" : "hidden"}
-          `}
+              md:hidden overflow-hidden transition-all duration-500 ease-in-out
+              ${
+                heading === link.name
+                  ? "max-h-screen opacity-100"
+                  : "max-h-0 opacity-0"
+              }
+            `}
           >
-            {/* sublinks */}
+            {/* Sublinks */}
             {link.sublinks.map((slinks) => (
-              <div className="">
+              <div key={slinks.Head}>
                 <div className="my-4 ml-2 border-l-2 border-primary">
                   {slinks.sublink.map((slink) => (
-                    <li className="py-1 pl-8 text-gray-600 hover:text-primary  duration-500 font-normal">
+                    <li
+                      key={slink.name}
+                      className="py-1 pl-8 text-gray-600 hover:text-primary duration-300 font-normal"
+                    >
                       <Link to={slink.link}>{slink.name}</Link>
                     </li>
                   ))}
