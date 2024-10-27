@@ -10,7 +10,7 @@ const NavLinks = () => {
       {links.map((link) => (
         <div>
           {/* Desktop menus */}
-          <div className="px-2 text-left md:cursor-pointer group">
+          <div className="text-left md:cursor-pointer group">
             <h1
               className="py-1.5 flex justify-between items-center font-normal md:pr-0 pr-5 group"
               onClick={() => {
