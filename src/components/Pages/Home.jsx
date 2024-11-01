@@ -3,6 +3,7 @@ import Navbar from "../../components/Navbar/Navbar";
 import ButtonPrimary from "../../components/Buttons/ButtonPrimary";
 import ButtonOutline from "../../components/Buttons/ButtonOutline";
 import "../../index.css";
+import MissionStatement from "../Sections/MissionStatement";
 
 const Home = () => {
   // Array of messages to rotate through
@@ -31,6 +32,7 @@ const Home = () => {
   }, []);
 
   return (
+    <>
     <header
       className="h-screen bg-Hero bg-cover
       font-[Poppins] md:bg-top bg-center"
@@ -45,14 +47,14 @@ const Home = () => {
           {messages[currentMessageIndex]}
         </h2>
         <h1 className="md:text-6xl text-4xl tracking-tight text-white font-semibold py-5 px-4 md:px-64">
-          Premier Nurses' Training College - PNTC
+          Premier <span className="text-yellow-400">Nurses'</span> Training College - PNTC
         </h1>
         <p className="text-white mb-4 text-sm md:text-[15px] px-4">
           Nursing is a work of heart. Discover eight reason to transform your
           nursing carrier.
         </p>
         <div className="text-xl flex items-center gap-4">
-          <div className="bg-yellow-500 hover:bg-yellow-400 rounded-full md:py-1 border-2 border-transparent">
+          <div className="bg-yellow-500 hover:bg-yellow-400 rounded-full md:py-1 border-2 border-transparent duration-500 hover:scale-110">
             <ButtonPrimary />
           </div>
           <div >
@@ -61,6 +63,8 @@ const Home = () => {
         </div>
       </div>
     </header>
+    <MissionStatement/>
+    </>
   );
 };
 
