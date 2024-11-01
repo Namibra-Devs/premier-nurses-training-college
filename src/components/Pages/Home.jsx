@@ -5,6 +5,7 @@ import ButtonOutline from "../../components/Buttons/ButtonOutline";
 import "../../index.css";
 import MissionStatement from "../Sections/MissionStatement";
 import AccreditationAffiliations from "../Sections/AccreditationAffiliations";
+import Announcements from "../Sections/Announcements";
 
 const Home = () => {
   // Array of messages to rotate through
@@ -66,6 +67,7 @@ const Home = () => {
     </header>
     <MissionStatement/>
     <AccreditationAffiliations/>
+    <Announcements/>
     </>
   );
 };

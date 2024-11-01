@@ -47,10 +47,6 @@ const AccreditationAffiliations = () => {
       </div>
 
       <AffiliatedLogos />
-
-      <div className="min-h-screen">
-        
-      </div>
     </>
   );
 };

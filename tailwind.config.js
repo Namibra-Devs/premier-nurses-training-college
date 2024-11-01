@@ -23,6 +23,7 @@ module.exports = {
         Hero: "url('assets/Hero1.jpg')",
         TotalsBg: "url('assets/sections/totals-bg.jpg')",
         AccreditedImg: "url('assets/sections/accredited.jpg')",
+        StudentsGroup: "url('assets/sections/student-group.jpg')",
       },
       maskImage: {
         "gradient-to-right":

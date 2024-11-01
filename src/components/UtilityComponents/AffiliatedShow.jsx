@@ -4,18 +4,18 @@ import { Logos } from "../UtilityComponents/AffiliatLogos";
 const AffiliatedLogos = () => {
   return (
     <div>
-      <section class=" relative flex flex-col justify-center bg-blue-800 overflow-hidden">
+      <section class=" relative flex flex-col justify-center bg-TotalsBg bg-cover bg-bottom bg-no-repeat overflow-hidden">
         <div class="w-full max-w-5xl mx-auto px-2 md:px-6 py-20">
           <h2 class="text-gray-50 text-center text-2xl leading-2 tracking-tight font-semibold">
             Accreditation and Affiliations
           </h2>
           <div className="flex items-center justify-center gap-1 text-gray-50">
-          <ion-icon name="remove-outline"></ion-icon>
-          <ion-icon name="remove-outline"></ion-icon>
-          <ion-icon name="remove-outline"></ion-icon>
-          <ion-icon name="remove-outline"></ion-icon>
-          <ion-icon name="remove-outline"></ion-icon>
-          <ion-icon name="remove-outline"></ion-icon>
+            <ion-icon name="remove-outline"></ion-icon>
+            <ion-icon name="remove-outline"></ion-icon>
+            <ion-icon name="remove-outline"></ion-icon>
+            <ion-icon name="remove-outline"></ion-icon>
+            <ion-icon name="remove-outline"></ion-icon>
+            <ion-icon name="remove-outline"></ion-icon>
           </div>
 
           <div class="text-center pt-32">
@@ -33,18 +33,16 @@ const AffiliatedLogos = () => {
                 x-ref="logos"
                 class="text-[2rem] font-semibold flex items-center justify-center md:justify-start [&_li]:mx-8 [&_img]:max-w-none animate-infinite-scroll"
               >
-               
-                  {Logos.map((logo, index) => (
-                    <li>
+                {Logos.map((logo, index) => (
+                  <li>
                     <img
                       key={index}
                       src={logo}
                       alt={`Affiliate Logo ${index + 1}`}
                       className="max-w-3xl"
                     />
-                    </li>
-                  ))}
-               
+                  </li>
+                ))}
               </ul>
             </div>
             {/* End: Logo Carousel animation */}
