@@ -21,6 +21,8 @@ module.exports = {
       },
       backgroundImage: {
         Hero: "url('assets/Hero1.jpg')",
+        TotalsBg: "url('assets/sections/totals-bg.jpg')",
+        AccreditedImg: "url('assets/sections/accredited.jpg')",
       },
     },
   },
