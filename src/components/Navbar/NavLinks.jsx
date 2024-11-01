@@ -39,24 +39,37 @@ const NavLinks = () => {
                     mt-1 bg-white rotate-45"
                     ></div>
                   </div>
-                  <div className="bg-white p-5 grid grid-cols-1 gap-10">
-                    {link.sublinks.map((mysublinks) => (
-                      <div>
-                        <h1 className="text-base font-medium text-gray-600 uppercase">
-                          {mysublinks.Head}
-                        </h1>
-                        {mysublinks.sublink.map((slink) => (
-                          <li className="text-sm text-gray-600 my-2.5 ">
-                            <Link
-                              to={slink.link}
-                              className="hover:text-primary"
+                  <div
+                    className={`bg-white p-5 grid grid-cols-1 gap-10 transition-all duration-300 ${
+                      link.sublinks ? "opacity-100" : "opacity-0"
+                    }`}
+                    style={{
+                      maxHeight: link.sublinks ? "500px" : "0", // adjust maxHeight to suit your needs
+                      overflow: "hidden",
+                      transition: "max-height 0.3s ease, opacity 0.3s ease",
+                    }}
+                  >
+                    {link.sublinks &&
+                      link.sublinks.map((mysublinks) => (
+                        <div key={mysublinks.Head}>
+                          <h1 className="text-base font-medium text-gray-600 uppercase">
+                            {mysublinks.Head}
+                          </h1>
+                          {mysublinks.sublink.map((slink) => (
+                            <li
+                              key={slink.name}
+                              className="text-sm text-gray-600 my-2.5"
                             >
-                              {slink.name}
-                            </Link>
-                          </li>
-                        ))}
-                      </div>
-                    ))}
+                              <Link
+                                to={slink.link}
+                                className="hover:text-primary"
+                              >
+                                {slink.name}
+                              </Link>
+                            </li>
+                          ))}
+                        </div>
+                      ))}
                   </div>
                 </div>
               </div>

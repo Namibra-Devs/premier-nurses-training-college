@@ -46,19 +46,19 @@ const Navbar = () => {
             </li>
           </ul>
           <ul className="text-white flex items-center gap-3">
-            <a href="#" className="hover:text-gray-400">
+            <a href="#" className="hover:text-teal duration-500 ease">
               <ion-icon name="logo-linkedin"></ion-icon>
             </a>
-            <a href="#" className="hover:text-gray-400">
+            <a href="#" className="hover:text-teal duration-500 ease">
               <ion-icon name="logo-instagram"></ion-icon>
             </a>
-            <a href="#" className="hover:text-gray-400">
+            <a href="#" className="hover:text-teal duration-500 ease">
               <ion-icon name="logo-facebook"></ion-icon>
             </a>
-            <a href="#" className="hover:text-gray-400">
+            <a href="#" className="hover:text-teal duration-500 ease">
               <ion-icon name="logo-whatsapp"></ion-icon>
             </a>
-            <a href="#" className="hover:text-gray-400">
+            <a href="#" className="hover:text-teal duration-500 ease">
               <ion-icon name="logo-twitter"></ion-icon>
             </a>
           </ul>
@@ -202,7 +202,7 @@ const Navbar = () => {
                 </Link>
               </li>
             </ul>
-            <div className="py-5">
+            <div className="py-5 text-center">
               <ButtonPrimary />
             </div>
           </div>
