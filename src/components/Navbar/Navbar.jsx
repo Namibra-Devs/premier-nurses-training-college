@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Logo from "../../assets/Logo.png";
 import NavLinks from "./NavLinks";
-import ButtonPrimary from "../Buttons/ButtonPrimary";
 import Searchform from "../Searchform/Searchform";
+import ButtonNav from "../Buttons/ButtonNav";
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [tn_open, setTnOpen] = useState(false);
@@ -80,7 +80,7 @@ const Navbar = () => {
           </div>
         </div>
 
-        <ButtonPrimary />
+        <ButtonNav />
 
         <div className="flex flex-col items-start gap-4 font-medium md:px-20 px-4 p-2 mt-10">
           <ul className="bg-white w-full p-4 rounded-md text-slate-600 flex flex-col items-start justify-between gap-4 text-sm list-none font-normal">
@@ -165,7 +165,7 @@ const Navbar = () => {
           <div className="flex items-center gap-4">
             {/* Apply button */}
             <div className="md:block hidden">
-              <ButtonPrimary />
+              <ButtonNav />
             </div>
             {/* Desktop version of SearchIcon (hidden on mobile, visible on desktop) */}
             <div
@@ -203,7 +203,7 @@ const Navbar = () => {
               </li>
             </ul>
             <div className="py-5 text-center">
-              <ButtonPrimary />
+              <ButtonNav />
             </div>
           </div>
         </div>
@@ -211,7 +211,7 @@ const Navbar = () => {
       {/* Overlay */}
       {searchb_open && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-50"
+          className="fixed inset-0 bg-black bg-opacity-30"
           onClick={() => setSearchbOpen(false)}
         ></div>
       )}

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import ButtonPrimary from "../../components/Buttons/ButtonPrimary";
 import ButtonOutline from "../../components/Buttons/ButtonOutline";
+import "../../index.css";
 
 const Home = () => {
   // Array of messages to rotate through
@@ -51,8 +52,12 @@ const Home = () => {
           nursing carrier.
         </p>
         <div className="text-xl flex items-center gap-4">
-          <ButtonPrimary />
-          <ButtonOutline />
+          <div className="bg-yellow-500 hover:bg-yellow-400 rounded-full md:py-1 border-2 border-transparent">
+            <ButtonPrimary />
+          </div>
+          <div >
+            <ButtonOutline />
+          </div>
         </div>
       </div>
     </header>
