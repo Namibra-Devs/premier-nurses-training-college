@@ -2,15 +2,16 @@ import React from "react";
 import missionImg from "../../assets/sections/n1.jpg";
 import KeyStatistics from "../UtilityComponents/KeyStatistics";
 import Totals from "../UtilityComponents/Totals";
+import KeyStatisticsII from "../UtilityComponents/KeyStatisticsII";
 
 const MissionStatement = () => {
   return (
-    <div>
+    <>
       <div className="bg-gray-50 px-4 md:px-20">
         <div className="md:px-20 flex justify-center items-center">
           <Totals />
         </div>
-        <div className="flex flex-col md:flex-row md:items-center justify-center gap-10 pt-24">
+        <div className="flex flex-col md:flex-row md:items-center justify-center gap-10 py-24">
           <div className="mission-img max-w-full md:max-w-[30%] relative overflow-hidden group">
             <img
               src={missionImg}
@@ -46,7 +47,10 @@ const MissionStatement = () => {
           </div>
         </div>
       </div>
-    </div>
+      <div className="bg-white flex justify-center items-center px-4 md:px-44 py-24">
+        <KeyStatisticsII />
+      </div>
+    </>
   );
 };
 

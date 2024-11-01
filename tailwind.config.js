@@ -24,7 +24,29 @@ module.exports = {
         TotalsBg: "url('assets/sections/totals-bg.jpg')",
         AccreditedImg: "url('assets/sections/accredited.jpg')",
       },
+      maskImage: {
+        "gradient-to-right":
+          "linear-gradient(to right, transparent 0%, #4A3AFF 128px, black calc(100% - 128px), transparent 100%)",
+      },
+      animation: {
+        "infinite-scroll": "infinite-scroll 25s linear infinite",
+      },
+      keyframes: {
+        "infinite-scroll": {
+          from: { transform: "translateX(0)" },
+          to: { transform: "translateX(-100%)" },
+        },
+      },
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addUtilities }) {
+      addUtilities({
+        ".mask-image-gradient": {
+          maskImage:
+            "linear-gradient(to right, transparent 0%, #4A3AFF 128px, #4A3AFF calc(100% - 128px), transparent 100%)",
+        },
+      });
+    },
+  ],
 };
