@@ -22,7 +22,7 @@ const KeyStatisticsII = () => {
       </div>
       <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-5">
         {/* Key Statics 1 */}
-        <div className="relative bg-gray-100 rounded-3xl overflow-hidden p-6 transition-transform duration-500 transform hover:-translate-y-2">
+        <div className="relative bg-gray-50 rounded-3xl overflow-hidden p-6 hover:shadow-custom-light transition-transform duration-500 transform hover:-translate-y-2">
           <div className="mt-14">
             <div className="absolute top-0 left-0 p-4 bg-yellow-400 rounded-br-3xl text-lg font-bold text-white">
               <span className="text-4xl flex items-center">
@@ -40,7 +40,7 @@ const KeyStatisticsII = () => {
           </div>
         </div>
         {/* Key Statics 1 */}
-        <div className="relative bg-gray-100 rounded-3xl overflow-hidden p-6 transition-transform duration-500 transform hover:-translate-y-2">
+        <div className="relative bg-gray-50 rounded-3xl overflow-hidden p-6 hover:shadow-custom-light transition-transform duration-500 transform hover:-translate-y-2">
           <div className="mt-14">
             <div className="absolute top-0 left-0 p-4  bg-yellow-400 rounded-br-3xl text-lg font-bold text-white">
               <span className="text-4xl flex items-center">
@@ -59,7 +59,7 @@ const KeyStatisticsII = () => {
           </div>
         </div>
         {/* Key Statics 1 */}
-        <div className="relative bg-gray-100 rounded-3xl overflow-hidden p-6 transition-transform duration-500 transform hover:-translate-y-2">
+        <div className="relative bg-gray-50 rounded-3xl overflow-hidden p-6 hover:shadow-custom-light transition-transform duration-500 transform hover:-translate-y-2">
           <div className="mt-14">
             <div className="absolute top-0 left-0 p-4  bg-yellow-400 rounded-br-3xl text-lg font-bold text-white">
               <span className="text-4xl flex items-center">
@@ -77,7 +77,7 @@ const KeyStatisticsII = () => {
           </div>
         </div>
         {/* Key Statics 1 */}
-        <div className="relative bg-gray-100 rounded-3xl overflow-hidden p-6 transition-transform duration-500 transform hover:-translate-y-2">
+        <div className="relative bg-gray-50 rounded-3xl overflow-hidden p-6 hover:shadow-custom-light transition-transform duration-500 transform hover:-translate-y-2">
           <div className="mt-14">
             <div className="absolute top-0 left-0 p-4  bg-yellow-400 rounded-br-3xl text-lg font-bold text-white">
               <span className="text-4xl flex items-center">
@@ -114,7 +114,7 @@ const KeyStatisticsII = () => {
           </div>
         </div>
         {/* Key Statics 1 */}
-        <div className="relative bg-gray-100 rounded-3xl overflow-hidden p-6 transition-transform duration-500 transform hover:-translate-y-2">
+        <div className="relative bg-gray-50 rounded-3xl overflow-hidden p-6 hover:shadow-custom-light transition-transform duration-500 transform hover:-translate-y-2">
           <div className="mt-14">
             <div className="absolute top-0 left-0 p-4  bg-yellow-400 rounded-br-3xl text-lg font-bold text-white">
               <span className="text-4xl flex items-center">

@@ -35,6 +35,7 @@ const Searchform = ({ searchb_open, setSearchbOpen }) => {
             </button>
           </div>
         </div>
+        
       </div>
     </div>
   );

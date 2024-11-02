@@ -24,7 +24,7 @@ const BlogList = () => {
           <a
             href={blog.url} // Use the URL from each blog item
             key={index}
-            className="blog-item relative rounded-3xl overflow-hidden transition-transform duration-500 transform hover:-translate-y-2"
+            className="blog-item relative group rounded-3xl overflow-hidden transition-transform duration-500 transform hover:-translate-y-2"
           >
             <img
               src={blog.image}
@@ -38,11 +38,11 @@ const BlogList = () => {
                 <h3 className="blog-title text-white leading-tight tracking-tight text-base font-semibold">
                   {blog.title}
                 </h3>
-                <span className="text-xl flex items-center bg-white rounded-full p-3">
+                <span className="border group-hover:backdrop-brightness-75 group-hover:translate-x-2 text-white duration-500 text-xl flex items-center rounded-full p-2">
                   <ion-icon name="arrow-redo-outline"></ion-icon>
                 </span>
               </div>
-              <p className="blog-date font-normal text-sm text-gray-300 mt-1">
+              <p className="blog-date font-normal text-sm text-yellow-200 mt-1"> 
                 {blog.date}
               </p>
               {/* <p className="blog-description font-normal text-sm text-gray-200 max-w-lg mt-1">
