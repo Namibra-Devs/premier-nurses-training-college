@@ -5,10 +5,10 @@ const Searchform = ({ searchb_open, setSearchbOpen }) => {
     <div>
       {/* Search Form */}
       <div
-        className={`bg-white fixed md:w-[600px] w-full h-full top-0 overflow-y-auto bottom-0 px-10
-        transform duration-700 ease border-l-4 border-primary ${
-          searchb_open ? "translate-x-0" : "-translate-x-full"
-        }`}
+        className={`fixed md:w-[600px] w-full h-full top-0 overflow-y-auto bottom-0 px-10
+          transform duration-500 ease border-l-4 border-primary 
+          ${searchb_open ? "translate-x-0" : "-translate-x-full"} 
+          bg-white md:bg-transparent md:backdrop-brightness-75`}
       >
         {/* Close Icon */}
         <div className="float-right mt-6 hidden md:block">

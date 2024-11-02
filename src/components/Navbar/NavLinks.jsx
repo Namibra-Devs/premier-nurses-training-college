@@ -30,39 +30,38 @@ const NavLinks = () => {
                 <ion-icon name="chevron-down"></ion-icon>
               </span>
             </h1>
+
+            {/* Desktop Submenus */}
             {link.submenu && (
-              <div>
-                <div className="absolute hidden group-hover:md:block hover:md:block">
+              <div className="">
+                <div className="absolute hidden group-hover:md:block ">
                   <div className="py-3">
                     <div
                       className="w-4 h-4 left-3 absolute 
-                    mt-1 bg-white rotate-45"
+                    mt-1 bg-primary rotate-45"
                     ></div>
                   </div>
                   <div
-                    className={`bg-white p-5 grid grid-cols-1 gap-10 transition-all duration-300 ${
-                      link.sublinks ? "opacity-100" : "opacity-0"
+                    className={`bg-gradient-to-b from-primary to to-transparent backdrop-blur-sm p-5 grid grid-cols-1 transform transition-all duration-500 ${
+                      link.sublinks
+                        ? "opacity-100 translate-y-0 o"
+                        : "opacity-0 -translate-y-2 pointer-events-none"
                     }`}
-                    style={{
-                      maxHeight: link.sublinks ? "500px" : "0", // adjust maxHeight to suit your needs
-                      overflow: "hidden",
-                      transition: "max-height 0.3s ease, opacity 0.3s ease",
-                    }}
                   >
                     {link.sublinks &&
                       link.sublinks.map((mysublinks) => (
                         <div key={mysublinks.Head}>
-                          <h1 className="text-base font-medium text-gray-600 uppercase">
+                          <h1 className="text-base font-medium text-white uppercase">
                             {mysublinks.Head}
                           </h1>
                           {mysublinks.sublink.map((slink) => (
                             <li
                               key={slink.name}
-                              className="text-sm text-gray-600 my-2.5"
+                              className="text-sm text-white my-2.5"
                             >
                               <Link
                                 to={slink.link}
-                                className="hover:text-primary"
+                                className="hover:text-yellow-400 hover:font-medium hover:scale-105 duration-500"
                               >
                                 {slink.name}
                               </Link>

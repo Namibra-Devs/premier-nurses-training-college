@@ -11,7 +11,7 @@ const Navbar = () => {
   return (
     <>
       {/*Desktop Top Nav */}
-      <div className="top-nav z-50 bg-primary text-center py-0.5 md:py-0">
+      <div className="top-nav z-50 backdrop-brightness-75 text-center py-0.5 md:py-0">
         <div
           className="text-white text-3xl flex justify-center md:hidden cursor-pointer"
           onClick={() => setTnOpen(!tn_open)}
@@ -46,19 +46,34 @@ const Navbar = () => {
             </li>
           </ul>
           <ul className="text-white flex items-center gap-3">
-            <a href="#" className="hover:text-teal duration-500 ease">
+            <a
+              href="#"
+              className="hover:text-yellow-400 hover:scale-110 duration-500 ease"
+            >
               <ion-icon name="logo-linkedin"></ion-icon>
             </a>
-            <a href="#" className="hover:text-teal duration-500 ease">
+            <a
+              href="#"
+              className="hover:text-yellow-400 hover:scale-110 duration-500 ease"
+            >
               <ion-icon name="logo-instagram"></ion-icon>
             </a>
-            <a href="#" className="hover:text-teal duration-500 ease">
+            <a
+              href="#"
+              className="hover:text-yellow-400 hover:scale-110 duration-500 ease"
+            >
               <ion-icon name="logo-facebook"></ion-icon>
             </a>
-            <a href="#" className="hover:text-teal duration-500 ease">
+            <a
+              href="#"
+              className="hover:text-yellow-400 hover:scale-110 duration-500 ease"
+            >
               <ion-icon name="logo-whatsapp"></ion-icon>
             </a>
-            <a href="#" className="hover:text-teal duration-500 ease">
+            <a
+              href="#"
+              className="hover:text-yellow-400 hover:scale-110 duration-500 ease"
+            >
               <ion-icon name="logo-twitter"></ion-icon>
             </a>
           </ul>
@@ -123,7 +138,7 @@ const Navbar = () => {
         </div>
       </div>
       {/* Main Nav */}
-      <nav className="bg-transparent md:backdrop-brightness-75">
+      <nav className="bg-transparent">
         <div className="flex items-center font-medium justify-around lg:p-2 py-0">
           <div className="z-40 p-5 md:w-auto w-full flex justify-between">
             <img src={Logo} alt="logo" className="md:cursor-pointer h-12" />

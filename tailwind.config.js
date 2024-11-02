@@ -24,6 +24,10 @@ module.exports = {
         TotalsBg: "url('assets/sections/totals-bg.jpg')",
         AccreditedImg: "url('assets/sections/accredited.jpg')",
         StudentsGroup: "url('assets/sections/student-group.jpg')",
+        backgroundImage: {
+          "topnav-gradient":
+            "linear-gradient(90deg, #440f14, #5e1219 15%, #000 35%, #000 45%, #5e1219 85%, #440f14)",
+        },
       },
       maskImage: {
         "gradient-to-right":
