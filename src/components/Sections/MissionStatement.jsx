@@ -7,10 +7,10 @@ import KeyStatisticsII from "../UtilityComponents/KeyStatisticsII";
 const MissionStatement = () => {
   return (
     <>
-      <div className="bg-gray-50 px-4 md:px-20">
-        <div className="md:px-20 flex justify-center items-center">
-          <Totals />
-        </div>
+      <div className="bg-gray-50 px-4 md:px-40 mt-1 flex justify-center items-center">
+        <Totals />
+      </div>
+      <div className="bg-gray-50 px-4 md:px-14">
         <div className="flex flex-col md:flex-row md:items-center justify-center gap-10 py-24">
           <div className="mission-img max-w-full md:max-w-[30%] relative overflow-hidden group">
             <img
@@ -47,7 +47,7 @@ const MissionStatement = () => {
           </div>
         </div>
       </div>
-      <div className="bg-white flex justify-center items-center px-4 md:px-44 py-24">
+      <div className="bg-white flex justify-center items-center px-4 md:px-40 py-24">
         <KeyStatisticsII />
       </div>
     </>

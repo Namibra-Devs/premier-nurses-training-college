@@ -6,6 +6,8 @@ import "../../index.css";
 import MissionStatement from "../Sections/MissionStatement";
 import AccreditationAffiliations from "../Sections/AccreditationAffiliations";
 import Announcements from "../Sections/Announcements";
+import CTAButtonSticky from "../Buttons/CTAButtonSticky";
+import CTA from "../UtilityComponents/CTA";
 
 const Home = () => {
   // Array of messages to rotate through
@@ -56,18 +58,21 @@ const Home = () => {
           nursing carrier.
         </p>
         <div className="text-xl flex items-center gap-4">
-          <div className="bg-yellow-500 hover:bg-yellow-400 rounded-full md:py-1 border-2 border-transparent duration-500 hover:scale-110">
+          <a href="/" className="bg-yellow-500 hover:bg-yellow-400 rounded-3xl md:py-1 border-2 border-transparent duration-500 hover:scale-110">
             <ButtonPrimary />
-          </div>
-          <div >
-            <ButtonOutline />
-          </div>
+          </a>
+          <a href="/" >
+            <ButtonOutline label="Admissions" />
+          </a>
         </div>
       </div>
     </header>
     <MissionStatement/>
+    <CTA/>
     <AccreditationAffiliations/>
     <Announcements/>
+    <CTA/>
+    <CTAButtonSticky/>
     </>
   );
 };
