@@ -23,6 +23,8 @@ module.exports = {
         Hero: "url('assets/Hero1.jpg')",
         TotalsBg: "url('assets/sections/totals-bg.jpg')",
         AccreditedImg: "url('assets/sections/accredited.jpg')",
+        AccreditedShowBg: "url('assets/sections/accreditation-bg.jpg')",
+        AccreditedShowBgMobile: "url('assets/sections/accreditation-bg-mobile.jpg')",
         StudentsGroup: "url('assets/sections/student-group.jpg')",
         backgroundImage: {
           "topnav-gradient":

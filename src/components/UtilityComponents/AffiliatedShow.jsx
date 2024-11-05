@@ -4,7 +4,7 @@ import { Logos } from "../UtilityComponents/AffiliatLogos";
 const AffiliatedLogos = () => {
   return (
     <div>
-      <section class=" relative flex flex-col justify-center bg-TotalsBg bg-cover bg-bottom bg-no-repeat overflow-hidden">
+      <section class=" relative flex flex-col justify-center bg-AccreditedShowBgMobile md:bg-AccreditedShowBg bg-cover bg-bottom bg-no-repeat overflow-hidden">
         <div class="w-full max-w-5xl mx-auto px-2 md:px-6 py-20">
           <h2 class="text-gray-50 text-center text-2xl leading-2 tracking-tight font-semibold">
             Accreditation and Affiliations
@@ -31,7 +31,7 @@ const AffiliatedLogos = () => {
             >
               <ul
                 x-ref="logos"
-                class="text-[2rem] font-semibold flex items-center justify-center md:justify-start [&_li]:mx-8 [&_img]:max-w-none animate-infinite-scroll"
+                class="text-[2rem] font-semibold flex items-center justify-center md:justify-start gap-10 [&_li]:mx-8 [&_img]:max-w-none animate-infinite-scroll"
               >
                 {Logos.map((logo, index) => (
                   <li>

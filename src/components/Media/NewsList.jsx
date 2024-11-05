@@ -75,19 +75,19 @@ const NewsCarousel = () => {
 const NewsList = () => {
   return (
     <div className="pt-24">
-      <div className="flex items-center justify-between">
-        <div className="text-left">
+      <div className="flex flex-col items-start md:flex-row md:items-center justify-between gap-5">
+        <div className="text-left max-w-[70%] md:max-w-[50%]">
           {/* title */}
           <h3 className="text-primary text-sm tracking mb-4 text-left uppercase font-medium">
             News | Events
           </h3>
           {/* Description */}
-          <p className="font-normal text-sm text-gray-500 max-w-lg">
+          <p className="font-normal text-sm text-gray-500">
             Surround yourself with the community and resources to bring your
             vision to life and keep you updated.
           </p>
         </div>
-        <a href="/">
+        <a href="/" className="max-w-[60%] text-right">
           <ButtonView label="View More" />
         </a>
       </div>

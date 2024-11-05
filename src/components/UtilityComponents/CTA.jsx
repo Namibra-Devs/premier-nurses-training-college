@@ -9,7 +9,7 @@ const CTA = () => {
         <h1 className="font-bold text-3xl md:text-5xl text-white">
           Enrollment Open! Don’t Miss Out on Your Future in Nursing.
         </h1>
-        <div className="flex items-center gap-4">
+        <div className="flex flex-col md:flex-row items-center gap-4">
           <ButtonApply />
           <ButtonContactUs />
         </div>
