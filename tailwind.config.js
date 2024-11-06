@@ -24,7 +24,8 @@ module.exports = {
         TotalsBg: "url('assets/sections/totals-bg.jpg')",
         AccreditedImg: "url('assets/sections/accredited.jpg')",
         AccreditedShowBg: "url('assets/sections/accreditation-bg.jpg')",
-        AccreditedShowBgMobile: "url('assets/sections/accreditation-bg-mobile.jpg')",
+        AccreditedShowBgMobile:
+          "url('assets/sections/accreditation-bg-mobile.jpg')",
         StudentsGroup: "url('assets/sections/student-group.jpg')",
         backgroundImage: {
           "topnav-gradient":
@@ -40,8 +41,12 @@ module.exports = {
       },
       keyframes: {
         "infinite-scroll": {
-          from: { transform: "translateX(0)" },
-          to: { transform: "translateX(-100%)" },
+          "0%": {
+            transform: "translateX(100%)",
+          },
+          "100%": {
+            transform: "translateX(-100%)",
+          },
         },
       },
     },

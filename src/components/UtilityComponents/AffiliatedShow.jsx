@@ -20,18 +20,10 @@ const AffiliatedLogos = () => {
 
           <div class="text-center pt-32">
             {/* Logo Carousel animation */}
-            <div
-              x-data="{}"
-              x-init="$nextTick(() => {
-                        let ul = $refs.logos;
-                        ul.insertAdjacentHTML('afterend', ul.outerHTML);
-                        ul.nextSibling.setAttribute('aria-hidden', 'true');
-                    })"
-              class="w-full inline-flex flex-nowrap overflow-hidden maskImage mask-image-gradient"
-            >
+            <div class="w-full inline-flex flex-nowrap overflow-hidden maskImage mask-image-gradient">
               <ul
                 x-ref="logos"
-                class="text-[2rem] font-semibold flex items-center justify-center md:justify-start gap-10 [&_li]:mx-8 [&_img]:max-w-none animate-infinite-scroll"
+                class="text-[2rem] font-semibold flex items-center justify-center md:justify-start gap-10 whitespace-nowrap animate-infinite-scroll"
               >
                 {Logos.map((logo, index) => (
                   <li>
