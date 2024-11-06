@@ -6,7 +6,7 @@ import AffiliatedLogos from "../UtilityComponents/AffiliatedShow";
 const AccreditationAffiliations = () => {
   return (
     <>
-      <div className="bg-gray-50 px-4 md:px-14">
+      <div className="bg-white px-4 md:px-14">
         <div className="flex flex-col md:flex-row md:items-center justify-center gap-10 py-24">
           <div className="mission-img max-w-full md:max-w-[30%] relative overflow-hidden group">
             <img

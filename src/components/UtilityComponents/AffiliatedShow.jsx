@@ -1,5 +1,5 @@
 import React from "react";
-import { Logos } from "../UtilityComponents/AffiliatLogos";
+import { Logos } from "../UtilityComponents/AffiliateLogos";
 
 const AffiliatedLogos = () => {
   return (

@@ -33,7 +33,7 @@ const BlogList = () => {
             />
 
             {/* Content overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent p-6 flex flex-col justify-end">
+            <div className="absolute inset-0 bg-gradient-to-t from-primary to-transparent p-6 flex flex-col justify-end">
               <div className="flex items-center justify-between gap-5">
                 <h3 className="blog-title text-white leading-tight tracking-tight text-base font-semibold">
                   {blog.title}
@@ -42,7 +42,7 @@ const BlogList = () => {
                   <ion-icon name="arrow-redo-outline"></ion-icon>
                 </span>
               </div>
-              <p className="blog-date font-normal text-sm text-yellow-200 mt-1"> 
+              <p className="blog-date font-normal text-sm text-yellow-200 mt-1">
                 {blog.date}
               </p>
               {/* <p className="blog-description font-normal text-sm text-gray-200 max-w-lg mt-1">

@@ -8,6 +8,7 @@ import AccreditationAffiliations from "../Sections/AccreditationAffiliations";
 import Announcements from "../Sections/Announcements";
 import CTAButtonSticky from "../Buttons/CTAButtonSticky";
 import CTA from "../UtilityComponents/CTA";
+import FAQSection from "../Sections/FAQSection";
 
 const Home = () => {
   // Array of messages to rotate through
@@ -65,7 +66,7 @@ const Home = () => {
             >
               <ButtonPrimary />
             </a>
-            <a href="/">
+            <a href="/admissions">
               <ButtonOutline label="Admissions" />
             </a>
           </div>
@@ -76,6 +77,7 @@ const Home = () => {
       <AccreditationAffiliations />
       <Announcements />
       <CTA />
+      <FAQSection/>
       <CTAButtonSticky />
     </>
   );
