@@ -62,7 +62,8 @@ const Home = () => {
           <div className="text-xl flex items-center gap-4">
             <a
               href="/"
-              className="bg-yellow-500 hover:bg-yellow-400 rounded-3xl md:py-1 border-2 border-transparent duration-500 hover:scale-110"
+              className="bg-yellow-500 hover:bg-yellow-400 rounded-3xl md:py-1 border-2 
+              border-transparent duration-500 hover:scale-110 mr-4 md:mr-0"
             >
               <ButtonPrimary />
             </a>

@@ -3,14 +3,14 @@ import React from "react";
 const KeyStatisticsII = () => {
   return (
     <div>
-      <div className="flex flex-col md:flex-row items-start gap-10 mb-10 md:mb-0">
+      <div className="flex flex-col md:flex-row items-star gap-5 md:gap-10 mb-10 md:mb-0">
         <div className="text-left">
           {/* title */}
           <h3 className="text-primary text-sm text-left uppercase font-medium">
             Brief Highlights
           </h3>
           {/* Subtitle */}
-          <h1 className="text-gray-700 text-2xl leading-2 tracking-tight font-semibold max-w-xl mt-3 mb-2 md:mb-5">
+          <h1 className="text-gray-700 text-2xl leading-2 tracking-tight font-semibold max-w-xl mt-3 mb-0 md:mb-5">
             Brief Highlights for Premier Nurses' Training College
           </h1>
         </div>
