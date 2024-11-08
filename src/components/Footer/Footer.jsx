@@ -2,7 +2,7 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <footer className="bg-blue-900 text-gray-200 pt-24">
+    <footer className="bg-gradient-to-r from-blue-800 to bg-blue-600 text-gray-200 pt-24">
       <div className=" px-4 md:px-14 lg:px-40">
         <div className="flex flex-wrap justify-between mb-4 md:mb-8">
           {/* Contact Information */}
@@ -179,8 +179,8 @@ const Footer = () => {
 
           {/* Address & Workign Hours */}
           <div className="w-full md:w-1/4 mb-8">
-            <div className="flex flex-col items-start gap-6">
-              <div className="flex flex-col items-start">
+            <div className="flex flex-col items-start">
+              <div className="flex flex-col items-start mb-8">
                 <h2 className="text-2xl font-semibold mb-2 text-white">
                   PNTC Adress
                 </h2>
@@ -192,9 +192,7 @@ const Footer = () => {
                 <h2 className="text-2xl font-semibold mb-2 text-white">
                   Working Hours
                 </h2>
-                <p className="flex items-center">
-                  Mon - Fri 9:00 AM - 5:00 PM
-                </p>
+                <p className="flex items-center">Mon - Fri 9:00 AM - 5:00 PM</p>
               </div>
             </div>
           </div>
@@ -215,7 +213,7 @@ const Footer = () => {
               href="https://facebook.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-yellow-400 text-3xl hover:transition-transform duration-700 transform hover:-translate-y-2"
+              className="text-white hover:text-yellow-400 text-3xl hover:transition-transform duration-700 transform hover:-translate-y-2"
             >
               <ion-icon name="logo-facebook"></ion-icon>
             </a>
@@ -223,7 +221,7 @@ const Footer = () => {
               href="https://twitter.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-yellow-400 text-3xl hover:transition-transform duration-700 transform hover:-translate-y-2"
+              className="text-white hover:text-yellow-400 text-3xl hover:transition-transform duration-700 transform hover:-translate-y-2"
             >
               <ion-icon name="logo-twitter"></ion-icon>
             </a>
@@ -231,7 +229,7 @@ const Footer = () => {
               href="https://instagram.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-yellow-400 text-3xl hover:transition-transform duration-700 transform hover:-translate-y-2"
+              className="text-white hover:text-yellow-400 text-3xl hover:transition-transform duration-700 transform hover:-translate-y-2"
             >
               <ion-icon name="logo-instagram"></ion-icon>
             </a>
@@ -239,7 +237,7 @@ const Footer = () => {
               href="https://linkedin.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-yellow-400 text-3xl hover:transition-transform duration-700 transform hover:-translate-y-2"
+              className="text-white hover:text-yellow-400 text-3xl hover:transition-transform duration-700 transform hover:-translate-y-2"
             >
               <ion-icon name="logo-linkedin"></ion-icon>
             </a>
