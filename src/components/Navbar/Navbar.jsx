@@ -101,39 +101,39 @@ const Navbar = () => {
         <div className="flex flex-col items-start gap-4 font-medium md:px-20 px-4 p-2 mt-10">
           <ul className="bg-white w-full p-4 rounded-md text-slate-600 flex flex-col items-start 
           justify-between gap-4 text-sm list-none font-normal">
-            <li className="flex items-center gap-3 md:gap-1 mb-3 md:mb-0 w-full group hover:text-primary duration-500">
+            <li className="flex items-center gap-1 mb-3 md:mb-0 w-full group hover:text-primary duration-500">
               <ion-icon name="mail"></ion-icon>
-              <a href="#">info@pntc.edu.gh</a>
+              <a href="#" className="ml-3 md:ml-0">info@pntc.edu.gh</a>
             </li>
-            <li className="flex items-center gap-3 md:gap-1 mb-3 md:mb-0 w-full group hover:text-primary duration-500">
+            <li className="flex items-center gap-1 mb-3 md:mb-0 w-full group hover:text-primary duration-500">
               <ion-icon name="location"></ion-icon>
-              <a href="#">newcollege.edu.gh</a>
+              <a href="#" className="ml-3 md:ml-0">newcollege.edu.gh</a>
             </li>
-            <li className="flex items-center gap-3 md:gap-1 mb-3 md:mb-0 w-full group hover:text-primary duration-500">
+            <li className="flex items-center gap-1 mb-3 md:mb-0 w-full group hover:text-primary duration-500">
               <ion-icon name="call"></ion-icon>
-              <a href="#">+23325678990</a>
+              <a href="#" className="ml-3 md:ml-0">+23325678990</a>
             </li>
-            <li className="flex items-center gap-3 md:gap-1 mb-3 md:mb-0 w-full">
+            <li className="flex items-center gap-1 mb-3 md:mb-0 w-full">
               <ion-icon name="time"></ion-icon>
-              <p className="text-[13px]">
+              <p className="text-[13px] ml-3 md:ml-0">
                 Mon - Fri: 9:00am - 5:00pm
               </p>
             </li>
           </ul>
           <ul className="bg-white w-full p-4 rounded-md text-lg text-slate-600 text-md flex items-center gap-3">
-            <a href="#" className="hover:text-primary duration-500">
+            <a href="#" className="hover:text-primary duration-500 text-lg mr-5 md:mr-0">
               <ion-icon name="logo-linkedin"></ion-icon>
             </a>
-            <a href="#" className="hover:text-primary duration-500">
+            <a href="#" className="hover:text-primary duration-500 text-lg mr-5 md:mr-0">
               <ion-icon name="logo-instagram"></ion-icon>
             </a>
-            <a href="#" className="hover:text-primary duration-500">
+            <a href="#" className="hover:text-primary duration-500 text-lg mr-5 md:mr-0">
               <ion-icon name="logo-facebook"></ion-icon>
             </a>
-            <a href="#" className="hover:text-primary duration-500">
+            <a href="#" className="hover:text-primary duration-500 text-lg mr-5 md:mr-0">
               <ion-icon name="logo-whatsapp"></ion-icon>
             </a>
-            <a href="#" className="hover:text-primary duration-500">
+            <a href="#" className="hover:text-primary duration-500 text-lg mr-5 md:mr-0">
               <ion-icon name="logo-twitter"></ion-icon>
             </a>
           </ul>
