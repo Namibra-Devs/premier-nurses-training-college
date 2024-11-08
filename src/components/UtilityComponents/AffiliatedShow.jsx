@@ -39,7 +39,7 @@ const AffiliatedLogos = () => {
                       key={index}
                       src={logo}
                       alt={`Affiliate Logo ${index + 1}`}
-                      className="max-w-3xl"
+                      className="max-w-3xl mr-4"
                     />
                   </li>
                 ))}
