@@ -30,13 +30,13 @@ const Navbar = () => {
             <li className="flex items-center gap-1">
               <ion-icon name="location"></ion-icon>
               <a href="#" className="text-[13px]">
-                newcollege.edu.gh
+                Adum Kumasi
               </a>
             </li>
             <li className="flex items-center gap-1">
               <ion-icon name="call"></ion-icon>
               <a href="#" className="text-[13px]">
-                +23325678990
+                +233264256825, +233243519083
               </a>
             </li>
             <li className="flex items-center gap-1">
@@ -100,19 +100,27 @@ const Navbar = () => {
         <NavButtonApply />
 
         <div className="flex flex-col items-start gap-4 font-medium md:px-20 px-4 p-2 mt-10">
-          <ul className="bg-white w-full p-4 rounded-md text-slate-600 flex flex-col items-start 
-          justify-between gap-4 text-sm list-none font-normal">
+          <ul
+            className="bg-white w-full p-4 rounded-md text-slate-600 flex flex-col items-start 
+          justify-between gap-4 text-sm list-none font-normal"
+          >
             <li className="flex items-center gap-1 mb-3 md:mb-0 w-full group hover:text-primary duration-500">
               <ion-icon name="mail"></ion-icon>
-              <a href="#" className="ml-3 md:ml-0">info@pntc.edu.gh</a>
+              <a href="#" className="ml-3 md:ml-0">
+                info@pntc.edu.gh
+              </a>
             </li>
             <li className="flex items-center gap-1 mb-3 md:mb-0 w-full group hover:text-primary duration-500">
               <ion-icon name="location"></ion-icon>
-              <a href="#" className="ml-3 md:ml-0">newcollege.edu.gh</a>
+              <a href="#" className="ml-3 md:ml-0">
+                Adum Kumasi{" "}
+              </a>
             </li>
             <li className="flex items-center gap-1 mb-3 md:mb-0 w-full group hover:text-primary duration-500">
               <ion-icon name="call"></ion-icon>
-              <a href="#" className="ml-3 md:ml-0">+23325678990</a>
+              <a href="#" className="ml-3 md:ml-0">
+                +233264256825, +233243519083
+              </a>
             </li>
             <li className="flex items-center gap-1 mb-3 md:mb-0 w-full">
               <ion-icon name="time"></ion-icon>
@@ -122,19 +130,34 @@ const Navbar = () => {
             </li>
           </ul>
           <ul className="bg-white w-full p-4 rounded-md text-lg text-slate-600 text-md flex items-center gap-3">
-            <a href="#" className="hover:text-primary duration-500 text-lg mr-5 md:mr-0">
+            <a
+              href="#"
+              className="hover:text-primary duration-500 text-lg mr-5 md:mr-0"
+            >
               <ion-icon name="logo-linkedin"></ion-icon>
             </a>
-            <a href="#" className="hover:text-primary duration-500 text-lg mr-5 md:mr-0">
+            <a
+              href="#"
+              className="hover:text-primary duration-500 text-lg mr-5 md:mr-0"
+            >
               <ion-icon name="logo-instagram"></ion-icon>
             </a>
-            <a href="#" className="hover:text-primary duration-500 text-lg mr-5 md:mr-0">
+            <a
+              href="#"
+              className="hover:text-primary duration-500 text-lg mr-5 md:mr-0"
+            >
               <ion-icon name="logo-facebook"></ion-icon>
             </a>
-            <a href="#" className="hover:text-primary duration-500 text-lg mr-5 md:mr-0">
+            <a
+              href="#"
+              className="hover:text-primary duration-500 text-lg mr-5 md:mr-0"
+            >
               <ion-icon name="logo-whatsapp"></ion-icon>
             </a>
-            <a href="#" className="hover:text-primary duration-500 text-lg mr-5 md:mr-0">
+            <a
+              href="#"
+              className="hover:text-primary duration-500 text-lg mr-5 md:mr-0"
+            >
               <ion-icon name="logo-twitter"></ion-icon>
             </a>
           </ul>

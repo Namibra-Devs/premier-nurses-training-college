@@ -29,7 +29,7 @@ const Totals = () => {
         <div className='grid grid-cols-2 md:grid-cols-4 gap-6'>
             {/* Total 1 */}
             <div className='flex flex-col items-center gap-2 relative text-center rounded-3xl p-4'>
-                <h1 className='font-bold text-5xl text-yellow-400'><Counter end={400}></Counter></h1>
+                <h1 className='font-bold text-5xl text-yellow-400'>2015</h1>
                 <h3 className='font-semibold text-base text-white'>College Inauguration</h3>
             </div>
             {/* Total 1 */}
