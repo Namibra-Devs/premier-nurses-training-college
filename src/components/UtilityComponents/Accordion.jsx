@@ -11,8 +11,8 @@ const Accordion = ({ question, answer }) => {
       <button
         onClick={toggleAccordion}
         className="flex justify-between w-full p-4 text-left text-sm font-semibold
-         text-gray-800 hover:text-primary duration-500 bg-slate-50 rounded-2xl"
-      > 
+         text-gray-800 hover:text-primary duration-500 bg-slate-100 md:bg-slate-50 rounded-2xl"
+      >
         {/* Question */}
         {question}
         <span>
