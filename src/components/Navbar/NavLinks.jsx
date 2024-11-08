@@ -12,7 +12,7 @@ const NavLinks = () => {
           {/* Desktop menus */}
           <div className="text-left md:cursor-pointer group">
             <h1
-              className="py-1.5 flex justify-between items-center font-normal md:pr-0 pr-5 group"
+              className="py-2 md:py-1.5 flex justify-between items-center font-normal md:pr-0 pr-5 group"
               onClick={() => {
                 heading !== link.name ? setHeading(link.name) : setHeading("");
                 setSubHeading("");
@@ -83,7 +83,7 @@ const NavLinks = () => {
             {/* Sublinks */}
             {link.sublinks.map((slinks) => (
               <div>
-                <div className="my-4  border-l-2 border-primary">
+                <div className="my-4 border-l-2 border-primary">
                   {slinks.sublink.map((slink) => (
                     <li
                       key={slink.name}

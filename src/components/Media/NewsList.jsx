@@ -87,7 +87,7 @@ const NewsList = () => {
             vision to life and keep you updated.
           </p>
         </div>
-        <a href="/" className="max-w-[60%] text-right mt-3 md:mt-0">
+        <a href="/" className="max-w-[60%] text-right mt-5 md:mt-0">
           <ButtonView label="View More" />
         </a>
       </div>
