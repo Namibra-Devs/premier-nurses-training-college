@@ -29,7 +29,7 @@ const AboutUs = () => {
         {/* Gradient overlay */}
         <div className="absolute -z-0  backdrop-blur inset-0 bg-gradient-to-r from-blue-800 to-transparent opacity-80 pointer-events-none"></div>
       </section>
-      <MissionStatement/>
+      <MissionStatement />
     </>
   );
 };
