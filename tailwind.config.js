@@ -27,6 +27,8 @@ module.exports = {
         AccreditedShowBgMobile:
           "url('assets/sections/accreditation-bg-mobile.jpg')",
         StudentsGroup: "url('assets/sections/student-group.jpg')",
+        AboutusBgImg: "url('assets/foreign/image2.jpg')",
+
         backgroundImage: {
           "topnav-gradient":
             "linear-gradient(90deg, #440f14, #5e1219 15%, #000 35%, #000 45%, #5e1219 85%, #440f14)",

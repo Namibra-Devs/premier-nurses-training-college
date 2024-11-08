@@ -5,10 +5,8 @@ export const links = [
     sublinks: [
       {
         sublink: [
-          { name: "About Us", link: "/" },
-          { name: "formal formal", link: "/" },
-          { name: "formal formal", link: "/" },
-          { name: "formal formal", link: "/" },
+          { name: "About Us", link: "/AboutUs" },
+          { name: "Staff", link: "/" },
         ],
       },
     ],

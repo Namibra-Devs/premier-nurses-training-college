@@ -129,34 +129,34 @@ const Navbar = () => {
               </p>
             </li>
           </ul>
-          <ul className="bg-white w-full p-4 rounded-md text-lg text-slate-600 text-md flex items-center gap-3">
+          <ul className="bg-white w-full p-4 rounded-md text-slate-600 text-md flex items-center gap-3">
             <a
               href="#"
-              className="hover:text-primary duration-500 text-lg mr-5 md:mr-0"
+              className="hover:text-primary duration-500 text-3xl mr-5 md:mr-0"
             >
               <ion-icon name="logo-linkedin"></ion-icon>
             </a>
             <a
               href="#"
-              className="hover:text-primary duration-500 text-lg mr-5 md:mr-0"
+              className="hover:text-primary duration-500 text-3xl mr-5 md:mr-0"
             >
               <ion-icon name="logo-instagram"></ion-icon>
             </a>
             <a
               href="#"
-              className="hover:text-primary duration-500 text-lg mr-5 md:mr-0"
+              className="hover:text-primary duration-500 text-3xl mr-5 md:mr-0"
             >
               <ion-icon name="logo-facebook"></ion-icon>
             </a>
             <a
               href="#"
-              className="hover:text-primary duration-500 text-lg mr-5 md:mr-0"
+              className="hover:text-primary duration-500 text-3xl mr-5 md:mr-0"
             >
               <ion-icon name="logo-whatsapp"></ion-icon>
             </a>
             <a
               href="#"
-              className="hover:text-primary duration-500 text-lg mr-5 md:mr-0"
+              className="hover:text-primary duration-500 text-3xl mr-5 md:mr-0"
             >
               <ion-icon name="logo-twitter"></ion-icon>
             </a>
@@ -165,8 +165,8 @@ const Navbar = () => {
       </div>
       {/* Main Nav */}
       <nav className="bg-transparent">
-        <div className="flex items-center font-medium justify-around lg:p-2 py-0">
-          <div className="z-40 p-5 md:w-auto w-full flex justify-between">
+        <div className="flex items-center font-medium justify-around lg:p-2 py-5">
+          <div className="z-40 px-5 md:px-0 md:w-auto w-full flex justify-between">
             <img src={Logo} alt="logo" className="md:cursor-pointer h-12" />
             <div className="flex items-center gap-3 flex-row-reverse">
               <div
