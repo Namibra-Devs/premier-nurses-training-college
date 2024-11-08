@@ -13,10 +13,11 @@ const Navbar = () => {
       {/*Desktop Top Nav */}
       <div className="top-nav z-50 backdrop-brightness-75 text-center py-0.5 md:py-0">
         <div
-          className="text-white text-3xl flex justify-center md:hidden cursor-pointer"
+          className="text-white text-sm flex items-center justify-center md:hidden cursor-pointer"
           onClick={() => setTnOpen(!tn_open)}
         >
-          <ion-icon name={`${tn_open ? "close" : "menu"}`}></ion-icon>
+          <ion-icon name={`${tn_open ? "list" : "apps"}`}></ion-icon>{" "}
+          <span className="uppercase text-sm font-semibold">Menu</span>
         </div>
         <div className="hidden md:flex justify-between items-center font-medium md:px-20 p-2">
           <ul className="flex items-center justify-between text-sm gap-4 list-none text-white font-medium">
@@ -91,7 +92,7 @@ const Navbar = () => {
             className="bg-slate-200 h-8 w-8 rounded-full hover:bg-primary hover:text-white duration-200 text-slate-500 text-xl flex justify-center items-center md:hidden cursor-pointer"
             onClick={() => setTnOpen(!tn_open)}
           >
-            <ion-icon name={`${tn_open ? "close" : "menu"}`}></ion-icon>
+            <ion-icon name={`${tn_open ? "close" : "close"}`}></ion-icon>
           </div>
         </div>
 
@@ -193,7 +194,7 @@ const Navbar = () => {
 
           {/* Mobile nav */}
           <div
-            className={`
+            className={`z-30
         md:hidden bg-white fixed w-full top-0 overflow-y-auto bottom-0 py-24 pl-4 text-sm
         duration-500 ${open ? "left-0" : "left-[-100%]"}
         `}
@@ -230,13 +231,8 @@ const Navbar = () => {
           onClick={() => setSearchbOpen(false)}
         ></div>
       )}
-      <div className="z-40">
-        {/* Search Component */}
-        <Searchform
-          searchb_open={searchb_open}
-          setSearchbOpen={setSearchbOpen}
-        />
-      </div>
+      {/* Search Component */}
+      <Searchform searchb_open={searchb_open} setSearchbOpen={setSearchbOpen} />
     </>
   );
 };

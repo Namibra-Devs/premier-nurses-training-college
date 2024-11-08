@@ -4,9 +4,8 @@ export const links = [
     submenu: true,
     sublinks: [
       {
-        Head: "About Us",
         sublink: [
-          { name: "News and Blogs", link: "/" },
+          { name: "About Us", link: "/" },
           { name: "formal formal", link: "/" },
           { name: "formal formal", link: "/" },
           { name: "formal formal", link: "/" },
@@ -19,7 +18,6 @@ export const links = [
     submenu: true,
     sublinks: [
       {
-        Head: "Academics",
         sublink: [
           { name: "Academics", link: "/" },
           { name: "Faculty", link: "/" },
@@ -35,7 +33,6 @@ export const links = [
     submenu: true,
     sublinks: [
       {
-        Head: "Admissions",
         sublink: [
           { name: "Admissions", link: "/" },
           { name: "How to Apply", link: "/" },
@@ -51,7 +48,6 @@ export const links = [
     submenu: true,
     sublinks: [
       {
-        Head: "Students",
         sublink: [
           { name: "Sample", link: "/" },
           { name: "student Representative", link: "/" },
@@ -67,7 +63,6 @@ export const links = [
     submenu: true,
     sublinks: [
       {
-        Head: "Media",
         sublink: [
           { name: "T-shirt", link: "/" },
           { name: "Casual shirts", link: "/" },

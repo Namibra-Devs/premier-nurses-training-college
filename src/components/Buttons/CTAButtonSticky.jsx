@@ -3,7 +3,7 @@ import React from "react";
 
 const CTAButtonSticky = () => {
   return (
-    <div className="fixed bottom-5 right-5 md:bottom-8 md:right-8 z-20 text-center">
+    <div className="fixed bottom-5 right-5 md:bottom-8 md:right-8 -z-2 text-center">
       <a href="/apply" className="inline-block">
         <button
           className="bg-gradient-to-r from-blue-800 to bg-primary text-white text-center uppercase

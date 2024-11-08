@@ -46,7 +46,7 @@ const Home = () => {
         <div className="flex flex-col justify-center text-center items-center gap-3 h-3/4">
           <h2
             className={`text-white text-lg md:text-2xl font-light px-4 md:px-52 transition-opacity duration-700 ${
-              fade ? "opacity-100" : "opacity-0"
+              fade ? "opacity-100 -z-5" : "opacity- -z-5"
             }`}
           >
             {messages[currentMessageIndex]}

@@ -38,11 +38,11 @@ const NavLinks = () => {
                   <div className="py-3">
                     <div
                       className="w-4 h-4 left-3 absolute 
-                    mt-1 bg-primary rotate-45"
+                    mt-1 bg-white group-hover:bg-primary rotate-45"
                     ></div>
                   </div>
                   <div
-                    className={`bg-gradient-to-b from-primary to to-transparent backdrop-blur-sm p-5 grid grid-cols-1 transform transition-all duration-500 ${
+                    className={`bg-white grid grid-cols-1 transform transition-all duration-500 ${
                       link.sublinks
                         ? "opacity-100 translate-y-0 o"
                         : "opacity-0 -translate-y-2 pointer-events-none"
@@ -50,19 +50,13 @@ const NavLinks = () => {
                   >
                     {link.sublinks &&
                       link.sublinks.map((mysublinks) => (
-                        <div key={mysublinks.Head}>
-                          <h1 className="text-base font-medium text-white uppercase">
-                            {mysublinks.Head}
-                          </h1>
+                        <div>
                           {mysublinks.sublink.map((slink) => (
                             <li
                               key={slink.name}
-                              className="text-sm text-white my-2.5"
+                              className="text-sm text-gray-600 hover:text-white duration-500 py-2.5 px-6 border-b border-dashed w-full group hover:bg-primary"
                             >
-                              <Link
-                                to={slink.link}
-                                className="hover:text-yellow-400 duration-500"
-                              >
+                              <Link to={slink.link} className="">
                                 {slink.name}
                               </Link>
                             </li>
@@ -88,7 +82,7 @@ const NavLinks = () => {
           >
             {/* Sublinks */}
             {link.sublinks.map((slinks) => (
-              <div key={slinks.Head}>
+              <div>
                 <div className="my-4  border-l-2 border-primary">
                   {slinks.sublink.map((slink) => (
                     <li

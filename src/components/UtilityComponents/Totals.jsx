@@ -29,15 +29,14 @@ const Totals = () => {
         <div className='grid grid-cols-2 md:grid-cols-4 gap-6'>
             {/* Total 1 */}
             <div className='flex flex-col  items-center gap-2 relative  rounded-3xl p-4'>
-                <span className='absolute right-8 top-2 text-lg text-white'>+</span>
                 <h1 className='font-bold text-5xl text-yellow-400'><Counter end={400}></Counter></h1>
-                <h3 className='font-semibold text-base text-white'>Admissions</h3>
+                <h3 className='font-semibold text-base text-white'>College Inauguration</h3>
             </div>
             {/* Total 1 */}
             <div className='flex flex-col  items-center gap-2 relative  rounded-3xl p-4'>
                 <span className='absolute right-8 top-2 text-lg text-white'>+</span>
                 <h1 className='font-bold text-5xl text-yellow-400'><Counter end={340}></Counter></h1>
-                <h3 className='font-semibold text-base text-white'>Students</h3>
+                <h3 className='font-semibold text-base text-white'>Enrolled Students</h3>
             </div>
             {/* Total 1 */}
             <div className='flex flex-col  items-center gap-2 relative  rounded-3xl p-4'>
@@ -49,7 +48,7 @@ const Totals = () => {
             <div className='flex flex-col  items-center gap-2 relative  rounded-3xl p-4'>
                 <span className='absolute right-8 top-2 text-lg text-white'>+</span>
                 <h1 className='font-bold text-5xl text-yellow-400'><Counter end={25}></Counter></h1>
-                <h3 className='font-semibold text-base text-white'>Courses</h3>
+                <h3 className='font-semibold text-base text-white'>Programmes</h3>
             </div>
         </div>
     </div>

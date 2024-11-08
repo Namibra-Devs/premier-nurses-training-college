@@ -5,7 +5,7 @@ const Searchform = ({ searchb_open, setSearchbOpen }) => {
     <div>
       {/* Search Form */}
       <div
-        className={`fixed md:w-[600px] w-full h-full top-0 overflow-y-auto bottom-0 px-10
+        className={`z-30 fixed md:w-[600px] w-full h-full top-0 overflow-y-auto bottom-0 px-10
           transform duration-500 ease border-l-4 border-primary 
           ${searchb_open ? "translate-x-0" : "-translate-x-full"} 
           bg-white md:bg-transparent md:backdrop-brightness-75`}
@@ -35,7 +35,6 @@ const Searchform = ({ searchb_open, setSearchbOpen }) => {
             </button>
           </div>
         </div>
-        
       </div>
     </div>
   );
