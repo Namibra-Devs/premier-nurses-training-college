@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "../../components/Navbar/Navbar";
-import ButtonPrimary from "../../components/Buttons/ButtonPrimary";
 import ButtonOutline from "../../components/Buttons/ButtonOutline";
 import "../../index.css";
 import MissionStatement from "../Sections/MissionStatement";
@@ -9,6 +8,7 @@ import Announcements from "../Sections/Announcements";
 import CTAButtonSticky from "../Buttons/CTAButtonSticky";
 import CTA from "../UtilityComponents/CTA";
 import FAQSection from "../Sections/FAQSection";
+import HeroButtonApply from "../Buttons/HeroButtonApply";
 
 const Home = () => {
   // Array of messages to rotate through
@@ -46,7 +46,7 @@ const Home = () => {
         <div className="flex flex-col justify-center text-center items-center gap-3 h-3/4">
           <h2
             className={`text-white text-lg md:text-2xl font-light px-4 md:px-52 transition-opacity duration-700 ${
-              fade ? "opacity-100 -z-5" : "opacity- -z-5"
+              fade ? "opacity-100 -z-5" : "opacity-0 -z-5"
             }`}
           >
             {messages[currentMessageIndex]}
@@ -60,12 +60,8 @@ const Home = () => {
             nursing carrier.
           </p>
           <div className="text-xl flex items-center gap-4">
-            <a
-              href="/"
-              className="bg-yellow-500 hover:bg-yellow-400 rounded-3xl md:py-1 border-2 
-              border-transparent duration-500 hover:scale-110 mr-4 md:mr-0"
-            >
-              <ButtonPrimary />
+            <a href="/" >
+              <HeroButtonApply label="Apply Now" />
             </a>
             <a href="/admissions">
               <ButtonOutline label="Admissions" />

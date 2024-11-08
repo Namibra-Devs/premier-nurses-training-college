@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Logo from "../../assets/Logo.png";
 import NavLinks from "./NavLinks";
 import Searchform from "../Searchform/Searchform";
-import ButtonNav from "../Buttons/ButtonNav";
+import NavButtonApply from "../Buttons/NavButtonApply";
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [tn_open, setTnOpen] = useState(false);
@@ -96,7 +96,8 @@ const Navbar = () => {
           </div>
         </div>
 
-        <ButtonNav />
+        {/* Apply Button */}
+        <NavButtonApply />
 
         <div className="flex flex-col items-start gap-4 font-medium md:px-20 px-4 p-2 mt-10">
           <ul className="bg-white w-full p-4 rounded-md text-slate-600 flex flex-col items-start 
@@ -182,7 +183,7 @@ const Navbar = () => {
           <div className="flex items-center gap-4">
             {/* Apply button */}
             <div className="md:block hidden">
-              <ButtonNav />
+              <NavButtonApply />
             </div>
             {/* Desktop version of SearchIcon (hidden on mobile, visible on desktop) */}
             <div
@@ -220,7 +221,8 @@ const Navbar = () => {
               </li>
             </ul>
             <div className="py-5 text-center">
-              <ButtonNav />
+              {/* Apply Button */}
+              <NavButtonApply />
             </div>
           </div>
         </div>

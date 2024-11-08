@@ -1,5 +1,5 @@
 import React from "react";
-import ButtonApply from "../Buttons/ButtonApply";
+import CTAButtonApply from "../Buttons/CTAButtonApply";
 import ButtonContactUs from "../Buttons/ButtonContactUs";
 
 const CTA = () => {
@@ -10,7 +10,7 @@ const CTA = () => {
           Enrollment Open! Don’t Miss Out on Your Future in Nursing.
         </h1>
         <div className="flex flex-col md:flex-row items-center gap-4">
-          <ButtonApply />
+          <CTAButtonApply />
           <ButtonContactUs />
         </div>
       </div>

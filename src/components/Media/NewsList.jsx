@@ -28,7 +28,7 @@ const NewsCarousel = () => {
       className="news-list swiper-wrapper grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4"
     >
       {News.map((newsItem, index) => (
-        <SwiperSlide key={index} className="news-item py-10 ">
+        <SwiperSlide key={index} className="news-item py-10">
           {/* Wrap the entire content in an anchor tag */}
           <a
             href={newsItem.url}
@@ -38,7 +38,7 @@ const NewsCarousel = () => {
               <img
                 src={newsItem.image}
                 alt={newsItem.title}
-                className="news-image object-cover w-full inset-0 rounded-3xl group-hover:scale-110 duration-700 ease-in-out"
+                className="news-image object-cover w-full rounded-3xl group-hover:scale-110 duration-700 ease-in-out"
               />
             </div>
 

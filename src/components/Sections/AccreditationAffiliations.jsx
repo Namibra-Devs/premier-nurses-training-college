@@ -12,7 +12,7 @@ const AccreditationAffiliations = () => {
             <img
               src={AccreditedImg}
               alt=""
-              className="w-full rounded-3xl group-hover:brightness-75 duration-700 ease-linear mb-5 md:mb-0"
+              className="w-full rounded-3xl group-hover:brightness-75 duration-700 ease-linear mb-10 md:mb-0"
             />
             <h4
               className="absolute bottom-4 text-white font-medium text-lg m-5 

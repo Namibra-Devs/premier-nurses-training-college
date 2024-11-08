@@ -1,7 +1,7 @@
 // CTAButton.jsx
 import React from "react";
 
-const ButtonApply = () => {
+const CTAButtonApply = () => {
   return (
     <a href="/apply" className="inline-block my-8 md:my-0">
       <button
@@ -16,4 +16,4 @@ const ButtonApply = () => {
 };
 
 
-export default ButtonApply;
+export default CTAButtonApply;
