@@ -1,13 +1,9 @@
 import React from "react";
 import missionImg from "../../../assets/sections/n1.jpg";
-import Totals from "../../UtilityComponents/Totals";
 
 const MissionStatement = () => {
   return (
     <>
-      <div className="bg-gray-50 px-4 md:px-14 lg:px-24 xl:px-40 mt-1 flex justify-center items-center">
-        <Totals />
-      </div>
       <div className="bg-gray-50 px-4  lg:px-7 xl:px-14 py-24">
         <div className="flex flex-col md:flex-row items-start xl:items-center justify-center gap-10 relative">
           <div className="mission-img w-full md:max-w-[40%] lg:max-w-[30%] rounded-3xl overflow-hidden group">
@@ -20,12 +16,10 @@ const MissionStatement = () => {
           <div className="mission-right w-full md:max-w-[45%] lg:max-w-[50%] mt-10 md:mt-0 xl:mb-36">
             {/* title */}
             <h3 className="text-primary text-sm text-left uppercase font-medium">
-              At Premier Nurses' Training College - PNTC
+              At PNTC
             </h3>
             {/* Subtitle */}
-            <h1 className="text-gray-700 md:text-2xl lg:text-4xl leading-2 tracking-tight font-semibold my-3">
-              {/* Our mission is to empower healthcare professionals through
-              innovative education and practical training... */}
+            <h1 className="text-gray-700 text-3xl md:text-2xl lg:text-4xl leading-2 tracking-tight font-semibold my-3">
               We provide a safe and innovative healthcare education where
               professionals can be trained...
             </h1>
@@ -37,8 +31,10 @@ const MissionStatement = () => {
               the essential knowledge, clinical skills, and ethical foundations
               needed to excel in the field of nursing.
             </p>
-            <div className="md:absolute mt-8 md:mt-0 md:bottom-10 lg:bottom-34 xl:bottom-16 md:left-32 lg:left-44 xl:left-72 right-14 lg:right-0 max-w-full 
-            bg-gradient-to-r from-primary to bg-blue-800 md:backdrop-blur rounded-3xl p-6">
+            <div
+              className="md:absolute mt-8 md:mt-0 md:bottom-10 lg:bottom-34 xl:bottom-16 md:left-32 lg:left-44 xl:left-72 right-14 lg:right-0 max-w-full 
+            bg-gradient-to-r from-primary to bg-blue-800 md:backdrop-blur rounded-3xl p-6"
+            >
               <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-2">
                 {/* Key Statics 1 */}
                 <div className="flex flex-col md:flex-row items-start mb-5 md:mb-0 overflow-hidden">

@@ -18,11 +18,11 @@ const PNTCStory = () => {
           </div>
           <div className="mission-right md:max-w-[50%] mt-10 md:mt-0">
             {/* title */}
-            <h3 className="text-primary text-sm text-left uppercase font-medium">
+            <h3 className="text-yellow-400 text-sm text-left uppercase font-medium">
               Uncover the heartwarming story
             </h3>
             {/* Subtitle */}
-            <h1 className="text-white md:text-2xl lg:text-4xl leading-2 font-semibold my-3">
+            <h1 className="text-white text-3xl md:text-2xl lg:text-4xl leading-2 font-semibold my-3">
               We've been dedicated to empowering healthcare professionals
               through...
             </h1>
