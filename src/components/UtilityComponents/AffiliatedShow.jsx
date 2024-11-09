@@ -6,9 +6,10 @@ const AffiliatedLogos = () => {
     <div>
       <section class=" relative flex flex-col justify-center bg-AccreditedShowBgMobile md:bg-AccreditedShowBg bg-cover bg-bottom bg-no-repeat overflow-hidden">
         <div class="w-full max-w-5xl mx-auto px-2 md:px-6 py-20">
-          <h2 class="text-gray-50 text-center text-2xl leading-2 tracking-tight font-semibold">
+          <h2 class="text-gray-50 text-center text-3xl md:text-2xl xl:text-3xl leading-2 tracking-tight font-semibold">
             Accreditation and Affiliations
           </h2>
+          <br />
           <div className="flex items-center justify-center gap-1 text-gray-50">
             <ion-icon name="remove-outline"></ion-icon>
             <ion-icon name="remove-outline"></ion-icon>

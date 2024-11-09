@@ -82,7 +82,7 @@ const NewsList = () => {
             News | Events
           </h3>
           {/* Description */}
-          <p className="font-normal text-sm text-gray-500">
+          <p className="font-normal text-base text-gray-500">
             Surround yourself with the community and resources to bring your
             vision to life and keep you updated.
           </p>

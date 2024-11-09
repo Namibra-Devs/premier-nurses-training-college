@@ -14,7 +14,7 @@ const KeyStatistics = () => {
                     <p className='text-gray-500 text-sm'>Of our student graduate every year</p>
                 </div>
             </div>
-            {/* Key Statics 1 */}
+            {/* Key Statics 2 */}
             <div className='relative bg-transparent rounded-3xl overflow-hidden p-4'>
                 <div className="mt-14">
                     <div className='absolute top-0 left-0 p-4  bg-primary rounded-br-3xl text-lg font-bold text-white'>
@@ -24,7 +24,7 @@ const KeyStatistics = () => {
                     <p className='text-white text-sm'>of our graduates secure employment within six months.</p>
                 </div>
             </div>
-            {/* Key Statics 1 */}
+            {/* Key Statics 3 */}
             <div className='relative bg-transparent rounded-3xl overflow-hidden p-4'>
                 <div className="mt-14">
                     <div className='absolute top-0 left-0 p-4  bg-primary rounded-br-3xl text-lg font-bold text-white'>
@@ -34,7 +34,7 @@ const KeyStatistics = () => {
                     <p className='text-white text-sm'>15:1, ensuring personalized attention and support for every student.</p>
                 </div>
             </div>
-            {/* Key Statics 1 */}
+            {/* Key Statics 4 */}
             <div className='relative bg-transparent rounded-3xl overflow-hidden p-4'>
                 <div className="mt-14">
                     <div className='absolute top-0 left-0 p-4  bg-primary rounded-br-3xl text-lg font-bold text-white'>

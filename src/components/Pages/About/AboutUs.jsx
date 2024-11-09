@@ -4,6 +4,7 @@ import MissionStatement from "../../Pages/About/MissionStatement";
 import PNTCStory from "./PNTCStory";
 import Totals from "../../UtilityComponents/Totals";
 import ValuesAndVission from "./ValuesAndVission";
+import WhatWeOffer from "./WhatWeOffer";
 const AboutUs = () => {
   return (
     <>
@@ -20,7 +21,7 @@ const AboutUs = () => {
             <h1 className="text-white text-5xl leading-2 font-semibold max-w-full lg:max-w-3xl my-3">
               Premier Nurses' Training College
             </h1>
-            <p className="font-normal text-sm text-gray-200 max-w-xl">
+            <p className="font-normal text-base text-gray-200 max-w-xl">
               At Premier Nurses' Training College, we are dedicated to shaping
               the future of healthcare by educating and inspiring the next
               generation of skilled and empathetic nurses.
@@ -33,8 +34,11 @@ const AboutUs = () => {
       <div className="px-4 md:px-14 lg:px-24 xl:px-40 mt-1 flex flex-col justify-center items-center">
         <Totals />
       </div>
-      <div className="px-4 md:px-14 lg:px-24 xl:px-14 mt-1 flex flex-col justify-center items-center">
-        <ValuesAndVission/>
+      <div className="px-4 md:px-14 lg:px-24 xl:px-14 flex flex-col justify-center items-center">
+        <ValuesAndVission />
+      </div>
+      <div className="bg-gradient-to-r from-blue-800 to bg-primary px-4 md:px-14 lg:px-24 xl:px-40 py-24 mt-1 flex flex-col justify-center items-center">
+        <WhatWeOffer />
       </div>
     </>
   );

@@ -14,7 +14,7 @@ const FAQSection = () => {
           FAQS
         </h3>
         {/* Subtitle */}
-        <h1 className="text-gray-700 text-2xl leading-2 tracking-tight font-semibold max-w-xl mt-3 mb-6">
+        <h1 className="text-gray-700 text-3xl md:text-2xl xl:text-3xl leading-2 tracking-tight font-semibold max-w-xl mt-3 mb-6">
           Frequently Asked Questions
         </h1>
       </div>

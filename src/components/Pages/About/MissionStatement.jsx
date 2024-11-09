@@ -23,7 +23,7 @@ const MissionStatement = () => {
               We provide a safe and innovative healthcare education where
               professionals can be trained...
             </h1>
-            <p className="font-normal text-sm text-gray-500 ">
+            <p className="font-normal text-base text-gray-500 ">
               Premier Nurses' Training College is a leading institution
               dedicated to training the next generation of compassionate and
               skilled healthcare professionals. With a commitment to academic

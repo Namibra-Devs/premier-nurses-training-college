@@ -10,11 +10,11 @@ const KeyStatisticsII = () => {
             Brief Highlights
           </h3>
           {/* Subtitle */}
-          <h1 className="text-gray-700 text-2xl leading-2 tracking-tight font-semibold max-w-xl mt-3 mb-0 md:mb-5">
+          <h1 className="text-gray-700 text-3xl md:text-2xl xl:text-3xl leading-2 tracking-tight font-semibold max-w-xl mt-3 mb-0 md:mb-5">
             Brief Highlights for Premier Nurses' Training College
           </h1>
         </div>
-        <p className="font-normal text-sm text-gray-500 max-w-lg">
+        <p className="font-normal text-base text-left md:text-right text-gray-500 max-w-lg">
           At Premier Nurses' Training College, we are dedicated to shaping the
           future of healthcare by educating and inspiring the next generation of
           skilled and empathetic nurses.

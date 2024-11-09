@@ -1,7 +1,7 @@
 import React from "react";
 import AccreditedImg from "../../assets/sections/accredited.jpg";
 import Accreditation from "../UtilityComponents/Accreditation";
-import AffiliatedLogos from "../UtilityComponents/AffiliatedShow";
+import AffiliatedShow from "../UtilityComponents/AffiliatedShow";
 
 const AccreditationAffiliations = () => {
   return (
@@ -29,7 +29,7 @@ const AccreditationAffiliations = () => {
               Accreditation and Affiliations
             </h3>
             {/* Subtitle */}
-            <h1 className="text-gray-700 text-2xl leading-2 tracking-tight font-semibold max-w-xl my-2">
+            <h1 className="text-gray-700 text-3xl md:text-2xl xl:text-3xl leading-2 tracking-tight font-semibold max-w-xl my-2">
               We are fully accredited by the National Nursing Accreditation
               Board and proudly affiliated with leading healthcare institutions,
               including.
@@ -37,7 +37,7 @@ const AccreditationAffiliations = () => {
             <p className="font-normal text-sm text-gray-500 max-w-xl"></p>
             <br />
             <Accreditation />
-            <p className="font-normal text-sm text-gray-500 max-w-xl mt-5">
+            <p className="font-normal text-base text-gray-500 max-w-xl mt-5">
               These affiliations affirm our commitment to delivering quality
               education aligned with global standards and best practices in
               healthcare.
@@ -46,7 +46,7 @@ const AccreditationAffiliations = () => {
         </div>
       </div>
 
-      <AffiliatedLogos />
+      <AffiliatedShow />
     </>
   );
 };

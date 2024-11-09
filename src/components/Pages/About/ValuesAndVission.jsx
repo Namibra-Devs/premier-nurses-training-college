@@ -14,23 +14,21 @@ const ValuesAndVission = () => {
       </div>
       <div className="mission-right md:max-w-[50%]">
         {/* title */}
-        <h3 className="text-primary text-sm text-left uppercase font-medium">
+        <h3 className="text-primary text-base text-left uppercase font-medium">
           Our Mission And Values
         </h3>
         {/* Subtitle */}
-        <h1 className="text-gray-700 text-3xl md:text-3xl leading-2 font-semibold my-2">
+        <h1 className="text-gray-700 text-3xl md:text-3xl leading-2 tracking-tight font-semibold my-2">
           Our mission is to empower healthcare professionals through innovative
           education and practical training...
         </h1>
-        <p className="font-normal text-sm text-gray-500 max-w-xl"></p>
-        <br />
-        <Accreditation />
-        <p className="font-normal text-sm text-gray-500 max-w-xl mt-5">
+        <p className="font-normal text-base text-gray-500 max-w-xl mt-5 mb-5">
           We strive to empower our students with a quality education that
           combines rigorous academics with real-world application. Our mission
           is to cultivate healthcare providers who are equipped to make a
           positive impact on their communities.
         </p>
+        <Accreditation />
       </div>
     </div>
   );

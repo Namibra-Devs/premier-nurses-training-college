@@ -33,14 +33,14 @@ const MissionStatement = () => {
               Mission Statement
             </h3>
             {/* Subtitle */}
-            <h1 className="text-gray-700 text-2xl leading-2 tracking-tight font-semibold max-w-xl my-3">
+            <h1 className="text-gray-700 text-3xl md:text-2xl xl:text-3xl leading-2 tracking-tight font-semibold max-w-xl my-3">
               Empowering healthcare professionals through innovative education
               and practical training...
             </h1>
-            <p className="font-normal text-sm text-gray-500 max-w-xl">
-              At Premier Nurses' Training College, we are dedicated to shaping
-              the future of healthcare by educating and inspiring the next
-              generation of skilled and empathetic nurses.
+            <p className="font-normal text-base text-gray-500 max-w-xl">
+              We are dedicated to shaping the future of healthcare by educating
+              and inspiring the next generation of skilled and empathetic
+              nurses.
             </p>
             <br />
             <KeyStatistics />

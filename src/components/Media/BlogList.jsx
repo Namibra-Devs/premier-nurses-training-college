@@ -12,7 +12,7 @@ const BlogList = () => {
           Our Blogs
         </h3>
         {/* Description */}
-        <p className="font-normal text-sm text-gray-500 max-w-lg">
+        <p className="font-normal text-base text-gray-500 max-w-lg">
           Sorround yourself with the community and resources help bring your
           vission to life and keep you updated.
         </p>
