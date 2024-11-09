@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "../../../components/Navbar/Navbar";
 import MissionStatement from "../../Pages/About/MissionStatement";
+import PNTCStory from "./PNTCStory";
 const AboutUs = () => {
   return (
     <>
@@ -15,7 +16,7 @@ const AboutUs = () => {
                 About Us
               </h3>
               {/* Subtitle */}
-              <h1 className="text-white text-5xl leading-2 tracking-tight font-semibold max-w-3xl my-3">
+              <h1 className="text-white text-5xl leading-2 font-semibold max-w-full lg:max-w-3xl my-3">
                 Premier Nurses' Training College
               </h1>
               <p className="font-normal text-sm text-gray-200 max-w-xl">
@@ -30,6 +31,7 @@ const AboutUs = () => {
         <div className="absolute -z-0  backdrop-blur inset-0 bg-gradient-to-r from-blue-800 to-transparent opacity-80 pointer-events-none"></div>
       </section>
       <MissionStatement />
+      <PNTCStory/>
     </>
   );
 };

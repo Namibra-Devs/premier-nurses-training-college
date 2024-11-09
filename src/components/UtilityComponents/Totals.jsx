@@ -24,7 +24,7 @@ const Counter = ({ end }) => {
 
 const Totals = () => {
   return (
-    <div className='bg-TotalsBg bg-bottom bg-no-repeat bg-origin-border bg-cover g-auto 
+    <div className='bg-TotalsBg bg-bottom bg-no-repeat bg-origin-border bg-cover 
     rounded-br-3xl rounded-bl-3xl py-8 px-14 w-full'>
         <div className='grid grid-cols-2 md:grid-cols-4 gap-6'>
             {/* Total 1 */}

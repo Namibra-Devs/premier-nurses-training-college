@@ -28,6 +28,7 @@ module.exports = {
           "url('assets/sections/accreditation-bg-mobile.jpg')",
         StudentsGroup: "url('assets/sections/student-group.jpg')",
         AboutusBgImg: "url('assets/foreign/image2.jpg')",
+        PntcStoryBg: "url('assets/sections/pntcstorybg.jpeg')",
 
         backgroundImage: {
           "topnav-gradient":
