@@ -3,7 +3,6 @@ import news1 from "../../assets/blogsImages/blog1.jpg";
 import news2 from "../../assets/blogsImages/blog2.jpg";
 import news3 from "../../assets/blogsImages/blog3.jpg";
 import news4 from "../../assets/blogsImages/blog4.jpg";
-import news5 from "../../assets/blogsImages/blog5.jpg";
 
 // Export an array of news objects with images, titles, descriptions, and dates
 export const News = [

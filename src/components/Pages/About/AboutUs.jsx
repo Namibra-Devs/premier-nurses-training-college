@@ -6,6 +6,7 @@ import Totals from "../../UtilityComponents/Totals";
 import ValuesAndVission from "./ValuesAndVission";
 import WhatWeOffer from "./WhatWeOffer";
 import WhyChooseUs from "./WhyChooseUs";
+import LeadershipAndFaculty from "./LeadershipAndFaculty";
 const AboutUs = () => {
   return (
     <>
@@ -41,8 +42,11 @@ const AboutUs = () => {
       <div className="bg-gradient-to-r from-blue-800 to bg-primary px-4 md:px-14 lg:px-24 xl:px-40 py-24 mt-1 flex flex-col justify-center items-center">
         <WhatWeOffer />
       </div>
-      <div className="bg-gray-50 px-4 md:px-14 lg:px-24 xl:px-40 py-24 mt-1 flex flex-col justify-center items-center">
-        <WhyChooseUs/>
+      <div className="bg-gray-50 px-4 md:px-14 lg:px-24 xl:px-40 pt-2 pb-24 md:py-24 flex flex-col justify-center items-center">
+        <LeadershipAndFaculty />
+      </div>
+      <div className="bg-gray-50 px-4 md:px-14 lg:px-24 xl:px-40 pb-24 flex flex-col justify-center items-center">
+        <WhyChooseUs />
       </div>
     </>
   );

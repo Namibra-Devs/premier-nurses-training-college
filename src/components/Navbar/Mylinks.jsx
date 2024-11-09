@@ -6,7 +6,9 @@ export const links = [
       {
         sublink: [
           { name: "About Us", link: "/AboutUs" },
-          { name: "Staff", link: "/" },
+          { name: "Our Vision And Values", link: "/" },
+          { name: "Leadership And Faculty", link: "/" },
+          { name: "Accreditations & Partnerships", link: "/" },
         ],
       },
     ],
