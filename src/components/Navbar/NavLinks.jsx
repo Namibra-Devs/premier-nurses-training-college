@@ -87,9 +87,9 @@ const NavLinks = () => {
                   {slinks.sublink.map((slink) => (
                     <li
                       key={slink.name}
-                      className="py-1 pl-8 text-gray-600 hover:text-primary duration-300 font-normal"
+                      className="py-1 pl-8 w-full text-gray-600 hover:text-primary duration-300 font-normal"
                     >
-                      <Link to={slink.link}>{slink.name}</Link>
+                      <Link className="border" to={slink.link}>{slink.name}</Link>
                     </li>
                   ))}
                 </div>

@@ -17,7 +17,7 @@ const WhyChooseUs = () => {
             training.
           </h1>
         </div>
-        <p className="font-normal text-base text-left md:text-right text-gray-600 max-w-lg">
+        <p className="font-normal text-base text-left md:text-right text-gray-600 max-w-lg mt-5 md:mt-0">
           Our graduates are known for their dedication, skill, and readiness to
           address the complexities of today’s healthcare environment.
         </p>
@@ -26,7 +26,7 @@ const WhyChooseUs = () => {
         <div className="rounded-3xl overflow-hidden md:max-w-[50%]">
           <img src={faculty01} alt="faculty01" />
         </div>
-        <div className="grid md:grid-cols-2 gap-4 md:max-w-[50%]">
+        <div className="grid md:grid-cols-2 gap-4 md:max-w-[50%] mt-4 md:mt-0">
           {/* Key Statics 1 */}
           <div className="bg-primary rounded-3xl overflow-hidden p-6 hover:shadow-custom-light transition-transform duration-500 transform hover:-translate-y-2">
             <div className="">

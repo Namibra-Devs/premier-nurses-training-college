@@ -20,7 +20,9 @@ const FLeadership02 = () => {
             <span className="absolute inset-0 m-auto text-4xl text-white flex items-center justify-center">
               <ion-icon name="add-outline"></ion-icon>
             </span>
-            <div className="absolute top-0 left-0 p-4 bg-transparent backdrop-blur-sm backdrop-brightness-75 opacity-0 group-hover:opacity-100 overflow-hidden w-0 h-0 group-hover:w-full group-hover:h-full duration-700 ease-in-out rounded-br-3xl text-lg font-bold text-white">
+            <div className="absolute top-0 left-0 p-4 rounded-3xl bg-transparent backdrop-blur-sm 
+            backdrop-brightness-75 opacity-0 group-hover:opacity-100 overflow-hidden w-0 h-0 
+            group-hover:w-full group-hover:h-full duration-700 ease-in-out text-white">
               <span className="text-4xl flex items-center">
                 <ion-icon name="people-circle-outline"></ion-icon>
               </span>
@@ -38,7 +40,7 @@ const FLeadership02 = () => {
           </div>
         ))}
       </div>
-      <a href="/" className="flex justify-end mt-10">
+      <a href="/" className="float-right mt-10">
         <ButtonView label="View More" />
       </a>
     </>

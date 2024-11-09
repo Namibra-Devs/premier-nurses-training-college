@@ -14,7 +14,7 @@ const ValuesAndVission = () => {
       </div>
       <div className="mission-right md:max-w-[50%]">
         {/* title */}
-        <h3 className="text-primary text-base text-left uppercase font-medium">
+        <h3 className="text-primary text-sm text-left uppercase font-medium">
           Our Vision And Values
         </h3>
         {/* Subtitle */}
