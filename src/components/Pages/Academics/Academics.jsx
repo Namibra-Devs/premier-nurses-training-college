@@ -1,5 +1,6 @@
 import React from "react";
 import Navbar from "../../../components/Navbar/Navbar";
+import ProgramsOffered from "./ProgramsOffered/ProgramsOffered";
 
 const Academics = () => {
   return (
@@ -29,6 +30,7 @@ const Academics = () => {
         {/* Gradient overlay */}
         <div className="absolute -z-0 inset-0 backdrop-brightness-140 bg-gradient-to-r from-blue-800 to-transparent opacity-80 pointer-events-none"></div>
       </section>
+      <ProgramsOffered/>
     </>
   );
 };

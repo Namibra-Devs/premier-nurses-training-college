@@ -6,9 +6,10 @@ export const links = [
       {
         sublink: [
           { name: "About Us", link: "/AboutUs" },
-          { name: "Our Vision And Values", link: "/" },
+          { name: "Vision And Values", link: "/" },
           { name: "Leadership And Faculty", link: "/" },
           { name: "Accreditations & Partnerships", link: "/" },
+          { name: "Campus Facilities", link: "/" },
         ],
       },
     ],
@@ -20,10 +21,10 @@ export const links = [
       {
         sublink: [
           { name: "Academics", link: "/Academics" },
-          { name: "Faculty", link: "/" },
-          { name: "Courses", link: "/" },
-          { name: "formal formal", link: "/" },
-          { name: "formal formal", link: "/" },
+          { name: "Programs Offered", link: "/" },
+          { name: "Curriculum and Learning Outcomes", link: "/" },
+          { name: "Academic Calendar", link: "/" },
+          { name: "Faculty Directory", link: "/" },
         ],
       },
     ],

@@ -185,7 +185,7 @@ const Footer = () => {
                   PNTC Adress
                 </h2>
                 <p className="flex items-center">
-                  123 Main Adum, Kumasi, Ghana
+                  Box KS3797, Kumasi, Ghana, 00233
                 </p>
               </div>
               <div className="flex flex-col items-start">
