@@ -7,6 +7,7 @@ import ValuesAndVission from "./ValuesAndVision";
 import WhatWeOffer from "./WhatWeOffer";
 import WhyChooseUs from "./WhyChooseUs";
 import LeadershipAndFaculty from "./LeadershipAndFaculty";
+import CTA from "../../UtilityComponents/CTA";
 const AboutUs = () => {
   return (
     <>
@@ -17,11 +18,11 @@ const AboutUs = () => {
           <div className="mission-right md:max-w-[50%]">
             {/* title */}
             <h3 className="text-yellow-400 text-sm text-left uppercase font-semibold">
-              About Us
+              PNTC
             </h3>
             {/* Subtitle */}
             <h1 className="text-white text-5xl leading-2 font-semibold max-w-full lg:max-w-3xl my-3">
-              Premier Nurses' Training College
+              About Us
             </h1>
             <p className="font-normal text-base text-gray-200 max-w-xl">
               At Premier Nurses' Training College, we are dedicated to shaping
@@ -47,6 +48,9 @@ const AboutUs = () => {
       </div>
       <div className="bg-gray-50 px-4 md:px-14 lg:px-24 xl:px-40 pb-24 flex flex-col justify-center items-center">
         <WhyChooseUs />
+      </div>
+      <div className="mb-1">
+        <CTA />
       </div>
     </>
   );

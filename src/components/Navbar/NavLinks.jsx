@@ -54,9 +54,9 @@ const NavLinks = () => {
                           {mysublinks.sublink.map((slink) => (
                             <li
                               key={slink.name}
-                              className="text-sm text-gray-600 hover:text-white duration-500 py-2.5 px-6 border-b border-dashed w-full group hover:bg-primary"
+                              className="text-sm text-gray-600 hover:text-white duration-500 py-2.5 px-6 border-b w-full group hover:bg-primary"
                             >
-                              <Link to={slink.link} className="">
+                              <Link to={slink.link} className="block">
                                 {slink.name}
                               </Link>
                             </li>
@@ -87,9 +87,11 @@ const NavLinks = () => {
                   {slinks.sublink.map((slink) => (
                     <li
                       key={slink.name}
-                      className="py-1 pl-8 w-full text-gray-600 hover:text-primary duration-300 font-normal"
+                      className="py-2 my-1 pl-8 w-full text-gray-600 hover:text-primary duration-300 font-normal"
                     >
-                      <Link to={slink.link}>{slink.name}</Link>
+                      <Link to={slink.link} className="block">
+                        {slink.name}
+                      </Link>
                     </li>
                   ))}
                 </div>

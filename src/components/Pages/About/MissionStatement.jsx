@@ -5,15 +5,15 @@ const MissionStatement = () => {
   return (
     <>
       <div className="bg-gray-50 px-4  lg:px-7 xl:px-14 py-24">
-        <div className="flex flex-col md:flex-row items-start xl:items-center justify-center gap-10 relative">
-          <div className="mission-img w-full md:max-w-[40%] lg:max-w-[30%] rounded-3xl overflow-hidden group">
+        <div className="flex flex-col md:flex-row items-start xl:items-center justify-center gap-10 relative overflow-hidden">
+          <div className="vision-img w-full md:max-w-[40%] lg:max-w-[30%] rounded-3xl overflow-hidden group">
             <img
               src={missionImg}
               alt=""
               className="w-full rounded-3xl brightness-95"
             />
           </div>
-          <div className="mission-right w-full md:max-w-[45%] lg:max-w-[50%] mt-10 md:mt-0 xl:mb-36">
+          <div className="vision-right w-full md:max-w-[45%] lg:max-w-[50%] mt-10 md:mt-0 xl:mb-36 overflow-hidden">
             {/* title */}
             <h3 className="text-primary text-sm text-left uppercase font-medium">
               At PNTC
@@ -32,7 +32,7 @@ const MissionStatement = () => {
               needed to excel in the field of nursing.
             </p>
             <div
-              className="md:absolute mt-8 md:mt-0 md:bottom-10 lg:bottom-34 xl:bottom-16 md:left-32 lg:left-44 xl:left-72 right-14 lg:right-0 max-w-full 
+              className="md:absolute mt-8 md:mt-0 md:bottom-10 lg:bottom-34 xl:bottom-16 md:left-32 lg:left-44 xl:left-72 right-14 lg:right-28 
             bg-gradient-to-r from-primary to bg-blue-800 md:backdrop-blur rounded-3xl p-6"
             >
               <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-2">
