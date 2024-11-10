@@ -41,9 +41,7 @@ const Navbar = () => {
             </li>
             <li className="flex items-center gap-1">
               <ion-icon name="time"></ion-icon>
-              <a href="#" className="text-[13px]">
-                Mon - Fri: 9:00am - 5:00pm
-              </a>
+              <p className="text-[13px]">Mon - Fri: 9:00am - 5:00pm</p>
             </li>
           </ul>
           <ul className="text-white flex items-center gap-3">
@@ -167,9 +165,9 @@ const Navbar = () => {
       <nav className="bg-transparent">
         <div className="flex items-center font-medium justify-around lg:p-2 py-5">
           <div className="z-40 px-5 md:px-0 md:w-auto w-full flex justify-between">
-            <a href="/Home">
-            <img src={Logo} alt="logo" className="md:cursor-pointer h-12" />
-            </a>
+            <Link to="/">
+              <img src={Logo} alt="logo" className="md:cursor-pointer h-12" />
+            </Link>
             <div className="flex items-center gap-3 flex-row-reverse">
               <div
                 className={`text-3xl cursor-pointer md:hidden ml-2 md:ml-0 ${
@@ -200,7 +198,7 @@ const Navbar = () => {
             </li>
             <NavLinks />
             <li>
-              <Link to="/" className="px-3 inline-block">
+              <Link to="/ContactUs" className="px-3 inline-block">
                 Contact
               </Link>
             </li>
@@ -229,7 +227,7 @@ const Navbar = () => {
             <ul className="my-10">
               <li>
                 <Link
-                  to="/Home"
+                  to="/"
                   className="pb-2 inline-block font-normal text-gray-900"
                 >
                   Home

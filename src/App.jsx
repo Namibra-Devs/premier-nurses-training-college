@@ -10,7 +10,7 @@ const App = () => {
     <>
       <Routes>
         {/* Setting the Home component as the default path */}
-        <Route path="/Home" element={<Home />} />
+        <Route path="/" element={<Home />} />
         <Route path="/AboutUs" element={<AboutUs />} />
       </Routes>
       <Footer />
