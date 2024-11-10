@@ -2,19 +2,19 @@ const ProgramsData = [
   {
     name: "Nursing",
     description:
-      "Our college provides a range of programs to meet diverse career",
+      "A comprehensive program that prepares students for entry-level positions in healthcare.",
       url: "/programs/nursing",
   },
   {
     name: "Pharmacy",
     description:
-      "Our college provides a range of programs to meet diverse career",
+      "Focused on specific skills like emergency care, maternal health, and pediatric nursing.",
       url: "/programs/pharmacy",
   },
   {
     name: "Midwifery",
     description:
-      "Our college provides a range of programs to meet diverse career",
+      "Focused on specific skills like emergency care, maternal health, and pediatric nursing.",
       url: "/programs/midwifery/",
   },
   {
