@@ -9,7 +9,7 @@ const FLeadership01 = () => {
           <img
             src={faculty.image}
             alt={faculty.name}
-            className="w-full rounded-2xl mx-auto mb-4"
+            className="w-full object-cover rounded-2xl mx-auto mb-4"
           />
           <h3 className="text-xl font-semibold">{faculty.name}</h3>
           <p className="text-sm text-gray-600">{faculty.title}</p>

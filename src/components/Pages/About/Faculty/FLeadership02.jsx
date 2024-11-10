@@ -27,7 +27,7 @@ const FLeadership02 = () => {
             <img
               src={faculty.image}
               alt={faculty.name}
-              className="w-full rounded-2xl mx-auto mb-4"
+              className="w-full object-cover rounded-2xl mx-auto mb-4"
             />
             <span className="absolute inset-0 m-auto text-4xl text-white flex items-center justify-center">
               <ion-icon name="add-outline"></ion-icon>

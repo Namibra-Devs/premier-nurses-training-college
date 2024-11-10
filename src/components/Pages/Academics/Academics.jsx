@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "../../../components/Navbar/Navbar";
 import ProgramsOffered from "./ProgramsOffered/ProgramsOffered";
 import Curriculum from "./Curriculum";
+import AcademicCalender from "./AcademicCalender/AcademicCalender";
 
 const Academics = () => {
   return (
@@ -34,6 +35,7 @@ const Academics = () => {
       </section>
       <ProgramsOffered/>
       <Curriculum/>
+      <AcademicCalender/>
     </>
   );
 };
