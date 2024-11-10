@@ -10,7 +10,7 @@ const Navbar = () => {
   const [searchb_open, setSearchbOpen] = useState(false);
   return (
     <>
-      {/*Desktop Top Nav */}
+      {/*Desktop Info Nav */}
       <div className="top-nav z-50 backdrop-brightness-75 text-center py-0.5 md:py-0">
         <div
           className="text-white text-sm flex items-center justify-center md:hidden cursor-pointer"
@@ -78,7 +78,7 @@ const Navbar = () => {
           </ul>
         </div>
       </div>
-      {/*Mobile Top Nav */}
+      {/*Mobile Info Nav */}
       <div
         className={`z-50
         md:hidden bg-slate-50 fixed w-full top-0 bottom-0 pb-10 pt-4 px-4 text-sm
@@ -225,19 +225,19 @@ const Navbar = () => {
         `}
           >
             <ul className="my-10">
-              <li>
+              <li className="w-full">
                 <Link
                   to="/"
-                  className="pb-2 inline-block font-normal text-gray-900"
+                  className="pb-2 block font-normal text-gray-900 hover:text-primary duration-300"
                 >
                   Home
                 </Link>
               </li>
               <NavLinks />
-              <li>
+              <li className="w-full">
                 <Link
                   to="/ContactUs"
-                  className="pt-2 inline-block font-normal text-gray-900"
+                  className="pt-2 block font-normal text-gray-900 hover:text-primary duration-300"
                 >
                   Contact Us
                 </Link>
