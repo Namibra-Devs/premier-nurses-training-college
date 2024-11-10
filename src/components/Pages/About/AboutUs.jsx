@@ -3,7 +3,7 @@ import Navbar from "../../../components/Navbar/Navbar";
 import MissionStatement from "../../Pages/About/MissionStatement";
 import PNTCStory from "./PNTCStory";
 import Totals from "../../UtilityComponents/Totals";
-import ValuesAndVission from "./ValuesAndVission";
+import ValuesAndVission from "./ValuesAndVision";
 import WhatWeOffer from "./WhatWeOffer";
 import WhyChooseUs from "./WhyChooseUs";
 import LeadershipAndFaculty from "./LeadershipAndFaculty";

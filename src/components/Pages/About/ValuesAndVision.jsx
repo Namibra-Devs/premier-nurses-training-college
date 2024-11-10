@@ -1,8 +1,8 @@
 import React from "react";
 import AccreditedImg from "../../../assets/sections/accredited.jpg";
-import Accreditation from "../../UtilityComponents/Accreditation";
+import Accreditation from "./Accreditation";
 
-const ValuesAndVission = () => {
+const ValuesAndVision = () => {
   return (
     <div className="flex flex-col md:flex-row md:items-center justify-center gap-10 py-24">
       <div className="mission-img max-w-full md:max-w-[30%] overflow-hidden group">
@@ -19,8 +19,8 @@ const ValuesAndVission = () => {
         </h3>
         {/* Subtitle */}
         <h1 className="text-gray-700 text-3xl md:text-2xl xl:text-3xl leading-2 tracking-tight font-semibold my-2">
-          Our mission is to empower healthcare professionals through innovative
-          education and practical training...
+          Our vision is to create a community of professionals through
+          innovative education and practical training...
         </h1>
         <p className="font-normal text-base text-gray-500 max-w-xl mt-5 mb-5">
           Driven by our core values of empathy, excellence, and integrity,
@@ -35,4 +35,4 @@ const ValuesAndVission = () => {
   );
 };
 
-export default ValuesAndVission;
+export default ValuesAndVision;

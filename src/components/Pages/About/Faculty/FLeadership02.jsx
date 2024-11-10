@@ -5,6 +5,18 @@ import ButtonView from "../../../Buttons/ButtonView";
 const FLeadership02 = () => {
   return (
     <>
+      <div className="text-left mb-6">
+        {/* title */}
+        <h3 className="text-primary text-sm tracking mb-4 text-left uppercase font-medium">
+          Faculty Members
+        </h3>
+        {/* Description */}
+        <p className="font-normal text-base text-gray-500 max-w-lg">
+          Each faculty member brings years of practical experience and a passion
+          for teaching to create an engaging and supportive learning
+          environment.
+        </p>
+      </div>
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         {/* Key Statics 1 */}
         {faculty02Data.map((faculty, index) => (
@@ -20,9 +32,11 @@ const FLeadership02 = () => {
             <span className="absolute inset-0 m-auto text-4xl text-white flex items-center justify-center">
               <ion-icon name="add-outline"></ion-icon>
             </span>
-            <div className="absolute top-0 left-0 p-4 rounded-3xl bg-transparent backdrop-blur-sm 
+            <div
+              className="absolute top-0 left-0 p-4 rounded-3xl bg-transparent backdrop-blur-sm 
             backdrop-brightness-75 opacity-0 group-hover:opacity-100 overflow-hidden w-0 h-0 
-            group-hover:w-full group-hover:h-full duration-700 ease-in-out text-white">
+            group-hover:w-full group-hover:h-full duration-700 ease-in-out text-white"
+            >
               <span className="text-4xl flex items-center">
                 <ion-icon name="people-circle-outline"></ion-icon>
               </span>

@@ -167,7 +167,9 @@ const Navbar = () => {
       <nav className="bg-transparent">
         <div className="flex items-center font-medium justify-around lg:p-2 py-5">
           <div className="z-40 px-5 md:px-0 md:w-auto w-full flex justify-between">
+            <a href="/Home">
             <img src={Logo} alt="logo" className="md:cursor-pointer h-12" />
+            </a>
             <div className="flex items-center gap-3 flex-row-reverse">
               <div
                 className={`text-3xl cursor-pointer md:hidden ml-2 md:ml-0 ${
@@ -227,7 +229,7 @@ const Navbar = () => {
             <ul className="my-10">
               <li>
                 <Link
-                  to="/"
+                  to="/Home"
                   className="pb-2 inline-block font-normal text-gray-900"
                 >
                   Home
@@ -236,7 +238,7 @@ const Navbar = () => {
               <NavLinks />
               <li>
                 <Link
-                  to="/"
+                  to="/ContactUs"
                   className="pt-2 inline-block font-normal text-gray-900"
                 >
                   Contact Us
