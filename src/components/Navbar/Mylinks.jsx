@@ -19,7 +19,7 @@ export const links = [
     sublinks: [
       {
         sublink: [
-          { name: "Academics", link: "/" },
+          { name: "Academics", link: "/Academics" },
           { name: "Faculty", link: "/" },
           { name: "Courses", link: "/" },
           { name: "formal formal", link: "/" },
@@ -34,7 +34,7 @@ export const links = [
     sublinks: [
       {
         sublink: [
-          { name: "Admissions", link: "/" },
+          { name: "Admissions", link: "/Admissions" },
           { name: "How to Apply", link: "/" },
           { name: "Dates and Deadlines", link: "/" },
           { name: "Tution and Fees", link: "/" },

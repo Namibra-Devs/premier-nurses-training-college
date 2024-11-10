@@ -11,7 +11,8 @@ import CTA from "../../UtilityComponents/CTA";
 const AboutUs = () => {
   return (
     <>
-      <section className="bg-Hero bg-cover bg-center">
+      <section className="bg-AboutusBg bg-cover bg-center relative">
+        <div className="relative z-50">
         <Navbar />
         {/* Content */}
         <div className="px-4 md:px-14 lg:px-24 xl:px-40 py-20">
@@ -31,6 +32,9 @@ const AboutUs = () => {
             </p>
           </div>
         </div>
+        </div>
+        {/* Gradient overlay */}
+        <div className="absolute -z-0 inset-0 backdrop-brightness-140 bg-gradient-to-r from-blue-800 to-transparent opacity-80 pointer-events-none"></div>
       </section>
       <MissionStatement />
       <PNTCStory />
