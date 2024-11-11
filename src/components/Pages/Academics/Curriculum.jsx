@@ -25,8 +25,8 @@ const Curriculum = () => {
       <div className="grid md:grid-cols-3 lg:grid-cols-3 gap-4">
         {/* Curriculum 1 */}
         <div className="relative bg-blue-100 rounded-3xl overflow-hidden hover:shadow-custom-light group">
-          <img src={curriculum1} className="w-full object-cover group-hover:brightness-75 duration-700" alt="" />
-          <div className="absolute bottom-0 left-0 right-0 bg-blue-100 shadow-inner shadow-slate-100 p-4 h-14 group-hover:h-[70%] transition-all duration-700 ease-in-out">
+          <img src={curriculum1} className="w-full object-cover rounded-3xl group-hover:brightness-75 duration-700" alt="" />
+          <div className="absolute bottom-0 left-0 right-0 rounded-3xl bg-blue-100 shadow-inner shadow-slate-100 p-4 h-14 group-hover:h-[70%] transition-all duration-700 ease-in-out">
             <h3 className="text-base md:text-sm lg:text-base tracking-tight text-gray-600 font-semibold ">
               Patient Care Fundamentals
             </h3>
@@ -37,8 +37,8 @@ const Curriculum = () => {
         </div>
         {/* Curriculum 2 */}
         <div className="relative bg-blue-100 rounded-3xl overflow-hidden hover:shadow-custom-light group">
-          <img src={curriculum2} className="w-full object-cover group-hover:brightness-75 duration-700" alt="" />
-          <div className="absolute bottom-0 left-0 right-0 bg-blue-100 shadow-inner shadow-slate-100 p-4 h-14 group-hover:h-[70%] transition-all duration-700 ease-in-out">
+          <img src={curriculum2} className="w-full object-cover rounded-3xl group-hover:brightness-75 duration-700" alt="" />
+          <div className="absolute bottom-0 left-0 right-0 rounded-3xl bg-blue-100 shadow-inner shadow-slate-100 p-4 h-14 group-hover:h-[70%] transition-all duration-700 ease-in-out">
             <h3 className="text-base md:text-sm lg:text-base tracking-tight text-gray-600 font-semibold ">
               Clinical Skills and Specializations
             </h3>
@@ -50,8 +50,8 @@ const Curriculum = () => {
         </div>
         {/* Curriculum 3 */}
         <div className="relative bg-blue-100 rounded-3xl overflow-hidden hover:shadow-custom-light group">
-          <img src={curriculum3} className="w-full object-cover group-hover:brightness-75 duration-700" alt="" />
-          <div className="absolute bottom-0 left-0 right-0 bg-blue-100 shadow-inner shadow-slate-100 p-4 h-14 group-hover:h-[70%] transition-all duration-700 ease-in-out">
+          <img src={curriculum3} className="w-full object-cover rounded-3xl group-hover:brightness-75 duration-700" alt="" />
+          <div className="absolute bottom-0 left-0 right-0 rounded-3xl bg-blue-100 shadow-inner shadow-slate-100 p-4 h-14 group-hover:h-[70%] transition-all duration-700 ease-in-out">
             <h3 className="text-base md:text-sm lg:text-base tracking-tight text-gray-600 font-semibold ">
               Ethics and Professionalism
             </h3>
@@ -66,5 +66,4 @@ const Curriculum = () => {
     </div>
   );
 };
-
 export default Curriculum;
