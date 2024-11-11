@@ -3,6 +3,9 @@ import Navbar from "../../../components/Navbar/Navbar";
 import ProgramsOffered from "./ProgramsOffered/ProgramsOffered";
 import Curriculum from "./Curriculum";
 import AcademicCalender from "./AcademicCalender/AcademicCalender";
+import FacultyDirectory from "./FacultyDirectory/FacultyDirectory";
+import CTA from "../../UtilityComponents/CTA";
+import CTAButtonSticky from "../../Buttons/CTAButtonSticky";
 
 const Academics = () => {
   return (
@@ -36,6 +39,9 @@ const Academics = () => {
       <ProgramsOffered/>
       <Curriculum/>
       <AcademicCalender/>
+      <CTA/>
+      <FacultyDirectory/>
+      <CTAButtonSticky/>
     </>
   );
 };

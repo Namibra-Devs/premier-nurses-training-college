@@ -1,25 +1,13 @@
 import React from "react";
-import faculty02Data from "./faculty02Data";
+import facultyDirectoryData from "./facultyDirectoryData";
 import ButtonView from "../../../Buttons/ButtonView";
 
-const FLeadership02 = () => {
+const FDirectories = () => {
   return (
     <>
-      <div className="text-left mb-6">
-        {/* title */}
-        <h3 className="text-primary text-sm tracking mb-4 text-left uppercase font-medium">
-          Faculty Members
-        </h3>
-        {/* Description */}
-        <p className="font-normal text-base text-gray-500 max-w-lg">
-          Each faculty member brings years of practical experience and a passion
-          for teaching to create an engaging and supportive learning
-          environment.
-        </p>
-      </div>
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         {/* Key Statics 1 */}
-        {faculty02Data.map((faculty, index) => (
+        {facultyDirectoryData.map((faculty, index) => (
           <div
             key={index}
             className="relative bg-blue-100 group rounded-3xl overflow-hidden"
@@ -38,13 +26,27 @@ const FLeadership02 = () => {
             group-hover:w-full group-hover:h-full duration-700 ease-in-out text-white"
             >
               <span className="text-4xl flex items-center">
-                <ion-icon name="people-circle-outline"></ion-icon>
+                <ion-icon name="person-circle-outline"></ion-icon>
               </span>
               {/* Details */}
               <div className="mt-8">
-                <h3 className="text-base font-semibold">{faculty.name}</h3>
+                <h3 className="text-base font-semibold">
+                  Name: {faculty.name}
+                </h3>
                 <p className="text-sm text-gray-50 font-medium">
-                  {faculty.title}
+                  Title: {faculty.title}
+                </p>
+                <p className="text-sm text-gray-50 font-medium">
+                  Qualification: {faculty.qualifications}
+                </p>
+                <p className="text-sm text-gray-50 font-medium">
+                  Speciality {faculty.specialization}
+                </p>
+                <p className="text-sm text-gray-50 font-medium">
+                  Email: {faculty.email}
+                </p>
+                <p className="text-sm text-gray-50 font-medium">
+                  Phone: {faculty.phone}
                 </p>
               </div>
             </div>
@@ -54,10 +56,10 @@ const FLeadership02 = () => {
           </div>
         ))}
       </div>
-      <a href="/" className="float-right mt-10">
+      <a href="/" className="self-end mt-10">
         <ButtonView label="View More" />
       </a>
     </>
   );
 };
-export default FLeadership02;
+export default FDirectories;

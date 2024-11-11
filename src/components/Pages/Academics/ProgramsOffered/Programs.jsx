@@ -9,8 +9,11 @@ const Programs = () => {
         <a
           href={program.url}
           key={index}
-          className="relative bg-blue-100 rounded-3xl overflow-hidden p-6 border border-transparent hover:border-blue-200 hover:shadow-custom-light transition-transform duration-700 transform hover:-translate-y-2"
+          className="relative bg-blue-100 rounded-3xl overflow-hidden group p-6 border border-transparent hover:border-blue-200 hover:shadow-custom-light transition-transform duration-700 transform hover:-translate-y-2"
         >
+          <span className="absolute right-8 top-6 text-xl text-gray-500 transition-transform duration-700 transform group-hover:translate-x-2">
+            <ion-icon name="arrow-redo-outline"></ion-icon>
+          </span>
           <div className="mt-14">
             <div className="absolute top-0 left-0 p-4 bg-yellow-400 rounded-br-3xl text-lg font-bold text-white">
               <span className="text-4xl flex items-center">
