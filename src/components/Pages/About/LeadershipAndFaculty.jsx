@@ -1,6 +1,5 @@
 import React from "react";
-import FLeadership01 from "./Faculty/FLeadership01";
-import FLeadership02 from "./Faculty/FLeadership02";
+import FLeadership from "./Faculty/FLeadership";
 
 const LeadershipAndFaculty = () => {
   return (
@@ -23,10 +22,7 @@ const LeadershipAndFaculty = () => {
           field.
         </p>
       </div>
-      <FLeadership01/>
-      <br />
-      <br />
-      <FLeadership02/>
+      <FLeadership/>
     </div>
   );
 };
