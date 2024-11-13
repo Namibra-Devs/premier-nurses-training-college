@@ -12,7 +12,7 @@ const HowToApply = () => {
             <span className="text-yellow-400 font-semibold">PNTC</span>
           </h3>
           {/* Subtitle */}
-          <h1 className="text-gray-700 text-2xl leading-2 tracking-tight font-semibold max-w-full mt-3 mb-0 md:mb-5">
+          <h1 className="text-gray-700 text-2xl leading-2 tracking-tight font-semibold max-w-full mt-2 mb-2 md:mb-5">
             Application Process
           </h1>
         </div>
