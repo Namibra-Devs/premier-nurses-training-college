@@ -3,7 +3,7 @@ import ProcessData from "./ProcessData";
 
 const ApplicationProcess = () => {
   return (
-    <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-4">
+    <div className="grid md:grid-cols-3 lg:grid-cols-3 gap-4">
       {/* Application Steps */}
       {ProcessData.map((process, index) => (
         <div
