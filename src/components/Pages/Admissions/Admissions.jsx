@@ -4,6 +4,8 @@ import HowToApply from "./HowToApply/HowToApply";
 import DatesAndDeadlines from "./DatesAndDeadlines/DatesAndDeadlines";
 import FinancialAidAndScholarship from "./FinancialAidAndScholarship/FinancialAidAndScholarship";
 import RequirementsAndEligibility from "./RequirementsAndEligibility/RequirementsAndEligibility";
+import CTA from "../../UtilityComponents/CTA";
+import ContactAdmissions from "./ContactAdmissions/ContactAdmissions";
 
 const Admissions = () => {
   return (
@@ -31,9 +33,11 @@ const Admissions = () => {
         <div className="absolute -z-0 inset-0 backdrop-brightness-140 bg-gradient-to-r from-blue-800 to-transparent opacity-80 pointer-events-none"></div>
       </section>
       <HowToApply />
+      <CTA/>
       <DatesAndDeadlines />
       <FinancialAidAndScholarship />
       <RequirementsAndEligibility />
+      <ContactAdmissions/>
     </>
   );
 };
