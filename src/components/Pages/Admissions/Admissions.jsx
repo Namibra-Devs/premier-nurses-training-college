@@ -3,6 +3,7 @@ import Navbar from "../../Navbar/Navbar";
 import HowToApply from "./HowToApply/HowToApply";
 import DatesAndDeadlines from "./DatesAndDeadlines/DatesAndDeadlines";
 import FinancialAidAndScholarship from "./FinancialAidAndScholarship/FinancialAidAndScholarship";
+import RequirementsAndEligibility from "./RequirementsAndEligibility/RequirementsAndEligibility";
 
 const Admissions = () => {
   return (
@@ -29,9 +30,10 @@ const Admissions = () => {
         {/* Gradient overlay */}
         <div className="absolute -z-0 inset-0 backdrop-brightness-140 bg-gradient-to-r from-blue-800 to-transparent opacity-80 pointer-events-none"></div>
       </section>
-      <HowToApply/>
-      <DatesAndDeadlines/>
-      <FinancialAidAndScholarship/>
+      <HowToApply />
+      <DatesAndDeadlines />
+      <FinancialAidAndScholarship />
+      <RequirementsAndEligibility />
     </>
   );
 };
