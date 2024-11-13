@@ -12,7 +12,7 @@ const FinancialAidAndScholarship = () => {
             <span className="text-yellow-400 font-semibold">PNTC</span>
           </h3>
           {/* Subtitle */}
-          <h1 className="text-white text-2xl leading-2 tracking-tight font-semibold max-w-full mt-3 mb-0 md:mb-5">
+          <h1 className="text-white text-2xl leading-2 tracking-tight font-semibold max-w-full mt-2 mb-2 md:mb-5">
             Financial Aid And Scholarships
           </h1>
         </div>

@@ -7,10 +7,10 @@ const Accordion = ({ requirement, answer }) => {
   const toggleAccordion = () => setIsOpen(!isOpen);
 
   return (
-    <div className="flex flex-col gap-5">
+    <div className="flex flex-col gap-4">
       <button
         onClick={toggleAccordion}
-        className="flex justify-between w-full p-4 text-left text-sm font-semibold mb-4 md:mb-0
+        className="flex justify-between w-full p-4 text-left text-sm font-semibold mb-2 md:mb-0
          text-gray-800 hover:text-primary duration-500 bg-slate-100 md:bg-slate-50 rounded-2xl"
       >
         {/* Requirement */}
