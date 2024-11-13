@@ -8,7 +8,7 @@ const Dates = () => {
       {importantDates.map((date, index) => (
         <div
           key={index}
-          className="relative bg-gray-100 rounded-3xl overflow-hidden p-4"
+          className="relative bg-blue-100 rounded-3xl overflow-hidden p-4"
         >
           <div className="mt-14">
             <div className="absolute top-0 left-0 p-4  bg-primary rounded-br-3xl text-lg font-bold text-white">

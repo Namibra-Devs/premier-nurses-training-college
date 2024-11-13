@@ -8,7 +8,7 @@ const FinancialAidData = () => {
       {aidData.map((aid, index) => (
         <div
           key={index}
-          className="relative bg-gray-100 rounded-3xl overflow-hidden p-4"
+          className="relative bg-blue-100 rounded-3xl overflow-hidden p-4"
         >
           <div className="">
             <h3 className="text-xl tracking-tight text-gray-600 font-semibold my-1">
@@ -25,7 +25,7 @@ const FinancialAidData = () => {
                       <ion-icon name="checkmark-circle-sharp"></ion-icon>
                     </span>
                     <div>
-                        <a href={option.url} key={idx} className="bg-blue-200 px-3 py-1 rounded-3xl text-gray-600">
+                        <a href={option.url} key={idx} className="bg-blue-200 hover:bg-blue-300 duration-700 px-3 py-1 rounded-3xl text-gray-600">
                           {option.name}
                         </a>
                     </div>
