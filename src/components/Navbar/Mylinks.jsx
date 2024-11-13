@@ -5,7 +5,7 @@ export const links = [
     sublinks: [
       {
         sublink: [
-          { name: "About Us", link: "/AboutUs" },
+          { name: "About Us", link: "/aboutus" },
           { name: "Vision And Values", link: "/" },
           { name: "Leadership And Faculty", link: "/" },
           { name: "Accreditations & Partnerships", link: "/" },
@@ -20,7 +20,7 @@ export const links = [
     sublinks: [
       {
         sublink: [
-          { name: "Academics", link: "/Academics" },
+          { name: "Academics", link: "/academics" },
           { name: "Programs Offered", link: "/" },
           { name: "Curriculum and Learning Outcomes", link: "/" },
           { name: "Academic Calendar", link: "/" },
@@ -35,11 +35,12 @@ export const links = [
     sublinks: [
       {
         sublink: [
-          { name: "Admissions", link: "/Admissions" },
+          { name: "Admissions", link: "/admissions" },
           { name: "How to Apply", link: "/" },
-          { name: "Dates and Deadlines", link: "/" },
-          { name: "Tution and Fees", link: "/" },
-          { name: "formal Formal", link: "/" },
+          { name: "Important Dates and Deadlines", link: "/" },
+          { name: "Financial Aid and Scholarships", link: "/" },
+          { name: "Requirements and Eligibility", link: "/" },
+          { name: "Contact Admissions", link: "/" },
         ],
       },
     ],
