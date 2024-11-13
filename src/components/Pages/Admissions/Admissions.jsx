@@ -1,16 +1,11 @@
 import React from "react";
-import Navbar from "../../../components/Navbar/Navbar";
-import ProgramsOffered from "./ProgramsOffered/ProgramsOffered";
-import Curriculum from "./Curriculum";
-import AcademicCalender from "./AcademicCalender/AcademicCalender";
-import FacultyDirectory from "./FacultyDirectory/FacultyDirectory";
-import CTA from "../../UtilityComponents/CTA";
-import CTAButtonSticky from "../../Buttons/CTAButtonSticky";
+import Navbar from "../../Navbar/Navbar";
+import HowToApply from "./HowToApply/HowToApply";
 
-const Academics = () => {
+const Admissions = () => {
   return (
     <>
-      {/* Academics Page header */}
+      {/* Admissions page header */}
       <section className="bg-AboutusBg bg-cover bg-center relative">
         <div className="relative z-50">
           <Navbar />
@@ -19,7 +14,7 @@ const Academics = () => {
             <div className="mission-right md:max-w-[50%]">
               {/* Subtitle */}
               <h1 className="text-white text-5xl leading-2 font-semibold max-w-full lg:max-w-3xl mb-3">
-                Academics
+                Admissions
               </h1>
               <p className="font-normal text-base text-gray-200 max-w-xl">
                 At Premier Nurses' Training College, we are dedicated to shaping
@@ -32,14 +27,9 @@ const Academics = () => {
         {/* Gradient overlay */}
         <div className="absolute -z-0 inset-0 backdrop-brightness-140 bg-gradient-to-r from-blue-800 to-transparent opacity-80 pointer-events-none"></div>
       </section>
-      <ProgramsOffered />
-      <Curriculum />
-      <AcademicCalender />
-      <CTA />
-      <FacultyDirectory />
-      <CTAButtonSticky />
+      <HowToApply/>
     </>
   );
 };
 
-export default Academics;
+export default Admissions;
