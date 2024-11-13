@@ -60,7 +60,7 @@ const Home = () => {
             nursing carrier.
           </p>
           <div className="text-xl flex items-center gap-4">
-            <a href="/" >
+            <a href="/">
               <HeroButtonApply label="Apply Now" />
             </a>
             <a href="/admissions">
@@ -74,7 +74,7 @@ const Home = () => {
       <AccreditationAffiliations />
       <Announcements />
       <CTA />
-      <FAQSection/>
+      <FAQSection />
       <CTAButtonSticky />
     </>
   );

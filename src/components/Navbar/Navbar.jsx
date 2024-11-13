@@ -236,7 +236,7 @@ const Navbar = () => {
               <NavLinks />
               <li className="w-full">
                 <Link
-                  to="/ContactUs"
+                  to="/contactus"
                   className="pt-2 block font-normal text-gray-900 hover:text-primary duration-300"
                 >
                   Contact Us
