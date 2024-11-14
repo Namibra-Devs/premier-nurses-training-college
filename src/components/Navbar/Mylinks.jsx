@@ -51,11 +51,11 @@ export const links = [
     sublinks: [
       {
         sublink: [
-          { name: "Sample", link: "/" },
-          { name: "student Representative", link: "/" },
-          { name: "Dates and Deadlines", link: "/" },
-          { name: "Formal", link: "/" },
-          { name: "formal Formal", link: "/" },
+          { name: "Students", link: "/students" },
+          { name: "Student Life", link: "/" },
+          { name: "Resources for Students", link: "/" },
+          { name: "Student Portal", link: "/" },
+          { name: "Alumni Network", link: "/" },
         ],
       },
     ],
