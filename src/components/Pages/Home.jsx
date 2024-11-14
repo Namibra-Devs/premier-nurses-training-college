@@ -40,7 +40,7 @@ const Home = () => {
     <>
       <header
         className="h-screen bg-Hero bg-cover
-      font-[Poppins] md:bg-top bg-center"
+      font-[Poppins] md:bg-top bg-center overflow-hidden rounded-b-3xl"
       >
         <Navbar />
         <div className="flex flex-col justify-center text-center items-center gap-3 h-3/4">

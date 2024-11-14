@@ -11,7 +11,7 @@ import CTA from "../../UtilityComponents/CTA";
 const AboutUs = () => {
   return (
     <>
-      <section className="bg-AboutusBg bg-cover bg-center relative">
+      <section className="bg-AboutusBg bg-cover bg-center relative overflow-hidden rounded-b-3xl">
         <div className="relative z-50">
           <Navbar />
           {/* Content */}
