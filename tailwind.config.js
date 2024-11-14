@@ -30,6 +30,7 @@ module.exports = {
         AboutusBgImg: "url('assets/foreign/image2.jpg')",
         PntcStoryBg: "url('assets/Aboutus/Pntcstorybg.jpg')",
         AboutusBg: "url('assets/Aboutus/AboutusBg.jpg')",
+        StudentsBg: "url('assets/Students/students-bg.jpg')",
 
         backgroundImage: {
           "topnav-gradient":
