@@ -1,6 +1,7 @@
 import React from 'react'
 import Navbar from '../../Navbar/Navbar'
 import StudentLife from './StudentLife/StudentLife'
+import AlumniNetwork from './AlumniNetwork/AlumniNetwork'
 
 
 const Students = () => {
@@ -29,6 +30,7 @@ const Students = () => {
         <div className="absolute -z-0 inset-0 backdrop-brightness-140 bg-gradient-to-r from-blue-800 to-transparent opacity-80 pointer-events-none"></div>
       </section>
       <StudentLife />
+      <AlumniNetwork/>
     </>
   )
 }
