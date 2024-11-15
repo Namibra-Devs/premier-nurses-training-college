@@ -1,7 +1,7 @@
 import React from "react";
 import studentLifeData from "./studentLifeData";
 import Overview from "./Overview";
-import InfoForStudents from "./infoForStudents";
+import InfoForStudents from "./InfoForStudents";
 
 const StudentLife = () => {
   return (
