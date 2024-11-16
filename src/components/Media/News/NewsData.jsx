@@ -1,12 +1,13 @@
 // Import images
-import news1 from "../../assets/blogsImages/blog1.jpg";
-import news2 from "../../assets/blogsImages/blog2.jpg";
-import news3 from "../../assets/blogsImages/blog3.jpg";
-import news4 from "../../assets/blogsImages/blog4.jpg";
+import news1 from "../../../assets/news/news1.jpg";
+import news2 from "../../../assets/news/news2.jpg";
+import news3 from "../../../assets/news/news3.jpg";
+import news4 from "../../../assets/news/news4.jpg";
 
 // Export an array of news objects with images, titles, descriptions, and dates
 export const News = [
   {
+    id: 1,
     image: news1,
     title: "Premier Nurses' Training College Welcomes New Class of 2024",
     description:
@@ -15,6 +16,7 @@ export const News = [
     url: "/blogs/understanding-essentials-nursing",
   },
   {
+    id: 2,
     image: news2,
     title: "Community Outreach Program: Nursing Students Making an Impact",
     description:
@@ -23,6 +25,7 @@ export const News = [
     url: "/blogs/understanding-essentials-nursing",
   },
   {
+    id: 3,
     image: news3,
     title: "Scholarships Available for Outstanding Nursing Students",
     description:
@@ -31,6 +34,7 @@ export const News = [
     url: "/blogs/understanding-essentials-nursing",
   },
   {
+    id: 4,
     image: news4,
     title: "Faculty Spotlight: Celebrating Our Educators’ Achievements",
     description:

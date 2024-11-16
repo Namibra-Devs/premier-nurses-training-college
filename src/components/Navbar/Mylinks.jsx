@@ -9,6 +9,7 @@ export const links = [
           { name: "Vision And Values", link: "/" },
           { name: "Leadership And Faculty", link: "/" },
           { name: "Accreditations & Partnerships", link: "/" },
+          { name: "Why Choose Us", link: "/" },
           { name: "Campus Facilities", link: "/" },
         ],
       },
@@ -55,21 +56,6 @@ export const links = [
           { name: "Student Life", link: "/" },
           { name: "Student Portal", link: "/" },
           { name: "Alumni Network", link: "/" },
-        ],
-      },
-    ],
-  },
-  {
-    name: "Media",
-    submenu: true,
-    sublinks: [
-      {
-        sublink: [
-          { name: "T-shirt", link: "/" },
-          { name: "Casual shirts", link: "/" },
-          { name: "formal shirts", link: "/" },
-          { name: "formal shirts", link: "/" },
-          { name: "formal shirts", link: "/" },
         ],
       },
     ],

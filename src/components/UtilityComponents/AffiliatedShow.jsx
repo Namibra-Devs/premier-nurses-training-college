@@ -37,7 +37,7 @@ const AffiliatedLogos = () => {
                 {Logos.map((logo, index) => (
                   <li>
                     <img
-                      key={index}
+                      key={logo.id || index}
                       src={logo}
                       alt={`Affiliate Logo ${index + 1}`}
                       className="max-w-3xl mr-4"

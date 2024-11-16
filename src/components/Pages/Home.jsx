@@ -53,14 +53,14 @@ const Home = () => {
           </h2>
           <h1 className="md:text-6xl text-4xl tracking-tight text-white font-semibold py-5 px-4 md:px-64">
             Premier <span className="text-yellow-400">Nurses'</span>{" "}
-            Training College - PNTC
+            Training College - PNTC
           </h1>
           <p className="text-white mb-4 text-sm md:text-[15px] px-4">
             Nursing is a work of heart. Discover eight reason to transform your
             nursing carrier.
           </p>
           <div className="text-xl flex items-center gap-4">
-            <a href="/">
+            <a href="/apply">
               <HeroButtonApply label="Apply Now" />
             </a>
             <a href="/admissions">
