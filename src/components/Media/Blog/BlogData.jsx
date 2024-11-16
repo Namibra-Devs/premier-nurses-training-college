@@ -1,9 +1,9 @@
 // Import images
-import blog1 from "../../assets/blogsImages/blog1.jpg";
-import blog2 from "../../assets/blogsImages/blog2.jpg";
-import blog3 from "../../assets/blogsImages/blog3.jpg";
-import blog4 from "../../assets/blogsImages/blog4.jpg";
-import blog5 from "../../assets/blogsImages/blog5.jpg";
+import blog1 from "../../../assets/blog/blog1.jpg";
+import blog2 from "../../../assets/blog/blog2.jpg";
+import blog3 from "../../../assets/blog/blog3.jpg";
+import blog4 from "../../../assets/blog/blog4.jpg";
+import blog5 from "../../../assets/blog/blog5.jpg";
 
 // Export an array of blog objects with images, titles, descriptions, and dates
 export const Blogs = [

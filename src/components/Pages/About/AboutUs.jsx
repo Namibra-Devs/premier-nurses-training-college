@@ -8,6 +8,7 @@ import WhatWeOffer from "./WhatWeOffer";
 import WhyChooseUs from "./WhyChooseUs";
 import LeadershipAndFaculty from "./LeadershipAndFaculty";
 import CTA from "../../UtilityComponents/CTA";
+import PntcInView from "../Students/SchoolFacilities/PntcInView";
 const AboutUs = () => {
   return (
     <>
@@ -51,6 +52,9 @@ const AboutUs = () => {
       </div>
       <div className="mb-1">
         <CTA />
+      </div>
+      <div className="pt-24">
+      <PntcInView/>
       </div>
     </>
   );

@@ -1,5 +1,5 @@
 import React from "react";
-import Alumni from "./Alumni";
+import AlumniCarousel from "./AlumniCarousel";
 
 const AlumniNetwork = () => {
   return (
@@ -21,7 +21,7 @@ const AlumniNetwork = () => {
           our dedicated alumni platform.
         </p>
       </div>
-      <Alumni />
+      <AlumniCarousel />
     </div>
   );
 };
