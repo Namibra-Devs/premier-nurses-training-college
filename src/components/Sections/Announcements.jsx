@@ -1,6 +1,6 @@
 import React from "react";
-import BlogList from "../Media/BlogList";
-import NewsList from "../Media/NewsList";
+import BlogList from "../Media/Blog/BlogList";
+import NewsList from "../Media/News/NewsList";
 
 const Announcements = () => {
   return (

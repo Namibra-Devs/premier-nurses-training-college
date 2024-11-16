@@ -2,6 +2,7 @@ import React from 'react'
 import Navbar from '../../Navbar/Navbar'
 import StudentLife from './StudentLife/StudentLife'
 import AlumniNetwork from './AlumniNetwork/AlumniNetwork'
+import PntcInView from './SchoolFacilities/PntcInView'
 
 
 const Students = () => {
@@ -31,6 +32,7 @@ const Students = () => {
       </section>
       <StudentLife />
       <AlumniNetwork/>
+      <PntcInView/>
     </>
   )
 }

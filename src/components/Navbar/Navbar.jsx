@@ -19,7 +19,7 @@ const Navbar = () => {
           <ion-icon name={`${tn_open ? "list" : "apps"}`}></ion-icon>{" "}
           <span className="uppercase text-sm font-semibold">Menu</span>
         </div>
-        <div className="hidden md:flex justify-between items-center font-medium md:px-20 p-2">
+        <div className="hidden md:flex justify-between items-center font-medium lg:px-24 py-2">
           <ul className="flex items-center justify-between text-sm gap-4 list-none text-white font-medium">
             <li className="flex items-center gap-1">
               <ion-icon name="mail"></ion-icon>
