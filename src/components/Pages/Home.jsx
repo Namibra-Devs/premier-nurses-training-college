@@ -39,11 +39,10 @@ const Home = () => {
   return (
     <>
       <header
-        className="h-screen bg-Hero bg-cover
-      font-[Poppins] md:bg-top bg-center overflow-hidden rounded-b-3xl"
+        className="h-screen bg-Hero bg-cover md:bg-top bg-center overflow-hidden rounded-b-3xl"
       >
         <Navbar />
-        <div className="flex flex-col justify-center text-center items-center gap-3 h-3/4">
+        <div className="flex flex-col justify-center text-center items-center gap-3 h-full">
           <h2
             className={`text-white text-lg md:text-2xl font-light px-4 md:px-52 transition-opacity duration-700 ${
               fade ? "opacity-100 -z-5" : "opacity-0 -z-5"

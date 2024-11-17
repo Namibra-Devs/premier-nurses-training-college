@@ -1,17 +1,31 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Logo from "../../assets/Logo.png";
 import NavLinks from "./NavLinks";
 import Searchform from "../Searchform/Searchform";
 import NavButtonApply from "../Buttons/NavButtonApply";
+
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [tn_open, setTnOpen] = useState(false);
   const [searchb_open, setSearchbOpen] = useState(false);
+
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50); // Change background after scrolling 50px
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <>
       {/*Desktop Info Nav */}
-      <div className="top-nav z-50 backdrop-brightness-75 text-center py-0.5 md:py-0">
+      <div className="top-nav z-50 backdrop-brightness-75 text-center md:px-36 xl:px-40 py-2">
+        {/* Info nav menu toggle */}
         <div
           className="text-white text-sm flex items-center justify-center md:hidden cursor-pointer"
           onClick={() => setTnOpen(!tn_open)}
@@ -19,7 +33,7 @@ const Navbar = () => {
           <ion-icon name={`${tn_open ? "list" : "apps"}`}></ion-icon>{" "}
           <span className="uppercase text-sm font-semibold">Menu</span>
         </div>
-        <div className="hidden md:flex justify-between items-center font-medium lg:px-24 py-2">
+        <div className="hidden md:flex justify-between items-center font-medium ">
           <ul className="flex items-center justify-between text-sm gap-4 list-none text-white font-medium">
             <li className="flex items-center gap-1">
               <ion-icon name="mail"></ion-icon>
@@ -162,17 +176,24 @@ const Navbar = () => {
         </div>
       </div>
       {/* Main Nav */}
-      <nav className="bg-transparent">
-        <div className="flex items-center font-medium justify-around lg:p-2 py-5">
+      <nav
+        className={`lg:px-24 py-5 fixed left-0 w-full transition-all duration-700 ${
+          isScrolled
+            ? "top-0 z-50 bg-white text-gray-600 md:shadow-lg "
+            : "bg-transparent"
+        }`}
+      >
+        <div className="flex items-center font-medium justify-around">
           <div className="z-40 px-5 md:px-0 md:w-auto w-full flex justify-between">
             <Link to="/">
               <img src={Logo} alt="logo" className="md:cursor-pointer h-12" />
             </Link>
             <div className="flex items-center gap-3 flex-row-reverse">
+              {/* Menu */}
               <div
                 className={`text-3xl cursor-pointer md:hidden ml-2 md:ml-0 ${
                   open ? "text-slate-400" : "text-white"
-                }`}
+                } ${isScrolled ? "text-gray-600" : "text-white"} `}
                 onClick={() => setOpen(!open)}
               >
                 <ion-icon name={`${open ? "close" : "menu"}`}></ion-icon>
@@ -181,7 +202,7 @@ const Navbar = () => {
               <div
                 className={`block md:hidden text-white cursor-pointer text-2xl relative z-50 ${
                   searchb_open ? "text-slate-400" : "text-white"
-                }`}
+                } ${isScrolled ? "text-gray-600" : "text-white"} `}
                 onClick={() => setSearchbOpen(!searchb_open)}
               >
                 <ion-icon
@@ -190,7 +211,11 @@ const Navbar = () => {
               </div>
             </div>
           </div>
-          <ul className="md:flex hidden capitalize text-sm text-white font-normal items-center gap-4 font-[Poppins]">
+          <ul
+            className={`md:flex hidden capitalize text-sm ${
+              isScrolled ? "text-gray-600" : "text-white"
+            } font-normal items-center gap-4`}
+          >
             <li>
               <Link to="/" className="px-3 inline-block">
                 Home
@@ -210,7 +235,9 @@ const Navbar = () => {
             </div>
             {/* Desktop version of SearchIcon (hidden on mobile, visible on desktop) */}
             <div
-              className="hidden md:block text-white cursor-pointer text-2xl "
+              className={`hidden md:block ${
+                isScrolled ? "text-gray-600" : "text-white"
+              } cursor-pointer text-2xl `}
               onClick={() => setSearchbOpen(true)}
             >
               <ion-icon name="search"></ion-icon>
