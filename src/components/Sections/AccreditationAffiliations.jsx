@@ -6,8 +6,8 @@ import AffiliatedShow from "../UtilityComponents/AffiliatedShow";
 const AccreditationAffiliations = () => {
   return (
     <>
-      <div className="bg-white px-4 md:px-14">
-        <div className="flex flex-col md:flex-row md:items-center justify-center gap-10 py-24">
+      <div className="bg-white px-4 md:px-14 pb-24">
+        <div className="flex flex-col md:flex-row md:items-center justify-center gap-10">
           <div className="mission-img max-w-full md:max-w-[30%] relative overflow-hidden group">
             <img
               src={AccreditedImg}
