@@ -23,7 +23,7 @@ const Navbar = () => {
 
   return (
     <>
-      {/*Desktop Info Nav */}
+      {/*Desktop Info Nav ----------------------------------------------------- */}
       <div className="top-nav z-50 backdrop-brightness-75 text-center md:px-36 xl:px-40 py-2">
         {/* Info nav menu toggle */}
         <div
@@ -92,7 +92,9 @@ const Navbar = () => {
           </ul>
         </div>
       </div>
-      {/*Mobile Info Nav */}
+      {/* End Desktop Info Nav ----------------------------------------------------- */}
+
+      {/*Mobile Info Nav ----------------------------------------------------- */}
       <div
         className={`z-50
         md:hidden bg-slate-50 fixed w-full top-0 bottom-0 pb-10 pt-4 px-4 text-sm
@@ -175,21 +177,25 @@ const Navbar = () => {
           </ul>
         </div>
       </div>
-      {/* Main Nav */}
+      {/* End Info Nav ----------------------------------------------------- */}
+
+      {/* Main Nav ----------------------------------------------------- */}
       <nav
-        className={`lg:px-24 py-5 fixed left-0 w-full transition-all duration-700 ${
+        className={`lg:px-24 py-3 fixed left-0 w-full transition-all duration-700 ${
           isScrolled
-            ? "top-0 z-50 bg-white text-gray-600 md:shadow-lg "
+            ? "top-0 z-50 py-5 bg-white md:bg-transparent md:backdrop-blur-sm md:backdrop-brightness-75 md:shadow-custom-light "
             : "bg-transparent"
         }`}
       >
         <div className="flex items-center font-medium justify-around">
+          {/* ----------------------------------------------------- */}
           <div className="z-40 px-5 md:px-0 md:w-auto w-full flex justify-between">
             <Link to="/">
               <img src={Logo} alt="logo" className="md:cursor-pointer h-12" />
             </Link>
+
             <div className="flex items-center gap-3 flex-row-reverse">
-              {/* Menu */}
+              {/* Menu ----------------------------------------------------- */}
               <div
                 className={`text-3xl cursor-pointer md:hidden ml-2 md:ml-0 ${
                   open ? "text-slate-400" : "text-white"
@@ -198,11 +204,14 @@ const Navbar = () => {
               >
                 <ion-icon name={`${open ? "close" : "menu"}`}></ion-icon>
               </div>
+
               {/* Mobile version of SearchIcon (visible on mobile, hidden on desktop) */}
               <div
                 className={`block md:hidden text-white cursor-pointer text-2xl relative z-50 ${
                   searchb_open ? "text-slate-400" : "text-white"
-                } ${isScrolled ? "text-gray-600" : "text-white"} `}
+                } ${
+                  isScrolled ? "text-gray-600 sm:text-white" : "text-white"
+                } `}
                 onClick={() => setSearchbOpen(!searchb_open)}
               >
                 <ion-icon
@@ -211,23 +220,19 @@ const Navbar = () => {
               </div>
             </div>
           </div>
+          {/* ----------------------------------------------------- */}
+
+          {/* Menu menus or links display here ----------------------------------------------------- */}
           <ul
-            className={`md:flex hidden capitalize text-sm ${
-              isScrolled ? "text-gray-600" : "text-white"
+            className={`hidden md:flex capitalize text-sm ${
+              isScrolled ? "text-gray-600 md:text-white" : "text-white"
             } font-normal items-center gap-4`}
           >
-            <li>
-              <Link to="/" className="px-3 inline-block">
-                Home
-              </Link>
-            </li>
             <NavLinks />
-            <li>
-              <Link to="/ContactUs" className="px-3 inline-block">
-                Contact
-              </Link>
-            </li>
           </ul>
+          {/* ----------------------------------------------------- */}
+
+          {/* ----------------------------------------------------- */}
           <div className="flex items-center gap-4">
             {/* Apply button */}
             <div className="md:block hidden">
@@ -243,8 +248,10 @@ const Navbar = () => {
               <ion-icon name="search"></ion-icon>
             </div>
           </div>
+          {/* ----------------------------------------------------- */}
 
           {/* Mobile nav */}
+          {/* ----------------------------------------------------- */}
           <div
             className={`z-30
         md:hidden bg-white fixed w-full top-0 overflow-y-auto bottom-0 py-24 pl-4 text-sm
@@ -252,23 +259,7 @@ const Navbar = () => {
         `}
           >
             <ul className="my-10">
-              <li className="w-full">
-                <Link
-                  to="/"
-                  className="pb-2 block font-normal text-gray-900 hover:text-primary duration-300"
-                >
-                  Home
-                </Link>
-              </li>
               <NavLinks />
-              <li className="w-full">
-                <Link
-                  to="/contactus"
-                  className="pt-2 block font-normal text-gray-900 hover:text-primary duration-300"
-                >
-                  Contact Us
-                </Link>
-              </li>
             </ul>
             <div className="py-5 text-center">
               {/* Apply Button */}
@@ -277,15 +268,20 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
-      {/* Overlay */}
+      {/*End Main Nav ----------------------------------------------------- */}
+
+      {/* Overlay ----------------------------------------------------- */}
       {searchb_open && (
         <div
           className="fixed inset-0 bg-black bg-opacity-30"
           onClick={() => setSearchbOpen(false)}
         ></div>
       )}
-      {/* Search Component */}
+      {/* ----------------------------------------------------- */}
+
+      {/* Search Component ----------------------------------------------------- */}
       <Searchform searchb_open={searchb_open} setSearchbOpen={setSearchbOpen} />
+      {/*End Search Component ----------------------------------------------------- */}
     </>
   );
 };

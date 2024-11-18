@@ -3,7 +3,7 @@ import FDirectories from "./FDirectories";
 
 const FacultyDirectory = () => {
   return (
-    <div className="bg-gray-50 px-4 md:px-14 lg:px-24 xl:px-40 pt-2 pb-24 md:py-24 flex flex-col justify-center">
+    <div className="bg-gray-50 px-4 md:px-14 lg:px-24 xl:px-40 pt-2 pb-24 flex flex-col justify-center">
       <div className="flex flex-col md:flex-row items-start justify-between gap-5 md:gap-10 mb-6">
         <div className="text-left">
           {/* title */}
