@@ -7,7 +7,6 @@ import ValuesAndVission from "./ValuesAndVision";
 import WhatWeOffer from "./WhatWeOffer";
 import WhyChooseUs from "./WhyChooseUs";
 import LeadershipAndFaculty from "./LeadershipAndFaculty";
-import CTA from "../../UtilityComponents/CTA";
 import PntcInView from "../Students/SchoolFacilities/PntcInView";
 const AboutUs = () => {
   return (
@@ -38,7 +37,10 @@ const AboutUs = () => {
       <div className="px-4 md:px-14 lg:px-24 xl:px-40 mt-1 flex flex-col justify-center items-center">
         <Totals />
       </div>
-      <div className="px-4 md:px-14 lg:px-24 xl:px-14 flex flex-col justify-center items-center">
+      <div
+        id="vission"
+        className="px-4 md:px-14 lg:px-24 xl:px-14 flex flex-col justify-center items-center"
+      >
         <ValuesAndVission />
       </div>
       <div className="bg-gradient-to-r from-blue-800 to bg-primary px-4 md:px-14 lg:px-24 xl:px-40 py-24 mt-1 flex flex-col justify-center items-center">
@@ -50,11 +52,8 @@ const AboutUs = () => {
       <div className="bg-gray-50 px-4 md:px-14 lg:px-24 xl:px-40 pb-24 flex flex-col justify-center items-center">
         <WhyChooseUs />
       </div>
-      <div className="mb-1">
-        <CTA />
-      </div>
-      <div className="pt-24">
-      <PntcInView/>
+      <div className="pt-4">
+        <PntcInView />
       </div>
     </>
   );

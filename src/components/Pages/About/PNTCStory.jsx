@@ -1,16 +1,16 @@
 import React from "react";
-import missionImg from "../../../assets/icons/play-button.png";
+import playbtn from "../../../assets/icons/play-button.png";
 import KeyStatistics from "./KeyStatistics";
 
 const PNTCStory = () => {
   return (
     <>
       <section className="relative bg-PntcStoryBg sm:bg-top bg-cover bg-center bg-fixed bg-no-repeat px-4 md:px-14 lg:px-24 xl:px-40 py-24">
-        <div className="relative z-50 flex flex-col md:flex-row md:items-center justify-between gap-10">
+        <div className="relative z-40 flex flex-col md:flex-row md:items-center justify-between gap-10">
           <div className="flex items-center justify-center md:w-[50%] overflow-hidden group">
             <div className="bg-gradient-to-r from-blue-500/40 to transparent p-0 group-hover:p-3 duration-700 ease-in-out rounded-full">
               <img
-                src={missionImg}
+                src={playbtn}
                 alt=""
                 className="w-20"
               />
