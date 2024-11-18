@@ -5,16 +5,16 @@ const Searchform = ({ searchb_open, setSearchbOpen }) => {
     <>
       {/* Search Form */}
       <div
-        className={`z-40 fixed md:w-[600px] w-full h-full top-0 overflow-y-auto bottom-0 px-10
+        className={`z-50 fixed md:w-[600px] w-full h-full top-0 overflow-y-auto bottom-0 px-10
           transform duration-500 ease border-l-4 border-primary 
           ${searchb_open ? "translate-x-0" : "-translate-x-full"} 
           bg-white md:bg-transparent md:backdrop-brightness-75`}
       >
         {/* Close Icon */}
-        <div className="float-right mt-6 block">
+        <div className="relative">
           <div
             onClick={() => setSearchbOpen(false)}
-            className="bg-slate-200 h-8 w-8 rounded-full hover:bg-primary hover:text-white duration-200 text-slate-500 text-xl flex justify-center items-center cursor-pointer"
+            className="absolute -right-6 top-3 bg-slate-200 h-8 w-8 rounded-full hover:bg-primary hover:text-white duration-200 text-slate-500 text-xl flex justify-center items-center cursor-pointer"
           >
             <ion-icon name="close"></ion-icon>
           </div>
