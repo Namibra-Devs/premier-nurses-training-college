@@ -69,7 +69,6 @@ const Home = () => {
         </div>
       </header>
       <MissionStatement />
-      <CTA />
       <AccreditationAffiliations />
       <Announcements />
       <CTA />
