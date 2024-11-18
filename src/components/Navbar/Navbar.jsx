@@ -24,7 +24,7 @@ const Navbar = () => {
   return (
     <>
       {/*Desktop Info Nav ----------------------------------------------------- */}
-      <div className="top-nav z-50 backdrop-brightness-75 text-center md:px-36 xl:px-40 py-2">
+      <div className="top-nav z-50 backdrop-brightness-75 text-center md:px-36 xl:px-44 py-2">
         {/* Info nav menu toggle */}
         <div
           className="text-white text-sm flex items-center justify-center md:hidden cursor-pointer"
@@ -207,7 +207,7 @@ const Navbar = () => {
 
               {/* Mobile version of SearchIcon (visible on mobile, hidden on desktop) */}
               <div
-                className={`block md:hidden text-white cursor-pointer text-2xl relative z-50 ${
+                className={`block md:hidden text-white cursor-pointer text-2xl ${
                   searchb_open ? "text-slate-400" : "text-white"
                 } ${
                   isScrolled ? "text-gray-600 sm:text-white" : "text-white"
@@ -215,7 +215,7 @@ const Navbar = () => {
                 onClick={() => setSearchbOpen(!searchb_open)}
               >
                 <ion-icon
-                  name={`${searchb_open ? "close" : "search"}`}
+                  name={`${searchb_open ? "search" : "search"}`}
                 ></ion-icon>
               </div>
             </div>
@@ -241,7 +241,7 @@ const Navbar = () => {
             {/* Desktop version of SearchIcon (hidden on mobile, visible on desktop) */}
             <div
               className={`hidden md:block ${
-                isScrolled ? "text-gray-600" : "text-white"
+                isScrolled ? "md:text-white" : "text-white"
               } cursor-pointer text-2xl `}
               onClick={() => setSearchbOpen(true)}
             >
@@ -250,20 +250,30 @@ const Navbar = () => {
           </div>
           {/* ----------------------------------------------------- */}
 
-          {/* Mobile nav */}
-          {/* ----------------------------------------------------- */}
+          {/* Mobile nav  ----------------------------------------------------- */}
           <div
-            className={`z-30
-        md:hidden bg-white fixed w-full top-0 overflow-y-auto bottom-0 py-24 pl-4 text-sm
+            className={`z-50
+        md:hidden bg-white fixed w-full top-0 overflow-y-auto bottom-0
         duration-500 ${open ? "left-0" : "left-[-100%]"}
         `}
           >
-            <ul className="my-10">
-              <NavLinks />
-            </ul>
-            <div className="py-5 text-center">
-              {/* Apply Button */}
-              <NavButtonApply />
+            {/* Close Icon */}
+            <div className="relative">
+              <div
+                onClick={() => setOpen(false)}
+                className="absolute right-4 top-3 bg-slate-200 h-8 w-8 rounded-full hover:bg-primary hover:text-white duration-200 text-slate-500 text-xl flex justify-center items-center cursor-pointer"
+              >
+                <ion-icon name="close"></ion-icon>
+              </div>
+            </div>
+            <div className="py-24 pl-4">
+              <ul className="my-10">
+                <NavLinks />
+              </ul>
+              <div className="py-5 text-center">
+                {/* Apply Button */}
+                <NavButtonApply />
+              </div>
             </div>
           </div>
         </div>
@@ -273,7 +283,7 @@ const Navbar = () => {
       {/* Overlay ----------------------------------------------------- */}
       {searchb_open && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-30"
+          className="fixed inset-0 bg-black bg-opacity-30 z-50"
           onClick={() => setSearchbOpen(false)}
         ></div>
       )}

@@ -10,7 +10,7 @@ const NavLinks = () => {
           <div className="text-left md:cursor-pointer group">
             <Link
               to={link.link}
-              className="block hover:text-primary duration-500"
+              className="block hover:text-yellow-400 duration-500"
             >
               <h1 className="font-normal flex justify-between items-center mr-4 py-3 md:py-0 group">
                 {link.name}
