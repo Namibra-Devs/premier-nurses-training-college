@@ -24,7 +24,7 @@ const Navbar = () => {
   return (
     <>
       {/*Desktop Info Nav ----------------------------------------------------- */}
-      <div className="top-nav z-50 backdrop-brightness-75 text-center md:px-36 xl:px-44 py-2">
+      <div className="top-nav z-50 backdrop-brightness-75 text-center md:px-36 xl:px-40 py-2">
         {/* Info nav menu toggle */}
         <div
           className="text-white text-sm flex items-center justify-center md:hidden cursor-pointer"
@@ -181,7 +181,7 @@ const Navbar = () => {
 
       {/* Main Nav ----------------------------------------------------- */}
       <nav
-        className={`lg:px-24 py-3 fixed left-0 w-full transition-all duration-700 ${
+        className={`lg:px-20 py-3 fixed left-0 w-full transition-all duration-700 ${
           isScrolled
             ? "top-0 z-50 py-5 bg-white md:bg-transparent md:backdrop-blur-sm md:backdrop-brightness-75 md:shadow-custom-light "
             : "bg-transparent"
@@ -202,7 +202,7 @@ const Navbar = () => {
                 } ${isScrolled ? "text-gray-600" : "text-white"} `}
                 onClick={() => setOpen(!open)}
               >
-                <ion-icon name={`${open ? "close" : "menu"}`}></ion-icon>
+                <ion-icon name={`${open ? "menu" : "menu"}`}></ion-icon>
               </div>
 
               {/* Mobile version of SearchIcon (visible on mobile, hidden on desktop) */}
