@@ -6,9 +6,6 @@ module.exports = {
       colors: {
         primary: "#4A3AFF",
         secondary: "#3b2ce2",
-        goldenYellow: "#FFC107",
-        mustardYellow: "#FFB000",
-        lemonYellow: "#FFEB3B",
         coral: "#FF6F61",
         teal: "#17A2B8",
         mint: "#98FF98",
@@ -32,6 +29,7 @@ module.exports = {
         AboutusBg: "url('assets/Aboutus/AboutusBg.jpg')",
         StudentsBg: "url('assets/Students/students-bg.jpg')",
         ContactusBg: "url('assets/contactus/contactus-bg.jpg')",
+        RegLoginBg: "url('assets/Admissions/bg-image.jpg')",
 
         backgroundImage: {
           "topnav-gradient":

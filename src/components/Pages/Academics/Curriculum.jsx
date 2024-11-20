@@ -4,7 +4,7 @@ import curriculum2 from "../../../assets/Academics/curriculum2.jpg";
 import curriculum3 from "../../../assets/Academics/curriculum3.jpg";
 const Curriculum = () => {
   return (
-    <div className="bg-gradient-to-r from-blue-800 to bg-primary px-4 md:px-14 lg:px-24 xl:px-40 py-24 mt-1 flex flex-col">
+    <div id="curriculum" className="bg-gradient-to-r from-blue-800 to bg-primary px-4 md:px-14 lg:px-24 xl:px-40 py-24 mt-1 flex flex-col">
       <div className="flex flex-col md:flex-row items-start justify-between gap-5 md:gap-10 mb-10 md:mb-0">
         <div className="text-left">
           {/* title */}
