@@ -4,7 +4,7 @@ import AcademicCaleder from "../../../../assets/Academics/academic-calendar.png"
 
 const AcademicCalender = () => {
   return (
-    <div className="bg-gray-50 px-4 md:px-14 lg:px-24 xl:px-40 py-24 flex flex-col">
+    <div id="academicCalender" className="bg-gray-50 px-4 md:px-14 lg:px-24 xl:px-40 py-24 flex flex-col">
       <div className="flex flex-col md:flex-row items-start justify-between gap-4 md:gap-10 mb-10 md:mb-0">
         <div className="text-left">
           {/* title */}
