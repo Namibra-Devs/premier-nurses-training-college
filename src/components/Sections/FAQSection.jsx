@@ -7,7 +7,7 @@ import FrequestAskedQImg from "../../assets/sections/frequestlly-asked-q.jpg";
 
 const FAQSection = () => {
   return (
-    <section className="px-4 md:px-40 py-24 -w-2xl mx-auto bg-white">
+    <section id="faqs" className="px-4 md:px-40 py-24 -w-2xl mx-auto bg-white">
       <div className="text-left">
         {/* title */}
         <h3 className="text-primary text-sm text-left uppercase font-medium">
