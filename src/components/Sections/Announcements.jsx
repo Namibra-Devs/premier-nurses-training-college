@@ -4,7 +4,7 @@ import NewsList from "../Media/News/NewsList";
 
 const Announcements = () => {
   return (
-    <div className="px-4 md:px-40 py-24">
+    <div id="Announcements" className="px-4 md:px-40 py-24">
       {/* Announcement Header */}
       <div className="flex flex-col md:flex-row justify-between items-start gap-10">
         <div className="w-full flex flex-col items-end">

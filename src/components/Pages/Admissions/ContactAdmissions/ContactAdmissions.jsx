@@ -3,7 +3,7 @@ import Contact from "./Contact";
 
 const ContactAdmissions = () => {
   return (
-    <div className="bg-gray-50 px-4 md:px-14 lg:px-24 xl:px-40 py-24 flex flex-col">
+    <div id="contactAdmission" className="bg-gray-50 px-4 md:px-14 lg:px-24 xl:px-40 py-24 flex flex-col">
       <div className="flex flex-col md:flex-row items-start justify-between gap-5 md:gap-10 mb-10 md:mb-2">
         <div className="text-left flex flex-row-reverse items-start">
           {/* Subtitle */}

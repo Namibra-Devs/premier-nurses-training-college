@@ -18,18 +18,18 @@ const AboutUs = () => {
         <Totals />
       </div>
       <div
-        id="vission"
+        id="vissionAndValues"
         className="px-4 md:px-14 lg:px-24 xl:px-14 flex flex-col justify-center items-center"
       >
         <ValuesAndVission />
       </div>
-      <div className="bg-gradient-to-r from-blue-800 to bg-primary px-4 md:px-14 lg:px-24 xl:px-40 py-24 mt-1 flex flex-col justify-center items-center">
+      <div id="whatWeOffer" className="bg-gradient-to-r from-blue-800 to bg-primary px-4 md:px-14 lg:px-24 xl:px-40 py-24 mt-1 flex flex-col justify-center items-center">
         <WhatWeOffer />
       </div>
-      <div className="bg-gray-50 px-4 md:px-14 lg:px-24 xl:px-40 pt-2 pb-24 md:py-24 flex flex-col justify-center items-center">
+      <div id="leadership" className="bg-gray-50 px-4 md:px-14 lg:px-24 xl:px-40 pt-2 pb-24 md:py-24 flex flex-col justify-center items-center">
         <LeadershipAndFaculty />
       </div>
-      <div className="bg-gray-50 px-4 md:px-14 lg:px-24 xl:px-40 pb-24 flex flex-col justify-center items-center">
+      <div id="whyChooseUs" className="bg-gray-50 px-4 md:px-14 lg:px-24 xl:px-40 pb-24 flex flex-col justify-center items-center">
         <WhyChooseUs />
       </div>
       <div className="pt-4">

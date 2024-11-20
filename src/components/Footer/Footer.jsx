@@ -62,7 +62,7 @@ const Footer = () => {
                   ></ion-icon>
                 </span>
                 <a
-                  href="/about"
+                  href="/aboutus"
                   className="hover:text-yellow-400 duration-500 ease"
                 >
                   About Us
@@ -76,7 +76,7 @@ const Footer = () => {
                   ></ion-icon>
                 </span>
                 <a
-                  href="/programs"
+                  href="/#programs"
                   className="hover:text-yellow-400 duration-500 ease"
                 >
                   Programs
@@ -104,7 +104,7 @@ const Footer = () => {
                   ></ion-icon>
                 </span>
                 <a
-                  href="/contact"
+                  href="/contactus"
                   className="hover:text-yellow-400 duration-500 ease"
                 >
                   Contact Us
@@ -135,7 +135,7 @@ const Footer = () => {
                   <ion-icon name="caret-forward-outline"></ion-icon>
                 </span>
                 <a
-                  href="/alumni"
+                  href="/#alumni"
                   className="hover:text-yellow-400 duration-500 ease"
                 >
                   Alumni
@@ -146,7 +146,7 @@ const Footer = () => {
                   <ion-icon name="caret-forward-outline"></ion-icon>
                 </span>
                 <a
-                  href="/careers"
+                  href="/#careers"
                   className="hover:text-yellow-400 duration-500 ease"
                 >
                   Careers
@@ -157,7 +157,7 @@ const Footer = () => {
                   <ion-icon name="caret-forward-outline"></ion-icon>
                 </span>
                 <a
-                  href="/news"
+                  href="/#news"
                   className="hover:text-yellow-400 duration-500 ease"
                 >
                   News
@@ -168,7 +168,7 @@ const Footer = () => {
                   <ion-icon name="caret-forward-outline"></ion-icon>
                 </span>
                 <a
-                  href="/blog"
+                  href="/#blog"
                   className="hover:text-yellow-400 duration-500 ease"
                 >
                   Blog
