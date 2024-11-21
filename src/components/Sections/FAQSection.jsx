@@ -10,21 +10,25 @@ const FAQSection = () => {
     <section id="faqs" className="px-4 md:px-40 py-24 -w-2xl mx-auto bg-white">
       <div className="text-left">
         {/* title */}
-        <h3 className="text-primary text-sm text-left uppercase font-medium">
+        <h3 data-aos="fade-up"
+          data-aos-duration="800" className="text-primary text-sm text-left uppercase font-medium">
           FAQS
         </h3>
         {/* Subtitle */}
-        <h1 className="text-gray-700 text-3xl md:text-2xl xl:text-3xl leading-2 tracking-tight font-semibold max-w-xl mt-3 mb-6">
+        <h1 data-aos="fade-up"
+          data-aos-duration="800" className="text-gray-700 text-3xl md:text-2xl xl:text-3xl leading-2 tracking-tight font-semibold max-w-xl mt-3 mb-6">
           Frequently Asked Questions
         </h1>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-          <img
-            src={FrequestAskedQImg}
-            alt="Frequently Asked Questions Image"
-            className="rounded-3xl w-full"
-          />
-        <div>
+        <img
+          data-aos="fade-up"
+          data-aos-duration="800"
+          src={FrequestAskedQImg}
+          alt="Frequently Asked Questions Image"
+          className="rounded-3xl w-full"
+        />
+        <div data-aos="fade-up" data-aos-duration="800">
           {faqData.map((faq, index) => (
             <Accordion
               key={index}

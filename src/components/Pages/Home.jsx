@@ -7,6 +7,7 @@ import CTAButtonSticky from "../Buttons/CTAButtonSticky";
 import CTA from "../UtilityComponents/CTA";
 import FAQSection from "../Sections/FAQSection";
 import Hero from "../PageHeaders/Hero";
+import ScrollToTop from "../UtilityComponents/ScrollToTop";
 
 const Home = () => {
   return (
@@ -18,6 +19,7 @@ const Home = () => {
       <CTA />
       <FAQSection />
       <CTAButtonSticky />
+      <ScrollToTop />
     </>
   );
 };

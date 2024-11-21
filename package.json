@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@babel/preset-env": "^7.26.0",
+    "aos": "^2.3.4",
     "braces": "^3.0.3",
     "got": "^14.4.4",
     "json5": "^2.2.3",

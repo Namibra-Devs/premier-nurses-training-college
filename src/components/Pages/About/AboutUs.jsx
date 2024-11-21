@@ -8,6 +8,7 @@ import WhyChooseUs from "./WhyChooseUs";
 import LeadershipAndFaculty from "./LeadershipAndFaculty";
 import PntcInView from "../Students/SchoolFacilities/PntcInView";
 import AboutHeader from "../../PageHeaders/AboutHeader";
+import ScrollToTop from "../../UtilityComponents/ScrollToTop";
 const AboutUs = () => {
   return (
     <>
@@ -35,6 +36,7 @@ const AboutUs = () => {
       <div className="pt-4">
         <PntcInView />
       </div>
+      <ScrollToTop />
     </>
   );
 };

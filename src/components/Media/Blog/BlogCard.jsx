@@ -7,6 +7,8 @@ const BlogCard = () => {
       {Blogs.map((blog, index) => (
         // Blog item
         <a
+          data-aos="fade-up"
+          data-aos-duration="800"
           href={blog.url} // Use the URL from each blog item
           key={index}
           className="blog-item relative group rounded-3xl overflow-hidden transition-transform duration-500 transform hover:-translate-y-2"
