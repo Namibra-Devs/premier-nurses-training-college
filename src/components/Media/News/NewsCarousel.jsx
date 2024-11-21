@@ -28,7 +28,7 @@ const NewsCarousel = () => {
       }}
     >
       {News.map((newsItem) => (
-        <SwiperSlide key={newsItem.id || index} className="news-item py-10">
+        <SwiperSlide key={newsItem.id || index} className="news-item py-10" >
           <NewsCard {...newsItem}/>
         </SwiperSlide>
       ))}

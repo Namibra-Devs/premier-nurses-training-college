@@ -31,7 +31,8 @@ const MissionStatement = () => {
               the essential knowledge, clinical skills, and ethical foundations
               needed to excel in the field of nursing.
             </p>
-            <div
+            <div data-aos="fade-up"
+          data-aos-duration="800"
               className="md:absolute mt-8 md:mt-0 md:bottom-10 lg:bottom-34 xl:bottom-16 md:left-32 lg:left-44 xl:left-72 right-14 lg:right-28 
             bg-gradient-to-r from-primary to bg-blue-800 md:backdrop-blur rounded-3xl p-6"
             >
