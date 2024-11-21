@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import logo from "../../../../../assets/Logo.png";
 import SubmitButton from "../../../../Buttons/SubmitButton";
 import OverlayAlert from "../OverlayAlert";
+import ButtonLogin from "./ButtonLogin";
 
 const LoginPage = () => {
   const [formData, setFormData] = useState({
@@ -60,10 +61,16 @@ const LoginPage = () => {
             <h1 className="text-3xl text-white text-center font-bold mb-4">
               Welcome Back to PNTC!
             </h1>
-            <p className="text-sm text-gray-200 text-center">
-              Log in to continue your application process or access your
+            <p className="text-sm leading-tight text-gray-200 text-center">
+              Log in with the Voucher PIN you purchase and the new account password to continue your application process or access your
               account.
             </p>
+            <div className="flex flex-col md:flex-row items-center text-gold mt-8">
+              <p className="animate-pulse underline mb-3 md:mb-0 z-10">
+                New Applicant?{" "}
+              </p>{" "}
+              <ButtonLogin url="/registration-page" label="Register" />
+            </div>
           </div>
           <div className="absolute bottom-2 mx-auto w-full text-center py-3">
             <p className="text-xs text-white">
