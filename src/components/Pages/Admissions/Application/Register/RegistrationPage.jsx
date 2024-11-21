@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import logo from "../../../../../assets/Logo.png";
 import SubmitButton from "../../../../Buttons/SubmitButton";
 import OverlayAlert from "../OverlayAlert";
+import ButtonLogin from "../Login/ButtonLogin";
 
 const RegistrationPage = () => {
   //Form Validation Starts Here
@@ -81,11 +82,17 @@ const RegistrationPage = () => {
             <h1 className="text-4xl text-white text-center font-bold mb-4">
               Join PNTC Today!
             </h1>
-            <p className="text-lg text-gray-200 text-center">
+            <p className="text-sm leading-tight text-gray-200 text-center">
               Begin your journey in nursing with Premier Nurses' Training
               College. Register now and take your first step towards a rewarding
               career.
             </p>
+            <div className="flex flex-col md:flex-row items-center text-gold mt-8">
+              <p className="animate-pulse underline mb-3 md:mb-0 z-10">
+                Already have an account?{" "}
+              </p>{" "}
+              <ButtonLogin url="/login-page" label="Login" />
+            </div>
           </div>
           <div className="absolute bottom-2 mx-auto w-full text-center py-3">
             <p className="text-xs text-white">
