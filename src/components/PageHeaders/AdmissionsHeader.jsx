@@ -23,7 +23,7 @@ const AdmissionsHeader = () => {
             <p className="animate-pulse underline mb-3 md:mb-0 z-10">
               Already have an account?{" "}
             </p>{" "}
-            <ButtonLogin />
+            <ButtonLogin url="/login-page" label="Login" />
           </div>
         </div>
       </div>
