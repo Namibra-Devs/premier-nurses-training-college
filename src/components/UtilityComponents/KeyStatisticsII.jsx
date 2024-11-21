@@ -6,15 +6,27 @@ const KeyStatisticsII = () => {
       <div className="flex flex-col md:flex-row items-star gap-5 md:gap-10 mb-10 md:mb-0">
         <div className="text-left">
           {/* title */}
-          <h3 className="text-primary text-sm text-left uppercase font-medium">
+          <h3
+            data-aos="fade-up"
+            data-aos-duration="800"
+            className="text-primary text-sm text-left uppercase font-medium"
+          >
             Brief Highlights
           </h3>
           {/* Subtitle */}
-          <h1 className="text-gray-700 text-3xl md:text-2xl xl:text-3xl leading-2 tracking-tight font-semibold max-w-xl mt-3 mb-0 md:mb-5">
+          <h1
+            data-aos="fade-up"
+            data-aos-duration="800"
+            className="text-gray-700 text-3xl md:text-2xl xl:text-3xl leading-2 tracking-tight font-semibold max-w-xl mt-3 mb-0 md:mb-5"
+          >
             Brief Highlights for Premier Nurses' Training College
           </h1>
         </div>
-        <p className="font-normal text-base text-left md:text-right text-gray-500 max-w-lg">
+        <p
+          data-aos="fade-up"
+          data-aos-duration="800"
+          className="font-normal text-base text-left md:text-right text-gray-500 max-w-lg"
+        >
           At Premier Nurses' Training College, we are dedicated to shaping the
           future of healthcare by educating and inspiring the next generation of
           skilled and empathetic nurses.
@@ -22,7 +34,11 @@ const KeyStatisticsII = () => {
       </div>
       <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-5">
         {/* Key Statics 1 */}
-        <div className="relative bg-gray-50 rounded-3xl overflow-hidden p-6 hover:shadow-custom-light transition-transform duration-500 transform hover:-translate-y-2">
+        <div
+          data-aos="fade-up"
+          data-aos-duration="800"
+          className="relative bg-gray-50 rounded-3xl overflow-hidden p-6 hover:shadow-custom-light transition-transform duration-500 transform hover:-translate-y-2"
+        >
           <div className="mt-14">
             <div className="absolute top-0 left-0 p-4 bg-yellow-400 rounded-br-3xl text-lg font-bold text-white">
               <span className="text-4xl flex items-center">
@@ -40,7 +56,11 @@ const KeyStatisticsII = () => {
           </div>
         </div>
         {/* Key Statics 1 */}
-        <div className="relative bg-gray-50 rounded-3xl overflow-hidden p-6 hover:shadow-custom-light transition-transform duration-500 transform hover:-translate-y-2">
+        <div
+          data-aos="fade-up"
+          data-aos-duration="800"
+          className="relative bg-gray-50 rounded-3xl overflow-hidden p-6 hover:shadow-custom-light transition-transform duration-500 transform hover:-translate-y-2"
+        >
           <div className="mt-14">
             <div className="absolute top-0 left-0 p-4  bg-yellow-400 rounded-br-3xl text-lg font-bold text-white">
               <span className="text-4xl flex items-center">
@@ -59,7 +79,11 @@ const KeyStatisticsII = () => {
           </div>
         </div>
         {/* Key Statics 1 */}
-        <div className="relative bg-gray-50 rounded-3xl overflow-hidden p-6 hover:shadow-custom-light transition-transform duration-500 transform hover:-translate-y-2">
+        <div
+          data-aos="fade-up"
+          data-aos-duration="800"
+          className="relative bg-gray-50 rounded-3xl overflow-hidden p-6 hover:shadow-custom-light transition-transform duration-500 transform hover:-translate-y-2"
+        >
           <div className="mt-14">
             <div className="absolute top-0 left-0 p-4  bg-yellow-400 rounded-br-3xl text-lg font-bold text-white">
               <span className="text-4xl flex items-center">
@@ -77,7 +101,11 @@ const KeyStatisticsII = () => {
           </div>
         </div>
         {/* Key Statics 1 */}
-        <div className="relative bg-gray-50 rounded-3xl overflow-hidden p-6 hover:shadow-custom-light transition-transform duration-500 transform hover:-translate-y-2">
+        <div
+          data-aos="fade-up"
+          data-aos-duration="800"
+          className="relative bg-gray-50 rounded-3xl overflow-hidden p-6 hover:shadow-custom-light transition-transform duration-500 transform hover:-translate-y-2"
+        >
           <div className="mt-14">
             <div className="absolute top-0 left-0 p-4  bg-yellow-400 rounded-br-3xl text-lg font-bold text-white">
               <span className="text-4xl flex items-center">
@@ -96,7 +124,11 @@ const KeyStatisticsII = () => {
           </div>
         </div>
         {/* Key Statics 1 */}
-        <div className="relative bg-primary rounded-3xl overflow-hidden p-6 transition-transform duration-500 transform hover:-translate-y-2">
+        <div
+          data-aos="fade-up"
+          data-aos-duration="800"
+          className="relative bg-primary rounded-3xl overflow-hidden p-6 transition-transform duration-500 transform hover:-translate-y-2"
+        >
           <div className="mt-14">
             <div className="absolute top-0 left-0 p-4 bg-yellow-400 rounded-br-3xl text-lg font-bold text-white">
               <span className="text-4xl flex items-center">
@@ -114,7 +146,11 @@ const KeyStatisticsII = () => {
           </div>
         </div>
         {/* Key Statics 1 */}
-        <div className="relative bg-gray-50 rounded-3xl overflow-hidden p-6 hover:shadow-custom-light transition-transform duration-500 transform hover:-translate-y-2">
+        <div
+          data-aos="fade-up"
+          data-aos-duration="800"
+          className="relative bg-gray-50 rounded-3xl overflow-hidden p-6 hover:shadow-custom-light transition-transform duration-500 transform hover:-translate-y-2"
+        >
           <div className="mt-14">
             <div className="absolute top-0 left-0 p-4  bg-yellow-400 rounded-br-3xl text-lg font-bold text-white">
               <span className="text-4xl flex items-center">
