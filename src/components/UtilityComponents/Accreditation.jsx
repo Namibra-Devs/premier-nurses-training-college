@@ -5,7 +5,8 @@ const Accreditation = () => {
     <div>
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {/* Key Statics 1 */}
-        <div className="bg-gray-100 rounded-3xl overflow-hidden p-4">
+        <div data-aos="fade-up"
+        data-aos-duration="800" className="bg-gray-100 rounded-3xl overflow-hidden p-4">
           <div className="">
             <div className="text-lg font-bold text-primary">
               <span className="">01</span>
@@ -19,7 +20,8 @@ const Accreditation = () => {
           </div>
         </div>
         {/* Key Statics 2 */}
-        <div className="bg-gray-100 rounded-3xl overflow-hidden p-4">
+        <div data-aos="fade-up"
+        data-aos-duration="800" className="bg-gray-100 rounded-3xl overflow-hidden p-4">
           <div className="">
             <div className="text-lg font-bold text-primary">
               <span className="">02</span>
@@ -33,7 +35,8 @@ const Accreditation = () => {
           </div>
         </div>
         {/* Key Statics 3 */}
-        <div className="bg-gray-100 rounded-3xl overflow-hidden p-4">
+        <div  data-aos="fade-up"
+        data-aos-duration="800"className="bg-gray-100 rounded-3xl overflow-hidden p-4">
           <div className="">
             <div className="text-lg font-bold text-primary">
               <span className="">03</span>

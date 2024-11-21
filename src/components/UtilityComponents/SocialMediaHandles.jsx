@@ -4,7 +4,8 @@ const SocialMediaHandles = ({iconColor, gap}) => {
   return (
     <>
       {/* Social media */}
-      <div className={`flex ${gap} space-x-4 mb-4 md:mb-0 mt-6 md:mt-0`}>
+      <div data-aos="fade-up"
+        data-aos-duration="800" className={`flex ${gap} space-x-4 mb-4 md:mb-0 mt-6 md:mt-0`}>
         <a
           href="https://facebook.com"
           target="_blank"

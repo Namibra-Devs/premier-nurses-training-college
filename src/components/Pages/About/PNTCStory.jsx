@@ -18,15 +18,18 @@ const PNTCStory = () => {
           </div>
           <div className="mission-right md:max-w-[50%] mt-10 md:mt-0">
             {/* title */}
-            <h3 className="text-yellow-400 text-sm text-left uppercase font-medium">
+            <h3 data-aos="fade-up"
+          data-aos-duration="800" className="text-yellow-400 text-sm text-left uppercase font-medium">
               Uncover the heartwarming story
             </h3>
             {/* Subtitle */}
-            <h1 className="text-white text-3xl md:text-2xl lg:text-4xl leading-2 tracking-tight font-semibold my-3">
+            <h1 data-aos="fade-up"
+          data-aos-duration="800" className="text-white text-3xl md:text-2xl lg:text-4xl leading-2 tracking-tight font-semibold my-3">
               We've been dedicated to empowering healthcare professionals
               through...
             </h1>
-            <p className="font-normal text-base text-gray-50 max-w-xl mt-8">
+            <p data-aos="fade-up"
+          data-aos-duration="800" className="font-normal text-base text-gray-50 max-w-xl mt-8">
               At Premier Nurses' Training College, we are dedicated to shaping
               the future of healthcare by educating and inspiring the next
               generation of skilled and empathetic nurses.
