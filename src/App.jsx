@@ -13,7 +13,6 @@ import ApplicationPage from "./components/Pages/Admissions/Application/Applicati
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-AOS.init();
 const App = () => {
   const location = useLocation();
 
@@ -43,5 +42,6 @@ const App = () => {
     </>
   );
 };
+AOS.init();
 
 export default App;
