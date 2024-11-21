@@ -6,23 +6,27 @@ const WhatWeOffer = () => {
       <div className="flex flex-col md:flex-row items-start justify-between gap-5 md:gap-10 mb-10 md:mb-0">
         <div className="text-left">
           {/* title */}
-          <h3 className="text-white text-sm text-left uppercase font-medium">
+          <h3 data-aos="fade-up"
+          data-aos-duration="400" className="text-white text-sm text-left uppercase font-medium">
             What We Offer At{" "}
             <span className="text-yellow-400 font-semibold">PNTC</span>
           </h3>
           {/* Subtitle */}
-          <h1 className="text-white text-2xl leading-2 tracking-tight font-semibold max-w-full mt-3 mb-0 md:mb-5">
+          <h1 data-aos="fade-up"
+          data-aos-duration="500" className="text-white text-2xl leading-2 tracking-tight font-semibold max-w-full mt-3 mb-0 md:mb-5">
             What We Offer
           </h1>
         </div>
-        <p className="font-normal text-base text-left md:text-right text-gray-50 max-w-lg">
+        <p data-aos="fade-up"
+          data-aos-duration="600" className="font-normal text-base text-left md:text-right text-gray-50 max-w-lg">
           We strive to empower our students with a quality education that
           combines rigorous academics with real-world application.
         </p>
       </div>
       <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-4">
         {/* Key Statics 1 */}
-        <div className="relative bg-blue-100 rounded-3xl overflow-hidden p-6 hover:shadow-custom-light transition-transform duration-500 transform hover:-translate-y-2">
+        <div data-aos="fade-up"
+          data-aos-duration="400" className="relative bg-blue-100 rounded-3xl overflow-hidden p-6 hover:shadow-custom-light transition-transform duration-500 transform hover:-translate-y-2">
           <div className="mt-14">
             <div className="absolute top-0 left-0 p-4 bg-yellow-400 rounded-br-3xl text-lg font-bold text-white">
               <span className="text-4xl flex items-center">
@@ -39,7 +43,8 @@ const WhatWeOffer = () => {
           </div>
         </div>
         {/* Key Statics 2 */}
-        <div className="relative bg-blue-100 rounded-3xl overflow-hidden p-6 hover:shadow-custom-light transition-transform duration-500 transform hover:-translate-y-2">
+        <div data-aos="fade-up"
+          data-aos-duration="500" className="relative bg-blue-100 rounded-3xl overflow-hidden p-6 hover:shadow-custom-light transition-transform duration-500 transform hover:-translate-y-2">
           <div className="mt-14">
             <div className="absolute top-0 left-0 p-4  bg-yellow-400 rounded-br-3xl text-lg font-bold text-white">
               <span className="text-4xl flex items-center">
@@ -55,7 +60,8 @@ const WhatWeOffer = () => {
           </div>
         </div>
         {/* Key Statics 3 */}
-        <div className="relative bg-blue-100 rounded-3xl overflow-hidden p-6 hover:shadow-custom-light transition-transform duration-500 transform hover:-translate-y-2">
+        <div data-aos="fade-up"
+          data-aos-duration="600" className="relative bg-blue-100 rounded-3xl overflow-hidden p-6 hover:shadow-custom-light transition-transform duration-500 transform hover:-translate-y-2">
           <div className="mt-14">
             <div className="absolute top-0 left-0 p-4  bg-yellow-400 rounded-br-3xl text-lg font-bold text-white">
               <span className="text-4xl flex items-center">
@@ -72,7 +78,8 @@ const WhatWeOffer = () => {
           </div>
         </div>
         {/* Key Statics 4 */}
-        <div className="relative bg-blue-100 rounded-3xl overflow-hidden p-6 hover:shadow-custom-light transition-transform duration-500 transform hover:-translate-y-2">
+        <div data-aos="fade-up"
+          data-aos-duration="700" className="relative bg-blue-100 rounded-3xl overflow-hidden p-6 hover:shadow-custom-light transition-transform duration-500 transform hover:-translate-y-2">
           <div className="mt-14">
             <div className="absolute top-0 left-0 p-4  bg-yellow-400 rounded-br-3xl text-lg font-bold text-white">
               <span className="text-4xl flex items-center">

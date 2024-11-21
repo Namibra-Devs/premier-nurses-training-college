@@ -10,12 +10,19 @@ import ContactUs from "./components/Pages/ContactUs/ContactUs";
 import RegistrationPage from "./components/Pages/Admissions/Application/Register/RegistrationPage";
 import LoginPage from "./components/Pages/Admissions/Application/Login/LoginPage";
 import ApplicationPage from "./components/Pages/Admissions/Application/ApplicationPage";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
+AOS.init();
 const App = () => {
   const location = useLocation();
 
   // Definition of the route where footer should not appear
-  const hideFooterRoutes = ['/registration-page', '/login-page', '/application-page'];
+  const hideFooterRoutes = [
+    "/registration-page",
+    "/login-page",
+    "/application-page",
+  ];
 
   return (
     <>
