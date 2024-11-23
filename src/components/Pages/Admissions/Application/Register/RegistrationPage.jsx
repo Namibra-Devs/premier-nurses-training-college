@@ -68,9 +68,9 @@ const RegistrationPage = () => {
     <div className="flex flex-col md:flex-row min-h-screen items-center justify-center bg-gray-100">
       {/* Overlay Alert! */}
       {/* Render the overly "message" to change to "successful!" when Registration is successful. */}
-      {showAlert && <OverlayAlert message="Processing your login..." />}
+      {showAlert && <OverlayAlert message="Processing your Registration..." />}
 
-      <div className="w-4/5 max-w-6xl grid grid-cols-1 md:grid-cols-2 my-6 bg-white shadow-lg rounded-xl overflow-hidden">
+      <div className="md:w-4/5 max-w-6xl grid grid-cols-1 md:grid-cols-2 my-6 bg-white shadow-lg rounded-xl overflow-hidden">
         {/* Left Column */}
         <div className="relative bg-RegLoginBg bg-cover bg-center py-56">
           <div className="absolute z-50 top-6 w-full flex justify-center">
