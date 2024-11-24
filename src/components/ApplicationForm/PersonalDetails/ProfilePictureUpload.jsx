@@ -1,12 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { ProfileContext } from "./ProfileContext";
 
 const ProfilePictureUpload = () => {
   const [preview, setPreview] = useState("");
+  const { setProfilePicture } = useContext(ProfileContext);
 
   const handleFileUpload = (e) => {
     const file = e.target.files[0];
     if (file) {
       setPreview(URL.createObjectURL(file)); // Create a URL for the image
+      const reader = new FileReader();
+      reader.onloadend = () => setProfilePicture(reader.result);
+      reader.readAsDataURL(file);
     }
   };
 

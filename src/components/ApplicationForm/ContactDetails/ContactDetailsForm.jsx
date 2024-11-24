@@ -1,6 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const ContactDetailsForm = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  // Load program data on component mount
+  useEffect(() => {
+    setTimeout(() => setIsVisible(true), 100); // Trigger the animation
+  }, []);
+
+
+
   const [formData, setFormData] = useState({
     // Contact Details---------
     permanentAddress: "",
@@ -21,9 +30,12 @@ const ContactDetailsForm = () => {
   return (
     <div>
       {/* Contact Details */}
-      <div data-aos="fade-up" data-aos-duration="800">
-        <h3 className="text-2xl font-semibold mb-4">Contact Details</h3>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+      <div className={`bg-white p-6 rounded transform transition-transform duration-500 ${
+            isVisible ? "scale-100 opacity-100" : "scale-90 opacity-0"
+          }`}>
+        <h3 className="text-2xl font-semibold mb-6">Contact Details</h3>
+        <div
+          className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
             <label className="block font-medium mb-2">Email</label>
             <input

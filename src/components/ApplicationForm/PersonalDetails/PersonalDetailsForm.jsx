@@ -1,7 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ProfilePictureUpload from "./ProfilePictureUpload";
 
-const PersonalDetailsForm = () => {
+const PersonalDetailsForm = ({preview, setPreview}) => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  // Load program data on component mount
+  useEffect(() => {
+    
+    setTimeout(() => setIsVisible(true), 100); // Trigger the animation
+  }, []);
+
+
   const [formData, setFormData] = useState({
     profilePicture: null,
     // Personal Information--------
@@ -52,17 +61,19 @@ const PersonalDetailsForm = () => {
   };
 
   return (
-    <div className="" data-aos="fade-up" data-aos-duration="800">
+    <div className={`bg-white p-6 rounded transform transition-transform duration-500 ${
+      isVisible ? "scale-100 opacity-100" : "scale-90 opacity-0"
+    }`}>
       <div className="flex flex-col md:flex-row justify-between items-center">
         <h2 className="text-2xl font-semibold mb-4">Personal Details</h2>
         {/* Profile Picture Upload */}
         <div className="mb-4">
-          <ProfilePictureUpload />
+          <ProfilePictureUpload preview={preview} setPreview={setPreview} />
         </div>
       </div>
 
       {/* Name Fields */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-2">
         <div>
           <label className="block font-medium mb-2">Surname</label>
           <input
@@ -106,10 +117,6 @@ const PersonalDetailsForm = () => {
             <option value="Female">Female</option>
           </select>
         </div>
-      </div>
-
-      {/* Date of Birth and Age ------*/}
-      <div className="grid grid-cols-1 sm:grid-cols-4 gap-4 mb-3">
         <div>
           <label className="block font-medium mb-2">Date of Birth</label>
           <input
@@ -120,31 +127,36 @@ const PersonalDetailsForm = () => {
             className="w-full border rounded p-2"
           />
         </div>
-        <div>
-          <label className="block font-medium mb-2">Age</label>
-          <input
-            type="number"
-            name="age"
-            value={formData.age}
-            onChange={handleInputChange}
-            className="w-full border rounded p-2"
-          />
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label className="block font-medium mb-2">Age</label>
+            <input
+              type="number"
+              name="age"
+              value={formData.age}
+              onChange={handleInputChange}
+              className="w-full border rounded p-2"
+            />
+          </div>
+          <div className="mb-4">
+            <label className="block font-medium mb-2">Marital Status</label>
+            <select
+              name="maritalStatus"
+              value={formData.maritalStatus}
+              onChange={handleInputChange}
+              className="w-full border rounded p-2"
+            >
+              <option value="Single">Single</option>
+              <option value="Married">Married</option>
+            </select>
+          </div>
         </div>
-        {/* Marital Status and Languages */}
-        <div className="mb-4">
-          <label className="block font-medium mb-2">Marital Status</label>
-          <select
-            name="maritalStatus"
-            value={formData.maritalStatus}
-            onChange={handleInputChange}
-            className="w-full border rounded p-2"
-          >
-            <option value="Single">Single</option>
-            <option value="Married">Married</option>
-          </select>
-        </div>
+      </div>
+
+      {/* Date of Birth and Age ------*/}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {/* Languages Spoken*/}
-        <div className="mb-4">
+        <div>
           <label className="block font-medium mb-2">Languages Spoken</label>
           <input
             type="text"
@@ -154,10 +166,6 @@ const PersonalDetailsForm = () => {
             className="w-full border rounded p-2"
           />
         </div>
-      </div>
-
-      {/* Other Personal Information */}
-      <div className="grid grid-cols-1 md:grid-cols-5 gap-4 mb-4">
         <div>
           <label className="block font-medium mb-2">Place of Birth</label>
           <input
@@ -211,11 +219,11 @@ const PersonalDetailsForm = () => {
       </div>
 
       {/* Parent/Guardian Details */}
-      <div className="">
+      <div className="mt-10">
         <h2 className="text-xl font-semibold mb-3">
           Parent/Guardian Information
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
             <label className="block font-medium mb-2">Name</label>
             <input
@@ -258,16 +266,7 @@ const PersonalDetailsForm = () => {
           </div>
         </div>
       </div>
-
-      {/* Navigation Buttons */}
-      <div className="flex justify-between mt-3">
-        <button className="bg-gray-300 text-gray-700 px-4 py-2 rounded">
-          Previous
-        </button>
-        <button className="bg-blue-500 text-white px-4 py-2 rounded">
-          Save and Continue
-        </button>
-      </div>
+      
     </div>
   );
 };
