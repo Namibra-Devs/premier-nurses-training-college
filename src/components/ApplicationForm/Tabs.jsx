@@ -1,18 +1,26 @@
 import React from "react";
 
-const Tabs = ({ tabs, currentTab, setCurrentTab }) => {
+const Tabs = ({ tabs, currentTab, setCurrentTab, open }) => {
   return (
-    <div className="bg-white h-screen w-[30%] rounded mt-3 pr-4 flex flex-col items-start justify-start gap-2 border-l border-blue-100">
+    <div
+      className={`bg-white h-full my-auto overflow-hidden rounded pr-4 flex flex-col items-start justify-start gap-2 transition-all duration-700 ease-in-out ${
+        open ? "w-[30%]" : "w-[3.5%]"
+      }`}
+    >
       {tabs.map((tab, index) => (
         <button
           key={index}
-          className={`flex items-center gap-2 py-2 pl-2 text-lg ${
-            currentTab === index ? "border-l-2 border-blue-500 text-blue-600" : "text-gray-700"
-          }`}
+          className={`flex items-center w-full text-left gap-2 py-2 text-sm leading-[10px] ${
+            currentTab === index
+              ? "border-l-2 bg-primary text-white rounded"
+              : "text-gray-700"
+          } `}
           onClick={() => setCurrentTab(index)}
         >
-          <span className="text-xl">{tab.icon}</span>
-          <span>{tab.label}</span>
+          <span className="text-2xl">{tab.icon}</span>
+          <span className={`${open ? "opacity-100" : "opacity-0"} transition-opacity duration-1000`}>
+            {tab.label}
+          </span>
         </button>
       ))}
     </div>

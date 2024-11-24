@@ -23,7 +23,7 @@ const ContactDetailsForm = () => {
       {/* Contact Details */}
       <div data-aos="fade-up" data-aos-duration="800">
         <h3 className="text-2xl font-semibold mb-4">Contact Details</h3>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4 bg-white p-6 rounded-2xl">
           <div>
             <label className="block font-medium mb-2">Email</label>
             <input

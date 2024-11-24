@@ -62,11 +62,11 @@ const Results = () => {
   };
 
    return (
-    <div className="p-4" data-aos="fade-up" data-aos-duration="800">
+    <div className="w-full" data-aos="fade-up" data-aos-duration="800">
       <h2 className="text-2xl font-semibold mb-4">Results</h2>
 
       {/* Input Form */}
-      <div className="grid gap-4 mb-6">
+      <div className="grid gap-4 mb-6 bg-white p-6 rounded-2xl">
         <div className="grid grid-cols-2 gap-4">
           <div>
           <label className="block font-medium mb-2">Exams Type</label>

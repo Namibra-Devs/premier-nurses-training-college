@@ -38,11 +38,11 @@ const EducationalBackground = () => {
   };
 
   return (
-    <div className="p-4" data-aos="fade-up" data-aos-duration="800">
+    <div className="" data-aos="fade-up" data-aos-duration="800">
       <h2 className="text-2xl font-semibold mb-4">Educational Background</h2>
 
       {/* Input Form */}
-      <div className="grid gap-4 mb-6">
+      <div className="grid gap-4 mb-6 bg-white p-6 rounded-2xl">
         <div>
           <label className="block font-medium mb-2">School Name</label>
           <input
@@ -102,7 +102,7 @@ const EducationalBackground = () => {
 
       {/* Education List */}
       {educations.length > 0 && (
-        <div data-aos="fade-up" data-aos-duration="800">
+        <div >
           <h3 className="text-xl font-semibold mb-2">Added Education List</h3>
           <ul className="space-y-4">
             {educations.map((edu) => (
