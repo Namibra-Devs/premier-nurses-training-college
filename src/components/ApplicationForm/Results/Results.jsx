@@ -1,7 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { AiOutlineEdit, AiOutlineDelete, AiOutlinePlus } from "react-icons/ai";
 
 const Results = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  // Load program data on component mount
+  useEffect(() => {
+    setTimeout(() => setIsVisible(true), 100); // Trigger the animation
+  }, []);
+
   const [results, setResults] = useState([]);
   const [form, setForm] = useState({
     examType: "WAEC",
@@ -61,15 +68,18 @@ const Results = () => {
     setResults(results.filter((result) => result.id !== id));
   };
 
-   return (
-    <div className="w-full" data-aos="fade-up" data-aos-duration="800">
-      <h2 className="text-2xl font-semibold mb-4">Results</h2>
-
+  return (
+    <div className="w-full">
       {/* Input Form */}
-      <div className="grid gap-4 mb-6 bg-white p-6 rounded-2xl">
+      <div
+        className={`grid gap-4 bg-white p-6 rounded transform transition-transform duration-500 ${
+          isVisible ? "scale-100 opacity-100" : "scale-90 opacity-0"
+        }`}
+      >
+        <h2 className="text-2xl font-semibold mb-3">Results</h2>
         <div className="grid grid-cols-2 gap-4">
           <div>
-          <label className="block font-medium mb-2">Exams Type</label>
+            <label className="block font-medium mb-2">Exams Type</label>
             <select
               name="examType"
               value={form.examType}
@@ -99,7 +109,7 @@ const Results = () => {
             />
           </div>
           <div>
-          <label className="block font-medium mb-2">Subject Type</label>
+            <label className="block font-medium mb-2">Subject Type</label>
             <select
               name="subjectType"
               value={form.subjectType}
@@ -129,8 +139,8 @@ const Results = () => {
               placeholder="Grade"
               value={form.grade}
               onChange={handleChange}
-              className="w-full p-2 border border-gray-300 rounded mb-2">
-
+              className="w-full p-2 border border-gray-300 rounded mb-2"
+            >
               <option value="">Select Grade</option>
               {grades.map((grade, index) => (
                 <option key={index} value={grade}>
@@ -141,20 +151,20 @@ const Results = () => {
           </div>
         </div>
         <div>
-        <button
-          onClick={handleAddResult}
-          className="flex items-center float-right gap-2 bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600"
-        >
-          <AiOutlinePlus />
-          Add Result
-        </button>
+          <button
+            onClick={handleAddResult}
+            className="flex items-center float-right gap-2 bg-primary text-white py-2 px-4 rounded hover:bg-blue-600"
+          >
+            <AiOutlinePlus />
+            Add Result
+          </button>
         </div>
       </div>
 
       {/* Results List */}
       {results.length > 0 && (
         <div data-aos="fade-up" data-aos-duration="800">
-          <h3 className="text-xl font-semibold mb-2">Added Results</h3>
+          <h3 className="text-xl font-semibold mb-2">Added Results List</h3>
           <table className="w-full border-collapse border border-gray-300">
             <thead className="bg-blue-100">
               <tr>

@@ -1,7 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { AiOutlineEdit, AiOutlineDelete, AiOutlinePlus } from "react-icons/ai";
 
 const EducationalBackground = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  // Load program data on component mount
+  useEffect(() => {
+    setTimeout(() => setIsVisible(true), 100); // Trigger the animation
+  }, []);
+
   const [educations, setEducations] = useState([]);
   const [form, setForm] = useState({
     schoolName: "",
@@ -38,11 +45,14 @@ const EducationalBackground = () => {
   };
 
   return (
-    <div className="" data-aos="fade-up" data-aos-duration="800">
-      <h2 className="text-2xl font-semibold mb-4">Educational Background</h2>
-
+    <div>
       {/* Input Form */}
-      <div className="grid gap-4 mb-6 bg-white p-6 rounded-2xl">
+      <div
+        className={`grid gap-4 bg-white p-6 rounded transform transition-transform duration-500 ${
+          isVisible ? "scale-100 opacity-100" : "scale-90 opacity-0"
+        }`}
+      >
+        <h2 className="text-2xl font-semibold mb-3">Educational Background</h2>
         <div>
           <label className="block font-medium mb-2">School Name</label>
           <input
@@ -92,7 +102,7 @@ const EducationalBackground = () => {
         <div>
           <button
             onClick={handleAddEducation}
-            className="flex items-center float-right gap-2 bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600"
+            className="flex items-center float-right gap-2 bg-primary text-white py-2 px-4 rounded hover:bg-blue-600"
           >
             <AiOutlinePlus />
             Add Education
@@ -102,7 +112,7 @@ const EducationalBackground = () => {
 
       {/* Education List */}
       {educations.length > 0 && (
-        <div >
+        <div>
           <h3 className="text-xl font-semibold mb-2">Added Education List</h3>
           <ul className="space-y-4">
             {educations.map((edu) => (

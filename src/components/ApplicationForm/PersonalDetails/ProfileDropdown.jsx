@@ -24,30 +24,42 @@ const ProfileDropdown = () => {
             className="w-full h-full object-cover"
           />
         ) : (
-          <ion-icon
-            name="person-circle-outline"
-            className="text-3xl text-gray-500"
-          ></ion-icon>
+          <div className="text-4xl flex items-center text-gray-500">
+            <ion-icon name="person-circle-outline"></ion-icon>
+          </div>
         )}
       </span>
 
       {/* Dropdown Menu */}
-      <div
-        className={`absolute right-0 mt-2 bg-white shadow-lg rounded-lg w-40 z-10 overflow-hidden transition-transform duration-300 ease-in-out ${
-          isDropdownOpen
-            ? "scale-100 opacity-100"
-            : "scale-75 opacity-0 pointer-events-none"
-        }`}
-      >
-        <div className="px-4 py-2 border-b text-gray-800 font-medium">
-          John Doe
-        </div>
-        <button
-          onClick={handleLogout}
-          className="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100"
+      <div className="relative">
+        <div
+          className={`absolute right-0 mt-2 bg-gray-50 shadow-custom-light rounded w-40 z-10 overflow-hidden transition-transform duration-300 ease-in-out ${
+            isDropdownOpen
+              ? "scale-100 opacity-100"
+              : "scale-75 opacity-0 pointer-events-none"
+          }`}
         >
-          Logout
-        </button>
+          {/* Blue Arrow */}
+          <div
+            className="absolute top-[-10px] right-2 w-4 h-4 bg-blue-500 transform rotate-45"
+            style={{ zIndex: -1 }}
+          ></div>
+
+          {/* Name Option */}
+          <div className="flex items-center px-4 py-2 border-b text-gray-800 font-medium gap-2">
+            <ion-icon name="person-circle-outline" class="text-xl"></ion-icon>
+            John Doe
+          </div>
+
+          {/* Logout Option */}
+          <button
+            onClick={handleLogout}
+            className="flex items-center w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100 gap-2"
+          >
+            <ion-icon name="log-out-outline" class="text-xl"></ion-icon>
+            Logout
+          </button>
+        </div>
       </div>
     </div>
   );
