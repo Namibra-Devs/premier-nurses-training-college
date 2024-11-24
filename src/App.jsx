@@ -9,9 +9,9 @@ import Students from "./components/Pages/Students/Students";
 import ContactUs from "./components/Pages/ContactUs/ContactUs";
 import RegistrationPage from "./components/Pages/Admissions/Application/Register/RegistrationPage";
 import LoginPage from "./components/Pages/Admissions/Application/Login/LoginPage";
-import ApplicationPage from "./components/Pages/Admissions/Application/ApplicationPage";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import ApplicationPage from "./components/ApplicationForm/ApplicationPage";
 
 const App = () => {
   const location = useLocation();
@@ -34,7 +34,7 @@ const App = () => {
         <Route path="/contactus" element={<ContactUs />} />
         <Route path="/registration-page" element={<RegistrationPage />} />
         <Route path="/login-page" element={<LoginPage />} />
-        <Route path="/application-page" element={<ApplicationPage />} />
+        <Route path="/application-page" element={<ApplicationPage/>} />
       </Routes>
 
       {/* Conditionally render Footer */}
