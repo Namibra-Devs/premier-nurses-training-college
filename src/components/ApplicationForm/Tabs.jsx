@@ -3,7 +3,7 @@ import React from "react";
 const Tabs = ({ tabs, currentTab, setCurrentTab, open }) => {
   return (
     <div
-      className={`bg-white h-full my-auto overflow-hidden rounded pr-4 flex flex-col items-start justify-start gap-2 transition-all duration-700 ease-in-out ${
+      className={`bg-white h-full my-auto overflow-hidden pr-4 flex flex-col items-start justify-start gap-2 transition-all duration-700 ease-in-out ${
         open ? "w-[30%]" : "w-[3.5%]"
       }`}
     >
@@ -12,7 +12,7 @@ const Tabs = ({ tabs, currentTab, setCurrentTab, open }) => {
           key={index}
           className={`flex items-center w-full text-left gap-2 py-2 text-sm leading-[10px] ${
             currentTab === index
-              ? "border-l-2 bg-primary text-white rounded"
+              ? " bg-primary shadow-custom-light text-white rounded"
               : "text-gray-700"
           } `}
           onClick={() => setCurrentTab(index)}

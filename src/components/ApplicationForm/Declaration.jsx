@@ -1,31 +1,33 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const Declaration = () => {
-  const [name, setName] = useState("");
-  const [date, setDate] = useState("");
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  // Load program data on component mount
+  useEffect(() => {
+    setTimeout(() => setIsVisible(true), 100); // Trigger the animation
+  }, []);
 
-    if (name.trim() === "" || date.trim() === "") {
-      alert("Please fill in all fields before submitting.");
-      return;
-    }
 
-    setIsSubmitted(true);
-    alert("Declaration submitted successfully!");
-  };
+
+  const [formData, setFormData] = useState({
+    name: "",
+    date: ""
+  });
+
+
 
   return (
-    <div className="bg-white p-6 rounded shadow-md">
-      <h2 className="text-2xl font-bold mb-6">Declaration</h2>
+    <div className={`bg-white p-6 rounded transform transition-transform duration-500 ${
+      isVisible ? "scale-100 opacity-100" : "scale-90 opacity-0"
+    }`}>
+      <h2 className="text-2xl font-semibold mb-6">Declaration</h2>
 
       <p className="text-gray-700 mb-4">
         I hereby declare that the information given above is true.
       </p>
 
-      <form onSubmit={handleSubmit} className="space-y-4">
+      <form className="space-y-4">
         {/* Name Field */}
         <div>
           <label
@@ -37,8 +39,8 @@ const Declaration = () => {
           <input
             id="name"
             type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+            value={formData.name}
+            onChange={(e) => setFormData(e.target.value)}
             placeholder="Enter your name"
             className="block w-full p-3 border border-gray-300 rounded"
           />
@@ -55,29 +57,12 @@ const Declaration = () => {
           <input
             id="date"
             type="date"
-            value={date}
-            onChange={(e) => setDate(e.target.value)}
+            value={formData.date}
+            onChange={(e) => setFormData(e.target.value)}
             className="block w-full p-3 border border-gray-300 rounded"
           />
         </div>
-
-        {/* Submit Button */}
-        <div className="flex justify-end">
-          <button
-            type="submit"
-            className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition"
-          >
-            Submit Declaration
-          </button>
-        </div>
       </form>
-
-      {/* Confirmation Message */}
-      {isSubmitted && (
-        <p className="mt-4 text-green-600 font-medium">
-          Thank you for submitting your declaration, {name}!
-        </p>
-      )}
     </div>
   );
 };

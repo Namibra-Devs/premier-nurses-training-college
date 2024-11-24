@@ -1,7 +1,19 @@
-import React, { useState } from "react";
-import { AiOutlineFilePdf, AiOutlineIdcard, AiOutlineUser, AiOutlineUpload } from "react-icons/ai";
+import React, { useState, useEffect } from "react";
+import {
+  AiOutlineFilePdf,
+  AiOutlineIdcard,
+  AiOutlineUser,
+  AiOutlineUpload,
+} from "react-icons/ai";
 
 const UploadDocuments = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  // Load program data on component mount
+  useEffect(() => {
+    setTimeout(() => setIsVisible(true), 100); // Trigger the animation
+  }, []);
+
   const [referee, setReferee] = useState({
     name: "",
     address: "",
@@ -22,8 +34,12 @@ const UploadDocuments = () => {
   };
 
   return (
-    <div className="bg-white p-6 rounded shadow-md">
-      <h2 className="text-2xl font-bold mb-6 flex items-center gap-2">
+    <div
+      className={`bg-white p-6 rounded transform transition-transform duration-500 ${
+        isVisible ? "scale-100 opacity-100" : "scale-90 opacity-0"
+      }`}
+    >
+      <h2 className="text-2xl font-semibold mb-6 flex items-center gap-2">
         <AiOutlineFilePdf className="text-blue-500" /> Upload Academic Documents
       </h2>
 
@@ -33,7 +49,7 @@ const UploadDocuments = () => {
           <label className="block text-gray-700 font-medium mb-2">
             Results & Certificate (Combine as one PDF)
           </label>
-          <label className="flex items-center gap-2 cursor-pointer text-blue-500 hover:underline">
+          <label className=" flex items-center gap-2 cursor-pointer text-blue-500 hover:underline p-2 bg-gray-100 border border-gray-300 rounded hover:bg-gray-200">
             <AiOutlineUpload className="text-xl" />
             <span>Browse File</span>
             <input
@@ -63,7 +79,7 @@ const UploadDocuments = () => {
             <option value="Voter ID">Voter ID</option>
             <option value="Student ID">Student ID</option>
           </select>
-          <label className="flex items-center gap-2 cursor-pointer text-blue-500 hover:underline">
+          <label className="flex items-center gap-2 cursor-pointer text-blue-500 hover:underline py-2 pl-1 bg-gray-100 border border-gray-300 rounded hover:bg-gray-200">
             <AiOutlineUpload className="text-xl" />
             <span>Browse File</span>
             <input
@@ -73,7 +89,9 @@ const UploadDocuments = () => {
               className="hidden"
             />
           </label>
-          {idFile && <p className="text-sm text-green-600 mt-1">{idFile.name}</p>}
+          {idFile && (
+            <p className="text-sm text-green-600 mt-1">{idFile.name}</p>
+          )}
         </div>
 
         {/* Referee Details */}
@@ -100,7 +118,9 @@ const UploadDocuments = () => {
             type="text"
             placeholder="Enter Address"
             value={referee.address}
-            onChange={(e) => setReferee({ ...referee, address: e.target.value })}
+            onChange={(e) =>
+              setReferee({ ...referee, address: e.target.value })
+            }
             className="block w-full p-2 border border-gray-300 rounded mb-4"
           />
           <label className="block text-gray-700 font-medium mb-2">
@@ -110,13 +130,15 @@ const UploadDocuments = () => {
             type="text"
             placeholder="Enter Contact"
             value={referee.contact}
-            onChange={(e) => setReferee({ ...referee, contact: e.target.value })}
+            onChange={(e) =>
+              setReferee({ ...referee, contact: e.target.value })
+            }
             className="block w-full p-2 border border-gray-300 rounded mb-4"
           />
           <label className="block text-gray-700 font-medium mb-2">
             Upload Referee Letter (PDF only)
           </label>
-          <label className="flex items-center gap-2 cursor-pointer text-blue-500 hover:underline">
+          <label className="flex items-center gap-2 cursor-pointer text-blue-500 hover:underline p-2 bg-gray-100 border border-gray-300 rounded hover:bg-gray-200">
             <AiOutlineUpload className="text-xl" />
             <span>Browse File</span>
             <input
