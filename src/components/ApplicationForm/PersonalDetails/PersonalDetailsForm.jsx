@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ProfilePictureUpload from "./ProfilePictureUpload";
 
-const PersonalDetailsForm = () => {
+const PersonalDetailsForm = ({preview, setPreview}) => {
   const [formData, setFormData] = useState({
     profilePicture: null,
     // Personal Information--------
@@ -57,12 +57,12 @@ const PersonalDetailsForm = () => {
         <h2 className="text-2xl font-semibold mb-4">Personal Details</h2>
         {/* Profile Picture Upload */}
         <div className="mb-4">
-          <ProfilePictureUpload />
+          <ProfilePictureUpload preview={preview} setPreview={setPreview} />
         </div>
       </div>
 
       {/* Name Fields */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-2 bg-white p-6 rounded-2xl ">
         <div>
           <label className="block font-medium mb-2">Surname</label>
           <input
@@ -106,10 +106,6 @@ const PersonalDetailsForm = () => {
             <option value="Female">Female</option>
           </select>
         </div>
-      </div>
-
-      {/* Date of Birth and Age ------*/}
-      <div className="grid grid-cols-1 sm:grid-cols-4 gap-4 mb-3">
         <div>
           <label className="block font-medium mb-2">Date of Birth</label>
           <input
@@ -120,31 +116,36 @@ const PersonalDetailsForm = () => {
             className="w-full border rounded p-2"
           />
         </div>
-        <div>
-          <label className="block font-medium mb-2">Age</label>
-          <input
-            type="number"
-            name="age"
-            value={formData.age}
-            onChange={handleInputChange}
-            className="w-full border rounded p-2"
-          />
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label className="block font-medium mb-2">Age</label>
+            <input
+              type="number"
+              name="age"
+              value={formData.age}
+              onChange={handleInputChange}
+              className="w-full border rounded p-2"
+            />
+          </div>
+          <div className="mb-4">
+            <label className="block font-medium mb-2">Marital Status</label>
+            <select
+              name="maritalStatus"
+              value={formData.maritalStatus}
+              onChange={handleInputChange}
+              className="w-full border rounded p-2"
+            >
+              <option value="Single">Single</option>
+              <option value="Married">Married</option>
+            </select>
+          </div>
         </div>
-        {/* Marital Status and Languages */}
-        <div className="mb-4">
-          <label className="block font-medium mb-2">Marital Status</label>
-          <select
-            name="maritalStatus"
-            value={formData.maritalStatus}
-            onChange={handleInputChange}
-            className="w-full border rounded p-2"
-          >
-            <option value="Single">Single</option>
-            <option value="Married">Married</option>
-          </select>
-        </div>
+      </div>
+
+      {/* Date of Birth and Age ------*/}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 bg-white p-6 rounded-2xl mt-6">
         {/* Languages Spoken*/}
-        <div className="mb-4">
+        <div>
           <label className="block font-medium mb-2">Languages Spoken</label>
           <input
             type="text"
@@ -154,10 +155,6 @@ const PersonalDetailsForm = () => {
             className="w-full border rounded p-2"
           />
         </div>
-      </div>
-
-      {/* Other Personal Information */}
-      <div className="grid grid-cols-1 md:grid-cols-5 gap-4 mb-4">
         <div>
           <label className="block font-medium mb-2">Place of Birth</label>
           <input
@@ -210,12 +207,13 @@ const PersonalDetailsForm = () => {
         </div>
       </div>
 
+
       {/* Parent/Guardian Details */}
-      <div className="">
+      <div className="mt-10">
         <h2 className="text-xl font-semibold mb-3">
           Parent/Guardian Information
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 bg-white p-6 rounded-2xl">
           <div>
             <label className="block font-medium mb-2">Name</label>
             <input
@@ -260,7 +258,7 @@ const PersonalDetailsForm = () => {
       </div>
 
       {/* Navigation Buttons */}
-      <div className="flex justify-between mt-3">
+      <div className="flex justify-between mt-6">
         <button className="bg-gray-300 text-gray-700 px-4 py-2 rounded">
           Previous
         </button>
