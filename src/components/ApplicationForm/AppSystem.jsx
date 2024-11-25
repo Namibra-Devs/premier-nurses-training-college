@@ -138,7 +138,7 @@ const AppSystem = ({ open, setOpen }) => {
         open={open}
         setOpen={setOpen}
       />
-      <div className="p-4 rounded w-full max-h-screen pb-32 overflow-y-scroll">
+      <div className="p-4 rounded w-full max-h-screen pb-32 overflow-y-auto">
         {tabs[currentTab].component}
         <div className="flex justify-end gap-4 mt-4">
           {/* Previous Button */}

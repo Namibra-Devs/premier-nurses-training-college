@@ -3,8 +3,8 @@ import React from "react";
 const Tabs = ({ tabs, currentTab, setCurrentTab, open }) => {
   return (
     <div
-      className={`bg-white h-full my-auto overflow-hidden pr-4 flex flex-col items-start justify-start gap-2 transition-all duration-700 ease-in-out ${
-        open ? "w-[30%]" : "w-[3.5%]"
+      className={`bg-white h-full my-auto overflow-hidden pr-2 md:pr-4 flex flex-col items-start justify-start gap-2 transition-all duration-700 ease-in-out ${
+        open ? "w-[350px]" : "w-[40px]"
       }`}
     >
       {tabs.map((tab, index) => (
