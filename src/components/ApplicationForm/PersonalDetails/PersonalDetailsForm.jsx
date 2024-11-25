@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from "react";
 import ProfilePictureUpload from "./ProfilePictureUpload";
+import SaveButton from "../Buttons/SaveButton";
 
-const PersonalDetailsForm = ({preview, setPreview}) => {
+const PersonalDetailsForm = ({ preview, setPreview, onSave }) => {
   const [isVisible, setIsVisible] = useState(false);
 
   // Load program data on component mount
   useEffect(() => {
-    
     setTimeout(() => setIsVisible(true), 100); // Trigger the animation
   }, []);
-
 
   const [formData, setFormData] = useState({
     profilePicture: null,
@@ -60,10 +59,16 @@ const PersonalDetailsForm = ({preview, setPreview}) => {
     }));
   };
 
+  const handleSave = () => {
+    onSave({ formData }); // Pass the data back to the parent
+  };
+
   return (
-    <div className={`bg-white p-6 rounded transform transition-transform duration-500 ${
-      isVisible ? "scale-100 opacity-100" : "scale-90 opacity-0"
-    }`}>
+    <div
+      className={`bg-white p-6 rounded transform transition-transform duration-500 ${
+        isVisible ? "scale-100 opacity-100" : "scale-90 opacity-0"
+      }`}
+    >
       <div className="flex flex-col md:flex-row justify-between items-center">
         <h2 className="text-2xl font-semibold mb-4">Personal Details</h2>
         {/* Profile Picture Upload */}
@@ -266,7 +271,9 @@ const PersonalDetailsForm = ({preview, setPreview}) => {
           </div>
         </div>
       </div>
-      
+      <div className="mt-5">
+        <SaveButton onClick={() => handleSave("personalDetails", formData)} />
+      </div>
     </div>
   );
 };
