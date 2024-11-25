@@ -24,7 +24,28 @@ import {
 const AppSystem = ({ open, setOpen }) => {
   const [currentTab, setCurrentTab] = useState(0);
 
-  const handleSave = () => {};
+  // Example central state for the form data
+  const [formData, setFormData] = useState({
+    personalDetails: {},
+    parentGuardian: {},
+    contactDetails: {},
+    educationalBackground: {},
+    results: {},
+    programChoice: {},
+    academicDocuments: {},
+    refereeDetails: {},
+    declaration: {},
+  });
+
+  const handleSave = (sectionKey, data) => {
+    setFormData((prev) => ({
+      ...prev,
+      [sectionKey]: data, // Update only the relevant section
+    }));
+
+    console.log("Saved Data:", formData); // For debugging
+    alert("Data saved successfully!");
+  };
 
   const handleContinue = () => {
     if (currentTab < tabs.length - 1) {
@@ -73,33 +94,33 @@ const AppSystem = ({ open, setOpen }) => {
     {
       label: "Personal Details",
       icon: <AiOutlineUser />,
-      component: <PersonalDetailsForm />,
+      component: <PersonalDetailsForm onSave={(data) => handleSave("personalDetails", data)} />,
     },
     {
       label: "Contact Details",
       icon: <AiOutlineForm />,
-      component: <ContactDetailsForm />,
+      component: <ContactDetailsForm onSave={(data) => handleSave("contactDetails", data)} />,
     },
     {
       label: "Educational Background",
       icon: <AiOutlineBook />,
-      component: <EducationalBackground />,
+      component: <EducationalBackground onSave={(data) => handleSave("educationalBackground", data)} />,
     },
-    { label: "Results", icon: <AiOutlineFileText />, component: <Results /> },
+    { label: "Results", icon: <AiOutlineFileText />, component: <Results onSave={(data) => handleSave("results", data)} /> },
     {
       label: "Program Choice",
       icon: <AiOutlineCheckCircle />,
-      component: <ProgramChoice />,
+      component: <ProgramChoice onSave={(data) => handleSave("programChoice", data)} />,
     },
     {
       label: "Upload Documents",
       icon: <AiOutlineUpload />,
-      component: <UploadDocuments />,
+      component: <UploadDocuments onSave={(data) => handleSave("academicDocuments", data)} />,
     },
     {
       label: "Declaration",
       icon: <AiOutlineCheckCircle />,
-      component: <Declaration />,
+      component: <Declaration onSave={(data) => handleSave("declaration", data)} />,
     },
     {
       label: "Submit Application",
@@ -133,16 +154,10 @@ const AppSystem = ({ open, setOpen }) => {
           {currentTab > 0 && currentTab < tabs.length - 1 && (
             <>
               <button
-                onClick={handleSave}
-                className="px-4 py-2 rounded bg-primary text-white hover:bg-blue-600 hover:shadow-custom-light"
-              >
-                Save
-              </button>
-              <button
                 onClick={handleContinue}
                 className="px-4 py-2 rounded bg-green-500 text-white hover:bg-green-600 hover:shadow-custom-light"
               >
-                Save and Continue
+                Next
               </button>
             </>
           )}

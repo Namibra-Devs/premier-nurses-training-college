@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { AiOutlineEdit, AiOutlineDelete, AiOutlinePlus } from "react-icons/ai";
+import SaveButton from "../Buttons/SaveButton";
 
-const Results = () => {
+const Results = ({onSave}) => {
   const [isVisible, setIsVisible] = useState(false);
 
   // Load program data on component mount
@@ -67,6 +68,10 @@ const Results = () => {
   const handleDelete = (id) => {
     setResults(results.filter((result) => result.id !== id));
   };
+
+  const handleSave = () => {
+    onSave({form});
+  }
 
   return (
     <div className="w-full">
@@ -150,7 +155,8 @@ const Results = () => {
             </select>
           </div>
         </div>
-        <div>
+        <div className="flex items-center justify-between">
+          <SaveButton onClick={() => handleSave('results', form)}/>
           <button
             onClick={handleAddResult}
             className="flex items-center float-right gap-2 bg-primary text-white py-2 px-4 rounded hover:bg-blue-600"
