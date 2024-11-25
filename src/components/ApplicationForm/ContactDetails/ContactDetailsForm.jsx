@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from "react";
+import SaveButton from "../Buttons/SaveButton";
 
-const ContactDetailsForm = () => {
+const ContactDetailsForm = ({ onSave }) => {
   const [isVisible, setIsVisible] = useState(false);
 
   // Load program data on component mount
   useEffect(() => {
     setTimeout(() => setIsVisible(true), 100); // Trigger the animation
   }, []);
-
-
 
   const [formData, setFormData] = useState({
     // Contact Details---------
@@ -27,15 +26,20 @@ const ContactDetailsForm = () => {
       [name]: value,
     }));
   };
+
+  const handleSave = (e) => {
+    onSave({ formData });
+  };
   return (
     <div>
       {/* Contact Details */}
-      <div className={`bg-white p-6 rounded transform transition-transform duration-500 ${
-            isVisible ? "scale-100 opacity-100" : "scale-90 opacity-0"
-          }`}>
+      <div
+        className={`bg-white p-6 rounded transform transition-transform duration-500 ${
+          isVisible ? "scale-100 opacity-100" : "scale-90 opacity-0"
+        }`}
+      >
         <h3 className="text-2xl font-semibold mb-6">Contact Details</h3>
-        <div
-          className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
             <label className="block font-medium mb-2">Email</label>
             <input
@@ -96,6 +100,9 @@ const ContactDetailsForm = () => {
               className="w-full border rounded p-2"
             />
           </div>
+        </div>
+        <div className="mt-5">
+          <SaveButton onClick={() => handleSave("contactDetails", formData)} />
         </div>
       </div>
     </div>
