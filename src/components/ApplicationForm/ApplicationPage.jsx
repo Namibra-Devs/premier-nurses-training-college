@@ -2,12 +2,11 @@ import React, { useState, useContext } from "react";
 import AppSystem from "./AppSystem";
 import ProfileDropdown from "./PersonalDetails/ProfileDropdown";
 
-
 const ApplicationPage = () => {
   const [open, setOpen] = useState(true);
 
   return (
-    <div className="bg-white fixed w-full px-2 md:px-10 py-2 flex flex-col">
+    <div className="bg-white fixed w-full px-2 md:px-10 py-2 flex flex-col border-x-2 border-primary">
       <div className="flex items-center justify-between gap-5 md:gap-10">
         <div className="flex items-center">
           <div
@@ -27,7 +26,7 @@ const ApplicationPage = () => {
         <ProfileDropdown />
       </div>
       {/* Application System Display */}
-        <AppSystem open={open} setOpen={setOpen} />
+      <AppSystem open={open} setOpen={setOpen} />
     </div>
   );
 };
