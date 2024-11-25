@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import {
   AiOutlineFileText,
   AiOutlineDownload,
@@ -19,9 +19,11 @@ const Dashboard = ({
   }, []);
 
   return (
-    <div className={`bg-gray-50 p-6 rounded transform transition-transform duration-500 ${
-      isVisible ? "scale-100 opacity-100" : "scale-90 opacity-0"
-    }`}>
+    <div
+      className={`bg-gray-50 p-6 rounded transform transition-transform duration-500 ${
+        isVisible ? "scale-100 opacity-100" : "scale-90 opacity-0"
+      }`}
+    >
       <h1 className="text-2xl font-semibold mb-6">Dashboard</h1>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -53,14 +55,14 @@ const Dashboard = ({
               {submittedApplications.map((app, index) => (
                 <li
                   key={index}
-                  className="flex items-center justify-between bg-white p-4 rounded shadow hover:shadow-md transition"
+                  className="flex items-center justify-between bg-blue-100 px-4 py-2 rounded hover:shadow-custom-light transition"
                 >
                   <span className="text-gray-800">{app.title}</span>
                   <button
                     onClick={() => app.onDownload()}
                     className="text-blue-500 flex items-center gap-2 hover:text-blue-700"
                   >
-                    <AiOutlineDownload /> Download
+                    <AiOutlineDownload className="ml-3 text-lg" />
                   </button>
                 </li>
               ))}
@@ -83,14 +85,14 @@ const Dashboard = ({
               {admissionMaterials.map((material, index) => (
                 <li
                   key={index}
-                  className="flex items-center justify-between bg-white p-4 rounded shadow hover:shadow-md transition"
+                  className="flex items-center justify-between bg-blue-100 px-4 py-2 rounded hover:shadow-custom-light transition"
                 >
                   <span className="text-gray-800">{material.title}</span>
                   <button
                     onClick={() => material.onDownload()}
-                    className="text-blue-500 flex items-center gap-2 hover:text-blue-700"
+                    className="text-blue-500 flex items-center hover:text-blue-700"
                   >
-                    <AiOutlineDownload /> Download
+                    <AiOutlineDownload className="ml-3 text-lg" />
                   </button>
                 </li>
               ))}
