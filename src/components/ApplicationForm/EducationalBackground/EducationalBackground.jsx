@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { AiOutlineEdit, AiOutlineDelete, AiOutlinePlus } from "react-icons/ai";
+import SaveButton from "../Buttons/SaveButton";
 
-const EducationalBackground = () => {
+const EducationalBackground = ({ onSave }) => {
   const [isVisible, setIsVisible] = useState(false);
 
   // Load program data on component mount
@@ -42,6 +43,10 @@ const EducationalBackground = () => {
     const educationToEdit = educations.find((edu) => edu.id === id);
     setForm({ ...educationToEdit });
     setEducations(educations.filter((edu) => edu.id !== id)); // Remove from list for editing
+  };
+
+  const handleSave = (e) => {
+    onSave({ form });
   };
 
   return (
@@ -99,7 +104,10 @@ const EducationalBackground = () => {
             />
           </div>
         </div>
-        <div>
+        <div className="flex items-center justify-between">
+          <SaveButton
+            onClick={() => handleSave("educationalBackground", form)}
+          />
           <button
             onClick={handleAddEducation}
             className="flex items-center float-right gap-2 bg-primary text-white py-2 px-4 rounded hover:bg-blue-600"
