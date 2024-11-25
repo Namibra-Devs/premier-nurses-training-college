@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
+import SaveButton from "./Buttons/SaveButton";
 
-const Declaration = () => {
+const Declaration = ({ onSave }) => {
   const [isVisible, setIsVisible] = useState(false);
 
   // Load program data on component mount
@@ -8,26 +9,28 @@ const Declaration = () => {
     setTimeout(() => setIsVisible(true), 100); // Trigger the animation
   }, []);
 
-
-
   const [formData, setFormData] = useState({
     name: "",
-    date: ""
+    date: "",
   });
 
-
+  const handleSave = (e) => {
+    onSave(formData);
+  };
 
   return (
-    <div className={`bg-white p-6 rounded transform transition-transform duration-500 ${
-      isVisible ? "scale-100 opacity-100" : "scale-90 opacity-0"
-    }`}>
+    <div
+      className={`bg-white p-6 rounded transform transition-transform duration-500 ${
+        isVisible ? "scale-100 opacity-100" : "scale-90 opacity-0"
+      }`}
+    >
       <h2 className="text-2xl font-semibold mb-6">Declaration</h2>
 
       <p className="text-gray-700 mb-4">
         I hereby declare that the information given above is true.
       </p>
 
-      <form className="space-y-4">
+      <div className="space-y-4">
         {/* Name Field */}
         <div>
           <label
@@ -62,7 +65,11 @@ const Declaration = () => {
             className="block w-full p-3 border border-gray-300 rounded"
           />
         </div>
-      </form>
+      </div>
+
+      <div className="mt-5">
+        <SaveButton onClick={() => handleSave("declaration", formData)} />
+      </div>
     </div>
   );
 };

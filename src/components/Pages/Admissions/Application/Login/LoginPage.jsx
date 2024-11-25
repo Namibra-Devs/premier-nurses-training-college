@@ -62,7 +62,8 @@ const LoginPage = () => {
               Welcome Back to PNTC!
             </h1>
             <p className="text-sm leading-tight text-gray-200 text-center">
-              Log in with the Voucher PIN you purchase and the new account password to continue your application process or access your
+              Log in with the Voucher PIN you purchase and the new account
+              password to continue your application process or access your
               account.
             </p>
             <div className="flex flex-col md:flex-row items-center text-gold mt-8">
@@ -146,7 +147,7 @@ const LoginPage = () => {
 
             {/* Login Button */}
             <div>
-              <SubmitButton label="Login" />
+              <SubmitButton url="/application-page" label="Login" />
             </div>
           </form>
         </div>

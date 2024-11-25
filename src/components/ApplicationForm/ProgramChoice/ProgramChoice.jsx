@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import programsData from "./programs";
+import SaveButton from "../Buttons/SaveButton";
 
-const ProgramChoice = () => {
+const ProgramChoice = ({onSave}) => {
   const [selectedProgram, setSelectedProgram] = useState("");
   const [programs, setPrograms] = useState([]);
   const [isVisible, setIsVisible] = useState(false);
@@ -11,6 +12,10 @@ const ProgramChoice = () => {
     setPrograms(programsData); // Simulates fetching from a JSON file
     setTimeout(() => setIsVisible(true), 100); // Trigger the animation
   }, []);
+
+  const handleSave = () => {
+    onSave({selectedProgram})
+  }
 
   return (
     <div
@@ -44,6 +49,10 @@ const ProgramChoice = () => {
             </p>
           )}
         </div>
+      </div>
+
+      <div className="mt-5">
+      <SaveButton onClick={() => handleSave('programChoice', selectedProgram)} />
       </div>
     </div>
   );
