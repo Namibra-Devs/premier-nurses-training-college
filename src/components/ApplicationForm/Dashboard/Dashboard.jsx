@@ -26,7 +26,7 @@ const Dashboard = ({
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
         {/* Application Status Section */}
-        <div className="flex flex-col items-center justify-center bg-primary rounded shadow-custom-light">
+        <div className="p-4 flex flex-col items-center justify-center bg-primary rounded shadow-custom-light">
           <h2 className="text-xl text-white font-semibold flex flex-col items-center gap-2">
             <BsClipboardCheck className="text-white text-3xl" />
             Application Status

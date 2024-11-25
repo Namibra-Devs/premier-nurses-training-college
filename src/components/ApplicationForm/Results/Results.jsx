@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { AiOutlineEdit, AiOutlineDelete, AiOutlinePlus } from "react-icons/ai";
 import SaveButton from "../Buttons/SaveButton";
 
-const Results = ({onSave}) => {
+const Results = ({ onSave }) => {
   const [isVisible, setIsVisible] = useState(false);
 
   // Load program data on component mount
@@ -70,14 +70,14 @@ const Results = ({onSave}) => {
   };
 
   const handleSave = () => {
-    onSave({form});
-  }
+    onSave({ form });
+  };
 
   return (
     <div className="w-full">
       {/* Input Form */}
       <div
-        className={`grid gap-4 bg-white p-6 rounded transform transition-transform duration-500 ${
+        className={`grid gap-4 mb-6 bg-white p-6 rounded transform transition-transform duration-500 ${
           isVisible ? "scale-100 opacity-100" : "scale-90 opacity-0"
         }`}
       >
@@ -156,7 +156,7 @@ const Results = ({onSave}) => {
           </div>
         </div>
         <div className="flex items-center justify-between">
-          <SaveButton onClick={() => handleSave('results', form)}/>
+          <SaveButton onClick={() => handleSave("results", form)} />
           <button
             onClick={handleAddResult}
             className="flex items-center float-right gap-2 bg-primary text-white py-2 px-4 rounded hover:bg-blue-600"
@@ -171,67 +171,69 @@ const Results = ({onSave}) => {
       {results.length > 0 && (
         <div data-aos="fade-up" data-aos-duration="800">
           <h3 className="text-xl font-semibold mb-2">Added Results List</h3>
-          <table className="w-full border-collapse border border-gray-300">
-            <thead className="bg-blue-100">
-              <tr>
-                <th className="border border-gray-300 px-4 py-2 text-left">
-                  Exams Type
-                </th>
-                <th className="border border-gray-300 px-4 py-2 text-left">
-                  Index Number
-                </th>
-                <th className="border border-gray-300 px-4 py-2 text-left">
-                  Year
-                </th>
-                <th className="border border-gray-300 px-4 py-2 text-left">
-                  Subject
-                </th>
-                <th className="border border-gray-300 px-4 py-2 text-left">
-                  Grade
-                </th>
-                <th className="border border-gray-300 px-4 py-2 text-center">
-                  Actions
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {results.map((result) => (
-                <tr key={result.id} className="hover:bg-gray-50">
-                  <td className="border border-gray-300 px-4 py-2">
-                    {result.examType}
-                  </td>
-                  <td className="border border-gray-300 px-4 py-2">
-                    {result.indexNumber}
-                  </td>
-                  <td className="border border-gray-300 px-4 py-2">
-                    {result.year}
-                  </td>
-                  <td className="border border-gray-300 px-4 py-2">
-                    {result.subjectType}: {result.subjectTitle}
-                  </td>
-                  <td className="border border-gray-300 px-4 py-2">
-                    {result.grade}
-                  </td>
-                  <td className="border border-gray-300 px-4 py-2 text-center">
-                    <button
-                      onClick={() => handleEdit(result.id)}
-                      className="text-blue-500 hover:text-blue-700 mx-2"
-                      title="Edit"
-                    >
-                      <AiOutlineEdit />
-                    </button>
-                    <button
-                      onClick={() => handleDelete(result.id)}
-                      className="text-red-500 hover:text-red-700 mx-2"
-                      title="Delete"
-                    >
-                      <AiOutlineDelete />
-                    </button>
-                  </td>
+          <div className="overflow-x-auto pb-4">
+            <table className="w-full border-collapse border border-gray-300">
+              <thead className="bg-blue-100">
+                <tr>
+                  <th className="border border-gray-300 px-4 py-2 text-left">
+                    Exams Type
+                  </th>
+                  <th className="border border-gray-300 px-4 py-2 text-left">
+                    Index Number
+                  </th>
+                  <th className="border border-gray-300 px-4 py-2 text-left">
+                    Year
+                  </th>
+                  <th className="border border-gray-300 px-4 py-2 text-left">
+                    Subject
+                  </th>
+                  <th className="border border-gray-300 px-4 py-2 text-left">
+                    Grade
+                  </th>
+                  <th className="border border-gray-300 px-4 py-2 text-center">
+                    Actions
+                  </th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {results.map((result) => (
+                  <tr key={result.id} className="hover:bg-gray-50">
+                    <td className="border border-gray-300 px-4 py-2">
+                      {result.examType}
+                    </td>
+                    <td className="border border-gray-300 px-4 py-2">
+                      {result.indexNumber}
+                    </td>
+                    <td className="border border-gray-300 px-4 py-2">
+                      {result.year}
+                    </td>
+                    <td className="border border-gray-300 px-4 py-2">
+                      {result.subjectType}: {result.subjectTitle}
+                    </td>
+                    <td className="border border-gray-300 px-4 py-2">
+                      {result.grade}
+                    </td>
+                    <td className="border border-gray-300 px-4 py-2 text-center">
+                      <button
+                        onClick={() => handleEdit(result.id)}
+                        className="text-blue-500 hover:text-blue-700 mx-2"
+                        title="Edit"
+                      >
+                        <AiOutlineEdit />
+                      </button>
+                      <button
+                        onClick={() => handleDelete(result.id)}
+                        className="text-red-500 hover:text-red-700 mx-2"
+                        title="Delete"
+                      >
+                        <AiOutlineDelete />
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       )}
     </div>
