@@ -1,14 +1,18 @@
-import React from 'react'
+import React from "react";
+import { Link } from "react-router-dom";
 
-const SubmitButton = ({label}) => {
+const SubmitButton = ({ url, label , handleLogin}) => {
   return (
-    <button
-                type="submit"
-                className="w-full py-3 px-4 bg-gradient-to-r from-blue-800 to bg-primary text-white rounded-3xl font-semibold hover:bg-blue-800 transition duration-300"
-              >
-                {label}
-              </button>
-  )
-}
+    <Link to={url}>
+      <button
+      onClick={handleLogin}
+        type="submit"
+        className="w-full py-3 px-4 bg-gradient-to-r from-blue-800 to bg-primary text-white rounded-3xl font-semibold hover:bg-blue-800 transition duration-300"
+      >
+        {label}
+      </button>
+    </Link>
+  );
+};
 
-export default SubmitButton
+export default SubmitButton;
