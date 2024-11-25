@@ -53,7 +53,7 @@ const EducationalBackground = ({ onSave }) => {
     <div>
       {/* Input Form */}
       <div
-        className={`grid gap-4 bg-white p-6 rounded transform transition-transform duration-500 ${
+        className={`grid gap-4 mb-6 bg-white p-6 rounded transform transition-transform duration-500 ${
           isVisible ? "scale-100 opacity-100" : "scale-90 opacity-0"
         }`}
       >
@@ -120,38 +120,40 @@ const EducationalBackground = ({ onSave }) => {
 
       {/* Education List */}
       {educations.length > 0 && (
-        <div>
+        <div >
           <h3 className="text-xl font-semibold mb-2">Added Education List</h3>
-          <ul className="space-y-4">
-            {educations.map((edu) => (
-              <li
-                key={edu.id}
-                className="flex items-center justify-between p-4 border border-gray-300 rounded bg-gray-50"
-              >
-                <div>
-                  <p className="font-medium">{edu.schoolName}</p>
-                  <p className="text-sm text-gray-600">{edu.address}</p>
-                  <p className="text-sm text-gray-600">
-                    {edu.from} - {edu.to}
-                  </p>
-                </div>
-                <div className="flex gap-2">
-                  <button
-                    onClick={() => handleEdit(edu.id)}
-                    className="text-blue-500 hover:text-blue-700"
-                  >
-                    <AiOutlineEdit />
-                  </button>
-                  <button
-                    onClick={() => handleDelete(edu.id)}
-                    className="text-red-500 hover:text-red-700"
-                  >
-                    <AiOutlineDelete />
-                  </button>
-                </div>
-              </li>
-            ))}
-          </ul>
+          <div className="overflow-x-auto pb-4">
+            <ul className="space-y-4">
+              {educations.map((edu) => (
+                <li
+                  key={edu.id}
+                  className="flex items-center justify-between p-4 border border-gray-300 rounded bg-gray-50"
+                >
+                  <div>
+                    <p className="font-medium">{edu.schoolName}</p>
+                    <p className="text-sm text-gray-600">{edu.address}</p>
+                    <p className="text-sm text-gray-600">
+                      {edu.from} - {edu.to}
+                    </p>
+                  </div>
+                  <div className="flex gap-2">
+                    <button
+                      onClick={() => handleEdit(edu.id)}
+                      className="text-blue-500 hover:text-blue-700"
+                    >
+                      <AiOutlineEdit />
+                    </button>
+                    <button
+                      onClick={() => handleDelete(edu.id)}
+                      className="text-red-500 hover:text-red-700"
+                    >
+                      <AiOutlineDelete />
+                    </button>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       )}
     </div>
