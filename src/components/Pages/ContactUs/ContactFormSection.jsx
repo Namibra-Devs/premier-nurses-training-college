@@ -17,6 +17,7 @@ const ContactFormSection = () => {
             <h1 className="text-gray-700 text-4xl md:text-5xl leading-2 tracking-tight font-semibold max-w-full mt-2 mb-2 md:mb-5">
               Get in touch with us. We're here to assist you.
             </h1>
+            
           </div>
           <div className="flex flex-col items-start md:items-end mt-3 md:mt-0">
             <p className="font-medium uppercase tracking-tight text-left md:text-right text-gray-600 mb-0 md:mb-2">
