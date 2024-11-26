@@ -30,12 +30,13 @@ const ProgramChoice = () => {
     setTimeout(() => setIsVisible(true), 100);
   }, []);
 
-  // Handle Saved Alert
+ 
   const handleSubmit = (e) => {
     e.preventDefault();
     saveProgram(selectedProgram);
   };
 
+   // Handle Saved Alert
   const [showAlert, setShowAlert] = useState(false);
   const handleSave = (e) => {
     e.preventDefault();
