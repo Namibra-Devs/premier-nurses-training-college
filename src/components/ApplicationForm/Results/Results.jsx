@@ -1,8 +1,23 @@
 import React, { useState, useEffect } from "react";
 import { AiOutlineEdit, AiOutlineDelete, AiOutlinePlus } from "react-icons/ai";
 import SaveButton from "../Buttons/SaveButton";
+import OverlayAlert from "../FormControls/OverlayAlert";
 
-const Results = ({ onSave }) => {
+// Save education list to localStorag
+const saveResultsList = (resultsList) => {
+  localStorage.setItem("results", JSON.stringify(resultsList));
+};
+
+// Retrieve education list from localStorage
+const retrieveResultsList = () => {
+  const savedList = localStorage.getItem("results");
+  if (savedList) {
+    return JSON.parse(savedList);
+  }
+  return [];
+};
+
+const Results = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   // Load program data on component mount
@@ -10,7 +25,7 @@ const Results = ({ onSave }) => {
     setTimeout(() => setIsVisible(true), 100); // Trigger the animation
   }, []);
 
-  const [results, setResults] = useState([]);
+  const [results, setResults] = useState(retrieveResultsList());
   const [form, setForm] = useState({
     examType: "WAEC",
     indexNumber: "",
@@ -69,12 +84,28 @@ const Results = ({ onSave }) => {
     setResults(results.filter((result) => result.id !== id));
   };
 
-  const handleSave = () => {
-    onSave({ form });
+  // Handle Saved Alert
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    saveResultsList(results);
+  };
+
+  const [showAlert, setShowAlert] = useState(false);
+  const handleSave = (e) => {
+    e.preventDefault();
+
+    try {
+      saveResultsList(results); // Save the data
+      setShowAlert(true); // Show success alert
+      setTimeout(() => setShowAlert(false), 3000); // Hide after 3 seconds
+    } catch (error) {
+      console.error("Save failed:", error);
+    }
   };
 
   return (
     <div className="w-full">
+      {showAlert && <OverlayAlert message="Data saved!"/>}
       {/* Input Form */}
       <div
         className={`grid gap-4 mb-6 bg-white p-6 rounded transform transition-transform duration-500 ${
@@ -82,81 +113,83 @@ const Results = ({ onSave }) => {
         }`}
       >
         <h2 className="text-2xl font-semibold mb-3">Results</h2>
-        <div className="grid grid-cols-2 gap-4">
-          <div>
-            <label className="block font-medium mb-2">Exams Type</label>
-            <select
-              name="examType"
-              value={form.examType}
-              onChange={handleChange}
-              className="w-full p-2 border border-gray-300 rounded mb-2"
-            >
-              <option value="WAEC">WAEC</option>
-              <option value="NOVDEV">NOVDEV</option>
-            </select>
-            <label className="block font-medium mb-2">Index Number</label>
-            <input
-              type="text"
-              name="indexNumber"
-              placeholder="Index Number"
-              value={form.indexNumber}
-              onChange={handleChange}
-              className="w-full p-2 border border-gray-300 rounded mb-2"
-            />
-            <label className="block font-medium mb-2">Year of Exams</label>
-            <input
-              type="text"
-              name="year"
-              placeholder="Year of Exams"
-              value={form.year}
-              onChange={handleChange}
-              className="w-full p-2 border border-gray-300 rounded mb-2"
-            />
+        <form onSubmit={handleSubmit}>
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <label className="block font-medium mb-2">Exams Type</label>
+              <select
+                name="examType"
+                value={form.examType}
+                onChange={handleChange}
+                className="w-full p-2 border border-gray-300 rounded mb-2"
+              >
+                <option value="WAEC">WAEC</option>
+                <option value="NOVDEV">NOVDEV</option>
+              </select>
+              <label className="block font-medium mb-2">Index Number</label>
+              <input
+                type="text"
+                name="indexNumber"
+                placeholder="Index Number"
+                value={form.indexNumber}
+                onChange={handleChange}
+                className="w-full p-2 border border-gray-300 rounded mb-2"
+              />
+              <label className="block font-medium mb-2">Year of Exams</label>
+              <input
+                type="text"
+                name="year"
+                placeholder="Year of Exams"
+                value={form.year}
+                onChange={handleChange}
+                className="w-full p-2 border border-gray-300 rounded mb-2"
+              />
+            </div>
+            <div>
+              <label className="block font-medium mb-2">Subject Type</label>
+              <select
+                name="subjectType"
+                value={form.subjectType}
+                onChange={handleChange}
+                className="w-full p-2 border border-gray-300 rounded mb-2"
+              >
+                <option value="Core">Core</option>
+                <option value="Elective">Elective</option>
+              </select>
+              <label className="block font-medium mb-2">Subject Title</label>
+              <select
+                name="subjectTitle"
+                value={form.subjectTitle}
+                onChange={handleChange}
+                className="w-full p-2 border border-gray-300 rounded mb-2"
+              >
+                <option value="">Select Subject Title</option>
+                {subjects[form.subjectType]?.map((subject, index) => (
+                  <option key={index} value={subject}>
+                    {subject}
+                  </option>
+                ))}
+              </select>
+              <label className="block font-medium mb-2">Grade</label>
+              <select
+                name="grade"
+                placeholder="Grade"
+                value={form.grade}
+                onChange={handleChange}
+                className="w-full p-2 border border-gray-300 rounded mb-2"
+              >
+                <option value="">Select Grade</option>
+                {grades.map((grade, index) => (
+                  <option key={index} value={grade}>
+                    {grade}
+                  </option>
+                ))}
+              </select>
+            </div>
           </div>
-          <div>
-            <label className="block font-medium mb-2">Subject Type</label>
-            <select
-              name="subjectType"
-              value={form.subjectType}
-              onChange={handleChange}
-              className="w-full p-2 border border-gray-300 rounded mb-2"
-            >
-              <option value="Core">Core</option>
-              <option value="Elective">Elective</option>
-            </select>
-            <label className="block font-medium mb-2">Subject Title</label>
-            <select
-              name="subjectTitle"
-              value={form.subjectTitle}
-              onChange={handleChange}
-              className="w-full p-2 border border-gray-300 rounded mb-2"
-            >
-              <option value="">Select Subject Title</option>
-              {subjects[form.subjectType]?.map((subject, index) => (
-                <option key={index} value={subject}>
-                  {subject}
-                </option>
-              ))}
-            </select>
-            <label className="block font-medium mb-2">Grade</label>
-            <select
-              name="grade"
-              placeholder="Grade"
-              value={form.grade}
-              onChange={handleChange}
-              className="w-full p-2 border border-gray-300 rounded mb-2"
-            >
-              <option value="">Select Grade</option>
-              {grades.map((grade, index) => (
-                <option key={index} value={grade}>
-                  {grade}
-                </option>
-              ))}
-            </select>
-          </div>
-        </div>
+        </form>
         <div className="flex items-center justify-between">
-          <SaveButton onClick={() => handleSave("results", form)} />
+          <SaveButton onClick={handleSave} />
           <button
             onClick={handleAddResult}
             className="flex items-center float-right gap-2 bg-primary text-white py-2 px-4 rounded hover:bg-blue-600"

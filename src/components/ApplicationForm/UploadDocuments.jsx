@@ -7,7 +7,7 @@ import {
 } from "react-icons/ai";
 import SaveButton from "./Buttons/SaveButton";
 
-const UploadDocuments = ({ onSave }) => {
+const UploadDocuments = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   // Load program data on component mount
@@ -32,10 +32,6 @@ const UploadDocuments = ({ onSave }) => {
     } else {
       alert("Only PDF files are allowed!");
     }
-  };
-
-  const handleSave = (e) => {
-    onSave({ academicFile, referee, idType, idFile });
   };
 
   return (
@@ -71,7 +67,8 @@ const UploadDocuments = ({ onSave }) => {
 
         {/* ID Upload */}
         <div>
-          <label className="block text-gray-700 font-medium mb-2">
+          <label className="flex items-center text-gray-700 font-medium mb-2">
+            <AiOutlineIdcard className="text-blue-500 mr-3 text-lg" />
             Upload ID
           </label>
           <select
@@ -164,7 +161,7 @@ const UploadDocuments = ({ onSave }) => {
       </div>
       
       <div className="mt-5">
-        <SaveButton onClick={() => handleSave("academicDocuments", academicFile, referee, idType, idFile)} />
+        <SaveButton />
       </div>
     </div>
   );
