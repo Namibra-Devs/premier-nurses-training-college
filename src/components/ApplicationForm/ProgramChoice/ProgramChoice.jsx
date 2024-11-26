@@ -8,22 +8,26 @@ const saveProgram = (selectedProgram) => {
 };
 
 const retriveProgram = () => {
-  const selectedProgram = localStorage.getItem("selectedProgram");
-  if (selectedProgram) {
-    return JSON.parse(selectedProgram);
+  try {
+    const selectedProgram = localStorage.getItem("selectedProgram");
+    return selectedProgram ? JSON.parse(selectedProgram) : "";
+  } catch (error) {
+    console.error("Error retrieving program:", error);
+    return "";
   }
-  return {};
 };
 
 const ProgramChoice = () => {
-  const [selectedProgram, setSelectedProgram] = useState(retriveProgram());
+  const [selectedProgram, setSelectedProgram] = useState(
+    retriveProgram() || ""
+  );
   const [programs, setPrograms] = useState([]);
   const [isVisible, setIsVisible] = useState(false);
 
   // Load program data on component mount
   useEffect(() => {
-    setPrograms(programsData); // Simulates fetching from a JSON file
-    setTimeout(() => setIsVisible(true), 100); // Trigger the animation
+    setPrograms(programsData);
+    setTimeout(() => setIsVisible(true), 100);
   }, []);
 
   // Handle Saved Alert
