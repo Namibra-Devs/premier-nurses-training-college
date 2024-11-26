@@ -150,7 +150,7 @@ const EducationalBackground = () => {
 
       {/* Education List */}
       {educations.length > 0 && (
-        <div>
+        <div data-aos="fade-up" data-aos-duration="800">
           <h3 className="text-xl font-semibold mb-2">Added Education List</h3>
           <div className="overflow-x-auto pb-4">
             <ul className="space-y-4">
