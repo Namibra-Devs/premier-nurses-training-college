@@ -24,28 +24,28 @@ import {
 const AppSystem = ({ open, setOpen }) => {
   const [currentTab, setCurrentTab] = useState(0);
 
-  // Example central state for the form data
-  const [formData, setFormData] = useState({
-    personalDetails: {},
-    parentGuardian: {},
-    contactDetails: {},
-    educationalBackground: {},
-    results: {},
-    programChoice: {},
-    academicDocuments: {},
-    refereeDetails: {},
-    declaration: {},
-  });
+  // // Example central state for the form data
+  // const [formData, setFormData] = useState({
+  //   personalDetails: {},
+  //   parentGuardian: {},
+  //   contactDetails: {},
+  //   educationalBackground: {},
+  //   results: {},
+  //   programChoice: {},
+  //   academicDocuments: {},
+  //   refereeDetails: {},
+  //   declaration: {},
+  // });
 
-  const handleSave = (sectionKey, data) => {
-    setFormData((prev) => ({
-      ...prev,
-      [sectionKey]: data, // Update only the relevant section
-    }));
+  // const handleSave = (sectionKey, data) => {
+  //   setFormData((prev) => ({
+  //     ...prev,
+  //     [sectionKey]: data, // Update only the relevant section
+  //   }));
 
-    console.log("Saved Data:", formData); // For debugging
-    alert("Data saved successfully!");
-  };
+  //   console.log("Saved Data:", formData); // For debugging
+  //   alert("Data saved successfully!");
+  // };
 
   const handleContinue = () => {
     if (currentTab < tabs.length - 1) {
@@ -94,33 +94,33 @@ const AppSystem = ({ open, setOpen }) => {
     {
       label: "Personal Details",
       icon: <AiOutlineUser />,
-      component: <PersonalDetailsForm onSave={(data) => handleSave("personalDetails", data)} />,
+      component: <PersonalDetailsForm/>,
     },
     {
       label: "Contact Details",
       icon: <AiOutlineForm />,
-      component: <ContactDetailsForm onSave={(data) => handleSave("contactDetails", data)} />,
+      component: <ContactDetailsForm />,
     },
     {
       label: "Educational Background",
       icon: <AiOutlineBook />,
-      component: <EducationalBackground onSave={(data) => handleSave("educationalBackground", data)} />,
+      component: <EducationalBackground />,
     },
-    { label: "Results", icon: <AiOutlineFileText />, component: <Results onSave={(data) => handleSave("results", data)} /> },
-    {
+    { label: "Results", icon: <AiOutlineFileText />, component: <Results /> },
+    { 
       label: "Program Choice",
       icon: <AiOutlineCheckCircle />,
-      component: <ProgramChoice onSave={(data) => handleSave("programChoice", data)} />,
+      component: <ProgramChoice />,
     },
     {
       label: "Upload Documents",
       icon: <AiOutlineUpload />,
-      component: <UploadDocuments onSave={(data) => handleSave("academicDocuments", data)} />,
+      component: <UploadDocuments />,
     },
     {
       label: "Declaration",
       icon: <AiOutlineCheckCircle />,
-      component: <Declaration onSave={(data) => handleSave("declaration", data)} />,
+      component: <Declaration />,
     },
     {
       label: "Submit Application",
