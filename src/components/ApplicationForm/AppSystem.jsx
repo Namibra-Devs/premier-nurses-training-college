@@ -6,6 +6,7 @@ import EducationalBackground from "./EducationalBackground/EducationalBackground
 import Results from "./Results/Results";
 import ProgramChoice from "./ProgramChoice/ProgramChoice";
 import UploadDocuments from "./UploadDocuments";
+import Referee from "./Referee";
 import Declaration from "./Declaration";
 import FinalSubmit from "./FinalSubmit";
 import ContactDetailsForm from "./ContactDetails/ContactDetailsForm";
@@ -21,9 +22,9 @@ import {
   AiOutlineSend,
 } from "react-icons/ai";
 
+
 const AppSystem = ({ open, setOpen }) => {
   const [currentTab, setCurrentTab] = useState(0);
-
   // // Example central state for the form data
   // const [formData, setFormData] = useState({
   //   personalDetails: {},
@@ -116,6 +117,11 @@ const AppSystem = ({ open, setOpen }) => {
       label: "Upload Documents",
       icon: <AiOutlineUpload />,
       component: <UploadDocuments />,
+    },
+    {
+      label: "Referee",
+      icon: <AiOutlineUser />,
+      component: <Referee />
     },
     {
       label: "Declaration",
