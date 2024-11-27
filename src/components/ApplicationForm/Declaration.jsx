@@ -16,19 +16,18 @@ const retriveDeclaration = () => {
 
 const Declaration = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [showAlert, setShowAlert] = useState(false);
+  const [declaration, setDeclarationData] = useState(retriveDeclaration()); // Start with an empty object if no data is found in localStorage
 
   // Load program data on component mount
   useEffect(() => {
     setTimeout(() => setIsVisible(true), 100); // Trigger the animation
   }, []);
 
-  const [declaration, setDeclarationData] = useState(retriveDeclaration()); // Start with an empty object if no data is found in localStorage
-
   const handleChange = (e) => {
     setDeclarationData({ ...declaration, [e.target.name]: e.target.value });
   };
 
-  const [showAlert, setShowAlert] = useState(false);
   const handleSave = (e) => {
     e.preventDefault();
     try {
