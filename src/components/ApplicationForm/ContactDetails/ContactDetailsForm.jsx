@@ -2,45 +2,43 @@ import React, { useState, useEffect } from "react";
 import SaveButton from "../Buttons/SaveButton";
 import OverlayAlert from "../FormControls/OverlayAlert";
 
-const onSave = (formData) => {
-  localStorage.setItem("formData", JSON.stringify(formData));
+const saveContactData = (contactData) => {
+  localStorage.setItem("contactData", JSON.stringify(contactData));
 };
 
-const retriveFormData = () => {
-  const formData = localStorage.getItem("formData");
-  if (formData) {
-    return JSON.parse(formData);
+const retrivecontactData = () => {
+  const contactData = localStorage.getItem("contactData");
+  if (contactData) {
+    return JSON.parse(contactData);
   }
   return {};
 };
 
 const ContactDetailsForm = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [contactData, setcontactData] = useState();
+  const [showAlert, setShowAlert] = useState(false);
 
   // Load program data on component mount
   useEffect(() => {
     setTimeout(() => setIsVisible(true), 100); // Trigger the animation
   }, []);
 
-  // ----------------------------------
-  const [formData, setFormData] = useState(retriveFormData());
-
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setcontactData({ ...contactData, [e.target.name]: e.target.value });
   };
 
   // Handle Saved Alert
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSave(formData);
+    saveContactData(contactData);
   };
 
-  const [showAlert, setShowAlert] = useState(false);
   const handleSave = (e) => {
     e.preventDefault();
 
     try {
-      onSave(formData); // Save the data
+      saveContactData(contactData); // Save the data
       setShowAlert(true); // Show success alert
       setTimeout(() => setShowAlert(false), 3000); // Hide after 3 seconds
     } catch (error) {
@@ -48,6 +46,15 @@ const ContactDetailsForm = () => {
     }
   };
 
+  // A function to load and mount the form data anytime the component mount
+  const handleLoadData = () => {
+    const loadedData = retrivecontactData();//retrived data from the local storage
+    if(loadedData){
+      setcontactData(loadedData); //Now update the state with the loaded data from the storage
+    }else{
+      console.log("No data found!");
+    }
+  }
 
   return (
     <div>
@@ -66,7 +73,7 @@ const ContactDetailsForm = () => {
             <input
               type="email"
               name="emailAddress"
-              value={formData?.emailAddress}
+              value={contactData?.emailAddress}
               onChange={handleChange}
               className="w-full border rounded p-2"
             />
@@ -76,7 +83,7 @@ const ContactDetailsForm = () => {
             <input
               type="number"
               name="phoneNumber"
-              value={formData?.phoneNumber}
+              value={contactData?.phoneNumber}
               onChange={handleChange}
               className="w-full border rounded p-2"
             />
@@ -86,7 +93,7 @@ const ContactDetailsForm = () => {
             <input
               type="text"
               name="permanentAddress"
-              value={formData?.permanentAddress}
+              value={contactData?.permanentAddress}
               onChange={handleChange}
               className="w-full border rounded p-2"
             />
@@ -96,7 +103,7 @@ const ContactDetailsForm = () => {
             <input
               type="text"
               name="postalAddress"
-              value={formData?.postalAddress}
+              value={contactData?.postalAddress}
               onChange={handleChange}
               className="w-full border rounded p-2"
             />
@@ -106,7 +113,7 @@ const ContactDetailsForm = () => {
             <input
               type="text"
               name="postalRegion"
-              value={formData?.postalRegion}
+              value={contactData?.postalRegion}
               onChange={handleChange}
               className="w-full border rounded p-2"
             />
@@ -116,13 +123,18 @@ const ContactDetailsForm = () => {
             <input
               type="text"
               name="postalTown"
-              value={formData?.postalTown}
+              value={contactData?.postalTown}
               onChange={handleChange}
               className="w-full border rounded p-2"
             />
           </div>
         </form>
-        <div className="mt-5">
+        <div className="mt-5 flex items-center gap-4">
+        <button
+          onClick={handleLoadData}
+          className="px-4 py-2 bg-teal text-white rounded hover:bg-yellow-500">
+                Nest
+              </button>
           <SaveButton onClick={handleSave} />
         </div>
       </div>
