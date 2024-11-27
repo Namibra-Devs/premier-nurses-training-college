@@ -38,7 +38,7 @@ const ContactDetailsForm = () => {
     e.preventDefault();
 
     try {
-      onSave(contactData); // Save the data
+      saveContactData(contactData); // Save the data
       setShowAlert(true); // Show success alert
       setTimeout(() => setShowAlert(false), 3000); // Hide after 3 seconds
     } catch (error) {
