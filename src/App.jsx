@@ -44,4 +44,5 @@ const App = () => {
 };
 AOS.init();
 
+
 export default App;

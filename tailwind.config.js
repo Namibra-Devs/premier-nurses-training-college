@@ -1,6 +1,6 @@
 module.exports = {
   mode: "jit",
-  content: ["./src/**/*.{js,jsx,ts,tsx}"],
+  content: ["./src/**/*.{js,jsx,ts,tsx}"], // Specify your files for tree-shaking
   theme: {
     extend: {
       colors: {
@@ -30,37 +30,26 @@ module.exports = {
         StudentsBg: "url('assets/Students/students-bg.jpg')",
         ContactusBg: "url('assets/contactus/contactus-bg.jpg')",
         RegLoginBg: "url('assets/Admissions/bg-image.jpg')",
-
-        backgroundImage: {
-          "topnav-gradient":
-            "linear-gradient(90deg, #440f14, #5e1219 15%, #000 35%, #000 45%, #5e1219 85%, #440f14)",
+        "topnav-gradient":
+          "linear-gradient(90deg, #440f14, #5e1219 15%, #000 35%, #000 45%, #5e1219 85%, #440f14)",
+      },
+      keyframes: {
+       'infinite-scroll': {
+            from: { transform: 'translateX(0)' },
+            to: { transform: 'translateX(-100%)' },
         },
+        fadeIn: {
+          "0%": { opacity: 0 },
+          "100%": { opacity: 1 },
+        },
+      },
+      animation: {
+        'infinite-scroll': 'infinite-scroll 25s linear infinite',
+        fadeIn: "fadeIn 1s ease-in",
       },
       maskImage: {
         "gradient-to-right":
-          "linear-gradient(to right, transparent 0%, #4A3AFF 128px, black calc(100% - 128px), transparent 100%)",
-      },
-      animation: {
-        "infinite-scroll": "infinite-scroll 25s linear infinite",
-      },
-      keyframes: {
-        "infinite-scroll": {
-          "0%": {
-            transform: "translateX(100%)",
-          },
-          "100%": {
-            transform: "translateX(-100%)",
-          },
-        },
-      },
-      animation: {
-        fadeIn: "fadeIn 1s ease-in",
-      },
-      keyframes: {
-        fadeIn: {
-          from: { opacity: 0 },
-          to: { opacity: 1 },
-        },
+          "linear-gradient(to right, transparent 0%, black 128px, black calc(100% - 128px), transparent 100%)",
       },
     },
   },
