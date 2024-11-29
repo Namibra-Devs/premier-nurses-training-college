@@ -1,5 +1,5 @@
 import React from "react";
-import { Logos } from "../UtilityComponents/AffiliateLogos";
+import { logos } from "../UtilityComponents/AffiliateLogos";
 
 const AffiliatedLogos = () => {
   return (
@@ -19,22 +19,18 @@ const AffiliatedLogos = () => {
             <ion-icon name="remove-outline"></ion-icon>
           </div>
 
-          <div class="text-center pt-32">
+          <div class="text-center pt-28">
             {/* Logo Carousel animation */}
             <div
-              x-data="{}"
-              x-init="$nextTick(() => {
-                        let ul = $refs.logos;
-                        ul.insertAdjacentHTML('afterend', ul.outerHTML);
-                        ul.nextSibling.setAttribute('aria-hidden', 'true');
-                    })"
-              class="w-full inline-flex flex-nowrap overflow-hidden maskImage mask-image-gradient"
-            >
-              <ul
-                x-ref="logos"
-                class="text-[2rem] font-semibold flex items-center justify-center md:justify-start gap-10 [&_li]:mx-8 [&_img]:max-w-none animate-infinite-scroll"
-              >
-                {Logos.map((logo, index) => (
+             x-data="{}"
+             x-init="$nextTick(() => {
+                         let ul = $refs.logos;
+                         ul.insertAdjacentHTML('afterend', ul.outerHTML);
+                         ul.nextSibling.setAttribute('aria-hidden', 'true');
+                     })"
+              class="w-full inline-flex flex-nowrap overflow-hidden [mask-image:_linear-gradient(to_right,transparent_0,_black_128px,_black_calc(100%-128px),transparent_100%)]">
+              <ul x-ref="logos" class="w-full flex items-center justify-center md:justify-end gap-6 [&_li]:mx-8 [&_img]:max-w-none animate-infinite-scroll"> 
+                {logos.map((logo, index) => (
                   <li>
                     <img
                       key={logo.id || index}
