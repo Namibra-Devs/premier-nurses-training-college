@@ -10,7 +10,7 @@ const FinalSubmit = ({ onSubmit }) => {
 
   return (
     <div
-      className={`bg-white relative overflow-hidden p-6 rounded transform transition-transform duration-500 ${
+      className={`bg-white relative overflow-hidden transform transition-transform duration-500 ${
         isVisible ? "scale-100 opacity-100" : "scale-90 opacity-0"
       }`}
     >
