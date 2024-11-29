@@ -197,14 +197,14 @@ const Navbar = () => {
             <div className={`flex items-center gap-3 flex-row-reverse ${isScrolled ? "text-gray-600" : "text-white"} `}>
               {/* Menu ----------------------------------------------------- */}
               <div
-                className={`text-3xl cursor-pointer md:hidden ml-2 md:ml-0`}
+                className="text-3xl cursor-pointer md:hidden ml-2 md:ml-0"
                 onClick={() => setOpen(!open)}>
                 <ion-icon name={`${open ? "menu" : "menu"}`}></ion-icon>
               </div>
 
               {/* Mobile version of SearchIcon (visible on mobile, hidden on desktop) */}
               <div
-                className={`block md:hidden cursor-pointer text-2xl`}
+                className="block md:hidden cursor-pointer text-2xl"
                 onClick={() => setSearchbOpen(!searchb_open)}>
                 <ion-icon name={`${searchb_open ? "search" : "search"}`}></ion-icon>
               </div>
