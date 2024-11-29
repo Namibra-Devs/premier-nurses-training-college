@@ -108,7 +108,7 @@ const Results = () => {
       {showAlert && <OverlayAlert message="Data saved!"/>}
       {/* Input Form */}
       <div
-        className={`grid gap-4 mb-6 bg-white p-6 rounded transform transition-transform duration-500 ${
+        className={`grid gap-4 transform transition-transform duration-500 ${
           isVisible ? "scale-100 opacity-100" : "scale-90 opacity-0"
         }`}
       >
@@ -188,11 +188,10 @@ const Results = () => {
             </div>
           </div>
         </form>
-        <div className="flex items-center justify-between">
-          <SaveButton onClick={handleSave} />
+        <div className="flex items-center justify-end">
           <button
             onClick={handleAddResult}
-            className="flex items-center float-right gap-2 bg-primary text-white py-2 px-4 rounded hover:bg-blue-600"
+            className="flex items-center gap-2 bg-primary text-white py-2 px-4 rounded hover:bg-blue-600"
           >
             <AiOutlinePlus />
             Add Result
@@ -202,7 +201,7 @@ const Results = () => {
 
       {/* Results List */}
       {results.length > 0 && (
-        <div data-aos="fade-up" data-aos-duration="800">
+        <div data-aos="fade-up" data-aos-duration="800"className="mt-6" >
           <h3 className="text-xl font-semibold mb-2">Added Results List</h3>
           <div className="overflow-x-auto pb-4">
             <table className="w-full border-collapse border border-gray-300">
