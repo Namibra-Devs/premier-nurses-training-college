@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import logo from "../../../../../assets/Logo.png";
 import SubmitButton from "../../../../Buttons/SubmitButton";
 import OverlayAlert from "../OverlayAlert";
@@ -36,13 +37,19 @@ const LoginPage = () => {
 
   // Handle Login Alert
   const [showAlert, setShowAlert] = useState(false);
+  const navigate = useNavigate(); // Initialize navigate function
   const handleFormSubmit = (e) => {
     e.preventDefault();
     if (validate()) {
       setShowAlert(true);
-      setTimeout(() => setShowAlert(false), 3000);
+      // Show the alert for 3 seconds, then navigate
+      setTimeout(() => {
+        setShowAlert(false);
+        navigate("/application-page");
+      }, 3000);
     }
   };
+
 
   return (
     <div className="flex flex-col md:flex-row min-h-screen items-center justify-center bg-gray-100">
@@ -140,14 +147,14 @@ const LoginPage = () => {
                 />
                 Remember Me
               </label>
-              <a href="#" className="text-sm text-primary hover:underline">
+              <a href="/reset-password" className="text-sm text-primary hover:underline">
                 Forgot Your Password?
               </a>
             </div>
 
             {/* Login Button */}
             <div>
-              <SubmitButton url="/application-page" label="Login" />
+              <SubmitButton handleAccess={handleFormSubmit} label="Login" />
             </div>
           </form>
         </div>
