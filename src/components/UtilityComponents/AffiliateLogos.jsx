@@ -4,4 +4,4 @@ import Logo2 from "../../assets/accreditedlogos/logo2.png";
 import Logo3 from "../../assets/accreditedlogos/logo3.png";
 
 // Export an array of logos directly
-export const Logos = [Logo1, Logo2, Logo3];
+export const logos = [Logo1, Logo2, Logo3];

@@ -194,29 +194,19 @@ const Navbar = () => {
               <img src={Logo} alt="logo" className="md:cursor-pointer h-12" />
             </Link>
 
-            <div className="flex items-center gap-3 flex-row-reverse">
+            <div className={`flex items-center gap-3 flex-row-reverse ${isScrolled ? "text-gray-600" : "text-white"} `}>
               {/* Menu ----------------------------------------------------- */}
               <div
-                className={`text-3xl cursor-pointer md:hidden ml-2 md:ml-0 ${
-                  open ? "text-slate-400" : "text-white"
-                } ${isScrolled ? "text-gray-600" : "text-white"} `}
-                onClick={() => setOpen(!open)}
-              >
+                className={`text-3xl cursor-pointer md:hidden ml-2 md:ml-0`}
+                onClick={() => setOpen(!open)}>
                 <ion-icon name={`${open ? "menu" : "menu"}`}></ion-icon>
               </div>
 
               {/* Mobile version of SearchIcon (visible on mobile, hidden on desktop) */}
               <div
-                className={`block md:hidden text-white cursor-pointer text-2xl ${
-                  searchb_open ? "text-slate-400" : "text-white"
-                } ${
-                  isScrolled ? "text-gray-600 sm:text-white" : "text-white"
-                } `}
-                onClick={() => setSearchbOpen(!searchb_open)}
-              >
-                <ion-icon
-                  name={`${searchb_open ? "search" : "search"}`}
-                ></ion-icon>
+                className={`block md:hidden cursor-pointer text-2xl`}
+                onClick={() => setSearchbOpen(!searchb_open)}>
+                <ion-icon name={`${searchb_open ? "search" : "search"}`}></ion-icon>
               </div>
             </div>
           </div>

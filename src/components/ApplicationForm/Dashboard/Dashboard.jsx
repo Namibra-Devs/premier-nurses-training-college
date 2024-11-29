@@ -45,7 +45,7 @@ const Dashboard = ({
         </div>
 
         {/* Submitted Applications Section */}
-        <div className="p-4 bg-white flex flex-col items-center justify-center rounded shadow-custom-light">
+        <div className="p-4 bg-white flex flex-col items-center justify-center rounded border">
           <h2 className="text-xl font-semibold flex flex-col items-center gap-2">
             <AiOutlineFileText className="text-blue-500 text-3xl" />
             Submitted Applications
@@ -75,7 +75,7 @@ const Dashboard = ({
         </div>
 
         {/* Admission Materials Section */}
-        <div className="p-4 bg-white flex flex-col items-center justify-center rounded shadow-custom-light">
+        <div className="p-4 bg-white flex flex-col items-center justify-center rounded border">
           <h2 className="text-xl font-semibold flex flex-col items-center gap-2">
             <AiOutlineDownload className="text-blue-500 text-3xl" />
             Admission Materials
