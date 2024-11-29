@@ -54,7 +54,7 @@ const ProgramChoice = () => {
     <div>
       {showAlert && <OverlayAlert message="Program saved!" />}
       <div
-        className={`bg-white p-6 rounded transform transition-transform duration-500 ${
+        className={`transform transition-transform duration-500 ${
           isVisible ? "scale-100 opacity-100" : "scale-90 opacity-0"
         }`}
       >
@@ -87,10 +87,6 @@ const ProgramChoice = () => {
               </p>
             )}
           </form>
-        </div>
-
-        <div className="mt-5">
-          <SaveButton onClick={handleSave} />
         </div>
       </div>
     </div>

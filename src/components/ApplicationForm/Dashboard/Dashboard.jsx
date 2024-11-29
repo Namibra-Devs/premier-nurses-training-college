@@ -20,7 +20,7 @@ const Dashboard = ({
 
   return (
     <div
-      className={`bg-gray-50 p-6 rounded transform transition-transform duration-500 ${
+      className={`transform transition-transform duration-500 ${
         isVisible ? "scale-100 opacity-100" : "scale-90 opacity-0"
       }`}
     >
