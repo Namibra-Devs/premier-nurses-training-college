@@ -50,7 +50,6 @@ const LoginPage = () => {
     }
   };
 
-
   return (
     <div className="flex flex-col md:flex-row min-h-screen items-center justify-center bg-gray-100">
       {/* Overlay Alert! */}

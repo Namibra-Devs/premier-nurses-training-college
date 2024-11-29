@@ -17,7 +17,7 @@ const ApplicationPage = () => {
           </div>
           {/* title */}
           <h3 className="text-gray-800 text-lg text-left capitalize font-medium">
-            Admission Application System
+            Admission, Application System
             <span className="text-blue-600 font-semibold"> PNTC</span>
           </h3>
         </div>

@@ -65,7 +65,7 @@ const Referee = () => {
     <>
       {showAlert && <OverlayAlert message="Referee saved!" />}
       <div
-        className={`bg-white p-6 rounded transform transition-transform duration-500 ${
+        className={`transform transition-transform duration-500 ${
           isVisible ? "scale-100 opacity-100" : "scale-90 opacity-0"
         }`}
       >
@@ -158,14 +158,13 @@ const Referee = () => {
                 </p>
               )}
             </div>
-            <div className="flex items-center justify-between mt-4">
+            <div className="flex items-center justify-start mt-4">
               <button
                 onClick={handleDeleteFile}
                 className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 flex items-center"
               ><AiOutlineDelete className="text-lg mr-2" />
                 Delete Letter
               </button>
-              <SaveButton onClick={handleSave} />
             </div>
           </form>
         </div>
