@@ -52,8 +52,11 @@ const RegistrationPage = () => {
     e.preventDefault();
     if (validate()) {
       setShowAlert(true);
-      console.log("Form submitted:", formData);
-      setTimeout(() => setShowAlert(false), 3000);
+      // Show the alert for 3 seconds, then navigate
+      setTimeout(() => {
+        setShowAlert(false);
+        navigate("/application-page");
+      }, 3000);
       setFormData({
         firstName: "",
         lastName: "",
@@ -214,7 +217,7 @@ const RegistrationPage = () => {
 
             {/* Submit Button */}
             <div className="mt-3">
-              <SubmitButton label="Register" />
+              <SubmitButton handleAccess={handleFormSubmit} label="Register" />
             </div>
           </form>
         </div>
