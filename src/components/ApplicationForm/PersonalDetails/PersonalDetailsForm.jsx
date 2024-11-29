@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import ProfilePictureUpload from "./ProfilePictureUpload";
-import SaveButton from "../Buttons/SaveButton";
 import OverlayAlert from "../FormControls/OverlayAlert";
 
 const savePersonalDetails = (personalDetail) => {
@@ -84,7 +83,7 @@ const PersonalDetailsForm = ({ preview, setPreview }) => {
     <div>
       {showAlert && <OverlayAlert message="Data saved!" />}
       <div
-        className={`bg-white p-6 rounded transform transition-transform duration-500 ${
+        className={`transform transition-transform duration-500 ${
           isVisible ? "scale-100 opacity-100" : "scale-90 opacity-0"
         }`}
       >
@@ -290,9 +289,6 @@ const PersonalDetailsForm = ({ preview, setPreview }) => {
                 />
               </div>
             </div>
-          </div>
-          <div className="mt-5">
-            <SaveButton onClick={handleSave} />
           </div>
         </form>
       </div>

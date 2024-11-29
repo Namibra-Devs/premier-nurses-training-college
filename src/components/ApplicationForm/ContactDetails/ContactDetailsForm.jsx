@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import SaveButton from "../Buttons/SaveButton";
 import OverlayAlert from "../FormControls/OverlayAlert";
 
 const saveContactData = (contactData) => {
@@ -16,7 +15,7 @@ const retrivecontactData = () => {
 
 const ContactDetailsForm = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [contactData, setcontactData] = useState();
+  const [contactData, setcontactData] = useState(retrivecontactData());
   const [showAlert, setShowAlert] = useState(false);
 
   // Load program data on component mount
@@ -46,23 +45,13 @@ const ContactDetailsForm = () => {
     }
   };
 
-  // A function to load and mount the form data anytime the component mount
-  const handleLoadData = () => {
-    const loadedData = retrivecontactData();//retrived data from the local storage
-    if(loadedData){
-      setcontactData(loadedData); //Now update the state with the loaded data from the storage
-    }else{
-      console.log("No data found!");
-    }
-  }
-
   return (
     <div>
       {/* Save Alert */}
       {showAlert && <OverlayAlert message="Data Saved!" />}
       {/* Contact Details */}
       <div
-        className={`bg-white p-6 rounded transform transition-transform duration-500 ${
+        className={`transform transition-transform duration-500 ${
           isVisible ? "scale-100 opacity-100" : "scale-90 opacity-0"
         }`}
       >
@@ -129,14 +118,6 @@ const ContactDetailsForm = () => {
             />
           </div>
         </form>
-        <div className="mt-5 flex items-center gap-4">
-        <button
-          onClick={handleLoadData}
-          className="px-4 py-2 bg-teal text-white rounded hover:bg-yellow-500">
-                Nest
-              </button>
-          <SaveButton onClick={handleSave} />
-        </div>
       </div>
     </div>
   );
