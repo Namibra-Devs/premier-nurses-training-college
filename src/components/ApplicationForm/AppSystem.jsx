@@ -153,22 +153,21 @@ const AppSystem = ({ open, setOpen }) => {
           {/*--------------End TABS ARE DISPLAYED HERE...---------------- */}
 
             {/* Save and Save and Continue Buttons */}
-            <div className="flex justify-between mt-4"> 
+            <div className="flex items-baseline justify-between gap-4 mt-4"> 
               {/* Previous Button */}
               {currentTab > 1 && (
                 <button
                   onClick={handlePrevious}
-                  className="px-4 py-2 rounded bg-gray-300 hover:bg-gray-400 hover:shadow-custom-light">
+                  className="px-4 py-2  rounded bg-gray-300 hover:bg-gray-400 hover:shadow-custom-light">
                   Previous
                 </button>
               )}
               <div className="flex justify-end gap-4">
-                {/* Save button         */}
-   
                 {/* Save and Continue */}
                 {currentTab > 0 && currentTab < tabs.length - 1 && (
                   <>
                   <SaveButton />
+                  {/* Save button*/}
                     <button
                       onClick={handleContinue}
                       className="px-4 py-2 rounded bg-green-500 text-white hover:bg-green-600 hover:shadow-custom-light">
@@ -177,6 +176,12 @@ const AppSystem = ({ open, setOpen }) => {
                   </>
                 )}
               </div>
+              {currentTab === tabs.length - 1 && (
+                <button
+                  className="bg-green-500 hover:bg-green-600 hover:shadow-custom-light text-white py-2 px-4 mt-4 rounded">
+                  Submit Application
+                </button>
+              )}
             </div>   
         </div>
       </div>
