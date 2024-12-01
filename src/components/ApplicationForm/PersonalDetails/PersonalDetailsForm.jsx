@@ -1,28 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import ProfilePictureUpload from "./ProfilePictureUpload";
-import OverlayAlert from "../FormControls/OverlayAlert";
-
-const savePersonalDetails = (personalDetail) => {
-  localStorage.setItem("personalDetail", JSON.stringify(personalDetail));
-};
-
-const retrivePersonalDetails = () => {
-  const personalDetail = localStorage.getItem("personalDetail");
-  if (personalDetail) {
-    return JSON.parse(personalDetail);
-  }
-  return {};
-};
+import { FormDataContext } from "../../Context/FormDataContext";
 
 const PersonalDetailsForm = ({ preview, setPreview }) => {
   const [isVisible, setIsVisible] = useState(false);
-
+  const {formData, setformData} = useContext(FormDataContext)
+  
   // Load program data on component mount
   useEffect(() => {
     setTimeout(() => setIsVisible(true), 100); // Trigger the animation
   }, []);
 
-  // const [personalDetail, setpersonalDetail] = useState({
+  // const [formData, setformData] = useState({
   //   profilePicture: null,
   //   // Personal Information--------
   //   surname: "",
@@ -52,36 +41,12 @@ const PersonalDetailsForm = ({ preview, setPreview }) => {
   //   },
   // });
 
-  const [personalDetail, setPersonalDetail] = useState(
-    retrivePersonalDetails()
-  );
-
   const handleChange = (e) => {
-    setPersonalDetail({ ...personalDetail, [e.target.name]: e.target.value });
-  };
-
-  // Handle Saved Alert
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    savePersonalDetails(personalDetail);
-  };
-
-  const [showAlert, setShowAlert] = useState(false);
-  const handleSave = (e) => {
-    e.preventDefault();
-
-    try {
-      savePersonalDetails(personalDetail); // Save the data
-      setShowAlert(true); // Show success alert
-      setTimeout(() => setShowAlert(false), 3000); // Hide after 3 seconds
-    } catch (error) {
-      console.error("Save failed:", error);
-    }
+    setformData({ ...formData, [e.target.name]: e.target.value });
   };
 
   return (
     <div>
-      {showAlert && <OverlayAlert message="Data saved!" />}
       <div
         className={`transform transition-transform duration-500 ${
           isVisible ? "scale-100 opacity-100" : "scale-90 opacity-0"
@@ -95,7 +60,7 @@ const PersonalDetailsForm = ({ preview, setPreview }) => {
           </div>
         </div>
 
-        <form onSubmit={handleSubmit}>
+        <form>
           {/* Name Fields */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-2">
             <div>
@@ -103,7 +68,7 @@ const PersonalDetailsForm = ({ preview, setPreview }) => {
               <input
                 type="text"
                 name="surname"
-                value={personalDetail.surname}
+                value={formData.surname}
                 onChange={handleChange}
                 className="w-full border rounded p-2"
               />
@@ -113,7 +78,7 @@ const PersonalDetailsForm = ({ preview, setPreview }) => {
               <input
                 type="text"
                 name="firstName"
-                value={personalDetail.firstName}
+                value={formData.firstName}
                 onChange={handleChange}
                 className="w-full border rounded p-2"
               />
@@ -123,7 +88,7 @@ const PersonalDetailsForm = ({ preview, setPreview }) => {
               <input
                 type="text"
                 name="otherName"
-                value={personalDetail.otherName}
+                value={formData.otherName}
                 onChange={handleChange}
                 className="w-full border rounded p-2"
               />
@@ -132,7 +97,7 @@ const PersonalDetailsForm = ({ preview, setPreview }) => {
               <label className="block font-medium mb-2">Gender</label>
               <select
                 name="gender"
-                value={personalDetail.gender}
+                value={formData.gender}
                 onChange={handleChange}
                 className="w-full border rounded p-2"
               >
@@ -146,7 +111,7 @@ const PersonalDetailsForm = ({ preview, setPreview }) => {
               <input
                 type="date"
                 name="dateOfBirth"
-                value={personalDetail.dateOfBirth}
+                value={formData.dateOfBirth}
                 onChange={handleChange}
                 className="w-full border rounded p-2"
               />
@@ -157,7 +122,7 @@ const PersonalDetailsForm = ({ preview, setPreview }) => {
                 <input
                   type="number"
                   name="age"
-                  value={personalDetail.age}
+                  value={formData.age}
                   onChange={handleChange}
                   className="w-full border rounded p-2"
                 />
@@ -166,7 +131,7 @@ const PersonalDetailsForm = ({ preview, setPreview }) => {
                 <label className="block font-medium mb-2">Marital Status</label>
                 <select
                   name="maritalStatus"
-                  value={personalDetail.maritalStatus}
+                  value={formData.maritalStatus}
                   onChange={handleChange}
                   className="w-full border rounded p-2"
                 >
@@ -185,7 +150,7 @@ const PersonalDetailsForm = ({ preview, setPreview }) => {
               <input
                 type="text"
                 name="languagesSpoken"
-                value={personalDetail.languagesSpoken}
+                value={formData.languagesSpoken}
                 onChange={handleChange}
                 className="w-full border rounded p-2"
               />
@@ -195,7 +160,7 @@ const PersonalDetailsForm = ({ preview, setPreview }) => {
               <input
                 type="text"
                 name="placeOfBirth"
-                value={personalDetail.placeOfBirth}
+                value={formData.placeOfBirth}
                 onChange={handleChange}
                 className="w-full border rounded p-2"
               />
@@ -205,7 +170,7 @@ const PersonalDetailsForm = ({ preview, setPreview }) => {
               <input
                 type="text"
                 name="religion"
-                value={personalDetail.religion}
+                value={formData.religion}
                 onChange={handleChange}
                 className="w-full border rounded p-2"
               />
@@ -215,7 +180,7 @@ const PersonalDetailsForm = ({ preview, setPreview }) => {
               <input
                 type="text"
                 name="hometown"
-                value={personalDetail.hometown}
+                value={formData.hometown}
                 onChange={handleChange}
                 className="w-full border rounded p-2"
               />
@@ -225,7 +190,7 @@ const PersonalDetailsForm = ({ preview, setPreview }) => {
               <input
                 type="text"
                 name="district"
-                value={personalDetail.district}
+                value={formData.district}
                 onChange={handleChange}
                 className="w-full border rounded p-2"
               />
@@ -235,7 +200,7 @@ const PersonalDetailsForm = ({ preview, setPreview }) => {
               <input
                 type="text"
                 name="region"
-                value={personalDetail.region}
+                value={formData.region}
                 onChange={handleChange}
                 className="w-full border rounded p-2"
               />
@@ -253,7 +218,7 @@ const PersonalDetailsForm = ({ preview, setPreview }) => {
                 <input
                   type="text"
                   name="name"
-                  value={personalDetail.name}
+                  value={formData.name}
                   onChange={handleChange}
                   className="w-full border rounded p-2"
                 />
@@ -263,7 +228,7 @@ const PersonalDetailsForm = ({ preview, setPreview }) => {
                 <input
                   type="text"
                   name="occupation"
-                  value={personalDetail.occupation}
+                  value={formData.occupation}
                   onChange={handleChange}
                   className="w-full border rounded p-2"
                 />
@@ -273,7 +238,7 @@ const PersonalDetailsForm = ({ preview, setPreview }) => {
                 <input
                   type="text"
                   name="contact"
-                  value={personalDetail.contact}
+                  value={formData.contact}
                   onChange={handleChange}
                   className="w-full border rounded p-2"
                 />
@@ -283,7 +248,7 @@ const PersonalDetailsForm = ({ preview, setPreview }) => {
                 <input
                   type="text"
                   name="address"
-                  value={personalDetail.address}
+                  value={formData.address}
                   onChange={handleChange}
                   className="w-full border rounded p-2"
                 />

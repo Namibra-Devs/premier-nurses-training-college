@@ -1,25 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { AiOutlineUser, AiOutlineUpload, AiOutlineDelete } from "react-icons/ai";
-import SaveButton from "./Buttons/SaveButton";
-import OverlayAlert from "./FormControls/OverlayAlert";
-
-const saveRefereeDetails = (referee) => {
-  localStorage.setItem("referee", JSON.stringify(referee));
-};
-
-const retriveRefereeDetails = () => {
-  try {
-    const referee = localStorage.getItem("referee");
-    return referee ? JSON.parse(referee) : "";
-  } catch (error) {
-    console.error("Error retrieving program:", error);
-    return "";
-  }
-};
+import { FormDataContext } from "../Context/FormDataContext";
 
 const Referee = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [referee, setReferee] = useState(retriveRefereeDetails() || "");
+  const {formData, setformData} = useContext(FormDataContext || "");
   // Load program data on component mount
   useEffect(() => {
     setTimeout(() => setIsVisible(true), 100); // Trigger the animation
@@ -30,7 +15,7 @@ const Referee = () => {
     if (file && file.type === "application/pdf") {
       const reader = new FileReader();
       reader.onload = () => {
-        setReferee({ ...referee, letter: reader.result }); // Store Base64 string
+        setformData({ ...formData, letter: reader.result }); // Store Base64 string
       };
       reader.readAsDataURL(file);
     } else {
@@ -39,36 +24,16 @@ const Referee = () => {
   };
 
   const handleDeleteFile = () => {
-    setReferee({ ...referee, letter: null }); // Remove the letter from state
+    setformData({ ...formData, letter: null }); // Remove the letter from state
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    saveRefereeDetails(referee);
-  };
-
-  // Handle Saved Alert
-  const [showAlert, setShowAlert] = useState(false);
-  const handleSave = (e) => {
-    e.preventDefault();
-
-    try {
-      saveRefereeDetails(referee); // Save the data
-      setShowAlert(true); // Show success alert
-      setTimeout(() => setShowAlert(false), 3000); // Hide after 3 seconds
-    } catch (error) {
-      console.error("Save failed:", error);
-    }
-  };
 
   return (
     <>
-      {showAlert && <OverlayAlert message="Referee saved!" />}
       <div
         className={`transform transition-transform duration-500 ${
           isVisible ? "scale-100 opacity-100" : "scale-90 opacity-0"
-        }`}
-      >
+        }`}>
         {/* Referee Details */}
         <div className="md:col-span-2">
           <h3 className="text-xl font-semibold mb-4 flex items-center gap-2">
@@ -78,7 +43,7 @@ const Referee = () => {
             Must be a Doctor, Senior Police/Army Officer, Head of Institution,
             or Reverend Minister/Clergy.
           </p>
-          <form onSubmit={handleSubmit}>
+          <form>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <label className="block text-gray-700 font-medium mb-2">
@@ -87,9 +52,9 @@ const Referee = () => {
                 <input
                   type="text"
                   placeholder="Enter Name"
-                  value={referee.name || ""}
+                  value={formData.name || ""}
                   onChange={(e) =>
-                    setReferee({ ...referee, name: e.target.value })
+                    setformData({ ...formData, name: e.target.value })
                   }
                   className="block w-full p-2 border border-gray-300 rounded mb-4"
                 />
@@ -99,9 +64,9 @@ const Referee = () => {
                 <input
                   type="text"
                   placeholder="Enter Address"
-                  value={referee.address || ""}
+                  value={formData.address || ""}
                   onChange={(e) =>
-                    setReferee({ ...referee, address: e.target.value })
+                    setformData({ ...formData, address: e.target.value })
                   }
                   className="block w-full p-2 border border-gray-300 rounded mb-4"
                 />
@@ -113,9 +78,9 @@ const Referee = () => {
                 <input
                   type="text"
                   placeholder="Enter Contact"
-                  value={referee.contact || ""}
+                  value={formData.contact || ""}
                   onChange={(e) =>
-                    setReferee({ ...referee, contact: e.target.value })
+                    setformData({ ...formData, contact: e.target.value })
                   }
                   className="block w-full p-2 border border-gray-300 rounded mb-4"
                 />
@@ -133,21 +98,21 @@ const Referee = () => {
                   />
                 </label>
 
-                {referee.letter && (
+                {formData.letter && (
                   <p className="text-sm text-green-600 mt-1">
-                    {referee.letter.name}
+                    {formData.letter.name}
                   </p>
                 )}
               </div>
             </div>
             <div className="mt-4">
-              {referee.letter ? (
+              {formData.letter ? (
                 <>
                   <h4 className="text-green-600 font-medium">
                     Uploaded Letter:
                   </h4>
                   <iframe
-                    src={referee.letter}
+                    src={formData.letter}
                     title="Referee Letter"
                     className="w-full h-64 border border-gray-300 rounded"
                   ></iframe>
@@ -161,8 +126,7 @@ const Referee = () => {
             <div className="flex items-center justify-start mt-4">
               <button
                 onClick={handleDeleteFile}
-                className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 flex items-center"
-              ><AiOutlineDelete className="text-lg mr-2" />
+                className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 flex items-center"><AiOutlineDelete className="text-lg mr-2" />
                 Delete Letter
               </button>
             </div>
