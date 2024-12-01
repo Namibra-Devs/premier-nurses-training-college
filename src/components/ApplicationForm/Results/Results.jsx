@@ -1,32 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { AiOutlineEdit, AiOutlineDelete, AiOutlinePlus } from "react-icons/ai";
-import SaveButton from "../Buttons/SaveButton";
-import OverlayAlert from "../FormControls/OverlayAlert";
-
-// Save education list to localStorag
-const saveResultsList = (resultsList) => {
-  localStorage.setItem("results", JSON.stringify(resultsList));
-};
-
-// Retrieve education list from localStorage
-const retrieveResultsList = () => {
-  const savedList = localStorage.getItem("results");
-  if (savedList) {
-    return JSON.parse(savedList);
-  }
-  return [];
-};
+import { FormDataContext } from "../../Context/FormDataContext";
 
 const Results = () => {
   const [isVisible, setIsVisible] = useState(false);
-
-  // Load program data on component mount
-  useEffect(() => {
-    setTimeout(() => setIsVisible(true), 100); // Trigger the animation
-  }, []);
-
-  const [results, setResults] = useState(retrieveResultsList());
-  const [form, setForm] = useState({
+  const [resultsData, setResultsData] = useState({
     examType: "WAEC",
     indexNumber: "",
     year: "",
@@ -34,6 +12,12 @@ const Results = () => {
     subjectTitle: "",
     grade: "",
   });
+  const {formData, setformData} = useContext(FormDataContext);
+
+  // Load program data on component mount
+  useEffect(() => {
+    setTimeout(() => setIsVisible(true), 100); // Trigger the animation
+  }, []);
 
   // Subject options
   const subjects = {
@@ -46,20 +30,20 @@ const Results = () => {
 
   // Handle form change
   const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
+    setResultsData({ ...resultsData, [e.target.name]: e.target.value });
   };
 
   // Add a result entry
   const handleAddResult = () => {
     if (
-      form.examType &&
-      form.indexNumber &&
-      form.year &&
-      form.subjectTitle &&
-      form.grade
+      resultsData.examType &&
+      resultsData.indexNumber &&
+      resultsData.year &&
+      resultsData.subjectTitle &&
+      resultsData.grade
     ) {
-      setResults([...results, { ...form, id: Date.now() }]);
-      setForm({
+      setformData([...formData, { ...resultsData, id: Date.now() }]);
+      setResultsData({
         examType: "WAEC",
         indexNumber: "",
         year: "",
@@ -74,38 +58,19 @@ const Results = () => {
 
   // Edit a result entry
   const handleEdit = (id) => {
-    const resultToEdit = results.find((result) => result.id === id);
-    setForm({ ...resultToEdit });
-    setResults(results.filter((result) => result.id !== id)); // Remove from list for editing
+    const resultToEdit = formData.find((result) => result.id === id);
+    setResultsData({ ...resultToEdit });
+    setformData(formData.filter((result) => result.id !== id)); // Remove from list for editing
   };
 
   // Delete a result entry
   const handleDelete = (id) => {
-    setResults(results.filter((result) => result.id !== id));
+    setformData(formData.filter((result) => result.id !== id));
   };
 
-  // Handle Saved Alert
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    saveResultsList(results);
-  };
-
-  const [showAlert, setShowAlert] = useState(false);
-  const handleSave = (e) => {
-    e.preventDefault();
-
-    try {
-      saveResultsList(results); // Save the data
-      setShowAlert(true); // Show success alert
-      setTimeout(() => setShowAlert(false), 3000); // Hide after 3 seconds
-    } catch (error) {
-      console.error("Save failed:", error);
-    }
-  };
 
   return (
     <div className="w-full">
-      {showAlert && <OverlayAlert message="Data saved!"/>}
       {/* Input Form */}
       <div
         className={`grid gap-4 transform transition-transform duration-500 ${
@@ -113,13 +78,13 @@ const Results = () => {
         }`}
       >
         <h2 className="text-2xl font-semibold mb-3">Results</h2>
-        <form onSubmit={handleSubmit}>
+        <form>
           <div className="grid grid-cols-2 gap-4">
             <div>
               <label className="block font-medium mb-2">Exams Type</label>
               <select
                 name="examType"
-                value={form.examType}
+                value={resultsData.examType}
                 onChange={handleChange}
                 className="w-full p-2 border border-gray-300 rounded mb-2"
               >
@@ -131,7 +96,7 @@ const Results = () => {
                 type="text"
                 name="indexNumber"
                 placeholder="Index Number"
-                value={form.indexNumber}
+                value={resultsData.indexNumber}
                 onChange={handleChange}
                 className="w-full p-2 border border-gray-300 rounded mb-2"
               />
@@ -140,7 +105,7 @@ const Results = () => {
                 type="text"
                 name="year"
                 placeholder="Year of Exams"
-                value={form.year}
+                value={resultsData.year}
                 onChange={handleChange}
                 className="w-full p-2 border border-gray-300 rounded mb-2"
               />
@@ -149,7 +114,7 @@ const Results = () => {
               <label className="block font-medium mb-2">Subject Type</label>
               <select
                 name="subjectType"
-                value={form.subjectType}
+                value={resultsData.subjectType}
                 onChange={handleChange}
                 className="w-full p-2 border border-gray-300 rounded mb-2"
               >
@@ -159,12 +124,12 @@ const Results = () => {
               <label className="block font-medium mb-2">Subject Title</label>
               <select
                 name="subjectTitle"
-                value={form.subjectTitle}
+                value={resultsData.subjectTitle}
                 onChange={handleChange}
                 className="w-full p-2 border border-gray-300 rounded mb-2"
               >
                 <option value="">Select Subject Title</option>
-                {subjects[form.subjectType]?.map((subject, index) => (
+                {subjects[resultsData.subjectType]?.map((subject, index) => (
                   <option key={index} value={subject}>
                     {subject}
                   </option>
@@ -174,7 +139,7 @@ const Results = () => {
               <select
                 name="grade"
                 placeholder="Grade"
-                value={form.grade}
+                value={resultsData.grade}
                 onChange={handleChange}
                 className="w-full p-2 border border-gray-300 rounded mb-2"
               >
@@ -200,7 +165,7 @@ const Results = () => {
       </div>
 
       {/* Results List */}
-      {results.length > 0 && (
+      {formData.length > 0 && (
         <div data-aos="fade-up" data-aos-duration="800"className="mt-6" >
           <h3 className="text-xl font-semibold mb-2">Added Results List</h3>
           <div className="overflow-x-auto pb-4">
@@ -228,7 +193,7 @@ const Results = () => {
                 </tr>
               </thead>
               <tbody>
-                {results.map((result) => (
+                {formData.map((result) => (
                   <tr key={result.id} className="hover:bg-gray-50">
                     <td className="border border-gray-300 px-4 py-2">
                       {result.examType}

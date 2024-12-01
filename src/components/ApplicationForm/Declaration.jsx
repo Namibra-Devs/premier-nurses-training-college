@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import OverlayAlert from "./FormControls/OverlayAlert";
+import { FormDataContext } from "../Context/FormDataContext";
 
 const saveDeclaration = (declaration) => {
   localStorage.setItem("declaration", JSON.stringify(declaration));
@@ -16,7 +17,7 @@ const retriveDeclaration = () => {
 const Declaration = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
-  const [declaration, setDeclarationData] = useState(retriveDeclaration()); // Start with an empty object if no data is found in localStorage
+  const {formData, setformData} = useContext(FormDataContext || ""); // Start with an empty object if no data is found in localStorage
 
   // Load program data on component mount
   useEffect(() => {
@@ -24,13 +25,13 @@ const Declaration = () => {
   }, []);
 
   const handleChange = (e) => {
-    setDeclarationData({ ...declaration, [e.target.name]: e.target.value });
+    setformData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSave = (e) => {
     e.preventDefault();
     try {
-      saveDeclaration(declaration); // Save the data to localStorage
+      saveDeclaration(formData); // Save the data to localStorage
       setShowAlert(true); // Show success alert
       setTimeout(() => setShowAlert(false), 3000); // Hide alert after 3 seconds
     } catch (error) {
@@ -42,7 +43,7 @@ const Declaration = () => {
     <>
       {showAlert && <OverlayAlert message="Declaration saved!" />}
       <div
-        className={` transform transition-transform duration-500 ${
+        className={`transform transition-transform duration-500 ${
           isVisible ? "scale-100 opacity-100" : "scale-90 opacity-0"
         }`}
       >
@@ -65,7 +66,7 @@ const Declaration = () => {
               id="name"
               type="text"
               name="name"
-              value={declaration?.name || ""}
+              value={formData?.name || ""}
               onChange={handleChange}
               placeholder="Enter your name"
               className="block w-full p-3 border border-gray-300 rounded"
@@ -84,7 +85,7 @@ const Declaration = () => {
               id="date"
               type="date"
               name="date"
-              value={declaration?.date || ""}
+              value={formData?.date || ""}
               onChange={handleChange}
               className="block w-full p-3 border border-gray-300 rounded"
             />
