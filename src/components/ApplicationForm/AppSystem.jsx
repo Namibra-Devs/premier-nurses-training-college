@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Tabs from "./Tabs";
 import Dashboard from "./Dashboard/Dashboard";
 import PersonalDetailsForm from "./PersonalDetails/PersonalDetailsForm";
@@ -22,10 +22,17 @@ import {
   AiOutlineSend,
 } from "react-icons/ai";
 import SaveButton from "./Buttons/SaveButton";
+import { FormDataContext } from "../Context/FormDataContext";
+import OverlayAlert from "./FormControls/OverlayAlert";
 
+const saveformData = (formData) => {
+  localStorage.setItem("formData", JSON.stringify(formData));
+};
 
 const AppSystem = ({ open, setOpen }) => {
   const [currentTab, setCurrentTab] = useState(0);
+  const {formData} = useContext(FormDataContext);
+  const [showAlert, setShowAlert] = useState(false);
   // // Example central state for the form data
   // const [formData, setFormData] = useState({
   //   personalDetails: {},
@@ -136,7 +143,22 @@ const AppSystem = ({ open, setOpen }) => {
     },
   ];
 
+  const handleSave = (e) => {
+    e.preventDefault();
+
+    try {
+      saveformData(formData); // For global data saving
+      setShowAlert(true); // Show success alert
+      setTimeout(() => setShowAlert(false), 3000); // Hide after 3 seconds
+    } catch (error) {
+      console.error("Save failed:", error);
+    }
+  };
+
   return (
+    <>
+      {/* Save Alert */}
+      {showAlert && <OverlayAlert message="Data Saved!" />}
     <div className="flex items-start mt-3 bg-gray-100 h-screen">
       <Tabs
         tabs={tabs}
@@ -166,10 +188,10 @@ const AppSystem = ({ open, setOpen }) => {
                 {/* Save and Continue */}
                 {currentTab > 0 && currentTab < tabs.length - 1 && (
                   <>
-                  <SaveButton />
+                  <SaveButton onClick={handleSave} />
                   {/* Save button*/}
                     <button
-                      onClick={handleContinue}
+                      onClick={handleContinue && handleSave}
                       className="px-4 py-2 rounded bg-green-500 text-white hover:bg-green-600 hover:shadow-custom-light">
                       Save & Continue
                     </button>
@@ -186,6 +208,7 @@ const AppSystem = ({ open, setOpen }) => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 
