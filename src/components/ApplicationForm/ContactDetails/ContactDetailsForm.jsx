@@ -121,7 +121,20 @@ const ContactDetailsForm = () => {
               <option value="">--Select a Region--</option>
               <option value="Ashanti">Ashanti</option>
               <option value="Greater Accra">Greater Accra</option>
-              {/* Add other options here */}
+              <option value="Northern">Northern</option>
+              <option value="Volta">Volta</option>
+              <option value="Central">Central</option>
+              <option value="Western">Western</option>
+              <option value="Upper-West">Upper-West</option>
+              <option value="Upper-East">Upper-East</option>
+              <option value="Oti">Oti</option>
+              <option value="Savannah">Savannah</option>
+              <option value="Bono East">Bono East</option>
+              <option value="Western North">Western North</option>
+              <option value="Brong Ahafo">Brong Ahafo</option>
+              <option value="North East">North East</option>
+              <option value="Ahafo">Ahafo</option>
+              <option value="Eastern">Eastern</option>
             </select>
             {errors.postalRegion && <p className="text-red-500 text-xs">{errors.postalRegion}</p>}
           </div>

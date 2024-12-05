@@ -5,6 +5,7 @@ import { FormDataContext } from "../../Context/FormDataContext";
 const EducationalBackground = () => {
   const [isVisible, setIsVisible] = useState(false);
   const { formData, setformData } = useContext(FormDataContext);
+  const [errors, setErrors] = useState({});
 
   // Temporary variable for form inputs
   const [tempEduData, setTempEduData] = useState({
@@ -25,17 +26,21 @@ const EducationalBackground = () => {
 
   // Add education to the list
   const handleAddEducation = () => {
-    if (
-      tempEduData.schoolName &&
-      tempEduData.address &&
-      tempEduData.from &&
-      tempEduData.to
-    ) {
-      setformData([...formData, { ...tempEduData, id: Date.now() }]); // Add to context state
-      setTempEduData({ schoolName: "", address: "", from: "", to: "" }); // Reset form
-    } else {
-      alert("Please fill all fields before adding.");
+    const validationErrors = validateEducation();
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      return;
     }
+
+      // Add the valid education data to the list
+    const newEducation = {
+      ...tempEduData,
+      id: Date.now(), // Unique ID for each education entry
+    };
+
+    setformData([...formData, newEducation]);
+    setTempEduData({ schoolName: "", address: "", from: "", to: "" }); // Reset form
+    setErrors({});
   };
 
   // Delete education entry
@@ -48,6 +53,34 @@ const EducationalBackground = () => {
     const educationToEdit = formData.find((edu) => edu.id === id);
     setTempEduData({ ...educationToEdit });
     setformData(formData.filter((edu) => edu.id !== id)); // Remove from list for editing
+  };
+
+  const validateEducation = () => {
+    const errors = {};
+  
+    // Validate School Name
+    if (!tempEduData.schoolName?.trim()) {
+      errors.schoolName = "School Name is required.";
+    }
+  
+    // Validate School Address
+    if (!tempEduData.address?.trim()) {
+      errors.address = "School Address is required.";
+    }
+  
+    // Validate From Date
+    if (!tempEduData.from) {
+      errors.from = "Start date is required.";
+    }
+  
+    // Validate To Date
+    if (!tempEduData.to) {
+      errors.to = "End date is required.";
+    } else if (new Date(tempEduData.to) < new Date(tempEduData.from)) {
+      errors.to = "End date cannot be earlier than start date.";
+    }
+  
+    return errors;
   };
 
   return (
@@ -68,6 +101,7 @@ const EducationalBackground = () => {
             onChange={handleChange}
             className="w-full p-2 border border-gray-300 rounded"
           />
+          {errors.schoolName && <p className="text-red-500 text-xs">{errors.schoolName}</p>}
         </div>
         <div>
           <label className="block font-medium mb-2">School Address</label>
@@ -79,6 +113,7 @@ const EducationalBackground = () => {
             onChange={handleChange}
             className="w-full p-2 border border-gray-300 rounded"
           />
+          {errors.address && <p className="text-red-500 text-xs">{errors.address}</p>}
         </div>
         <div className="grid grid-cols-2 gap-4">
           <div>
@@ -91,6 +126,7 @@ const EducationalBackground = () => {
               onChange={handleChange}
               className="w-full p-2 border border-gray-300 rounded"
             />
+            {errors.from && <p className="text-red-500 text-xs">{errors.from}</p>}
           </div>
           <div>
             <label className="block font-medium mb-2">To</label>
@@ -102,6 +138,7 @@ const EducationalBackground = () => {
               onChange={handleChange}
               className="w-full p-2 border border-gray-300 rounded"
             />
+            {errors.to && <p className="text-red-500 text-xs">{errors.to}</p>}
           </div>
         </div>
         <div className="flex justify-end">
