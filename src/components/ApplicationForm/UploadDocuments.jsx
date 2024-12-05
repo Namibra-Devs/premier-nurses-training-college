@@ -18,14 +18,19 @@ const UploadDocuments = () => {
 
   const handleFileUpload = (e, fileKey) => {
     const file = e.target.files[0];
-    if (file && file.type === "application/pdf") {
-      setformData((prev) => ({
-        ...prev,
-        [fileKey]: { name: file.name },
-      }));
-    } else {
+    if (!file) return; // If no file is selected
+    if (file.type !== "application/pdf") {
       alert("Only PDF files are allowed!");
+      return;
     }
+    if (file.size > 5 * 1024 * 1024) {
+      alert("File size should not exceed 5MB");
+      return;
+    }
+    setformData((prev) => ({
+      ...prev,
+      [fileKey]: { name: file.name },
+    }));
   };
 
   const handleDeleteFile = (fileKey) => {
