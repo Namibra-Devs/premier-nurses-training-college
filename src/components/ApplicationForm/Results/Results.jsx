@@ -12,20 +12,18 @@ const Results = () => {
     subjectTitle: "",
     grade: "",
   });
-  const {formData, setformData} = useContext(FormDataContext);
+  const { formData, setformData } = useContext(FormDataContext);
+  const [errors, setErrors] = useState({});
 
-  // Load program data on component mount
   useEffect(() => {
     setTimeout(() => setIsVisible(true), 100); // Trigger the animation
   }, []);
 
-  // Subject options
   const subjects = {
     Core: ["Mathematics", "English", "Science", "Social Studies"],
     Elective: ["Biology", "Physics", "Economics", "Literature"],
   };
 
-  // Grade options
   const grades = ["A", "B", "C", "D", "E", "F"];
 
   // Handle form change
@@ -33,15 +31,33 @@ const Results = () => {
     setResultsData({ ...resultsData, [e.target.name]: e.target.value });
   };
 
+  // Validation function
+  const validate = () => {
+    const newErrors = {};
+
+    if (!resultsData.indexNumber.match(/^\d{8}$/)) {
+      newErrors.indexNumber = "Index number must be exactly 8 digits.";
+    }
+
+    if (!resultsData.year.match(/^\d{4}$/)) {
+      newErrors.year = "Year must be a valid 4-digit number.";
+    }
+
+    if (!resultsData.subjectTitle) {
+      newErrors.subjectTitle = "Subject title is required.";
+    }
+
+    if (!resultsData.grade) {
+      newErrors.grade = "Grade is required.";
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
   // Add a result entry
   const handleAddResult = () => {
-    if (
-      resultsData.examType &&
-      resultsData.indexNumber &&
-      resultsData.year &&
-      resultsData.subjectTitle &&
-      resultsData.grade
-    ) {
+    if (validate()) {
       setformData([...formData, { ...resultsData, id: Date.now() }]);
       setResultsData({
         examType: "WAEC",
@@ -51,8 +67,9 @@ const Results = () => {
         subjectTitle: "",
         grade: "",
       }); // Reset form
+      setErrors({});
     } else {
-      alert("Please fill all fields before adding.");
+      alert("Please correct the errors before adding.");
     }
   };
 
@@ -67,7 +84,6 @@ const Results = () => {
   const handleDelete = (id) => {
     setformData(formData.filter((result) => result.id !== id));
   };
-
 
   return (
     <div className="w-full">
@@ -98,8 +114,13 @@ const Results = () => {
                 placeholder="Index Number"
                 value={resultsData.indexNumber}
                 onChange={handleChange}
-                className="w-full p-2 border border-gray-300 rounded mb-2"
+                className={`w-full p-2 border ${
+                  errors.indexNumber ? "border-red-500" : "border-gray-300"
+                } rounded mb-2`}
               />
+              {errors.indexNumber && (
+                <p className="text-red-500 text-sm">{errors.indexNumber}</p>
+              )}
               <label className="block font-medium mb-2">Year of Exams</label>
               <input
                 type="text"
@@ -107,8 +128,13 @@ const Results = () => {
                 placeholder="Year of Exams"
                 value={resultsData.year}
                 onChange={handleChange}
-                className="w-full p-2 border border-gray-300 rounded mb-2"
+                className={`w-full p-2 border ${
+                  errors.year ? "border-red-500" : "border-gray-300"
+                } rounded mb-2`}
               />
+              {errors.year && (
+                <p className="text-red-500 text-sm">{errors.year}</p>
+              )}
             </div>
             <div>
               <label className="block font-medium mb-2">Subject Type</label>
@@ -126,7 +152,9 @@ const Results = () => {
                 name="subjectTitle"
                 value={resultsData.subjectTitle}
                 onChange={handleChange}
-                className="w-full p-2 border border-gray-300 rounded mb-2"
+                className={`w-full p-2 border ${
+                  errors.subjectTitle ? "border-red-500" : "border-gray-300"
+                } rounded mb-2`}
               >
                 <option value="">Select Subject Title</option>
                 {subjects[resultsData.subjectType]?.map((subject, index) => (
@@ -135,13 +163,17 @@ const Results = () => {
                   </option>
                 ))}
               </select>
+              {errors.subjectTitle && (
+                <p className="text-red-500 text-sm">{errors.subjectTitle}</p>
+              )}
               <label className="block font-medium mb-2">Grade</label>
               <select
                 name="grade"
-                placeholder="Grade"
                 value={resultsData.grade}
                 onChange={handleChange}
-                className="w-full p-2 border border-gray-300 rounded mb-2"
+                className={`w-full p-2 border ${
+                  errors.grade ? "border-red-500" : "border-gray-300"
+                } rounded mb-2`}
               >
                 <option value="">Select Grade</option>
                 {grades.map((grade, index) => (
@@ -150,6 +182,9 @@ const Results = () => {
                   </option>
                 ))}
               </select>
+              {errors.grade && (
+                <p className="text-red-500 text-sm">{errors.grade}</p>
+              )}
             </div>
           </div>
         </form>
@@ -163,7 +198,6 @@ const Results = () => {
           </button>
         </div>
       </div>
-
       {/* Results List */}
       {formData.length > 0 && (
         <div data-aos="fade-up" data-aos-duration="800"className="mt-6" >
