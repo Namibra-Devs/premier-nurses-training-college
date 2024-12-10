@@ -11,16 +11,7 @@ import Declaration from "./Declaration";
 import FinalSubmit from "./FinalSubmit";
 import ContactDetailsForm from "./ContactDetails/ContactDetailsForm";
 
-import {
-  AiOutlineDashboard,
-  AiOutlineUser,
-  AiOutlineBook,
-  AiOutlineFileText,
-  AiOutlineUpload,
-  AiOutlineCheckCircle,
-  AiOutlineForm,
-  AiOutlineSend,
-} from "react-icons/ai";
+import {AiOutlineDashboard, AiOutlineUser, AiOutlineBook, AiOutlineFileText, AiOutlineUpload, AiOutlineCheckCircle, AiOutlineForm, AiOutlineSend,} from "react-icons/ai";
 import SaveButton from "./Buttons/SaveButton";
 import { FormDataContext } from "../Context/FormDataContext";
 import OverlayAlert from "./FormControls/OverlayAlert";
@@ -33,32 +24,10 @@ const AppSystem = ({ open, setOpen }) => {
   const [currentTab, setCurrentTab] = useState(0);
   const {formData} = useContext(FormDataContext);
   const [showAlert, setShowAlert] = useState(false);
-  // // Example central state for the form data
-  // const [formData, setFormData] = useState({
-  //   personalDetails: {},
-  //   parentGuardian: {},
-  //   contactDetails: {},
-  //   educationalBackground: {},
-  //   results: {},
-  //   programChoice: {},
-  //   academicDocuments: {},
-  //   refereeDetails: {},
-  //   declaration: {},
-  // });
-
-  // const handleSave = (sectionKey, data) => {
-  //   setFormData((prev) => ({
-  //     ...prev,
-  //     [sectionKey]: data, // Update only the relevant section
-  //   }));
-
-  //   console.log("Saved Data:", formData); // For debugging
-  //   alert("Data saved successfully!");
-  // };
 
   const handleContinue = () => {
     if (currentTab < tabs.length - 1) {
-      setCurrentTab(currentTab + 1); //Go to nex tab
+      setCurrentTab(currentTab + 1); //Go to next tab
     }
   };
 
@@ -115,7 +84,9 @@ const AppSystem = ({ open, setOpen }) => {
       icon: <AiOutlineBook />,
       component: <EducationalBackground />,
     },
-    { label: "Results", icon: <AiOutlineFileText />, component: <Results /> },
+    { label: "Results", 
+      icon: <AiOutlineFileText />, 
+      component: <Results /> },
     { 
       label: "Program Choice",
       icon: <AiOutlineCheckCircle />,
@@ -160,13 +131,7 @@ const AppSystem = ({ open, setOpen }) => {
       {/* Save Alert */}
       {showAlert && <OverlayAlert message="Data Saved!" />}
     <div className="flex items-start mt-3 bg-gray-100 h-screen">
-      <Tabs
-        tabs={tabs}
-        currentTab={currentTab}
-        setCurrentTab={setCurrentTab}
-        open={open}
-        setOpen={setOpen}
-      />
+        <Tabs tabs={tabs} currentTab={currentTab} setCurrentTab={setCurrentTab} open={open} setOpen={setOpen}/>
       <div className="p-4 rounded w-full max-h-screen pb-32 overflow-y-auto">
         <div className="bg-white p-4 rounded">
 
@@ -188,10 +153,11 @@ const AppSystem = ({ open, setOpen }) => {
                 {/* Save and Continue */}
                 {currentTab > 0 && currentTab < tabs.length - 1 && (
                   <>
-                  <SaveButton onClick={handleSave} />
                   {/* Save button*/}
+                  <SaveButton onClick={handleSave} />
+                  
                     <button
-                      onClick={handleContinue && handleSave}
+                      onClick={handleContinue}
                       className="px-4 py-2 rounded bg-green-500 text-white hover:bg-green-600 hover:shadow-custom-light">
                       Save & Continue
                     </button>

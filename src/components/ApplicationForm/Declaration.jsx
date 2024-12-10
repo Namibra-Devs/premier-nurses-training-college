@@ -1,22 +1,8 @@
 import React, { useState, useEffect, useContext } from "react";
-import OverlayAlert from "./FormControls/OverlayAlert";
 import { FormDataContext } from "../Context/FormDataContext";
-
-const saveDeclaration = (declaration) => {
-  localStorage.setItem("declaration", JSON.stringify(declaration));
-};
-
-const retriveDeclaration = () => {
-  const declaration = localStorage.getItem("declaration");
-  if (declaration) {
-    return JSON.parse(declaration);
-  }
-  return {}; // Return an empty object instead of an empty string
-};
-
 const Declaration = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [showAlert, setShowAlert] = useState(false);
+  const [errors, setErrors] = useState({});
   const {formData, setformData} = useContext(FormDataContext || ""); // Start with an empty object if no data is found in localStorage
 
   // Load program data on component mount
@@ -28,38 +14,36 @@ const Declaration = () => {
     setformData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSave = (e) => {
-    e.preventDefault();
-    try {
-      saveDeclaration(formData); // Save the data to localStorage
-      setShowAlert(true); // Show success alert
-      setTimeout(() => setShowAlert(false), 3000); // Hide alert after 3 seconds
-    } catch (error) {
-      console.error("Save failed:", error);
+  const validate = () => {
+    const newErrors = {};
+    // Validate Name
+    if (!formData.name?.trim()) {
+      newErrors.name = "Name is required.";
     }
-  };
+    //Validate Date
+    if (!formData.date) {
+      newErrors.date = "Date is required.";
+    } 
+    // Return the errors
+    return newErrors;
+  }
 
   return (
     <>
-      {showAlert && <OverlayAlert message="Declaration saved!" />}
       <div
-        className={`transform transition-transform duration-500 ${
-          isVisible ? "scale-100 opacity-100" : "scale-90 opacity-0"
-        }`}
-      >
+        className={`transform transition-transform duration-500 ${ isVisible ? "scale-100 opacity-100" : "scale-90 opacity-0"}`}>
         <h2 className="text-2xl font-semibold mb-6">Declaration</h2>
 
         <p className="text-gray-700 mb-4">
           I hereby declare that the information given above is true.
         </p>
 
-        <form onSubmit={handleSave} className="space-y-4">
+        <form className="space-y-4">
           {/* Name Field */}
           <div>
             <label
               htmlFor="name"
-              className="block text-gray-700 font-medium mb-2"
-            >
+              className="block text-gray-700 font-medium mb-2">
               Name
             </label>
             <input
@@ -71,14 +55,14 @@ const Declaration = () => {
               placeholder="Enter your name"
               className="block w-full p-3 border border-gray-300 rounded"
             />
+            {errors.name && <p className="text-red-600 text-sm">{errors.name}</p>}
           </div>
 
           {/* Date Field */}
           <div>
             <label
               htmlFor="date"
-              className="block text-gray-700 font-medium mb-2"
-            >
+              className="block text-gray-700 font-medium mb-2">
               Date
             </label>
             <input
