@@ -1,14 +1,32 @@
 import React, { useState, useEffect } from "react";
 import {
   AiOutlineFilePdf,
+  AiOutlineIdcard,
   AiOutlineUpload,
   AiOutlineDelete,
 } from "react-icons/ai";
-import { useContext } from "react";
-import { FormDataContext } from "../Context/FormDataContext";
+import OverlayAlert from "./FormControls/OverlayAlert";
+
+// Save document data to localStorage
+const saveDocumentDetails = (documents) => {
+  localStorage.setItem("documents", JSON.stringify(documents));
+};
+
+// Retrieve document data from localStorage
+const retrieveDocumentDetails = () => {
+  try {
+    const documents = localStorage.getItem("documents");
+    return documents
+      ? JSON.parse(documents)
+      : { idType: "", idFile: null, academicFile: null };
+  } catch (error) {
+    console.error("Error retrieving documents:", error);
+    return { idType: "", idFile: null, academicFile: null };
+  }
+};
 
 const UploadDocuments = () => {
-  const {formData, setformData, saveFormData} = useContext(FormDataContext);
+  const [documents, setDocuments] = useState(retrieveDocumentDetails());
   const [isVisible, setIsVisible] = useState(false);
 
   // Load program data on component mount
@@ -18,34 +36,46 @@ const UploadDocuments = () => {
 
   const handleFileUpload = (e, fileKey) => {
     const file = e.target.files[0];
-    if (!file) return; // If no file is selected
-    if (file.type !== "application/pdf") {
+    if (file && file.type === "application/pdf") {
+      setDocuments((prev) => ({
+        ...prev,
+        [fileKey]: { name: file.name },
+      }));
+    } else {
       alert("Only PDF files are allowed!");
-      return;
     }
-    if (file.size > 5 * 1024 * 1024) {
-      alert("File size should not exceed 5MB");
-      return;
-    }
-    setformData((prev) => ({
-      ...prev,
-      [fileKey]: { name: file.name },
-    }));
   };
 
   const handleDeleteFile = (fileKey) => {
-    setformData((prev) => ({
+    setDocuments((prev) => ({
       ...prev,
       [fileKey]: null,
     }));
-    saveFormData({
-      ...formData,
+    saveDocumentDetails({
+      ...documents,
       [fileKey]: null, // Update the file to null in localStorage as well
     });
   };
 
+  const [showAlert, setShowAlert] = useState(false);
+  const handleSave = (e) => {
+    e.preventDefault();
+    try {
+      saveDocumentDetails(documents); // Save the data
+      setShowAlert(true); // Show success alert
+      setTimeout(() => setShowAlert(false), 3000); // Hide after 3 seconds
+    } catch (error) {
+      console.error("Save failed:", error);
+    }
+  };
+
+  useEffect(() => {
+    setDocuments(retrieveDocumentDetails());
+  }, []);
+
   return (
     <>
+      {showAlert && <OverlayAlert message="Data saved!" />}
       <div
         className={`transform transition-transform duration-500 ${
           isVisible ? "scale-100 opacity-100" : "scale-90 opacity-0"
@@ -71,13 +101,14 @@ const UploadDocuments = () => {
                 className="hidden"
               />
             </label>
-            {formData.academicFile && (
+            {documents.academicFile && (
               <div className="flex items-center gap-2 mt-2 text-green-600 text-sm">
-                <span>{formData.academicFile.name}</span>
+                <span>{documents.academicFile.name}</span>
                 <button
                   type="button"
                   onClick={() => handleDeleteFile("academicFile")}
-                  className="text-red-500 hover:text-red-700">
+                  className="text-red-500 hover:text-red-700"
+                >
                   <AiOutlineDelete />
                 </button>
               </div>
@@ -89,10 +120,13 @@ const UploadDocuments = () => {
               ID Type
             </label>
             <select
-              value={formData.idType}
-              onChange={(e) => setformData((prev) => ({ ...prev, idType: e.target.value }))}
-              className="block w-full p-2 border border-gray-300 rounded mb-2">
-              <option value="" > -- Select ID Type -- </option>
+              value={documents.idType}
+              onChange={(e) =>
+                setDocuments((prev) => ({ ...prev, idType: e.target.value }))
+              }
+              className="block w-full p-2 border border-gray-300 rounded mb-2"
+            >
+              <option value="">Select ID Type</option>
               <option value="Ghana Card">Ghana Card</option>
               <option value="Voter ID">Voter ID</option>
               <option value="Student ID">Student ID</option>
@@ -104,15 +138,17 @@ const UploadDocuments = () => {
                 type="file"
                 accept="application/pdf"
                 onChange={(e) => handleFileUpload(e, "idFile")}
-                className="hidden"/>
+                className="hidden"
+              />
             </label>
-            {formData.idFile && (
+            {documents.idFile && (
               <div className="flex items-center gap-2 mt-2 text-green-600 text-sm">
-                <span>{formData.idFile.name}</span>
+                <span>{documents.idFile.name}</span>
                 <button
                   type="button"
                   onClick={() => handleDeleteFile("idFile")}
-                  className="text-red-500 hover:text-red-700">
+                  className="text-red-500 hover:text-red-700"
+                >
                   <AiOutlineDelete />
                 </button>
               </div>

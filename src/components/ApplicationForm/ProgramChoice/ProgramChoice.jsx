@@ -1,10 +1,24 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import programsData from "./programs";
-import { FormDataContext } from "../../Context/FormDataContext";
 
+const saveProgram = (selectedProgram) => {
+  localStorage.setItem("selectedProgram", JSON.stringify(selectedProgram));
+};
+
+const retriveProgram = () => {
+  try {
+    const selectedProgram = localStorage.getItem("selectedProgram");
+    return selectedProgram ? JSON.parse(selectedProgram) : "";
+  } catch (error) {
+    console.error("Error retrieving program:", error);
+    return "";
+  }
+};
 
 const ProgramChoice = () => {
-  const {programData, setProgramData} = useContext(FormDataContext)
+  const [selectedProgram, setSelectedProgram] = useState(
+    retriveProgram() || ""
+  );
   const [programs, setPrograms] = useState([]);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -16,29 +30,39 @@ const ProgramChoice = () => {
 
   return (
     <div>
-      <div className={`transform transition-transform duration-500 ${
+      <div
+        className={`transform transition-transform duration-500 ${
           isVisible ? "scale-100 opacity-100" : "scale-90 opacity-0"
-        }`}>
+        }`}
+      >
         <h2 className="text-2xl font-semibold mb-6">Program Choice</h2>
+
         <div>
           <label
             htmlFor="program"
-            className="block text-gray-700 font-medium mb-2">
+            className="block text-gray-700 font-medium mb-2"
+          >
             Select a Program
           </label>
           <form className="relative">
             <select
               id="program"
-              value={programData}
-              onChange={(e) => setProgramData(e.target.value)}
-              className="block w-full p-3 border border-gray-300 rounded">
-              <option value=""> -- Select a Program -- </option>
+              value={selectedProgram}
+              onChange={(e) => setSelectedProgram(e.target.value)}
+              className="block w-full p-3 border border-gray-300 rounded"
+            >
+              <option value="">-- Select a Program --</option>
               {programs.map((program) => (
-                <option key={program.id} value={program?.name}>
+                <option key={program.id} value={program.name}>
                   {program.name}
                 </option>
               ))}
             </select>
+            {selectedProgram && (
+              <p className="text-sm text-green-600 mt-2">
+                You selected: <strong>{selectedProgram}</strong>
+              </p>
+            )}
           </form>
         </div>
       </div>
