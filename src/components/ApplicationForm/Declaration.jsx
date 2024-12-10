@@ -3,7 +3,7 @@ import { FormDataContext } from "../Context/FormDataContext";
 const Declaration = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [errors, setErrors] = useState({});
-  const {formData, setformData} = useContext(FormDataContext || ""); // Start with an empty object if no data is found in localStorage
+  const {declarationData, setDeclarationData} = useContext(FormDataContext || ""); // Start with an empty object if no data is found in localStorage
 
   // Load program data on component mount
   useEffect(() => {
@@ -11,18 +11,18 @@ const Declaration = () => {
   }, []);
 
   const handleChange = (e) => {
-    setformData({ ...formData, [e.target.name]: e.target.value });
+    setDeclarationData({ ...declarationData, [e.target.name]: e.target.value });
   };
 
   const validate = () => {
     const newErrors = {};
     // Validate Name
-    if (!formData.name?.trim()) {
-      newErrors.name = "Name is required.";
+    if (!declarationData.declarationName?.trim()) {
+      newErrors.declarationName = "Name is required.";
     }
     //Validate Date
-    if (!formData.date) {
-      newErrors.date = "Date is required.";
+    if (!declarationData.declarationDate) {
+      newErrors.declarationDate = "Date is required.";
     } 
     // Return the errors
     return newErrors;
@@ -49,13 +49,13 @@ const Declaration = () => {
             <input
               id="name"
               type="text"
-              name="name"
-              value={formData?.name || ""}
+              name="declarationName"
+              value={declarationData?.declarationName || ""}
               onChange={handleChange}
               placeholder="Enter your name"
               className="block w-full p-3 border border-gray-300 rounded"
             />
-            {errors.name && <p className="text-red-600 text-sm">{errors.name}</p>}
+            {errors.declarationName && <p className="text-red-600 text-sm">{errors.declarationName}</p>}
           </div>
 
           {/* Date Field */}
@@ -68,8 +68,8 @@ const Declaration = () => {
             <input
               id="date"
               type="date"
-              name="date"
-              value={formData?.date || ""}
+              name="declarationDate"
+              value={declarationData?.declarationDate || ""}
               onChange={handleChange}
               className="block w-full p-3 border border-gray-300 rounded"
             />

@@ -4,7 +4,7 @@ import { FormDataContext } from "../../Context/FormDataContext";
 
 const PersonalDetailsForm = ({ preview, setPreview }) => {
   const [isVisible, setIsVisible] = useState(false);
-  const {formData, setformData} = useContext(FormDataContext)
+  const {personalData, setPersonalData} = useContext(FormDataContext)
   const [errors, setErrors] = useState({});
   
   // Load program data on component mount
@@ -13,7 +13,7 @@ const PersonalDetailsForm = ({ preview, setPreview }) => {
   }, []);
 
   const handleChange = (e) => {
-    setformData({ ...formData, [e.target.name]: e.target.value });
+    setPersonalData({ ...personalData, [e.target.name]: e.target.value });
   };
 
   // Validation functions
@@ -21,56 +21,56 @@ const PersonalDetailsForm = ({ preview, setPreview }) => {
     const newErrors = {};
 
     // Validate surname
-    if (!formData.surname.trim()) newErrors.surname = "Surname is required.";
+    if (!personalData.surname.trim()) newErrors.surname = "Surname is required.";
 
     // Validate first name
-    if (!formData.firstName.trim()) newErrors.firstName = "First Name is required.";
+    if (!personalData.firstName.trim()) newErrors.firstName = "First Name is required.";
 
     // Validate date of birth
-    if (!formData.dateOfBirth) newErrors.dateOfBirth = "Date of Birth is required.";
+    if (!personalData.dateOfBirth) newErrors.dateOfBirth = "Date of Birth is required.";
 
     // Validate age
-    if (!formData.age || formData.age <= 0) newErrors.age = "Age must be a positive number.";
+    if (!personalData.age || personalData.age <= 0) newErrors.age = "Age must be a positive number.";
 
     // Validate gender
-    if (!formData.gender) newErrors.gender = "Gender is required.";
+    if (!personalData.gender) newErrors.gender = "Gender is required.";
 
     // Validate marital status
-    if (!formData.maritalStatus) newErrors.maritalStatus = "Marital status is required.";
+    if (!personalData.maritalStatus) newErrors.maritalStatus = "Marital status is required.";
 
     // Validate languages spoken
-    if (!formData.languagesSpoken.trim()) newErrors.languagesSpoken = "Languages Spoken is required.";
+    if (!personalData.languagesSpoken.trim()) newErrors.languagesSpoken = "Languages Spoken is required.";
 
     // Validate place of birth
-    if (!formData.placeOfBirth.trim()) newErrors.placeOfBirth = "Place of Birth is required.";
+    if (!personalData.placeOfBirth.trim()) newErrors.placeOfBirth = "Place of Birth is required.";
 
     // Validate religion
-    if (!formData.religion.trim()) newErrors.religion = "Religion is required.";
+    if (!personalData.religion.trim()) newErrors.religion = "Religion is required.";
 
     // Validate hometown
-    if (!formData.hometown.trim()) newErrors.hometown = "Hometown is required.";
+    if (!personalData.hometown.trim()) newErrors.hometown = "Hometown is required.";
 
     // Validate district
-    if (!formData.district.trim()) newErrors.district = "District is required.";
+    if (!personalData.district.trim()) newErrors.district = "District is required.";
 
     //Validate region
-    if (!formData.region.trim()) newErrors.region = "Region is required.";
+    if (!personalData.region.trim()) newErrors.region = "Region is required.";
 
     // Validate Parent/Guardian Name
-    if (!formData.name.trim()) {newErrors.name = "Parent/Guardian name is required.";}
+    if (!personalData.name.trim()) {newErrors.name = "Parent/Guardian name is required.";}
 
     // Validate Occupation
-    if (!formData.occupation.trim()) {newErrors.occupation = "Occupation is required.";}
+    if (!personalData.occupation.trim()) {newErrors.occupation = "Occupation is required.";}
 
     // Validate Contact
-    if (!formData.contact.trim()) {
+    if (!personalData.contact.trim()) {
       newErrors.contact = "Contact is required.";
-    } else if (!/^\d{10}$/.test(formData.contact)) {
+    } else if (!/^\d{10}$/.test(personalData.contact)) {
       newErrors.contact = "Contact must be a valid 10-digit number.";
     }
 
     // Validate Address
-    if (!formData.address.trim()) {newErrors.address = "Address is required.";}
+    if (!personalData.address.trim()) {newErrors.address = "Address is required.";}
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0; // Return true if no errors
@@ -99,7 +99,7 @@ const PersonalDetailsForm = ({ preview, setPreview }) => {
               <input
                 type="text"
                 name="surname"
-                value={formData.surname}
+                value={personalData.surname}
                 onChange={handleChange}
                 className="w-full border rounded p-2"
               />
@@ -110,7 +110,7 @@ const PersonalDetailsForm = ({ preview, setPreview }) => {
               <input
                 type="text"
                 name="firstName"
-                value={formData.firstName}
+                value={personalData.firstName}
                 onChange={handleChange}
                 className="w-full border rounded p-2"
               />
@@ -121,7 +121,7 @@ const PersonalDetailsForm = ({ preview, setPreview }) => {
               <input
                 type="text"
                 name="otherName"
-                value={formData.otherName}
+                value={personalData.otherName}
                 onChange={handleChange}
                 className="w-full border rounded p-2"
               />
@@ -130,7 +130,7 @@ const PersonalDetailsForm = ({ preview, setPreview }) => {
               <label className="block font-medium mb-2">Gender</label>
               <select
                 name="gender"
-                value={formData.gender}
+                value={personalData.gender}
                 onChange={handleChange}
                 className="w-full border rounded p-2"
               >
@@ -145,7 +145,7 @@ const PersonalDetailsForm = ({ preview, setPreview }) => {
               <input
                 type="date"
                 name="dateOfBirth"
-                value={formData.dateOfBirth}
+                value={personalData.dateOfBirth}
                 onChange={handleChange}
                 className="w-full border rounded p-2"
               />
@@ -157,7 +157,7 @@ const PersonalDetailsForm = ({ preview, setPreview }) => {
                 <input
                   type="number"
                   name="age"
-                  value={formData.age}
+                  value={personalData.age}
                   onChange={handleChange}
                   className="w-full border rounded p-2"
                 />
@@ -167,7 +167,7 @@ const PersonalDetailsForm = ({ preview, setPreview }) => {
                 <label className="block font-medium mb-2">Marital Status</label>
                 <select
                   name="maritalStatus"
-                  value={formData.maritalStatus}
+                  value={personalData.maritalStatus}
                   onChange={handleChange}
                   className="w-full border rounded p-2"
                 >
@@ -187,7 +187,7 @@ const PersonalDetailsForm = ({ preview, setPreview }) => {
               <input
                 type="text"
                 name="languagesSpoken"
-                value={formData.languagesSpoken}
+                value={personalData.languagesSpoken}
                 onChange={handleChange}
                 className="w-full border rounded p-2"
               />
@@ -197,7 +197,7 @@ const PersonalDetailsForm = ({ preview, setPreview }) => {
               <input
                 type="text"
                 name="placeOfBirth"
-                value={formData.placeOfBirth}
+                value={personalData.placeOfBirth}
                 onChange={handleChange}
                 className="w-full border rounded p-2"
               />
@@ -207,7 +207,7 @@ const PersonalDetailsForm = ({ preview, setPreview }) => {
               <input
                 type="text"
                 name="religion"
-                value={formData.religion}
+                value={personalData.religion}
                 onChange={handleChange}
                 className="w-full border rounded p-2"
               />
@@ -217,7 +217,7 @@ const PersonalDetailsForm = ({ preview, setPreview }) => {
               <input
                 type="text"
                 name="hometown"
-                value={formData.hometown}
+                value={personalData.hometown}
                 onChange={handleChange}
                 className="w-full border rounded p-2"
               />
@@ -227,7 +227,7 @@ const PersonalDetailsForm = ({ preview, setPreview }) => {
               <input
                 type="text"
                 name="district"
-                value={formData.district}
+                value={personalData.district}
                 onChange={handleChange}
                 className="w-full border rounded p-2"
               />
@@ -237,7 +237,7 @@ const PersonalDetailsForm = ({ preview, setPreview }) => {
               <label className="block font-medium mb-2">Region</label>
               <select
                 name="region"
-                value={formData.region}
+                value={personalData.region}
                 onChange={handleChange}
                 className="w-full border rounded p-2"
               >
@@ -273,7 +273,7 @@ const PersonalDetailsForm = ({ preview, setPreview }) => {
             <input
               type="text"
               name="name"
-              value={formData.name}
+              value={personalData.name}
               onChange={handleChange}
               className="w-full border rounded p-2"
             />
@@ -286,7 +286,7 @@ const PersonalDetailsForm = ({ preview, setPreview }) => {
             <input
               type="text"
               name="occupation"
-              value={formData.occupation}
+              value={personalData.occupation}
               onChange={handleChange}
               className="w-full border rounded p-2"
             />
@@ -299,7 +299,7 @@ const PersonalDetailsForm = ({ preview, setPreview }) => {
             <input
               type="text"
               name="contact"
-              value={formData.contact}
+              value={personalData.contact}
               onChange={handleChange}
               className="w-full border rounded p-2"
             />
@@ -312,7 +312,7 @@ const PersonalDetailsForm = ({ preview, setPreview }) => {
             <input
               type="text"
               name="address"
-              value={formData.address}
+              value={personalData.address}
               onChange={handleChange}
               className="w-full border rounded p-2"
             />

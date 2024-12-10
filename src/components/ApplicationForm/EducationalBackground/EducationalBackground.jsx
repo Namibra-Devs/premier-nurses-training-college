@@ -4,7 +4,7 @@ import { FormDataContext } from "../../Context/FormDataContext";
 
 const EducationalBackground = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const { formData, setformData } = useContext(FormDataContext);
+  const { educationData, setEducationData } = useContext(FormDataContext);
   const [errors, setErrors] = useState({});
 
   // Temporary variable for form inputs
@@ -38,21 +38,21 @@ const EducationalBackground = () => {
       id: Date.now(), // Unique ID for each education entry
     };
 
-    setformData([...formData, newEducation]);
+    setEducationData([...educationData, newEducation]);
     setTempEduData({ schoolName: "", address: "", from: "", to: "" }); // Reset form
     setErrors({});
   };
 
   // Delete education entry
   const handleDelete = (id) => {
-    setformData(formData.filter((edu) => edu.id !== id));
+    setEducationData(educationData.filter((edu) => edu.id !== id));
   };
 
   // Edit education entry
   const handleEdit = (id) => {
-    const educationToEdit = formData.find((edu) => edu.id === id);
+    const educationToEdit = educationData.find((edu) => edu.id === id);
     setTempEduData({ ...educationToEdit });
-    setformData(formData.filter((edu) => edu.id !== id)); // Remove from list for editing
+    setEducationData(educationData.filter((edu) => edu.id !== id)); // Remove from list for editing
   };
 
   const validateEducation = () => {
@@ -153,12 +153,11 @@ const EducationalBackground = () => {
       </form>
 
       {/* Added Education List */}
-      {formData.length > 0 && (
+      {educationData.length > 0 && (
         <div data-aos="fade-up" data-aos-duration="800">
           <h3 className="text-xl font-semibold mb-2">Added Education List</h3>
           <ul className="space-y-4">
-          {Array.isArray(formData) ? (
-            formData.map((edu) => (
+          {educationData.map((edu) => (
               <li
                 key={edu.id}
                 className="flex items-center justify-between p-4 border border-gray-300 rounded bg-gray-50">
@@ -184,10 +183,7 @@ const EducationalBackground = () => {
                   </button>
                 </div>
               </li>
-            ))
-          ) : (
-            <p>No education data available.</p>
-          )}
+            ))}
           </ul>
         </div>
       )}

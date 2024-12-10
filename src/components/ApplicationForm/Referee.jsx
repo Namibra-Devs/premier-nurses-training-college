@@ -5,7 +5,7 @@ import { FormDataContext } from "../Context/FormDataContext";
 const Referee = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [errors, setErrors] = useState({});
-  const { formData, setformData } = useContext(FormDataContext || "");
+  const { refereeData, setRefereeData } = useContext(FormDataContext || "");
 
   useEffect(() => {
     setTimeout(() => setIsVisible(true), 100); // Trigger the animation
@@ -14,19 +14,19 @@ const Referee = () => {
   const validate = () => {
     const newErrors = {};
 
-    if (!formData.name || !/^[a-zA-Z\s]+$/.test(formData.name)) {
-      newErrors.name = "Name is required and should contain only alphabets.";
+    if (!refereeData.refereeName || !/^[a-zA-Z\s]+$/.test(refereeData.refereeName)) {
+      newErrors.refereeName = "Name is required and should contain only alphabets.";
     }
 
-    if (!formData.address) {
+    if (!refereeData.address) {
       newErrors.address = "Address is required.";
     }
 
-    if (!formData.contact || !/^\d{10}$/.test(formData.contact)) {
+    if (!refereeData.contact || !/^\d{10}$/.test(refereeData.contact)) {
       newErrors.contact = "Contact is required and must be a 10-digit number.";
     }
 
-    if (!formData.letter) {
+    if (!refereeData.letter) {
       newErrors.letter = "A referee letter (PDF) is required.";
     }
 
@@ -48,14 +48,14 @@ const Referee = () => {
 
       const reader = new FileReader();
       reader.onload = () => {
-        setformData({ ...formData, letter: reader.result });
+        setRefereeData({ ...refereeData, letter: reader.result });
       };
       reader.readAsDataURL(file);
     }
   };
 
   const handleDeleteFile = () => {
-    setformData({ ...formData, letter: null });
+    setRefereeData({ ...refereeData, letter: null });
   };
 
   // const handleSubmit = (e) => {
@@ -88,13 +88,14 @@ const Referee = () => {
               <input
                 type="text"
                 placeholder="Enter Name"
-                value={formData.name || ""}
+                name="refereeName"
+                value={refereeData.refereeName || ""}
                 onChange={(e) =>
-                  setformData({ ...formData, name: e.target.value })
+                  setRefereeData({ ...refereeData, refereeName: e.target.value })
                 }
                 className="block w-full p-2 border border-gray-300 rounded mb-1"
               />
-              {errors.name && <p className="text-red-600 text-sm">{errors.name}</p>}
+              {errors.refereeName && <p className="text-red-600 text-sm">{errors.refereeName}</p>}
 
               <label className="block text-gray-700 font-medium mb-2">
                 Address
@@ -102,9 +103,9 @@ const Referee = () => {
               <input
                 type="text"
                 placeholder="Enter Address"
-                value={formData.address || ""}
+                value={refereeData.address || ""}
                 onChange={(e) =>
-                  setformData({ ...formData, address: e.target.value })
+                  setRefereeData({ ...refereeData, address: e.target.value })
                 }
                 className="block w-full p-2 border border-gray-300 rounded mb-1"
               />
@@ -117,9 +118,9 @@ const Referee = () => {
               <input
                 type="text"
                 placeholder="Enter Contact"
-                value={formData.contact || ""}
+                value={refereeData.contact || ""}
                 onChange={(e) =>
-                  setformData({ ...formData, contact: e.target.value })
+                  setRefereeData({ ...refereeData, contact: e.target.value })
                 }
                 className="block w-full p-2 border border-gray-300 rounded mb-1"
               />
@@ -142,11 +143,11 @@ const Referee = () => {
             </div>
           </div>
           <div className="mt-4">
-            {formData.letter ? (
+            {refereeData.letter ? (
               <>
                 <h4 className="text-green-600 font-medium">Uploaded Letter:</h4>
                 <iframe
-                  src={formData.letter}
+                  src={refereeData.letter}
                   title="Referee Letter"
                   className="w-full h-64 border border-gray-300 rounded"
                 ></iframe>
