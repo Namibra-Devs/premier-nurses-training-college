@@ -16,16 +16,13 @@ import SaveButton from "./Buttons/SaveButton";
 import { FormDataContext } from "../Context/FormDataContext";
 import OverlayAlert from "./FormControls/OverlayAlert";
 
-const saveformData = (formData) => {
-  localStorage.setItem("formData", JSON.stringify(formData));
-};
-
 const AppSystem = ({ open, setOpen }) => {
   const [currentTab, setCurrentTab] = useState(0);
-  const {formData} = useContext(FormDataContext);
+  const {formData, saveFormData} = useContext(FormDataContext);
   const [showAlert, setShowAlert] = useState(false);
 
   const handleContinue = () => {
+    handleSave();
     if (currentTab < tabs.length - 1) {
       setCurrentTab(currentTab + 1); //Go to next tab
     }
@@ -114,11 +111,10 @@ const AppSystem = ({ open, setOpen }) => {
     },
   ];
 
-  const handleSave = (e) => {
-    e.preventDefault();
+  const handleSave = () => {
 
     try {
-      saveformData(formData); // For global data saving
+      saveFormData(formData); // For global data saving
       setShowAlert(true); // Show success alert
       setTimeout(() => setShowAlert(false), 3000); // Hide after 3 seconds
     } catch (error) {
