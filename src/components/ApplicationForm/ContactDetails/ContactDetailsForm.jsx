@@ -3,7 +3,7 @@ import { FormDataContext } from "../../Context/FormDataContext";
 
 const ContactDetailsForm = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const {formData, setformData} = useContext(FormDataContext);
+  const {contactData, setContactData} = useContext(FormDataContext);
   const [errors, setErrors] = useState({});
 
   // Load program data on component mount
@@ -12,43 +12,43 @@ const ContactDetailsForm = () => {
   }, []);
 
   const handleChange = (e) => {
-    setformData({ ...formData, [e.target.name]: e.target.value });
+    setContactData({ ...contactData, [e.target.name]: e.target.value });
   };
 
   const validateContactDetails = () => {
     const newErrors = {};
   
     // Validate Email
-    if (!formData.emailAddress?.trim()) {
+    if (!contactData.emailAddress?.trim()) {
       newErrors.emailAddress = "Email is required.";
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.emailAddress)) {
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contactData.emailAddress)) {
       newErrors.emailAddress = "Please enter a valid email address.";
     }
   
     // Validate Phone Number
-    if (!formData.phoneNumber?.trim()) {
+    if (!contactData.phoneNumber?.trim()) {
       newErrors.phoneNumber = "Phone number is required.";
-    } else if (!/^\d{10}$/.test(formData.phoneNumber)) {
+    } else if (!/^\d{10}$/.test(contactData.phoneNumber)) {
       newErrors.phoneNumber = "Phone number must be a valid 10-digit number.";
     }
   
     // Validate Permanent Address
-    if (!formData.permanentAddress?.trim()) {
+    if (!contactData.permanentAddress?.trim()) {
       newErrors.permanentAddress = "Permanent address is required.";
     }
   
     // Validate Postal Address
-    if (!formData.postalAddress?.trim()) {
+    if (!contactData.postalAddress?.trim()) {
       newErrors.postalAddress = "Postal address is required.";
     }
   
     // Validate Postal Region
-    if (!formData.postalRegion) {
+    if (!contactData.postalRegion) {
       newErrors.postalRegion = "Please select a postal region.";
     }
   
     // Validate Postal Town
-    if (!formData.postalTown?.trim()) {
+    if (!contactData.postalTown?.trim()) {
       newErrors.postalTown = "Postal town is required.";
     }
   
@@ -71,7 +71,7 @@ const ContactDetailsForm = () => {
             <input
               type="email"
               name="emailAddress"
-              value={formData?.emailAddress}
+              value={contactData?.emailAddress}
               onChange={handleChange}
               className="w-full border rounded p-2"
             />
@@ -82,7 +82,7 @@ const ContactDetailsForm = () => {
             <input
               type="number"
               name="phoneNumber"
-              value={formData?.phoneNumber}
+              value={contactData?.phoneNumber}
               onChange={handleChange}
               className="w-full border rounded p-2"
             />
@@ -93,7 +93,7 @@ const ContactDetailsForm = () => {
             <input
               type="text"
               name="permanentAddress"
-              value={formData?.permanentAddress}
+              value={contactData?.permanentAddress}
               onChange={handleChange}
               className="w-full border rounded p-2"
             />
@@ -104,7 +104,7 @@ const ContactDetailsForm = () => {
             <input
               type="text"
               name="postalAddress"
-              value={formData?.postalAddress}
+              value={contactData?.postalAddress}
               onChange={handleChange}
               className="w-full border rounded p-2"
             />
@@ -114,7 +114,7 @@ const ContactDetailsForm = () => {
             <label className="block font-medium mb-2">Postal Region</label>
             <select
               name="postalRegion"
-              value={formData?.postalRegion}
+              value={contactData?.postalRegion}
               onChange={handleChange}
               className="w-full p-2 border border-gray-300 rounded mb-2"
             >
@@ -143,7 +143,7 @@ const ContactDetailsForm = () => {
             <input
               type="text"
               name="postalTown"
-              value={formData?.postalTown}
+              value={contactData?.postalTown}
               onChange={handleChange}
               className="w-full border rounded p-2"
             />
