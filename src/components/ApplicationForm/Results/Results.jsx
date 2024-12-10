@@ -1,10 +1,30 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect } from "react";
 import { AiOutlineEdit, AiOutlineDelete, AiOutlinePlus } from "react-icons/ai";
-import { FormDataContext } from "../../Context/FormDataContext";
+
+// Save education list to localStorag
+const saveResultsList = (resultsList) => {
+  localStorage.setItem("results", JSON.stringify(resultsList));
+};
+
+// Retrieve education list from localStorage
+const retrieveResultsList = () => {
+  const savedList = localStorage.getItem("results");
+  if (savedList) {
+    return JSON.parse(savedList);
+  }
+  return [];
+};
 
 const Results = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [resultsData, setResultsData] = useState({
+
+  // Load program data on component mount
+  useEffect(() => {
+    setTimeout(() => setIsVisible(true), 100); // Trigger the animation
+  }, []);
+
+  const [results, setResults] = useState(retrieveResultsList());
+  const [form, setForm] = useState({
     examType: "WAEC",
     indexNumber: "",
     year: "",
@@ -12,54 +32,32 @@ const Results = () => {
     subjectTitle: "",
     grade: "",
   });
-  const { formData, setformData } = useContext(FormDataContext);
-  const [errors, setErrors] = useState({});
 
-  useEffect(() => {
-    setTimeout(() => setIsVisible(true), 100); // Trigger the animation
-  }, []);
-
+  // Subject options
   const subjects = {
     Core: ["Mathematics", "English", "Science", "Social Studies"],
     Elective: ["Biology", "Physics", "Economics", "Literature"],
   };
 
+  // Grade options
   const grades = ["A", "B", "C", "D", "E", "F"];
 
   // Handle form change
   const handleChange = (e) => {
-    setResultsData({ ...resultsData, [e.target.name]: e.target.value });
-  };
-
-  // Validation function
-  const validate = () => {
-    const newErrors = {};
-
-    if (!resultsData.indexNumber.match(/^\d{8}$/)) {
-      newErrors.indexNumber = "Index number must be exactly 8 digits.";
-    }
-
-    if (!resultsData.year.match(/^\d{4}$/)) {
-      newErrors.year = "Year must be a valid 4-digit number.";
-    }
-
-    if (!resultsData.subjectTitle) {
-      newErrors.subjectTitle = "Subject title is required.";
-    }
-
-    if (!resultsData.grade) {
-      newErrors.grade = "Grade is required.";
-    }
-
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
+    setForm({ ...form, [e.target.name]: e.target.value });
   };
 
   // Add a result entry
   const handleAddResult = () => {
-    if (validate()) {
-      setformData([...formData, { ...resultsData, id: Date.now() }]);
-      setResultsData({
+    if (
+      form.examType &&
+      form.indexNumber &&
+      form.year &&
+      form.subjectTitle &&
+      form.grade
+    ) {
+      setResults([...results, { ...form, id: Date.now() }]);
+      setForm({
         examType: "WAEC",
         indexNumber: "",
         year: "",
@@ -67,22 +65,21 @@ const Results = () => {
         subjectTitle: "",
         grade: "",
       }); // Reset form
-      setErrors({});
     } else {
-      alert("Please correct the errors before adding.");
+      alert("Please fill all fields before adding.");
     }
   };
 
   // Edit a result entry
   const handleEdit = (id) => {
-    const resultToEdit = formData.find((result) => result.id === id);
-    setResultsData({ ...resultToEdit });
-    setformData(formData.filter((result) => result.id !== id)); // Remove from list for editing
+    const resultToEdit = results.find((result) => result.id === id);
+    setForm({ ...resultToEdit });
+    setResults(results.filter((result) => result.id !== id)); // Remove from list for editing
   };
 
   // Delete a result entry
   const handleDelete = (id) => {
-    setformData(formData.filter((result) => result.id !== id));
+    setResults(results.filter((result) => result.id !== id));
   };
 
   return (
@@ -100,7 +97,7 @@ const Results = () => {
               <label className="block font-medium mb-2">Exams Type</label>
               <select
                 name="examType"
-                value={resultsData.examType}
+                value={form.examType}
                 onChange={handleChange}
                 className="w-full p-2 border border-gray-300 rounded mb-2"
               >
@@ -112,35 +109,25 @@ const Results = () => {
                 type="text"
                 name="indexNumber"
                 placeholder="Index Number"
-                value={resultsData.indexNumber}
+                value={form.indexNumber}
                 onChange={handleChange}
-                className={`w-full p-2 border ${
-                  errors.indexNumber ? "border-red-500" : "border-gray-300"
-                } rounded mb-2`}
+                className="w-full p-2 border border-gray-300 rounded mb-2"
               />
-              {errors.indexNumber && (
-                <p className="text-red-500 text-sm">{errors.indexNumber}</p>
-              )}
               <label className="block font-medium mb-2">Year of Exams</label>
               <input
                 type="text"
                 name="year"
                 placeholder="Year of Exams"
-                value={resultsData.year}
+                value={form.year}
                 onChange={handleChange}
-                className={`w-full p-2 border ${
-                  errors.year ? "border-red-500" : "border-gray-300"
-                } rounded mb-2`}
+                className="w-full p-2 border border-gray-300 rounded mb-2"
               />
-              {errors.year && (
-                <p className="text-red-500 text-sm">{errors.year}</p>
-              )}
             </div>
             <div>
               <label className="block font-medium mb-2">Subject Type</label>
               <select
                 name="subjectType"
-                value={resultsData.subjectType}
+                value={form.subjectType}
                 onChange={handleChange}
                 className="w-full p-2 border border-gray-300 rounded mb-2"
               >
@@ -150,30 +137,24 @@ const Results = () => {
               <label className="block font-medium mb-2">Subject Title</label>
               <select
                 name="subjectTitle"
-                value={resultsData.subjectTitle}
+                value={form.subjectTitle}
                 onChange={handleChange}
-                className={`w-full p-2 border ${
-                  errors.subjectTitle ? "border-red-500" : "border-gray-300"
-                } rounded mb-2`}
+                className="w-full p-2 border border-gray-300 rounded mb-2"
               >
                 <option value="">Select Subject Title</option>
-                {subjects[resultsData.subjectType]?.map((subject, index) => (
+                {subjects[form.subjectType]?.map((subject, index) => (
                   <option key={index} value={subject}>
                     {subject}
                   </option>
                 ))}
               </select>
-              {errors.subjectTitle && (
-                <p className="text-red-500 text-sm">{errors.subjectTitle}</p>
-              )}
               <label className="block font-medium mb-2">Grade</label>
               <select
                 name="grade"
-                value={resultsData.grade}
+                placeholder="Grade"
+                value={form.grade}
                 onChange={handleChange}
-                className={`w-full p-2 border ${
-                  errors.grade ? "border-red-500" : "border-gray-300"
-                } rounded mb-2`}
+                className="w-full p-2 border border-gray-300 rounded mb-2"
               >
                 <option value="">Select Grade</option>
                 {grades.map((grade, index) => (
@@ -182,9 +163,6 @@ const Results = () => {
                   </option>
                 ))}
               </select>
-              {errors.grade && (
-                <p className="text-red-500 text-sm">{errors.grade}</p>
-              )}
             </div>
           </div>
         </form>
@@ -198,8 +176,9 @@ const Results = () => {
           </button>
         </div>
       </div>
+
       {/* Results List */}
-      {formData.length > 0 && (
+      {results.length > 0 && (
         <div data-aos="fade-up" data-aos-duration="800"className="mt-6" >
           <h3 className="text-xl font-semibold mb-2">Added Results List</h3>
           <div className="overflow-x-auto pb-4">
@@ -227,7 +206,7 @@ const Results = () => {
                 </tr>
               </thead>
               <tbody>
-                {formData.map((result) => (
+                {results.map((result) => (
                   <tr key={result.id} className="hover:bg-gray-50">
                     <td className="border border-gray-300 px-4 py-2">
                       {result.examType}

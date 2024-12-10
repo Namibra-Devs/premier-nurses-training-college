@@ -1,9 +1,20 @@
-import React, { useState, useEffect, useContext } from "react";
-import { FormDataContext } from "../../Context/FormDataContext";
+import React, { useState, useEffect } from "react";
+
+const saveContactData = (contactData) => {
+  localStorage.setItem("contactData", JSON.stringify(contactData));
+};
+
+const retrivecontactData = () => {
+  const contactData = localStorage.getItem("contactData");
+  if (contactData) {
+    return JSON.parse(contactData);
+  }
+  return {};
+};
 
 const ContactDetailsForm = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const {contactData, setContactData} = useContext(FormDataContext);
+  const {contactData, setContactData} = useState(retrivecontactData());
   const [errors, setErrors] = useState({});
 
   // Load program data on component mount
