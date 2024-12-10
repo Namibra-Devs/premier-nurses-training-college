@@ -6,7 +6,7 @@ const retrieveFormData = () => {
   const savedData = localStorage.getItem("formData");
   return savedData
     ? JSON.parse(savedData)
-    : { documentDetails: { idType: "", idFile: null, academicFile: null } };
+    : {};
 };
 
 // Save combined form data and file details to localStorage
@@ -22,19 +22,8 @@ export const FormDataProvider = ({ children }) => {
     saveFormData(formData);
   }, [formData]);
 
-  // Update document details
-  const updateDocumentDetails = (newDetails) => {
-    setformData((prev) => ({
-      ...prev,
-      documentDetails: {
-        ...prev.documentDetails,
-        ...newDetails,
-      },
-    }));
-  };
-
   return (
-    <FormDataContext.Provider value={{ formData, setformData, saveFormData, updateDocumentDetails }}>
+    <FormDataContext.Provider value={{ formData, setformData}}>
       {children}
     </FormDataContext.Provider>
   );
