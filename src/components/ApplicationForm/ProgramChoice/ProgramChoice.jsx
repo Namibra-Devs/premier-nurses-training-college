@@ -4,7 +4,7 @@ import { FormDataContext } from "../../Context/FormDataContext";
 
 
 const ProgramChoice = () => {
-  const {formData, setformData} = useContext(FormDataContext)
+  const {programData, setProgramData} = useContext(FormDataContext)
   const [programs, setPrograms] = useState([]);
   const [isVisible, setIsVisible] = useState(false);
 
@@ -29,8 +29,8 @@ const ProgramChoice = () => {
           <form className="relative">
             <select
               id="program"
-              value={formData}
-              onChange={(e) => setformData(e.target.value)}
+              value={programData}
+              onChange={(e) => setProgramData(e.target.value)}
               className="block w-full p-3 border border-gray-300 rounded">
               <option value=""> -- Select a Program -- </option>
               {programs.map((program) => (
