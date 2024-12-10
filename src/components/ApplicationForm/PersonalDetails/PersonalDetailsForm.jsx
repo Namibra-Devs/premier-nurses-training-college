@@ -2,9 +2,21 @@ import React, { useState, useEffect, useContext } from "react";
 import ProfilePictureUpload from "./ProfilePictureUpload";
 import { FormDataContext } from "../../Context/FormDataContext";
 
+const savePersonalDetails = (personalData) => {
+  localStorage.setItem("personalDetail", JSON.stringify(personalData));
+};
+
+const retrivePersonalDetails = () => {
+  const personalDetail = localStorage.getItem("personalData");
+  if (personalDetail) {
+    return JSON.parse(personalDetail);
+  }
+  return {};
+};
+
 const PersonalDetailsForm = ({ preview, setPreview }) => {
   const [isVisible, setIsVisible] = useState(false);
-  const {personalData, setPersonalData} = useContext(FormDataContext)
+  const [personalData, setPersonalData] = useState(retrivePersonalDetails());
   const [errors, setErrors] = useState({});
   
   // Load program data on component mount

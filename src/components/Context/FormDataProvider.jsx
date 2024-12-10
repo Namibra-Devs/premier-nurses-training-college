@@ -6,49 +6,49 @@ const retrievePersonalData = () => {
   const savedData = localStorage.getItem("personalData");
   return savedData
     ? JSON.parse(savedData)
-    : {};
+    : [];
 };
 const retrieveContactData = () => {
   const savedData = localStorage.getItem("contactData");
   return savedData
     ? JSON.parse(savedData)
-    : {};
+    : [];
 };
 const retrieveEducationData = () => {
   const savedData = localStorage.getItem("educationData");
   return savedData
     ? JSON.parse(savedData)
-    : {};
+    : [];
 };
 const retrieveResultsData = () => {
   const savedData = localStorage.getItem("resultsData");
   return savedData
     ? JSON.parse(savedData)
-    : {};
+    : [];
 };
 const retrieveProgramData = () => {
   const savedData = localStorage.getItem("programData");
   return savedData
     ? JSON.parse(savedData)
-    : {};
+    : [];
 };
 const retrieveDocumentsData = () => {
   const savedData = localStorage.getItem("documentsData");
   return savedData
     ? JSON.parse(savedData)
-    : {};
+    : [];
 };
 const retrieveRefereeData = () => {
   const savedData = localStorage.getItem("refereeData");
   return savedData
     ? JSON.parse(savedData)
-    : {};
+    : [];
 };
 const retrieveDeclarationData = () => {
   const savedData = localStorage.getItem("declarationData");
   return savedData
     ? JSON.parse(savedData)
-    : {};
+    : [];
 };
 
 // Save combined form data and file details to localStorage
@@ -78,14 +78,14 @@ const saveDeclarationData = (data) => {
 };
 
 export const FormDataProvider = ({ children }) => {
-  const [personalData, setPersonalData] = useState(retrievePersonalData);
-  const [contactData, setContactData] = useState(retrieveContactData);
-  const [educationData, setEducationData] = useState(retrieveEducationData);
-  const [resultsData, setResultsData] = useState(retrieveResultsData);
-  const [programData, setProgramData] = useState(retrieveProgramData);
-  const [documentsData, setDocumentsData] = useState(retrieveDocumentsData);
-  const [refereeData, setRefereeData] = useState(retrieveRefereeData);
-  const [declarationData, setDeclarationData] = useState(retrieveDeclarationData);
+  const [personalData, setPersonalData] = useState(retrievePersonalData());
+  const [contactData, setContactData] = useState(retrieveContactData());
+  const [educationData, setEducationData] = useState(retrieveEducationData());
+  const [resultsData, setResultsData] = useState(retrieveResultsData());
+  const [programData, setProgramData] = useState(retrieveProgramData());
+  const [documentsData, setDocumentsData] = useState(retrieveDocumentsData());
+  const [refereeData, setRefereeData] = useState(retrieveRefereeData());
+  const [declarationData, setDeclarationData] = useState(retrieveDeclarationData());
 
   //personalData, setPersonalData, contactData, setContactData, education, setEducation, results, setResults, program, setProgram, documents, setDocuments, referee, setReferee, declaration, setDeclaration
 
