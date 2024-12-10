@@ -31,20 +31,14 @@ const ProgramChoice = () => {
               id="program"
               value={formData}
               onChange={(e) => setformData(e.target.value)}
-              className="block w-full p-3 border border-gray-300 rounded"
-            >
-              <option value="">-- Select a Program --</option>
+              className="block w-full p-3 border border-gray-300 rounded">
+              <option value=""> -- Select a Program -- </option>
               {programs.map((program) => (
                 <option key={program.id} value={program?.name}>
                   {program.name}
                 </option>
               ))}
             </select>
-            {formData && (
-              <div className="text-sm text-green-600 mt-2 flex items-center gap-1">
-                You selected: <h1 className="font-semibold">{formData}</h1>
-              </div>
-            )}
           </form>
         </div>
       </div>

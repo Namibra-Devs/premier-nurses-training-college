@@ -104,8 +104,7 @@ const UploadDocuments = () => {
                 type="file"
                 accept="application/pdf"
                 onChange={(e) => handleFileUpload(e, "idFile")}
-                className="hidden"
-              />
+                className="hidden"/>
             </label>
             {formData.idFile && (
               <div className="flex items-center gap-2 mt-2 text-green-600 text-sm">
@@ -113,8 +112,7 @@ const UploadDocuments = () => {
                 <button
                   type="button"
                   onClick={() => handleDeleteFile("idFile")}
-                  className="text-red-500 hover:text-red-700"
-                >
+                  className="text-red-500 hover:text-red-700">
                   <AiOutlineDelete />
                 </button>
               </div>

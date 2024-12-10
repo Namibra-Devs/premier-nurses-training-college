@@ -17,11 +17,7 @@ const App = () => {
   const location = useLocation();
 
   // Definition of the route where footer should not appear
-  const hideFooterRoutes = [
-    "/registration-page",
-    "/login-page",
-    "/application-page",
-  ];
+  const hideFooterRoutes = [ "/registration-page", "/login-page", "/application-page"];
 
   return (
     <>
@@ -43,6 +39,5 @@ const App = () => {
   );
 };
 AOS.init();
-
 
 export default App;
