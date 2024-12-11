@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
 import ProfilePictureUpload from "./ProfilePictureUpload";
-import { FormDataContext } from "../../Context/FormDataContext";
 
 const savePersonalDetails = (personalData) => {
   localStorage.setItem("personalDetail", JSON.stringify(personalData));
@@ -14,7 +13,7 @@ const retrivePersonalDetails = () => {
   return {};
 };
 
-const PersonalDetailsForm = ({ preview, setPreview }) => {
+const PersonalDetailsForm = ({ preview, setPreview, onSave }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [personalData, setPersonalData] = useState(retrivePersonalDetails());
   const [errors, setErrors] = useState({});
@@ -27,6 +26,9 @@ const PersonalDetailsForm = ({ preview, setPreview }) => {
   const handleChange = (e) => {
     setPersonalData({ ...personalData, [e.target.name]: e.target.value });
   };
+
+  //Use the prop onSave
+  onSave(savePersonalDetails(personalData));
 
   // Validation functions
   const validate = () => {
