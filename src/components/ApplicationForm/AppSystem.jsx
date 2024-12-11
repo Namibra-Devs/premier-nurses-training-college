@@ -55,66 +55,67 @@ const AppSystem = ({ open, setOpen }) => {
   //End of Dashboard
 
   const tabs = [
-    {
-      label: "Dashboard",
-      icon: <AiOutlineDashboard />,
-      component: (
-        <Dashboard
-          applicationStatus="Submitted"
-          submittedApplications={submittedApplications}
-          admissionMaterials={admissionMaterials}
-        />
-      ),
-    },
-    {
-      label: "Personal Details",
-      icon: <AiOutlineUser />,
-      component: <PersonalDetailsForm/>,
-    },
-    {
-      label: "Contact Details",
-      icon: <AiOutlineForm />,
-      component: <ContactDetailsForm />,
-    },
-    {
-      label: "Educational Background",
-      icon: <AiOutlineBook />,
-      component: <EducationalBackground />,
-    },
-    { label: "Results", 
-      icon: <AiOutlineFileText />, 
-      component: <Results /> },
-    { 
-      label: "Program Choice",
-      icon: <AiOutlineCheckCircle />,
-      component: <ProgramChoice />,
-    },
-    {
-      label: "Upload Documents",
-      icon: <AiOutlineUpload />,
-      component: <UploadDocuments />,
-    },
-    {
-      label: "Referee",
-      icon: <AiOutlineUser />,
-      component: <Referee />
-    },
-    {
-      label: "Declaration",
-      icon: <AiOutlineCheckCircle />,
-      component: <Declaration />,
-    },
-    {
-      label: "Submit Application",
-      icon: <AiOutlineSend />,
-      component: <FinalSubmit />,
-    },
-  ];
+  {
+    label: "Dashboard",
+    icon: <AiOutlineDashboard />,
+    component: (
+      <Dashboard
+        applicationStatus="Submitted"
+        submittedApplications={submittedApplications}
+        admissionMaterials={admissionMaterials}
+      />
+    ),
+  },
+  {
+    label: "Personal Details",
+    icon: <AiOutlineUser />,
+    component: <PersonalDetailsForm onSave={handleSave} />, // Pass handleSave
+  },
+  {
+    label: "Contact Details",
+    icon: <AiOutlineForm />,
+    component: <ContactDetailsForm onSave={handleSave} />, // Pass handleSave
+  },
+  {
+    label: "Educational Background",
+    icon: <AiOutlineBook />,
+    component: <EducationalBackground onSave={handleSave} />, // Pass handleSave
+  },
+  {
+    label: "Results",
+    icon: <AiOutlineFileText />,
+    component: <Results onSave={handleSave} />, // Pass handleSave
+  },
+  {
+    label: "Program Choice",
+    icon: <AiOutlineCheckCircle />,
+    component: <ProgramChoice onSave={handleSave} />, // Pass handleSave
+  },
+  {
+    label: "Upload Documents",
+    icon: <AiOutlineUpload />,
+    component: <UploadDocuments onSave={handleSave} />, // Pass handleSave
+  },
+  {
+    label: "Referee",
+    icon: <AiOutlineUser />,
+    component: <Referee onSave={handleSave} />, // Pass handleSave
+  },
+  {
+    label: "Declaration",
+    icon: <AiOutlineCheckCircle />,
+    component: <Declaration onSave={handleSave} />, // Pass handleSave
+  },
+  {
+    label: "Submit Application",
+    icon: <AiOutlineSend />,
+    component: <FinalSubmit onSave={handleSave} />, // Pass handleSave
+  },
+];
 
   const handleSave = () => {
 
     try {
-      saveFormData(formData); // For global data saving
       setShowAlert(true); // Show success alert
       setTimeout(() => setShowAlert(false), 3000); // Hide after 3 seconds
     } catch (error) {
