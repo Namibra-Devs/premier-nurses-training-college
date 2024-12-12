@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { AiOutlineEdit, AiOutlineDelete, AiOutlinePlus } from "react-icons/ai";
+import SaveButton from "../Buttons/SaveButton";
+import OverlayAlert from "../FormControls/OverlayAlert";
 
 // Save education list to localStorag
 const saveResultsList = (resultsList) => {
@@ -82,16 +84,36 @@ const Results = () => {
     setResults(results.filter((result) => result.id !== id));
   };
 
+  // Handle Saved Alert
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    saveResultsList(results);
+  };
+
+  const [showAlert, setShowAlert] = useState(false);
+  const handleSave = (e) => {
+    e.preventDefault();
+
+    try {
+      saveResultsList(results); // Save the data
+      setShowAlert(true); // Show success alert
+      setTimeout(() => setShowAlert(false), 3000); // Hide after 3 seconds
+    } catch (error) {
+      console.error("Save failed:", error);
+    }
+  };
+
   return (
     <div className="w-full">
+      {showAlert && <OverlayAlert message="Data saved!"/>}
       {/* Input Form */}
       <div
-        className={`grid gap-4 transform transition-transform duration-500 ${
+        className={`grid gap-4 mb-6 bg-white p-4 rounded transform transition-transform duration-500 ${
           isVisible ? "scale-100 opacity-100" : "scale-90 opacity-0"
         }`}
       >
         <h2 className="text-2xl font-semibold mb-3">Results</h2>
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className="grid grid-cols-2 gap-4">
             <div>
               <label className="block font-medium mb-2">Exams Type</label>
@@ -166,10 +188,11 @@ const Results = () => {
             </div>
           </div>
         </form>
-        <div className="flex items-center justify-end">
+        <div className="flex items-center justify-between">
+          <SaveButton onClick={handleSave} />
           <button
             onClick={handleAddResult}
-            className="flex items-center gap-2 bg-primary text-white py-2 px-4 rounded hover:bg-blue-600"
+            className="flex items-center float-right gap-2 bg-primary text-white py-2 px-4 rounded hover:bg-blue-600"
           >
             <AiOutlinePlus />
             Add Result
@@ -179,7 +202,7 @@ const Results = () => {
 
       {/* Results List */}
       {results.length > 0 && (
-        <div data-aos="fade-up" data-aos-duration="800"className="mt-6" >
+        <div data-aos="fade-up" data-aos-duration="800">
           <h3 className="text-xl font-semibold mb-2">Added Results List</h3>
           <div className="overflow-x-auto pb-4">
             <table className="w-full border-collapse border border-gray-300">

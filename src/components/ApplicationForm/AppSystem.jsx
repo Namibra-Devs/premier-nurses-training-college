@@ -11,20 +11,23 @@ import Declaration from "./Declaration";
 import FinalSubmit from "./FinalSubmit";
 import ContactDetailsForm from "./ContactDetails/ContactDetailsForm";
 
-import {AiOutlineDashboard, AiOutlineUser, AiOutlineBook, AiOutlineFileText, AiOutlineUpload, AiOutlineCheckCircle, AiOutlineForm, AiOutlineSend,} from "react-icons/ai";
-import SaveButton from "./Buttons/SaveButton";
-import { FormDataContext } from "../Context/FormDataContext";
-import OverlayAlert from "./FormControls/OverlayAlert";
+import {
+  AiOutlineDashboard,
+  AiOutlineUser,
+  AiOutlineBook,
+  AiOutlineFileText,
+  AiOutlineUpload,
+  AiOutlineCheckCircle,
+  AiOutlineForm,
+  AiOutlineSend,
+} from "react-icons/ai";
 
 const AppSystem = ({ open, setOpen }) => {
   const [currentTab, setCurrentTab] = useState(0);
-  const {formData, saveFormData} = useContext(FormDataContext);
-  const [showAlert, setShowAlert] = useState(false);
 
   const handleContinue = () => {
-    handleSave();
     if (currentTab < tabs.length - 1) {
-      setCurrentTab(currentTab + 1); //Go to next tab
+      setCurrentTab(currentTab + 1); //Go to nex tab
     }
   };
 
@@ -54,83 +57,68 @@ const AppSystem = ({ open, setOpen }) => {
   ];
   //End of Dashboard
 
+  
   const tabs = [
-  {
-    label: "Dashboard",
-    icon: <AiOutlineDashboard />,
-    component: (
-      <Dashboard
-        applicationStatus="Submitted"
-        submittedApplications={submittedApplications}
-        admissionMaterials={admissionMaterials}
-      />
-    ),
-  },
-  {
-    label: "Personal Details",
-    icon: <AiOutlineUser />,
-    component: <PersonalDetailsForm onSave={handleSave} />, // Pass handleSave
-  },
-  {
-    label: "Contact Details",
-    icon: <AiOutlineForm />,
-    component: <ContactDetailsForm onSave={handleSave} />, // Pass handleSave
-  },
-  {
-    label: "Educational Background",
-    icon: <AiOutlineBook />,
-    component: <EducationalBackground onSave={handleSave} />, // Pass handleSave
-  },
-  {
-    label: "Results",
-    icon: <AiOutlineFileText />,
-    component: <Results onSave={handleSave} />, // Pass handleSave
-  },
-  {
-    label: "Program Choice",
-    icon: <AiOutlineCheckCircle />,
-    component: <ProgramChoice onSave={handleSave} />, // Pass handleSave
-  },
-  {
-    label: "Upload Documents",
-    icon: <AiOutlineUpload />,
-    component: <UploadDocuments onSave={handleSave} />, // Pass handleSave
-  },
-  {
-    label: "Referee",
-    icon: <AiOutlineUser />,
-    component: <Referee onSave={handleSave} />, // Pass handleSave
-  },
-  {
-    label: "Declaration",
-    icon: <AiOutlineCheckCircle />,
-    component: <Declaration onSave={handleSave} />, // Pass handleSave
-  },
-  {
-    label: "Submit Application",
-    icon: <AiOutlineSend />,
-    component: <FinalSubmit onSave={handleSave} />, // Pass handleSave
-  },
-];
-
-  const handleSave = () => {
-
-    try {
-      setShowAlert(true); // Show success alert
-      setTimeout(() => setShowAlert(false), 3000); // Hide after 3 seconds
-    } catch (error) {
-      console.error("Save failed:", error);
-    }
-  };
+    {
+      label: "Dashboard",
+      icon: <AiOutlineDashboard />,
+      component: (
+        <Dashboard
+          applicationStatus="Submitted"
+          submittedApplications={submittedApplications}
+          admissionMaterials={admissionMaterials}
+        />
+      ),
+    },
+    {
+      label: "Personal Details",
+      icon: <AiOutlineUser />,
+      component: <PersonalDetailsForm/>,
+    },
+    {
+      label: "Contact Details",
+      icon: <AiOutlineForm />,
+      component: <ContactDetailsForm />,
+    },
+    {
+      label: "Educational Background",
+      icon: <AiOutlineBook />,
+      component: <EducationalBackground />,
+    },
+    { label: "Results", icon: <AiOutlineFileText />, component: <Results /> },
+    { 
+      label: "Program Choice",
+      icon: <AiOutlineCheckCircle />,
+      component: <ProgramChoice />,
+    },
+    {
+      label: "Upload Documents",
+      icon: <AiOutlineUpload />,
+      component: <UploadDocuments />,
+    },
+    {
+      label: "Referee",
+      icon: <AiOutlineUser />,
+      component: <Referee />
+    },
+    {
+      label: "Declaration",
+      icon: <AiOutlineCheckCircle />,
+      component: <Declaration />,
+    },
+    {
+      label: "Submit Application",
+      icon: <AiOutlineSend />,
+      component: <FinalSubmit />,
+    },
+  ];
 
   return (
     <>
-      {/* Save Alert */}
-      {showAlert && <OverlayAlert message="Data Saved!" />}
     <div className="flex items-start mt-3 bg-gray-100 h-screen">
         <Tabs tabs={tabs} currentTab={currentTab} setCurrentTab={setCurrentTab} open={open} setOpen={setOpen}/>
       <div className="p-4 rounded w-full max-h-screen pb-32 overflow-y-auto">
-        <div className="bg-white p-4 rounded">
+        <div className="">
 
           {/*--------------TABS ARE DISPLAYED HERE---------------- */}
           {tabs[currentTab].component}
@@ -151,12 +139,10 @@ const AppSystem = ({ open, setOpen }) => {
                 {currentTab > 0 && currentTab < tabs.length - 1 && (
                   <>
                   {/* Save button*/}
-                  <SaveButton onClick={handleSave} />
-                  
                     <button
                       onClick={handleContinue}
                       className="px-4 py-2 rounded bg-green-500 text-white hover:bg-green-600 hover:shadow-custom-light">
-                      Save & Continue
+                      Next
                     </button>
                   </>
                 )}
