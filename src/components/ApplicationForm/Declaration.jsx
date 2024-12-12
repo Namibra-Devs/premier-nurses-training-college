@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import SaveButton from "./Buttons/SaveButton";
 import OverlayAlert from "./FormControls/OverlayAlert";
 
 const saveDeclaration = (declaration) => {
@@ -42,7 +43,7 @@ const Declaration = () => {
     <>
       {showAlert && <OverlayAlert message="Declaration saved!" />}
       <div
-        className={` transform transition-transform duration-500 ${
+        className={`bg-white p-4 rounded transform transition-transform duration-500 ${
           isVisible ? "scale-100 opacity-100" : "scale-90 opacity-0"
         }`}
       >
@@ -90,6 +91,10 @@ const Declaration = () => {
             />
           </div>
         </form>
+
+        <div className="mt-5">
+          <SaveButton onClick={handleSave} />
+        </div>
       </div>
     </>
   );
