@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import programsData from "./programs";
+import SaveButton from "../Buttons/SaveButton";
+import OverlayAlert from "../FormControls/OverlayAlert";
 
 const saveProgram = (selectedProgram) => {
   localStorage.setItem("selectedProgram", JSON.stringify(selectedProgram));
@@ -28,10 +30,31 @@ const ProgramChoice = () => {
     setTimeout(() => setIsVisible(true), 100);
   }, []);
 
+ 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    saveProgram(selectedProgram);
+  };
+
+   // Handle Saved Alert
+  const [showAlert, setShowAlert] = useState(false);
+  const handleSave = (e) => {
+    e.preventDefault();
+
+    try {
+      saveProgram(selectedProgram); // Save the data
+      setShowAlert(true); // Show success alert
+      setTimeout(() => setShowAlert(false), 3000); // Hide after 3 seconds
+    } catch (error) {
+      console.error("Save failed:", error);
+    }
+  };
+
   return (
     <div>
+      {showAlert && <OverlayAlert message="Program saved!" />}
       <div
-        className={`transform transition-transform duration-500 ${
+        className={`bg-white p-4 rounded transform transition-transform duration-500 ${
           isVisible ? "scale-100 opacity-100" : "scale-90 opacity-0"
         }`}
       >
@@ -44,7 +67,7 @@ const ProgramChoice = () => {
           >
             Select a Program
           </label>
-          <form className="relative">
+          <form onSubmit={handleSubmit} className="relative">
             <select
               id="program"
               value={selectedProgram}
@@ -64,6 +87,10 @@ const ProgramChoice = () => {
               </p>
             )}
           </form>
+        </div>
+
+        <div className="mt-5">
+          <SaveButton onClick={handleSave} />
         </div>
       </div>
     </div>
