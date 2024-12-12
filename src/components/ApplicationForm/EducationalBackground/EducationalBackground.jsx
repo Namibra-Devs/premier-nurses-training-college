@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { AiOutlineEdit, AiOutlineDelete, AiOutlinePlus } from "react-icons/ai";
+import SaveButton from "../Buttons/SaveButton";
+import OverlayAlert from "../FormControls/OverlayAlert";
 
 // Save education list to localStorag
 const saveEducationList = (educationList) => {
@@ -58,12 +60,34 @@ const EducationalBackground = () => {
     setEducations(educations.filter((edu) => edu.id !== id)); // Remove from list for editing
   };
 
+  // Handle Saved Alert
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    saveEducationList(educations);
+  };
+
+  const [showAlert, setShowAlert] = useState(false);
+  const handleSave = (e) => {
+    e.preventDefault();
+
+    try {
+      saveEducationList(educations); // Save the data
+      setShowAlert(true); // Show success alert
+      setTimeout(() => setShowAlert(false), 3000); // Hide after 3 seconds
+    } catch (error) {
+      console.error("Save failed:", error);
+    }
+  };
+
   return (
     <div>
+      {showAlert && <OverlayAlert message="Data saved!"/>}
       {/* Input Form */}
       <form
-        className={`grid gap-4 transform transition-transform duration-500 ${
-          isVisible ? "scale-100 opacity-100" : "scale-90 opacity-0"}`}>
+        onSubmit={handleSubmit}
+        className={`grid gap-4 mb-6 bg-white p-4 rounded transform transition-transform duration-500 ${
+          isVisible ? "scale-100 opacity-100" : "scale-90 opacity-0"
+        }`}>
         <h2 className="text-2xl font-semibold mb-3">Educational Background</h2>
         <div>
           <label className="block font-medium mb-2">School Name</label>
@@ -93,7 +117,6 @@ const EducationalBackground = () => {
             <input
               type="date"
               name="from"
-              placeholder="From (Year)"
               value={formData.from}
               onChange={handleChange}
               className="w-full p-2 border border-gray-300 rounded"
@@ -104,17 +127,17 @@ const EducationalBackground = () => {
             <input
               type="date"
               name="to"
-              placeholder="To (Year)"
               value={formData.to}
               onChange={handleChange}
               className="w-full p-2 border border-gray-300 rounded"
             />
           </div>
         </div>
-        <div className="flex justify-end">
+        <div className="flex items-center justify-between">
+          <SaveButton onClick={handleSave} />
           <button
             onClick={handleAddEducation}
-            className="flex items-center gap-2 bg-primary text-white py-2 px-4 rounded hover:bg-blue-600"
+            className="flex items-center float-right gap-2 bg-primary text-white py-2 px-4 rounded hover:bg-blue-600"
           >
             <AiOutlinePlus />
             Add Education
