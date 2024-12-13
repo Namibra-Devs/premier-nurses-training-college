@@ -16,7 +16,7 @@ const retrivecontactData = () => {
 
 const ContactDetailsForm = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [contactData, setcontactData] = useState(retrivecontactData());
+  const [contactData, setContactData] = useState(retrivecontactData());
   const [showAlert, setShowAlert] = useState(false);
   const [errors, setErrors] = useState({});
 
@@ -27,7 +27,7 @@ const ContactDetailsForm = () => {
   }, []);
 
   const handleChange = (e) => {
-    setcontactData({ ...contactData, [e.target.name]: e.target.value });
+    setContactData({ ...contactData, [e.target.name]: e.target.value });
   };
 
 
@@ -72,19 +72,17 @@ const ContactDetailsForm = () => {
     return newErrors;
   };
 
-  // Handle Saved Alert
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    saveContactData(contactData);
-  };
-
   const handleSave = (e) => {
     e.preventDefault();
 
     try {
-      saveContactData(contactData); // Save the data
+      if(validateContactDetails()){
+        saveContactData(contactData); // Save the data
       setShowAlert(true); // Show success alert
       setTimeout(() => setShowAlert(false), 3000); // Hide after 3 seconds
+      }else{
+        return newErrors;
+      }
     } catch (error) {
       console.error("Save failed:", error);
     }
@@ -98,10 +96,9 @@ const ContactDetailsForm = () => {
       {/* Contact Details */}
       <div
         className={`bg-white p-4 rounded transform transition-transform duration-500 ${
-          isVisible ? "scale-100 opacity-100" : "scale-90 opacity-0"
-        }`}>
+          isVisible ? "scale-100 opacity-100" : "scale-90 opacity-0"}`}>
         <h3 className="text-2xl font-semibold mb-6">Contact Details</h3>
-        <form onSubmit={handleSubmit} className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <form className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
           <label className="block font-medium mb-2">Email</label>
           <input
