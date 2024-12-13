@@ -24,6 +24,7 @@ import {
 
 const AppSystem = ({ open, setOpen }) => {
   const [currentTab, setCurrentTab] = useState(0);
+  
 
   const handleContinue = () => {
     if (currentTab < tabs.length - 1) {
