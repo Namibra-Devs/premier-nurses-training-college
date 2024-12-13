@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Routes, useLocation } from "react-router-dom";
+import { Router, Route, Routes, useLocation } from "react-router-dom";
 import Home from "./components/Pages/Home";
 import Footer from "./components/Footer/Footer";
 import AboutUs from "./components/Pages/About/AboutUs";
@@ -14,6 +14,10 @@ import "aos/dist/aos.css";
 import ApplicationPage from "./components/ApplicationForm/ApplicationPage";
 
 const App = () => {
+  const [formData, setFormData] = useState({});
+  const handleSave = (data) => {
+    setFormData({ ...formData, ...data });
+  };
   const location = useLocation();
 
   // Definition of the route where footer should not appear
@@ -21,6 +25,9 @@ const App = () => {
 
   return (
     <>
+      <Router>
+        
+      </Router>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/aboutus" element={<AboutUs />} />
