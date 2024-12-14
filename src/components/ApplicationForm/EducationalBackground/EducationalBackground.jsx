@@ -27,6 +27,7 @@ const EducationalBackground = () => {
 
   const [educations, setEducations] = useState(retrieveEducationList()); // Initialize from localStorage
   const [formData, setFormData] = useState({});
+  const [errors, setErrors] = useState({});
 
   // Handle input changes
   const handleChange = (e) => {
@@ -35,6 +36,11 @@ const EducationalBackground = () => {
 
   // Add education to the list
   const handleAddEducation = () => {
+    const validation = validateEducation();
+
+    if(Object.keys(validation).length > 0){
+      setErrors(validation);
+    }
     if (
       formData.schoolName &&
       formData.address &&
@@ -44,6 +50,7 @@ const EducationalBackground = () => {
       setEducations([...educations, { ...formData, id: Date.now() }]);
       setFormData({ schoolName: "", address: "", from: "", to: "" }); // Reset form
     } else {
+      setErrors(validation);
       alert("Please fill all fields before adding.");
     }
   };
@@ -60,20 +67,50 @@ const EducationalBackground = () => {
     setEducations(educations.filter((edu) => edu.id !== id)); // Remove from list for editing
   };
 
-  // Handle Saved Alert
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    saveEducationList(educations);
+  const validateEducation = () => {
+    const errors = {};
+  
+    // Validate School Name
+    if (!formData.schoolName?.trim()) {
+      errors.schoolName = "School Name is required.";
+    }
+  
+    // Validate School Address
+    if (!formData.address?.trim()) {
+      errors.address = "School Address is required.";
+    }
+  
+    // Validate From Date
+    if (!formData.from) {
+      errors.from = "Start date is required.";
+    }
+  
+    // Validate To Date
+    if (!formData.to) {
+      errors.to = "End date is required.";
+    } else if (new Date(formData.to) < new Date(formData.from)) {
+      errors.to = "End date cannot be earlier than start date.";
+    }
+  
+    return errors;
   };
 
-  const [showAlert, setShowAlert] = useState(false);
-  const handleSave = (e) => {
+  const handleSubmit = (e) =>{
     e.preventDefault();
+    saveEducationList(educations);
+  }
 
+  const [showAlert, setShowAlert] = useState(false);
+  const handleSave = () => {
     try {
-      saveEducationList(educations); // Save the data
-      setShowAlert(true); // Show success alert
-      setTimeout(() => setShowAlert(false), 3000); // Hide after 3 seconds
+      if(educations.length > 1){
+        saveEducationList(educations); // Save the data
+        setShowAlert(true); // Show success alert
+        setTimeout(() => setShowAlert(false), 1000); // Hide after 3 seconds
+      }else{
+        alert("Please add atleast 2 education.")
+      }
+        
     } catch (error) {
       console.error("Save failed:", error);
     }
@@ -99,6 +136,7 @@ const EducationalBackground = () => {
             onChange={handleChange}
             className="w-full p-2 border border-gray-300 rounded"
           />
+          {errors.schoolName && <p className="text-red-500 text-xs">{errors.schoolName}</p>}
         </div>
         <div>
           <label className="block font-medium mb-2">School Address</label>
@@ -110,6 +148,7 @@ const EducationalBackground = () => {
             onChange={handleChange}
             className="w-full p-2 border border-gray-300 rounded"
           />
+          {errors.address && <p className="text-red-500 text-xs">{errors.address}</p>}
         </div>
         <div className="grid grid-cols-2 gap-4">
           <div>
@@ -121,6 +160,7 @@ const EducationalBackground = () => {
               onChange={handleChange}
               className="w-full p-2 border border-gray-300 rounded"
             />
+            {errors.from && <p className="text-red-500 text-xs">{errors.from}</p>}
           </div>
           <div>
             <label className="block font-medium mb-2">To</label>
@@ -131,6 +171,7 @@ const EducationalBackground = () => {
               onChange={handleChange}
               className="w-full p-2 border border-gray-300 rounded"
             />
+            {errors.to && <p className="text-red-500 text-xs">{errors.to}</p>}
           </div>
         </div>
         <div className="flex items-center justify-between">

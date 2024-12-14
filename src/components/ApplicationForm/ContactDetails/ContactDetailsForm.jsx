@@ -74,14 +74,14 @@ const ContactDetailsForm = () => {
 
   const handleSave = (e) => {
     e.preventDefault();
-
+    const validation = validateContactDetails();
     try {
-      if(validateContactDetails()){
+      if (Object.keys(validation).length > 0) {
+        setErrors(validation);
+      } else {
         saveContactData(contactData); // Save the data
-      setShowAlert(true); // Show success alert
-      setTimeout(() => setShowAlert(false), 3000); // Hide after 3 seconds
-      }else{
-        return newErrors;
+        setShowAlert(true); // Show success alert
+        setTimeout(() => setShowAlert(false), 1000); // Hide after 3 second
       }
     } catch (error) {
       console.error("Save failed:", error);

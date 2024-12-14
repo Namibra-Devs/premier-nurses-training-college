@@ -30,10 +30,15 @@ const Declaration = () => {
 
   const handleSave = (e) => {
     e.preventDefault();
+    const validation = validateDeclaration();
     try {
-      saveDeclaration(declaration); // Save the data to localStorage
-      setShowAlert(true); // Show success alert
-      setTimeout(() => setShowAlert(false), 3000); // Hide alert after 3 seconds
+      if (Object.keys(validation).length > 0) {
+        setErrors(validation);
+      } else {
+        saveDeclaration(declaration); // Save the data
+        setShowAlert(true); // Show success alert
+        setTimeout(() => setShowAlert(false), 1000); // Hide after 3 second
+      }
     } catch (error) {
       console.error("Save failed:", error);
     }
