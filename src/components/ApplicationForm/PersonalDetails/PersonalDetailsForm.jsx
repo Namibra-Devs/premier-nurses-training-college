@@ -24,36 +24,6 @@ const PersonalDetailsForm = ({ preview, setPreview }) => {
     setTimeout(() => setIsVisible(true), 100); // Trigger the animation
   }, []);
 
-  // const [personalDetail, setpersonalDetail] = useState({
-  //   profilePicture: null,
-  //   // Personal Information--------
-  //   surname: "",
-  //   firstName: "",
-  //   otherName: "",
-  //   gender: "",
-  //   dateOfBirth: "",
-  //   age: "",
-  //   placeOfBirth: "",
-  //   religion: "",
-  //   hometown: "",
-  //   district: "",
-  //   region: "",
-  //   maritalStatus: "Single",
-  //   numberOfChildren: "",
-  //   healthCondition: "",
-  //   Disability: "",
-  //   languagesSpoken: "",
-  //   // End Personal Information
-
-  //   // Parent/Guardian Information-----------
-  //   parentGuardian: {
-  //     name: "",
-  //     address: "",
-  //     occupation: "",
-  //     contact: "",
-  //   },
-  // });
-
   const [personalDetail, setPersonalDetail] = useState(
     retrivePersonalDetails()
   );
@@ -67,10 +37,10 @@ const validate = () => {
   const newErrors = {};
 
   // Validate surname
-  if (!personalDetail.surname.trim()) newErrors.surname = "Surname is required.";
+  if (!personalDetail.surname?.trim()) newErrors.surname = "Surname is required.";
 
   // Validate first name
-  if (!personalDetail.firstName.trim()) newErrors.firstName = "First Name is required.";
+  if (!personalDetail.firstName?.trim()) newErrors.firstName = "First Name is required.";
 
   // Validate date of birth
   if (!personalDetail.dateOfBirth) newErrors.dateOfBirth = "Date of Birth is required.";
@@ -85,58 +55,56 @@ const validate = () => {
   if (!personalDetail.maritalStatus) newErrors.maritalStatus = "Marital status is required.";
 
   // Validate languages spoken
-  if (!personalDetail.languagesSpoken.trim()) newErrors.languagesSpoken = "Languages Spoken is required.";
+  if (!personalDetail.languagesSpoken?.trim()) newErrors.languagesSpoken = "Languages Spoken is required.";
 
   // Validate place of birth
-  if (!personalDetail.placeOfBirth.trim()) newErrors.placeOfBirth = "Place of Birth is required.";
+  if (!personalDetail.placeOfBirth?.trim()) newErrors.placeOfBirth = "Place of Birth is required.";
 
   // Validate religion
-  if (!personalDetail.religion.trim()) newErrors.religion = "Religion is required.";
+  if (!personalDetail.religion?.trim()) newErrors.religion = "Religion is required.";
 
   // Validate hometown
-  if (!personalDetail.hometown.trim()) newErrors.hometown = "Hometown is required.";
+  if (!personalDetail.hometown?.trim()) newErrors.hometown = "Hometown is required.";
 
   // Validate district
-  if (!personalDetail.district.trim()) newErrors.district = "District is required.";
+  if (!personalDetail.district?.trim()) newErrors.district = "District is required.";
 
   //Validate region
-  if (!personalDetail.region.trim()) newErrors.region = "Region is required.";
+  if (!personalDetail.region?.trim()) newErrors.region = "Region is required.";
 
   // Validate Parent/Guardian Name
-  if (!personalDetail.name.trim()) {newErrors.name = "Parent/Guardian name is required.";}
+  if (!personalDetail.name?.trim()) {newErrors.name = "Parent/Guardian name is required.";}
 
   // Validate Occupation
-  if (!personalDetail.occupation.trim()) {newErrors.occupation = "Occupation is required.";}
+  if (!personalDetail.occupation?.trim()) {newErrors.occupation = "Occupation is required.";}
 
   // Validate Contact
-  if (!personalDetail.contact.trim()) {
+  if (!personalDetail.contact?.trim()) {
     newErrors.contact = "Contact is required.";
   } else if (!/^\d{10}$/.test(personalDetail.contact)) {
     newErrors.contact = "Contact must be a valid 10-digit number.";
   }
 
   // Validate Address
-  if (!personalDetail.address.trim()) {newErrors.address = "Address is required.";}
+  if (!personalDetail.address?.trim()) {newErrors.address = "Address is required.";}
 
   setErrors(newErrors);
-  return Object.keys(newErrors).length === 0; // Return true if no errors
+   // Return true if no errors
 };
 
-
-  // Handle Saved Alert
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    savePersonalDetails(personalDetail);
-  };
 
   const [showAlert, setShowAlert] = useState(false);
   const handleSave = (e) => {
     e.preventDefault();
-
+    const validation = validate();
     try {
-      savePersonalDetails(personalDetail); // Save the data
-      setShowAlert(true); // Show success alert
-      setTimeout(() => setShowAlert(false), 3000); // Hide after 3 seconds
+      if (validation) {
+        setErrors(validation);
+      } else {
+        savePersonalDetails(personalDetail); // Save the data
+        setShowAlert(true); // Show success alert
+        setTimeout(() => setShowAlert(false), 1000); // Hide after 3 seconds
+      }
     } catch (error) {
       console.error("Save failed:", error);
     }
@@ -156,7 +124,7 @@ const validate = () => {
           </div>
         </div>
 
-        <form onSubmit={handleSubmit}>
+        <form>
           {/* Name Fields */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-2">
           <div>
@@ -234,8 +202,7 @@ const validate = () => {
                   name="maritalStatus"
                   value={personalDetail.maritalStatus}
                   onChange={handleChange}
-                  className="w-full border rounded p-2"
-              >
+                  className="w-full border rounded p-2">
                   <option value="Single">Single</option>
                   <option value="Married">Married</option>
               </select>
@@ -256,6 +223,7 @@ const validate = () => {
               onChange={handleChange}
               className="w-full border rounded p-2"
               />
+              {errors.languagesSpoken && <p className="text-red-500 text-xs">{errors.languagesSpoken}</p>}
           </div>
           <div>
               <label className="block font-medium mb-2">Place of Birth</label>
@@ -266,6 +234,7 @@ const validate = () => {
               onChange={handleChange}
               className="w-full border rounded p-2"
               />
+              {errors.placeOfBirth && <p className="text-red-500 text-xs">{errors.placeOfBirth}</p>}
           </div>
           <div>
               <label className="block font-medium mb-2">Religion</label>
@@ -276,6 +245,7 @@ const validate = () => {
               onChange={handleChange}
               className="w-full border rounded p-2"
               />
+              {errors.religion && <p className="text-red-500 text-xs">{errors.religion}</p>}
           </div>
           <div>
               <label className="block font-medium mb-2">Hometown</label>
@@ -286,6 +256,7 @@ const validate = () => {
               onChange={handleChange}
               className="w-full border rounded p-2"
               />
+              {errors.hometown && <p className="text-red-500 text-xs">{errors.hometown}</p>}
           </div>
           <div>
               <label className="block font-medium mb-2">District</label>
@@ -296,6 +267,7 @@ const validate = () => {
               onChange={handleChange}
               className="w-full border rounded p-2"
               />
+              {errors.district && <p className="text-red-500 text-xs">{errors.district}</p>}
           </div>
           {/* Region */}
           <div>
