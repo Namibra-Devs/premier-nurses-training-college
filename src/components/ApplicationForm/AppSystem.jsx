@@ -11,16 +11,7 @@ import Declaration from "./Declaration";
 import FinalSubmit from "./FinalSubmit";
 import ContactDetailsForm from "./ContactDetails/ContactDetailsForm";
 
-import {
-  AiOutlineDashboard,
-  AiOutlineUser,
-  AiOutlineBook,
-  AiOutlineFileText,
-  AiOutlineUpload,
-  AiOutlineCheckCircle,
-  AiOutlineForm,
-  AiOutlineSend,
-} from "react-icons/ai";
+import { AiOutlineDashboard, AiOutlineUser, AiOutlineBook, AiOutlineFileText, AiOutlineUpload, AiOutlineCheckCircle,AiOutlineForm, AiOutlineSend,} from "react-icons/ai";
 
 const AppSystem = ({ open, setOpen }) => {
   const [currentTab, setCurrentTab] = useState(0);
@@ -61,8 +52,7 @@ const AppSystem = ({ open, setOpen }) => {
   
   const tabs = [
     {
-      label: "Dashboard",
-      icon: <AiOutlineDashboard />,
+      label: "Dashboard", icon: <AiOutlineDashboard />,
       component: (
         <Dashboard
           applicationStatus="Submitted"
@@ -86,7 +76,10 @@ const AppSystem = ({ open, setOpen }) => {
       icon: <AiOutlineBook />,
       component: <EducationalBackground />,
     },
-    { label: "Results", icon: <AiOutlineFileText />, component: <Results /> },
+    { 
+      label: "Results", 
+      icon: <AiOutlineFileText />, 
+      component: <Results /> },
     { 
       label: "Program Choice",
       icon: <AiOutlineCheckCircle />,
@@ -110,20 +103,20 @@ const AppSystem = ({ open, setOpen }) => {
     {
       label: "Submit Application",
       icon: <AiOutlineSend />,
-      component: <FinalSubmit />,
+      component: <FinalSubmit  />,
     },
   ];
 
   return (
     <>
     <div className="flex items-start mt-3 bg-gray-100 h-screen">
-        <Tabs tabs={tabs} currentTab={currentTab} setCurrentTab={setCurrentTab} open={open} setOpen={setOpen}/>
+      <Tabs tabs={tabs} currentTab={currentTab} setCurrentTab={setCurrentTab} open={open} setOpen={setOpen}/>
       <div className="p-4 rounded w-full max-h-screen pb-32 overflow-y-auto">
         <div className="">
 
           {/*--------------TABS ARE DISPLAYED HERE---------------- */}
           {tabs[currentTab].component}
-          {/*--------------End TABS ARE DISPLAYED HERE...---------------- */}
+          {/*--------------End TABS ARE DISPLAYED HERE--------------- */}
 
             {/* Save and Save and Continue Buttons */}
             <div className="flex items-baseline justify-between gap-4 mt-4"> 

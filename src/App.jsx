@@ -13,11 +13,8 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import ApplicationPage from "./components/ApplicationForm/ApplicationPage";
 
+
 const App = () => {
-  const [formData, setFormData] = useState({});
-  const handleSave = (data) => {
-    setFormData({ ...formData, ...data });
-  };
   const location = useLocation();
 
   // Definition of the route where footer should not appear
@@ -25,9 +22,6 @@ const App = () => {
 
   return (
     <>
-      <Router>
-        
-      </Router>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/aboutus" element={<AboutUs />} />
@@ -35,6 +29,7 @@ const App = () => {
         <Route path="/admissions" element={<Admissions />} />
         <Route path="/students" element={<Students />} />
         <Route path="/contactus" element={<ContactUs />} />
+
         <Route path="/registration-page" element={<RegistrationPage />} />
         <Route path="/login-page" element={<LoginPage />} />
         <Route path="/application-page" element={<ApplicationPage/>} />
