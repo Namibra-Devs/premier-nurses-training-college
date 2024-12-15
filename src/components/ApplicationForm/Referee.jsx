@@ -20,14 +20,48 @@ const retriveRefereeDetails = () => {
 const Referee = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [referee, setReferee] = useState(retriveRefereeDetails() || "");
+  const [errors, setErrors] = useState({});
+
   // Load program data on component mount
   useEffect(() => {
     setTimeout(() => setIsVisible(true), 100); // Trigger the animation
   }, []);
 
+  const validate = () => {
+    const newErrors = {};
+
+    if (!referee.name || !/^[a-zA-Z\s]+$/.test(referee.name)) {
+      newErrors.name = "Name is required and should contain only alphabets.";
+    }
+
+    if (!referee.address) {
+      newErrors.address = "Address is required.";
+    }
+
+    if (!referee.contact || !/^\d{10}$/.test(referee.contact)) {
+      newErrors.contact = "Contact is required and must be a 10-digit number.";
+    }
+
+    if (!referee.letter) {
+      newErrors.letter = "A referee letter (PDF) is required.";
+    }
+
+    setErrors(newErrors);
+  };
+
+
   const handleFileUpload = (e) => {
     const file = e.target.files[0];
     if (file && file.type === "application/pdf") {
+      if (file.type !== "application/pdf") {
+        alert("Only PDF files are allowed!");
+        return;
+      }
+      if (file.size > 5 * 1024 * 1024) {
+        alert("File size should not exceed 5MB");
+        return;
+      }
+
       const reader = new FileReader();
       reader.onload = () => {
         setReferee({ ...referee, letter: reader.result }); // Store Base64 string
@@ -51,11 +85,15 @@ const Referee = () => {
   const [showAlert, setShowAlert] = useState(false);
   const handleSave = (e) => {
     e.preventDefault();
-
+    const validation = validate();
     try {
-      saveRefereeDetails(referee); // Save the data
-      setShowAlert(true); // Show success alert
-      setTimeout(() => setShowAlert(false), 3000); // Hide after 3 seconds
+      if (Object.keys(validation).length > 0) {
+        setErrors(validation);
+      }else{
+        saveRefereeDetails(referee); // Save the data
+        setShowAlert(true); // Show success alert
+        setTimeout(() => setShowAlert(false), 1000); // Hide after 3 seconds
+      }
     } catch (error) {
       console.error("Save failed:", error);
     }
@@ -67,8 +105,7 @@ const Referee = () => {
       <div
         className={`bg-white p-4 rounded transform transition-transform duration-500 ${
           isVisible ? "scale-100 opacity-100" : "scale-90 opacity-0"
-        }`}
-      >
+        }`}>
         {/* Referee Details */}
         <div className="md:col-span-2">
           <h3 className="text-2xl font-semibold mb-3 flex items-center gap-2">
@@ -81,32 +118,40 @@ const Referee = () => {
           <form onSubmit={handleSubmit}>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
-                <label className="block text-gray-700 font-medium mb-2">
-                  Name
-                </label>
-                <input
-                  type="text"
-                  placeholder="Enter Name"
-                  value={referee.name || ""}
-                  onChange={(e) =>
-                    setReferee({ ...referee, name: e.target.value })
-                  }
-                  className="block w-full p-2 border border-gray-300 rounded mb-4"
-                />
-                <label className="block text-gray-700 font-medium mb-2">
-                  Address
-                </label>
-                <input
-                  type="text"
-                  placeholder="Enter Address"
-                  value={referee.address || ""}
-                  onChange={(e) =>
-                    setReferee({ ...referee, address: e.target.value })
-                  }
-                  className="block w-full p-2 border border-gray-300 rounded mb-4"
-                />
+                <div className="mb-4">
+                  <label className="block text-gray-700 font-medium mb-2">
+                    Name
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="Enter Name"
+                    value={referee.name || ""}
+                    onChange={(e) =>
+                      setReferee({ ...referee, name: e.target.value })
+                    }
+                    className="block w-full p-2 border border-gray-300 rounded"
+                  />
+                  {errors.name && <p className="text-red-600 text-xs">{errors.name}</p>}
+                </div>
+
+                <div className="mb-4">
+                  <label className="block text-gray-700 font-medium mb-2">
+                    Address
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="Enter Address"
+                    value={referee.address || ""}
+                    onChange={(e) =>
+                      setReferee({ ...referee, address: e.target.value })
+                    }
+                    className="block w-full p-2 border border-gray-300 rounded"
+                  />
+                  {errors.address && <p className="text-red-600 text-xs">{errors.address}</p>}
+                </div>
               </div>
               <div>
+              <div className="mb-4">
                 <label className="block text-gray-700 font-medium mb-2">
                   Contact
                 </label>
@@ -117,8 +162,9 @@ const Referee = () => {
                   onChange={(e) =>
                     setReferee({ ...referee, contact: e.target.value })
                   }
-                  className="block w-full p-2 border border-gray-300 rounded mb-4"
-                />
+                  className="block w-full p-2 border border-gray-300 rounded"/>
+                {errors.contact && <p className="text-red-600 text-xs">{errors.contact}</p>}
+                </div>
                 <label className="block text-gray-700 font-medium mb-2">
                   Upload Referee Letter (PDF only)
                 </label>
