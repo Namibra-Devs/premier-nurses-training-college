@@ -1,5 +1,5 @@
-import React, { useContext, useState } from "react";
-import Tabs from "./Tabs";
+import React, { useState } from "react";
+import Sidebar from "./Sidebar";
 import Dashboard from "./Dashboard/Dashboard";
 import PersonalDetailsForm from "./PersonalDetails/PersonalDetailsForm";
 import EducationalBackground from "./EducationalBackground/EducationalBackground";
@@ -15,7 +15,6 @@ import { AiOutlineDashboard, AiOutlineUser, AiOutlineBook, AiOutlineFileText, Ai
 
 const AppSystem = ({ open, setOpen }) => {
   const [currentTab, setCurrentTab] = useState(0);
-  
 
   const handleContinue = () => {
     if (currentTab < tabs.length - 1) {
@@ -49,7 +48,6 @@ const AppSystem = ({ open, setOpen }) => {
   ];
   //End of Dashboard
 
-  
   const tabs = [
     {
       label: "Dashboard", icon: <AiOutlineDashboard />,
@@ -110,7 +108,7 @@ const AppSystem = ({ open, setOpen }) => {
   return (
     <>
     <div className="flex items-start mt-3 bg-gray-100 h-screen">
-      <Tabs tabs={tabs} currentTab={currentTab} setCurrentTab={setCurrentTab} open={open} setOpen={setOpen}/>
+      <Sidebar tabs={tabs} currentTab={currentTab} setCurrentTab={setCurrentTab} open={open} setOpen={setOpen}/>
       <div className="p-4 rounded w-full max-h-screen pb-32 overflow-y-auto">
         <div className="">
 
