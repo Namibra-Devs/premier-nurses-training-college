@@ -103,12 +103,12 @@ const EducationalBackground = () => {
   const [showAlert, setShowAlert] = useState(false);
   const handleSave = () => {
     try {
-      if(educations.length > 1){
+      if(educations.length >= 1){
         saveEducationList(educations); // Save the data
         setShowAlert(true); // Show success alert
         setTimeout(() => setShowAlert(false), 1000); // Hide after 3 seconds
       }else{
-        alert("Please add atleast 2 education.")
+        alert("No education to save!")
       }
         
     } catch (error) {
@@ -118,7 +118,7 @@ const EducationalBackground = () => {
 
   return (
     <div>
-      {showAlert && <OverlayAlert message="Data saved!"/>}
+      {showAlert && <OverlayAlert message="Education saved!"/>}
       {/* Input Form */}
       <form
         onSubmit={handleSubmit}

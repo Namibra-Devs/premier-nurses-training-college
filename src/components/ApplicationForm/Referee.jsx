@@ -71,7 +71,7 @@ const Referee = () => {
       >
         {/* Referee Details */}
         <div className="md:col-span-2">
-          <h3 className="text-xl font-semibold mb-4 flex items-center gap-2">
+          <h3 className="text-2xl font-semibold mb-3 flex items-center gap-2">
             <AiOutlineUser className="text-blue-500" /> Referee Information
           </h3>
           <p className="text-sm text-gray-600 mb-4">

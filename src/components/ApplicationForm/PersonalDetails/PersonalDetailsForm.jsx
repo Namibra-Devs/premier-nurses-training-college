@@ -98,7 +98,7 @@ const validate = () => {
     e.preventDefault();
     const validation = validate();
     try {
-      if (validation) {
+      if (Object.keys(validation).length > 0) {
         setErrors(validation);
       } else {
         savePersonalDetails(personalDetail); // Save the data
