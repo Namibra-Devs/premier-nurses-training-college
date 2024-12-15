@@ -49,7 +49,7 @@ const Declaration = () => {
     const validate = validateDeclaration();
     try {
       if (Object.keys(validate).length > 0) {
-        setErrors(validateDeclaration);
+        setErrors(validate);
       } else {
         saveDeclaration(declaration); // Save the data
         setShowAlert(true); // Show success alert
