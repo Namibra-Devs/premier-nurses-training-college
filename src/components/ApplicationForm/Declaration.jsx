@@ -16,6 +16,7 @@ const retriveDeclaration = () => {
 
 const Declaration = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [showAlert, setShowAlert] = useState(false);
   const [errors, setErrors] = useState({});
   const [declaration, setDeclarationData] = useState(retriveDeclaration()); // Start with an empty object if no data is found in localStorage
 
@@ -36,20 +37,20 @@ const Declaration = () => {
       newErrors.date = "Date is required.";
     }
 
-    setErrors(newErrors);
+    return newErrors;
   };
 
   const handleChange = (e) => {
     setDeclarationData({ ...declaration, [e.target.name]: e.target.value });
   };
 
-  const [showAlert, setShowAlert] = useState(false);
   const handleSave = (e) => {
     e.preventDefault();
     const validate = validateDeclaration();
     try {
-      if (Object.keys(validate).length > 0) {
+      if (validate && Object.keys(validate).length > 0) {
         setErrors(validate);
+        return;
       } else {
         saveDeclaration(declaration); // Save the data
         setShowAlert(true); // Show success alert
@@ -78,7 +79,8 @@ const Declaration = () => {
           <div>
             <label
               htmlFor="name"
-              className="block text-gray-700 font-medium mb-2">
+              className="block text-gray-700 font-medium mb-2"
+            >
               Name
             </label>
             <input
@@ -90,14 +92,17 @@ const Declaration = () => {
               placeholder="Enter your name"
               className="block w-full p-3 border border-gray-300 rounded"
             />
-            {errors.name && <p className="text-red-500 text-xs">{errors.name}</p>}
+            {errors.name && (
+              <p className="text-red-500 text-xs">{errors.name}</p>
+            )}
           </div>
 
           {/* Date Field */}
           <div>
             <label
               htmlFor="date"
-              className="block text-gray-700 font-medium mb-2">
+              className="block text-gray-700 font-medium mb-2"
+            >
               Date
             </label>
             <input
@@ -108,7 +113,9 @@ const Declaration = () => {
               onChange={handleChange}
               className="block w-full p-3 border border-gray-300 rounded"
             />
-            {errors.date && <p className="text-red-500 text-xs">{errors.date}</p>}
+            {errors.date && (
+              <p className="text-red-500 text-xs">{errors.date}</p>
+            )}
           </div>
         </form>
 
