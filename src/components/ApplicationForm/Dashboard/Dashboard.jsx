@@ -1,16 +1,9 @@
 import React, { useState, useEffect } from "react";
-import {
-  AiOutlineFileText,
-  AiOutlineDownload,
-  AiOutlineCheckCircle,
-} from "react-icons/ai";
+import {applicationStatus, submittedApplications, admissionMaterials } from "./DasboardMaterials";
+import {AiOutlineFileText, AiOutlineDownload, AiOutlineCheckCircle } from "react-icons/ai";
 import { BsClipboardCheck } from "react-icons/bs";
 
-const Dashboard = ({
-  applicationStatus,
-  submittedApplications,
-  admissionMaterials,
-}) => {
+const Dashboard = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   // Load program data on component mount
@@ -46,7 +39,7 @@ const Dashboard = ({
 
         {/* Submitted Applications Section */}
         <div className="p-4 bg-white flex flex-col items-center justify-center rounded border">
-          <h2 className="text-xl font-semibold flex flex-col items-center gap-2">
+          <h2 className="text-xl text-center font-semibold flex flex-col items-center gap-">
             <AiOutlineFileText className="text-blue-500 text-3xl" />
             Submitted Applications
           </h2>
@@ -68,7 +61,7 @@ const Dashboard = ({
               ))}
             </ul>
           ) : (
-            <p className="text-gray-700 mt-2">
+            <p className="text-gray-700 mt-2 text-center">
               No submitted applications available.
             </p>
           )}
@@ -76,7 +69,7 @@ const Dashboard = ({
 
         {/* Admission Materials Section */}
         <div className="p-4 bg-white flex flex-col items-center justify-center rounded border">
-          <h2 className="text-xl font-semibold flex flex-col items-center gap-2">
+          <h2 className="text-xl text-center font-semibold flex flex-col items-center gap-2">
             <AiOutlineDownload className="text-blue-500 text-3xl" />
             Admission Materials
           </h2>
@@ -98,7 +91,7 @@ const Dashboard = ({
               ))}
             </ul>
           ) : (
-            <p className="text-gray-700 mt-2">
+            <p className="text-gray-700 mt-2 text-center">
               No admission materials available yet.
             </p>
           )}
