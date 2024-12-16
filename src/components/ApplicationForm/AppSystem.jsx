@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Tabs from "./Tabs";
+import Sidebar from "./Sidebar";
 import Dashboard from "./Dashboard/Dashboard";
 import PersonalDetailsForm from "./PersonalDetails/PersonalDetailsForm";
 import EducationalBackground from "./EducationalBackground/EducationalBackground";
@@ -11,43 +11,10 @@ import Declaration from "./Declaration";
 import FinalSubmit from "./FinalSubmit";
 import ContactDetailsForm from "./ContactDetails/ContactDetailsForm";
 
-import {
-  AiOutlineDashboard,
-  AiOutlineUser,
-  AiOutlineBook,
-  AiOutlineFileText,
-  AiOutlineUpload,
-  AiOutlineCheckCircle,
-  AiOutlineForm,
-  AiOutlineSend,
-} from "react-icons/ai";
-import SaveButton from "./Buttons/SaveButton";
-
+import { AiOutlineDashboard, AiOutlineUser, AiOutlineBook, AiOutlineFileText, AiOutlineUpload, AiOutlineCheckCircle,AiOutlineForm, AiOutlineSend,} from "react-icons/ai";
 
 const AppSystem = ({ open, setOpen }) => {
   const [currentTab, setCurrentTab] = useState(0);
-  // // Example central state for the form data
-  // const [formData, setFormData] = useState({
-  //   personalDetails: {},
-  //   parentGuardian: {},
-  //   contactDetails: {},
-  //   educationalBackground: {},
-  //   results: {},
-  //   programChoice: {},
-  //   academicDocuments: {},
-  //   refereeDetails: {},
-  //   declaration: {},
-  // });
-
-  // const handleSave = (sectionKey, data) => {
-  //   setFormData((prev) => ({
-  //     ...prev,
-  //     [sectionKey]: data, // Update only the relevant section
-  //   }));
-
-  //   console.log("Saved Data:", formData); // For debugging
-  //   alert("Data saved successfully!");
-  // };
 
   const handleContinue = () => {
     if (currentTab < tabs.length - 1) {
@@ -83,8 +50,7 @@ const AppSystem = ({ open, setOpen }) => {
 
   const tabs = [
     {
-      label: "Dashboard",
-      icon: <AiOutlineDashboard />,
+      label: "Dashboard", icon: <AiOutlineDashboard />,
       component: (
         <Dashboard
           applicationStatus="Submitted"
@@ -108,7 +74,10 @@ const AppSystem = ({ open, setOpen }) => {
       icon: <AiOutlineBook />,
       component: <EducationalBackground />,
     },
-    { label: "Results", icon: <AiOutlineFileText />, component: <Results /> },
+    { 
+      label: "Results", 
+      icon: <AiOutlineFileText />, 
+      component: <Results /> },
     { 
       label: "Program Choice",
       icon: <AiOutlineCheckCircle />,
@@ -132,25 +101,20 @@ const AppSystem = ({ open, setOpen }) => {
     {
       label: "Submit Application",
       icon: <AiOutlineSend />,
-      component: <FinalSubmit />,
+      component: <FinalSubmit  />,
     },
   ];
 
   return (
+    <>
     <div className="flex items-start mt-3 bg-gray-100 h-screen">
-      <Tabs
-        tabs={tabs}
-        currentTab={currentTab}
-        setCurrentTab={setCurrentTab}
-        open={open}
-        setOpen={setOpen}
-      />
+      <Sidebar tabs={tabs} currentTab={currentTab} setCurrentTab={setCurrentTab} open={open} setOpen={setOpen}/>
       <div className="p-4 rounded w-full max-h-screen pb-32 overflow-y-auto">
-        <div className="bg-white p-4 rounded">
+        <div className="">
 
           {/*--------------TABS ARE DISPLAYED HERE---------------- */}
           {tabs[currentTab].component}
-          {/*--------------End TABS ARE DISPLAYED HERE...---------------- */}
+          {/*--------------End TABS ARE DISPLAYED HERE--------------- */}
 
             {/* Save and Save and Continue Buttons */}
             <div className="flex items-baseline justify-between gap-4 mt-4"> 
@@ -166,12 +130,11 @@ const AppSystem = ({ open, setOpen }) => {
                 {/* Save and Continue */}
                 {currentTab > 0 && currentTab < tabs.length - 1 && (
                   <>
-                  <SaveButton />
                   {/* Save button*/}
                     <button
                       onClick={handleContinue}
                       className="px-4 py-2 rounded bg-green-500 text-white hover:bg-green-600 hover:shadow-custom-light">
-                      Save & Continue
+                      Next
                     </button>
                   </>
                 )}
@@ -186,6 +149,7 @@ const AppSystem = ({ open, setOpen }) => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

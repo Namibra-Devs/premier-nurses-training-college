@@ -19,12 +19,6 @@ const retrieveResultsList = () => {
 
 const Results = () => {
   const [isVisible, setIsVisible] = useState(false);
-
-  // Load program data on component mount
-  useEffect(() => {
-    setTimeout(() => setIsVisible(true), 100); // Trigger the animation
-  }, []);
-
   const [results, setResults] = useState(retrieveResultsList());
   const [form, setForm] = useState({
     examType: "WAEC",
@@ -34,6 +28,12 @@ const Results = () => {
     subjectTitle: "",
     grade: "",
   });
+  const [errors, setErrors] = useState({});
+
+  // Load program data on component mount
+  useEffect(() => {
+    setTimeout(() => setIsVisible(true), 100); // Trigger the animation
+  }, []);
 
   // Subject options
   const subjects = {
@@ -49,15 +49,33 @@ const Results = () => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
+  // Validation function
+  const validate = () => {
+    const newErrors = {};
+
+    if (!form.indexNumber.match(/^\d{8}$/)) {
+      newErrors.indexNumber = "Index number must be exactly 8 digits.";
+    }
+
+    if (!form.year.match(/^\d{4}$/)) {
+      newErrors.year = "Year must be a valid 4-digit number.";
+    }
+
+    if (!form.subjectTitle) {
+      newErrors.subjectTitle = "Subject title is required.";
+    }
+
+    if (!form.grade) {
+      newErrors.grade = "Grade is required.";
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
   // Add a result entry
   const handleAddResult = () => {
-    if (
-      form.examType &&
-      form.indexNumber &&
-      form.year &&
-      form.subjectTitle &&
-      form.grade
-    ) {
+    if (validate()) {
       setResults([...results, { ...form, id: Date.now() }]);
       setForm({
         examType: "WAEC",
@@ -67,8 +85,7 @@ const Results = () => {
         subjectTitle: "",
         grade: "",
       }); // Reset form
-    } else {
-      alert("Please fill all fields before adding.");
+      setErrors({});
     }
   };
 
@@ -91,13 +108,15 @@ const Results = () => {
   };
 
   const [showAlert, setShowAlert] = useState(false);
-  const handleSave = (e) => {
-    e.preventDefault();
-
+  const handleSave = () => {
     try {
-      saveResultsList(results); // Save the data
-      setShowAlert(true); // Show success alert
-      setTimeout(() => setShowAlert(false), 3000); // Hide after 3 seconds
+      if(results.length < 1){
+        alert("No results to save!");
+      }else{
+        saveResultsList(results); // Save the data
+        setShowAlert(true); // Show success alert
+        setTimeout(() => setShowAlert(false), 1000); // Hide after 3 seconds
+      }
     } catch (error) {
       console.error("Save failed:", error);
     }
@@ -108,10 +127,9 @@ const Results = () => {
       {showAlert && <OverlayAlert message="Data saved!"/>}
       {/* Input Form */}
       <div
-        className={`grid gap-4 transform transition-transform duration-500 ${
+        className={`grid gap-4 mb-6 bg-white p-4 rounded transform transition-transform duration-500 ${
           isVisible ? "scale-100 opacity-100" : "scale-90 opacity-0"
-        }`}
-      >
+        }`}>
         <h2 className="text-2xl font-semibold mb-3">Results</h2>
         <form onSubmit={handleSubmit}>
           <div className="grid grid-cols-2 gap-4">
@@ -121,8 +139,7 @@ const Results = () => {
                 name="examType"
                 value={form.examType}
                 onChange={handleChange}
-                className="w-full p-2 border border-gray-300 rounded mb-2"
-              >
+                className="w-full p-2 border border-gray-300 rounded mb-2">
                 <option value="WAEC">WAEC</option>
                 <option value="NOVDEV">NOVDEV</option>
               </select>
@@ -135,6 +152,7 @@ const Results = () => {
                 onChange={handleChange}
                 className="w-full p-2 border border-gray-300 rounded mb-2"
               />
+              {errors.indexNumber && (<p className="text-red-500 text-xs">{errors.indexNumber}</p>)}
               <label className="block font-medium mb-2">Year of Exams</label>
               <input
                 type="text"
@@ -144,6 +162,7 @@ const Results = () => {
                 onChange={handleChange}
                 className="w-full p-2 border border-gray-300 rounded mb-2"
               />
+              {errors.year && (<p className="text-red-500 text-xs">{errors.year}</p>)}
             </div>
             <div>
               <label className="block font-medium mb-2">Subject Type</label>
@@ -151,8 +170,7 @@ const Results = () => {
                 name="subjectType"
                 value={form.subjectType}
                 onChange={handleChange}
-                className="w-full p-2 border border-gray-300 rounded mb-2"
-              >
+                className="w-full p-2 border border-gray-300 rounded mb-2">
                 <option value="Core">Core</option>
                 <option value="Elective">Elective</option>
               </select>
@@ -161,38 +179,38 @@ const Results = () => {
                 name="subjectTitle"
                 value={form.subjectTitle}
                 onChange={handleChange}
-                className="w-full p-2 border border-gray-300 rounded mb-2"
-              >
-                <option value="">Select Subject Title</option>
+                className="w-full p-2 border border-gray-300 rounded mb-2">
+                <option value="">--Select Subject Title--</option>
                 {subjects[form.subjectType]?.map((subject, index) => (
                   <option key={index} value={subject}>
                     {subject}
                   </option>
                 ))}
               </select>
+              {errors.subjectTitle && (<p className="text-red-500 text-xs">{errors.subjectTitle}</p>)}
               <label className="block font-medium mb-2">Grade</label>
               <select
                 name="grade"
                 placeholder="Grade"
                 value={form.grade}
                 onChange={handleChange}
-                className="w-full p-2 border border-gray-300 rounded mb-2"
-              >
-                <option value="">Select Grade</option>
+                className="w-full p-2 border border-gray-300 rounded mb-2">
+                <option value="">--Select Grade--</option>
                 {grades.map((grade, index) => (
                   <option key={index} value={grade}>
                     {grade}
                   </option>
                 ))}
               </select>
+              {errors.grade && (<p className="text-red-500 text-xs">{errors.grade}</p>)}
             </div>
           </div>
         </form>
-        <div className="flex items-center justify-end">
+        <div className="flex items-center justify-between">
+          <SaveButton onClick={handleSave} />
           <button
             onClick={handleAddResult}
-            className="flex items-center gap-2 bg-primary text-white py-2 px-4 rounded hover:bg-blue-600"
-          >
+            className="flex items-center float-right gap-2 bg-primary text-white py-2 px-4 rounded hover:bg-blue-600">
             <AiOutlinePlus />
             Add Result
           </button>
@@ -201,7 +219,7 @@ const Results = () => {
 
       {/* Results List */}
       {results.length > 0 && (
-        <div data-aos="fade-up" data-aos-duration="800"className="mt-6" >
+        <div data-aos="fade-up" data-aos-duration="800">
           <h3 className="text-xl font-semibold mb-2">Added Results List</h3>
           <div className="overflow-x-auto pb-4">
             <table className="w-full border-collapse border border-gray-300">
@@ -249,15 +267,12 @@ const Results = () => {
                       <button
                         onClick={() => handleEdit(result.id)}
                         className="text-blue-500 hover:text-blue-700 mx-2"
-                        title="Edit"
-                      >
+                        title="Edit">
                         <AiOutlineEdit />
                       </button>
                       <button
                         onClick={() => handleDelete(result.id)}
-                        className="text-red-500 hover:text-red-700 mx-2"
-                        title="Delete"
-                      >
+                        className="text-red-500 hover:text-red-700 mx-2">
                         <AiOutlineDelete />
                       </button>
                     </td>
