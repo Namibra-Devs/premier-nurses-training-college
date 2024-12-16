@@ -5,6 +5,7 @@ import {
   AiOutlineUpload,
   AiOutlineDelete,
 } from "react-icons/ai";
+import SaveButton from "./Buttons/SaveButton";
 import OverlayAlert from "./FormControls/OverlayAlert";
 
 // Save document data to localStorage
@@ -77,7 +78,7 @@ const UploadDocuments = () => {
     <>
       {showAlert && <OverlayAlert message="Data saved!" />}
       <div
-        className={`transform transition-transform duration-500 ${
+        className={`bg-white p-4 rounded transform transition-transform duration-500 ${
           isVisible ? "scale-100 opacity-100" : "scale-90 opacity-0"
         }`}>
         <h2 className="text-2xl font-semibold mb-6 flex items-center gap-2">
@@ -155,6 +156,10 @@ const UploadDocuments = () => {
             )}
           </div>
         </form>
+        {/* Save Button */}
+        <div className="mt-6">
+          <SaveButton onClick={handleSave} />
+        </div>
       </div>
     </>
   );

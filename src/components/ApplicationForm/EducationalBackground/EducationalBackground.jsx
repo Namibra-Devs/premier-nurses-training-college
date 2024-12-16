@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { AiOutlineEdit, AiOutlineDelete, AiOutlinePlus } from "react-icons/ai";
+import SaveButton from "../Buttons/SaveButton";
 import OverlayAlert from "../FormControls/OverlayAlert";
 
 // Save education list to localStorag
@@ -26,6 +27,7 @@ const EducationalBackground = () => {
 
   const [educations, setEducations] = useState(retrieveEducationList()); // Initialize from localStorage
   const [formData, setFormData] = useState({});
+  const [errors, setErrors] = useState({});
 
   // Handle input changes
   const handleChange = (e) => {
@@ -34,6 +36,11 @@ const EducationalBackground = () => {
 
   // Add education to the list
   const handleAddEducation = () => {
+    const validation = validateEducation();
+
+    if(Object.keys(validation).length > 0){
+      setErrors(validation);
+    }
     if (
       formData.schoolName &&
       formData.address &&
@@ -43,6 +50,7 @@ const EducationalBackground = () => {
       setEducations([...educations, { ...formData, id: Date.now() }]);
       setFormData({ schoolName: "", address: "", from: "", to: "" }); // Reset form
     } else {
+      setErrors(validation);
       alert("Please fill all fields before adding.");
     }
   };
@@ -59,33 +67,64 @@ const EducationalBackground = () => {
     setEducations(educations.filter((edu) => edu.id !== id)); // Remove from list for editing
   };
 
-  // Handle Submit
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    saveEducationList(educations);
+  const validateEducation = () => {
+    const errors = {};
+  
+    // Validate School Name
+    if (!formData.schoolName?.trim()) {
+      errors.schoolName = "School Name is required.";
+    }
+  
+    // Validate School Address
+    if (!formData.address?.trim()) {
+      errors.address = "School Address is required.";
+    }
+  
+    // Validate From Date
+    if (!formData.from) {
+      errors.from = "Start date is required.";
+    }
+  
+    // Validate To Date
+    if (!formData.to) {
+      errors.to = "End date is required.";
+    } else if (new Date(formData.to) < new Date(formData.from)) {
+      errors.to = "End date cannot be earlier than start date.";
+    }
+  
+    return errors;
   };
 
-  // Handle Save and Alert
-  const [showAlert, setShowAlert] = useState(false);
-  const handleSave = (e) => {
+  const handleSubmit = (e) =>{
     e.preventDefault();
+    saveEducationList(educations);
+  }
+
+  const [showAlert, setShowAlert] = useState(false);
+  const handleSave = () => {
     try {
-      saveEducationList(educations); // Save the data
-      setShowAlert(true); // Show success alert
-      setTimeout(() => setShowAlert(false), 3000); // Hide after 3 seconds
+      if(educations.length >= 1){
+        saveEducationList(educations); // Save the data
+        setShowAlert(true); // Show success alert
+        setTimeout(() => setShowAlert(false), 1000); // Hide after 3 seconds
+      }else{
+        alert("No education to save!")
+      }
+        
     } catch (error) {
-      alert("Save failed:");
+      console.error("Save failed:", error);
     }
   };
 
   return (
     <div>
-      {showAlert && <OverlayAlert message="Data saved!"/>}
+      {showAlert && <OverlayAlert message="Education saved!"/>}
       {/* Input Form */}
       <form
         onSubmit={handleSubmit}
-        className={`grid gap-4 transform transition-transform duration-500 ${
-          isVisible ? "scale-100 opacity-100" : "scale-90 opacity-0"}`}>
+        className={`grid gap-4 mb-6 bg-white p-4 rounded transform transition-transform duration-500 ${
+          isVisible ? "scale-100 opacity-100" : "scale-90 opacity-0"
+        }`}>
         <h2 className="text-2xl font-semibold mb-3">Educational Background</h2>
         <div>
           <label className="block font-medium mb-2">School Name</label>
@@ -97,6 +136,7 @@ const EducationalBackground = () => {
             onChange={handleChange}
             className="w-full p-2 border border-gray-300 rounded"
           />
+          {errors.schoolName && <p className="text-red-500 text-xs">{errors.schoolName}</p>}
         </div>
         <div>
           <label className="block font-medium mb-2">School Address</label>
@@ -108,6 +148,7 @@ const EducationalBackground = () => {
             onChange={handleChange}
             className="w-full p-2 border border-gray-300 rounded"
           />
+          {errors.address && <p className="text-red-500 text-xs">{errors.address}</p>}
         </div>
         <div className="grid grid-cols-2 gap-4">
           <div>
@@ -115,28 +156,29 @@ const EducationalBackground = () => {
             <input
               type="date"
               name="from"
-              placeholder="From (Year)"
               value={formData.from}
               onChange={handleChange}
               className="w-full p-2 border border-gray-300 rounded"
             />
+            {errors.from && <p className="text-red-500 text-xs">{errors.from}</p>}
           </div>
           <div>
             <label className="block font-medium mb-2">To</label>
             <input
               type="date"
               name="to"
-              placeholder="To (Year)"
               value={formData.to}
               onChange={handleChange}
               className="w-full p-2 border border-gray-300 rounded"
             />
+            {errors.to && <p className="text-red-500 text-xs">{errors.to}</p>}
           </div>
         </div>
-        <div className="flex justify-end">
+        <div className="flex items-center justify-between">
+          <SaveButton onClick={handleSave} />
           <button
             onClick={handleAddEducation}
-            className="flex items-center gap-2 bg-primary text-white py-2 px-4 rounded hover:bg-blue-600"
+            className="flex items-center float-right gap-2 bg-primary text-white py-2 px-4 rounded hover:bg-blue-600"
           >
             <AiOutlinePlus />
             Add Education
