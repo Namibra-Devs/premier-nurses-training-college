@@ -37,13 +37,14 @@ const Referee = () => {
   const validate = () => {
     const newErrors = {};
     if (!referee.name || !/^[a-zA-Z\s]+$/.test(referee.name)) {
-      newErrors.name = "Name is required and should contain only alphabets.";
+      newErrors.name = "Referee name is required.";
     }
     if (!referee.address) {
-      newErrors.address = "Address is required.";
+      newErrors.address = "Referee address is required.";
     }
     if (!referee.contact || !/^\d{10}$/.test(referee.contact)) {
-      newErrors.contact = "Contact is required and must be a 10-digit number.";
+      newErrors.contact =
+        "Referee contact is required and must be a 10-digit number.";
     }
     if (!referee.letter) {
       newErrors.letter = "A referee letter (PDF) is required.";
@@ -66,7 +67,11 @@ const Referee = () => {
 
       const reader = new FileReader();
       reader.onload = () => {
-        setReferee({ ...referee, letter: reader.result, letterName: file.name });
+        setReferee({
+          ...referee,
+          letter: reader.result,
+          letterName: file.name,
+        });
       };
       reader.readAsDataURL(file);
     }
