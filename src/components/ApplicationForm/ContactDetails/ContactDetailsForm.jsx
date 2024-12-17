@@ -188,6 +188,9 @@ const ContactDetailsForm = ({ }) => {
         <div className="mt-5 flex items-center gap-4">
           <SaveButton onClick={handleSave} />
         </div>
+        <div className="mt-5 flex items-center gap-4">
+          <SaveButton onClick={handleSave} />
+        </div>
       </div>
     </div>
   );
