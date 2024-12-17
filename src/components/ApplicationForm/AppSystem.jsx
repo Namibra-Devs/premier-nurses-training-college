@@ -15,7 +15,7 @@ import { AiOutlineDashboard, AiOutlineUser, AiOutlineBook, AiOutlineFileText, Ai
 
 const AppSystem = ({ open, setOpen }) => {
   const [currentTab, setCurrentTab] = useState(0);
-  const [handleSave, setHandleSave] = useState(null); //Store save function
+  const [currentHandleSave, setCurrentHandleSave] = useState(null); //Store save function
 
   //End of Dashboard
 
@@ -74,9 +74,10 @@ const AppSystem = ({ open, setOpen }) => {
   
 
   const handleContinue = () => {
-    if(handleSave){
-      handleSave(); //Call handleSave of the current Tab component
+    if (currentHandleSave) {
+      currentHandleSave(); //Call handleSave of the current Tab component
     }
+
     if (currentTab < tabs.length - 1) {
       setCurrentTab(currentTab + 1); //Go to nex tab
     }
@@ -99,7 +100,7 @@ const AppSystem = ({ open, setOpen }) => {
         <div className="">
 
           {/* Render the current tab's component and pass setHandleSave */}
-          {CurrentComponent && <CurrentComponent setHandleSave={setHandleSave} />}
+          {CurrentComponent && <CurrentComponent setCurrentHandleSave={setCurrentHandleSave} currentTab={currentTab} />}
 
             {/* Save and Save and Continue Buttons */}
             <div className="flex items-baseline justify-between gap-4 mt-4"> 
