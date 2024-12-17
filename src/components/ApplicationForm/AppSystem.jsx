@@ -15,12 +15,74 @@ import { AiOutlineDashboard, AiOutlineUser, AiOutlineBook, AiOutlineFileText, Ai
 
 const AppSystem = ({ open, setOpen }) => {
   const [currentTab, setCurrentTab] = useState(0);
+  const [currentHandleSave, setCurrentHandleSave] = useState(null); //Store save function
+
+  //End of Dashboard
+
+  const tabs = [
+    {
+      label: "Dashboard",
+      icon: <AiOutlineDashboard />,
+      component: Dashboard, // Pass component reference
+    },
+    {
+      label: "Personal Details",
+      icon: <AiOutlineUser />,
+      component: PersonalDetailsForm, // Pass component reference
+    },
+    {
+      label: "Contact Details",
+      icon: <AiOutlineForm />,
+      component: ContactDetailsForm,
+    },
+    {
+      label: "Educational Background",
+      icon: <AiOutlineBook />,
+      component: EducationalBackground,
+    },
+    {
+      label: "Results",
+      icon: <AiOutlineFileText />,
+      component: Results,
+    },
+    {
+      label: "Program Choice",
+      icon: <AiOutlineCheckCircle />,
+      component: ProgramChoice,
+    },
+    {
+      label: "Upload Documents",
+      icon: <AiOutlineUpload />,
+      component: UploadDocuments,
+    },
+    {
+      label: "Referee",
+      icon: <AiOutlineUser />,
+      component: Referee,
+    },
+    {
+      label: "Declaration",
+      icon: <AiOutlineCheckCircle />,
+      component: Declaration,
+    },
+    {
+      label: "Submit Application",
+      icon: <AiOutlineSend />,
+      component: FinalSubmit,
+    },
+  ];
+  
 
   const handleContinue = () => {
+    if (currentHandleSave) {
+      currentHandleSave(); //Call handleSave of the current Tab component
+    }
+
     if (currentTab < tabs.length - 1) {
       setCurrentTab(currentTab + 1); //Go to nex tab
     }
   };
+
 
   const handlePrevious = () => {
     if (currentTab > 1) {
@@ -28,82 +90,7 @@ const AppSystem = ({ open, setOpen }) => {
     }
   };
 
-  //Dashboard
-  const submittedApplications = [
-    {
-      title: "Application #1",
-      onDownload: () => alert("Downloading Application #1"),
-    },
-  ];
-
-  const admissionMaterials = [
-    {
-      title: "Admission Letter",
-      onDownload: () => alert("Downloading Admission Letter"),
-    },
-    {
-      title: "Enrollment Guide",
-      onDownload: () => alert("Downloading Enrollment Guide"),
-    },
-  ];
-  //End of Dashboard
-
-  const tabs = [
-    {
-      label: "Dashboard", icon: <AiOutlineDashboard />,
-      component: (
-        <Dashboard
-          applicationStatus="Submitted"
-          submittedApplications={submittedApplications}
-          admissionMaterials={admissionMaterials}
-        />
-      ),
-    },
-    {
-      label: "Personal Details",
-      icon: <AiOutlineUser />,
-      component: <PersonalDetailsForm/>,
-    },
-    {
-      label: "Contact Details",
-      icon: <AiOutlineForm />,
-      component: <ContactDetailsForm />,
-    },
-    {
-      label: "Educational Background",
-      icon: <AiOutlineBook />,
-      component: <EducationalBackground />,
-    },
-    { 
-      label: "Results", 
-      icon: <AiOutlineFileText />, 
-      component: <Results /> },
-    { 
-      label: "Program Choice",
-      icon: <AiOutlineCheckCircle />,
-      component: <ProgramChoice />,
-    },
-    {
-      label: "Upload Documents",
-      icon: <AiOutlineUpload />,
-      component: <UploadDocuments />,
-    },
-    {
-      label: "Referee",
-      icon: <AiOutlineUser />,
-      component: <Referee />
-    },
-    {
-      label: "Declaration",
-      icon: <AiOutlineCheckCircle />,
-      component: <Declaration />,
-    },
-    {
-      label: "Submit Application",
-      icon: <AiOutlineSend />,
-      component: <FinalSubmit  />,
-    },
-  ];
+  const CurrentComponent = tabs[currentTab]?.component;
 
   return (
     <>
@@ -112,9 +99,8 @@ const AppSystem = ({ open, setOpen }) => {
       <div className="p-4 rounded w-full max-h-screen pb-32 overflow-y-auto">
         <div className="">
 
-          {/*--------------TABS ARE DISPLAYED HERE---------------- */}
-          {tabs[currentTab].component}
-          {/*--------------End TABS ARE DISPLAYED HERE--------------- */}
+          {/* Render the current tab's component and pass setHandleSave */}
+          {CurrentComponent && <CurrentComponent setCurrentHandleSave={setCurrentHandleSave} currentTab={currentTab} />}
 
             {/* Save and Save and Continue Buttons */}
             <div className="flex items-baseline justify-between gap-4 mt-4"> 
