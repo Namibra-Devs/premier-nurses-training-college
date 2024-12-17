@@ -1,63 +1,97 @@
 import React, { useState, useEffect } from "react";
-import { AiOutlineUser, AiOutlineUpload, AiOutlineDelete } from "react-icons/ai";
+import {
+  AiOutlineUser,
+  AiOutlineUpload,
+  AiOutlineDelete,
+} from "react-icons/ai";
 import SaveButton from "./Buttons/SaveButton";
 import OverlayAlert from "./FormControls/OverlayAlert";
 
+// Save and retrieve referee details in localStorage
 const saveRefereeDetails = (referee) => {
   localStorage.setItem("referee", JSON.stringify(referee));
 };
 
-const retriveRefereeDetails = () => {
+const retrieveRefereeDetails = () => {
   try {
     const referee = localStorage.getItem("referee");
     return referee ? JSON.parse(referee) : "";
   } catch (error) {
-    console.error("Error retrieving program:", error);
+    console.error("Error retrieving referee details:", error);
     return "";
   }
 };
 
 const Referee = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [referee, setReferee] = useState(retriveRefereeDetails() || "");
-  // Load program data on component mount
+  const [referee, setReferee] = useState(retrieveRefereeDetails() || {});
+  const [errors, setErrors] = useState({});
+  const [showAlert, setShowAlert] = useState(false);
+
+  // Trigger animation on component mount
   useEffect(() => {
-    setTimeout(() => setIsVisible(true), 100); // Trigger the animation
+    setTimeout(() => setIsVisible(true), 100);
   }, []);
 
+  // Validation function
+  const validate = () => {
+    const newErrors = {};
+    if (!referee.name || !/^[a-zA-Z\s]+$/.test(referee.name)) {
+      newErrors.name = "Referee name is required.";
+    }
+    if (!referee.address) {
+      newErrors.address = "Referee address is required.";
+    }
+    if (!referee.contact || !/^\d{10}$/.test(referee.contact)) {
+      newErrors.contact =
+        "Referee contact is required and must be a 10-digit number.";
+    }
+    if (!referee.letter) {
+      newErrors.letter = "A referee letter (PDF) is required.";
+    }
+    return newErrors;
+  };
+
+  // File upload handler
   const handleFileUpload = (e) => {
     const file = e.target.files[0];
-    if (file && file.type === "application/pdf") {
+    if (file) {
+      if (file.type !== "application/pdf") {
+        alert("Only PDF files are allowed!");
+        return;
+      }
+      if (file.size > 5 * 1024 * 1024) {
+        alert("File size should not exceed 5MB");
+        return;
+      }
+
       const reader = new FileReader();
       reader.onload = () => {
-        setReferee({ ...referee, letter: reader.result }); // Store Base64 string
+        setReferee({
+          ...referee,
+          letter: reader.result,
+          letterName: file.name,
+        });
       };
       reader.readAsDataURL(file);
-    } else {
-      alert("Only PDF files are allowed!");
     }
   };
 
+  // Delete uploaded file
   const handleDeleteFile = () => {
-    setReferee({ ...referee, letter: null }); // Remove the letter from state
+    setReferee({ ...referee, letter: null, letterName: null });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    saveRefereeDetails(referee);
-  };
-
-  // Handle Saved Alert
-  const [showAlert, setShowAlert] = useState(false);
+  // Save data
   const handleSave = (e) => {
     e.preventDefault();
-
-    try {
-      saveRefereeDetails(referee); // Save the data
-      setShowAlert(true); // Show success alert
-      setTimeout(() => setShowAlert(false), 3000); // Hide after 3 seconds
-    } catch (error) {
-      console.error("Save failed:", error);
+    const validationErrors = validate();
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+    } else {
+      saveRefereeDetails(referee);
+      setShowAlert(true);
+      setTimeout(() => setShowAlert(false), 3000);
     }
   };
 
@@ -65,21 +99,21 @@ const Referee = () => {
     <>
       {showAlert && <OverlayAlert message="Referee saved!" />}
       <div
-        className={`transform transition-transform duration-500 ${
+        className={`bg-white p-4 rounded transform transition-transform duration-500 ${
           isVisible ? "scale-100 opacity-100" : "scale-90 opacity-0"
         }`}
       >
-        {/* Referee Details */}
         <div className="md:col-span-2">
-          <h3 className="text-xl font-semibold mb-4 flex items-center gap-2">
+          <h3 className="text-2xl font-semibold mb-3 flex items-center gap-2">
             <AiOutlineUser className="text-blue-500" /> Referee Information
           </h3>
           <p className="text-sm text-gray-600 mb-4">
             Must be a Doctor, Senior Police/Army Officer, Head of Institution,
             or Reverend Minister/Clergy.
           </p>
-          <form onSubmit={handleSubmit}>
+          <form>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {/* Name */}
               <div>
                 <label className="block text-gray-700 font-medium mb-2">
                   Name
@@ -91,8 +125,15 @@ const Referee = () => {
                   onChange={(e) =>
                     setReferee({ ...referee, name: e.target.value })
                   }
-                  className="block w-full p-2 border border-gray-300 rounded mb-4"
+                  className="block w-full p-2 border border-gray-300 rounded"
                 />
+                {errors.name && (
+                  <p className="text-red-600 text-xs">{errors.name}</p>
+                )}
+              </div>
+
+              {/* Address */}
+              <div>
                 <label className="block text-gray-700 font-medium mb-2">
                   Address
                 </label>
@@ -103,9 +144,14 @@ const Referee = () => {
                   onChange={(e) =>
                     setReferee({ ...referee, address: e.target.value })
                   }
-                  className="block w-full p-2 border border-gray-300 rounded mb-4"
+                  className="block w-full p-2 border border-gray-300 rounded"
                 />
+                {errors.address && (
+                  <p className="text-red-600 text-xs">{errors.address}</p>
+                )}
               </div>
+
+              {/* Contact */}
               <div>
                 <label className="block text-gray-700 font-medium mb-2">
                   Contact
@@ -117,8 +163,15 @@ const Referee = () => {
                   onChange={(e) =>
                     setReferee({ ...referee, contact: e.target.value })
                   }
-                  className="block w-full p-2 border border-gray-300 rounded mb-4"
+                  className="block w-full p-2 border border-gray-300 rounded"
                 />
+                {errors.contact && (
+                  <p className="text-red-600 text-xs">{errors.contact}</p>
+                )}
+              </div>
+
+              {/* File Upload */}
+              <div>
                 <label className="block text-gray-700 font-medium mb-2">
                   Upload Referee Letter (PDF only)
                 </label>
@@ -132,39 +185,39 @@ const Referee = () => {
                     className="hidden"
                   />
                 </label>
-
-                {referee.letter && (
+                {errors.letter && (
+                  <p className="text-red-600 text-xs">{errors.letter}</p>
+                )}
+                {referee.letterName && (
                   <p className="text-sm text-green-600 mt-1">
-                    {referee.letter.name}
+                    Uploaded: {referee.letterName}
                   </p>
                 )}
               </div>
             </div>
-            <div className="mt-4">
-              {referee.letter ? (
-                <>
-                  <h4 className="text-green-600 font-medium">
-                    Uploaded Letter:
-                  </h4>
-                  <iframe
-                    src={referee.letter}
-                    title="Referee Letter"
-                    className="w-full h-64 border border-gray-300 rounded"
-                  ></iframe>
-                </>
-              ) : (
-                <p className="text-sm text-gray-600 mt-2">
-                  No letter uploaded.
-                </p>
-              )}
-            </div>
-            <div className="flex items-center justify-start mt-4">
+
+            {/* Uploaded Letter Preview */}
+            {referee.letter && (
+              <div className="mt-4">
+                <iframe
+                  src={referee.letter}
+                  title="Referee Letter"
+                  className="w-full h-64 border border-gray-300 rounded"
+                ></iframe>
+              </div>
+            )}
+
+            {/* Buttons */}
+            <div className="flex items-center justify-between mt-4">
               <button
+                type="button"
                 onClick={handleDeleteFile}
                 className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 flex items-center"
-              ><AiOutlineDelete className="text-lg mr-2" />
+              >
+                <AiOutlineDelete className="text-lg mr-2" />
                 Delete Letter
               </button>
+              <SaveButton onClick={handleSave} />
             </div>
           </form>
         </div>
