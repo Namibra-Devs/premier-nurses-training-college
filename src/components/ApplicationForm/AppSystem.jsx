@@ -21,54 +21,53 @@ const AppSystem = ({ open, setOpen }) => {
 
   const tabs = [
     {
-      label: "Dashboard",
+      label: "Dashboard", 
       icon: <AiOutlineDashboard />,
-      component: Dashboard, // Pass component reference
+      component: <Dashboard/>,
     },
     {
       label: "Personal Details",
       icon: <AiOutlineUser />,
-      component: PersonalDetailsForm, // Pass component reference
+      component: <PersonalDetailsForm/>,
     },
     {
       label: "Contact Details",
       icon: <AiOutlineForm />,
-      component: ContactDetailsForm,
+      component: <ContactDetailsForm />,
     },
     {
       label: "Educational Background",
       icon: <AiOutlineBook />,
-      component: EducationalBackground,
+      component: <EducationalBackground />,
     },
-    {
-      label: "Results",
-      icon: <AiOutlineFileText />,
-      component: Results,
-    },
-    {
+    { 
+      label: "Results", 
+      icon: <AiOutlineFileText />, 
+      component: <Results /> },
+    { 
       label: "Program Choice",
       icon: <AiOutlineCheckCircle />,
-      component: ProgramChoice,
+      component: <ProgramChoice />,
     },
     {
       label: "Upload Documents",
       icon: <AiOutlineUpload />,
-      component: UploadDocuments,
+      component: <UploadDocuments />,
     },
     {
       label: "Referee",
       icon: <AiOutlineUser />,
-      component: Referee,
+      component: <Referee />
     },
     {
       label: "Declaration",
       icon: <AiOutlineCheckCircle />,
-      component: Declaration,
+      component: <Declaration />,
     },
     {
       label: "Submit Application",
       icon: <AiOutlineSend />,
-      component: FinalSubmit,
+      component: <FinalSubmit  />,
     },
   ];
   
@@ -90,7 +89,6 @@ const AppSystem = ({ open, setOpen }) => {
     }
   };
 
-  const CurrentComponent = tabs[currentTab]?.component;
 
   return (
     <>
@@ -100,7 +98,7 @@ const AppSystem = ({ open, setOpen }) => {
         <div className="">
 
           {/* Render the current tab's component and pass setHandleSave */}
-          {CurrentComponent && <CurrentComponent setCurrentHandleSave={setCurrentHandleSave} currentTab={currentTab} />}
+          {tabs[currentTab].component}
 
             {/* Save and Save and Continue Buttons */}
             <div className="flex items-baseline justify-between gap-4 mt-4"> 
