@@ -97,7 +97,7 @@ const AppSystem = ({ open, setOpen }) => {
       <div className="p-4 rounded w-full max-h-screen pb-32 overflow-y-auto">
         <div className="">
 
-          {/* Render the current tab's component and pass setHandleSave */}
+          {/* Render the current tab's component and*/}
           {tabs[currentTab].component}
 
             {/* Save and Save and Continue Buttons */}
