@@ -151,8 +151,7 @@ const ContactDetailsForm = ({ }) => {
               name="postalRegion"
               value={contactData?.postalRegion}
               onChange={handleChange}
-              className="w-full p-2 border border-gray-300 rounded mb-2"
-          >
+              className="w-full p-2 border border-gray-300 rounded mb-2">
               <option value="">--Select a Region--</option>
               <option value="Ashanti">Ashanti</option>
               <option value="Greater Accra">Greater Accra</option>
@@ -185,9 +184,6 @@ const ContactDetailsForm = ({ }) => {
           {errors.postalTown && <p className="text-red-500 text-xs">{errors.postalTown}</p>}
           </div>
         </form>
-        <div className="mt-5 flex items-center gap-4">
-          <SaveButton onClick={handleSave} />
-        </div>
         <div className="mt-5 flex items-center gap-4">
           <SaveButton onClick={handleSave} />
         </div>
