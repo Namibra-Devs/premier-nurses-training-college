@@ -14,7 +14,7 @@ const retrivecontactData = () => {
   return {};
 };
 
-const ContactDetailsForm = ({ setCurrentHandleSave, currentTab, setCurrentTab }) => {
+const ContactDetailsForm = ({ }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [contactData, setContactData] = useState(retrivecontactData());
   const [showAlert, setShowAlert] = useState(false);
@@ -30,9 +30,9 @@ const ContactDetailsForm = ({ setCurrentHandleSave, currentTab, setCurrentTab })
     setContactData({ ...contactData, [e.target.name]: e.target.value });
   };
 
-  useEffect(() => {
-    setCurrentHandleSave(() => handleSave); // Pass the function reference to the parent
-  }, [setCurrentHandleSave]);
+  // useEffect(() => {
+  //   setCurrentHandleSave(() => handleSave); // Pass the function reference to the parent
+  // }, [setCurrentHandleSave]);
 
   const validateContactDetails = () => {
     const newErrors = {};
