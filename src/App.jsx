@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Routes, useLocation } from "react-router-dom";
+import { Router, Route, Routes, useLocation } from "react-router-dom";
 import Home from "./components/Pages/Home";
 import Footer from "./components/Footer/Footer";
 import AboutUs from "./components/Pages/About/AboutUs";
@@ -13,15 +13,12 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import ApplicationPage from "./components/ApplicationForm/ApplicationPage";
 
+
 const App = () => {
   const location = useLocation();
 
   // Definition of the route where footer should not appear
-  const hideFooterRoutes = [
-    "/registration-page",
-    "/login-page",
-    "/application-page",
-  ];
+  const hideFooterRoutes = [ "/registration-page", "/login-page", "/application-page"];
 
   return (
     <>
@@ -32,6 +29,7 @@ const App = () => {
         <Route path="/admissions" element={<Admissions />} />
         <Route path="/students" element={<Students />} />
         <Route path="/contactus" element={<ContactUs />} />
+
         <Route path="/registration-page" element={<RegistrationPage />} />
         <Route path="/login-page" element={<LoginPage />} />
         <Route path="/application-page" element={<ApplicationPage/>} />
@@ -43,6 +41,5 @@ const App = () => {
   );
 };
 AOS.init();
-
 
 export default App;

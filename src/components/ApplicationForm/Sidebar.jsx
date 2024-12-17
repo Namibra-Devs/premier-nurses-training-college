@@ -1,6 +1,6 @@
 import React from "react";
 
-const Tabs = ({ tabs, currentTab, setCurrentTab, open }) => {
+const Sidebar = ({ tabs, currentTab, setCurrentTab, open }) => {
   return (
     <div
       className={`bg-white h-full my-auto overflow-hidden pr-2 md:pr-4 flex flex-col items-start justify-start gap-2 transition-all duration-700 ease-in-out ${
@@ -25,4 +25,4 @@ const Tabs = ({ tabs, currentTab, setCurrentTab, open }) => {
   );
 };
 
-export default Tabs;
+export default Sidebar;
