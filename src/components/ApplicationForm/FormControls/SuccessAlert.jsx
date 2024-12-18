@@ -1,9 +1,8 @@
 import React from "react";
 import {
-  AiOutlineCheckCircle,
-} from "react-icons/ai";
+  AiOutlineCheckCircle, AiOutlineLoading3Quarters,} from "react-icons/ai";
 
-const OverlayAlert = ({ message }) => {
+const SuccessAlert = ({ message }) => {
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
       <div className="bg-white rounded-lg p-6 shadow-lg flex flex-col items-center">
@@ -16,4 +15,4 @@ const OverlayAlert = ({ message }) => {
   );
 };
 
-export default OverlayAlert;
+export default SuccessAlert;

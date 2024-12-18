@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { AiOutlineEdit, AiOutlineDelete, AiOutlinePlus } from "react-icons/ai";
 import SaveButton from "../Buttons/SaveButton";
-import OverlayAlert from "../FormControls/OverlayAlert";
+import OverlayAlert from "../FormControls/SuccessAlert";
+import { useFormContext } from "../FormContext/FormProvider";
 
 // Save education list to localStorag
 const saveResultsList = (resultsList) => {
@@ -29,11 +30,16 @@ const Results = () => {
     grade: "",
   });
   const [errors, setErrors] = useState({});
+  const {updateFormData} = useFormContext();
 
   // Load program data on component mount
   useEffect(() => {
     setTimeout(() => setIsVisible(true), 100); // Trigger the animation
   }, []);
+
+  useEffect(() => {
+    updateFormData("results", results);
+  }, [updateFormData]);
 
   // Subject options
   const subjects = {

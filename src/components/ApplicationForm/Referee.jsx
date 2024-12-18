@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from "react";
-import {
-  AiOutlineUser,
-  AiOutlineUpload,
-  AiOutlineDelete,
-} from "react-icons/ai";
+import { AiOutlineUser, AiOutlineUpload, AiOutlineDelete} from "react-icons/ai";
 import SaveButton from "./Buttons/SaveButton";
-import OverlayAlert from "./FormControls/OverlayAlert";
+import OverlayAlert from "./FormControls/SuccessAlert";
+import { useFormContext } from "./FormContext/FormProvider";
 
 // Save and retrieve referee details in localStorage
 const saveRefereeDetails = (referee) => {
@@ -27,12 +24,17 @@ const Referee = () => {
   const [referee, setReferee] = useState(retrieveRefereeDetails() || {});
   const [errors, setErrors] = useState({});
   const [showAlert, setShowAlert] = useState(false);
+  const {updateFormData} = useFormContext();
 
   // Trigger animation on component mount
   useEffect(() => {
     setTimeout(() => setIsVisible(true), 100);
   }, []);
-
+  
+  useEffect(() =>{
+    updateFormData("referee", referee);
+  }, [updateFormData]);
+  
   // Validation function
   const validate = () => {
     const newErrors = {};
