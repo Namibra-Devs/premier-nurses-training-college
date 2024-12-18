@@ -6,7 +6,8 @@ import {
   AiOutlineDelete,
 } from "react-icons/ai";
 import SaveButton from "./Buttons/SaveButton";
-import OverlayAlert from "./FormControls/OverlayAlert";
+import OverlayAlert from "./FormControls/SuccessAlert";
+import { useFormContext } from "./FormContext/FormProvider";
 
 // Save document data to localStorage
 const saveDocumentDetails = (documents) => {
@@ -29,11 +30,16 @@ const retrieveDocumentDetails = () => {
 const UploadDocuments = () => {
   const [documents, setDocuments] = useState(retrieveDocumentDetails());
   const [isVisible, setIsVisible] = useState(false);
+  const {updateFormData} = useFormContext();
 
   // Load program data on component mount
   useEffect(() => {
     setTimeout(() => setIsVisible(true), 100); // Trigger the animation
   }, []);
+
+  useEffect(() => {
+    updateFormData("documents", documents);
+  }, [updateFormData]);
 
   const handleFileUpload = (e, fileKey) => {
     const file = e.target.files[0];
@@ -90,7 +96,7 @@ const UploadDocuments = () => {
           {/* Academic Results Upload */}
           <div>
             <label className="block text-gray-700 font-medium mb-2">
-              Results & Certificate (Combine as one PDF)
+              Please upload copies of results, exams certificates, birth certificate and testimonial (Combine as one PDF)
             </label>
             <label className="flex items-center gap-2 cursor-pointer text-blue-500 hover:underline p-2 bg-gray-100 border border-gray-300 rounded hover:bg-gray-200">
               <AiOutlineUpload className="text-xl" />

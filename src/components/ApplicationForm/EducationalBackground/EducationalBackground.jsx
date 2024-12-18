@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { AiOutlineEdit, AiOutlineDelete, AiOutlinePlus } from "react-icons/ai";
 import SaveButton from "../Buttons/SaveButton";
-import OverlayAlert from "../FormControls/OverlayAlert";
+import OverlayAlert from "../FormControls/SuccessAlert";
+import { useFormContext } from "../FormContext/FormProvider";
 
 // Save education list to localStorag
 const saveEducationList = (educationList) => {
@@ -28,11 +29,16 @@ const EducationalBackground = () => {
   const [educations, setEducations] = useState(retrieveEducationList()); // Initialize from localStorage
   const [formData, setFormData] = useState({});
   const [errors, setErrors] = useState({});
+  const { updateFormData} = useFormContext();
 
   // Handle input changes
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
+
+  useEffect(() => {
+    updateFormData("educations", educations)
+  }, [updateFormData]);
 
   // Add education to the list
   const handleAddEducation = () => {

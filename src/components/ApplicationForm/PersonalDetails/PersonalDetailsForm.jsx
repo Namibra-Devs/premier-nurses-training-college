@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import ProfilePictureUpload from "./ProfilePictureUpload";
 import SaveButton from "../Buttons/SaveButton";
-import OverlayAlert from "../FormControls/OverlayAlert";
+import OverlayAlert from "../FormControls/SuccessAlert";
+import { useFormContext } from "../FormContext/FormProvider";
 
 const savePersonalDetails = (personalDetail) => {
   localStorage.setItem("personalDetail", JSON.stringify(personalDetail));
@@ -18,6 +19,7 @@ const retrivePersonalDetails = () => {
 const PersonalDetailsForm = ({ preview, setPreview }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [errors, setErrors] = useState({});
+  const { updateFormData } = useFormContext();
 
   // Load program data on component mount
   useEffect(() => {
@@ -27,6 +29,10 @@ const PersonalDetailsForm = ({ preview, setPreview }) => {
   const [personalDetail, setPersonalDetail] = useState(
     retrivePersonalDetails()
   );
+
+  useEffect(() => {
+    updateFormData("personalDetail", personalDetail);
+  }, [personalDetail]);
 
   const handleChange = (e) => {
     setPersonalDetail({ ...personalDetail, [e.target.name]: e.target.value });
@@ -186,8 +192,7 @@ const PersonalDetailsForm = ({ preview, setPreview }) => {
                 name="gender"
                 value={personalDetail.gender}
                 onChange={handleChange}
-                className="w-full border rounded p-2"
-              >
+                className="w-full border rounded p-2">
                 <option value=""></option>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
@@ -229,8 +234,8 @@ const PersonalDetailsForm = ({ preview, setPreview }) => {
                   name="maritalStatus"
                   value={personalDetail.maritalStatus}
                   onChange={handleChange}
-                  className="w-full border rounded p-2"
-                >
+                  className="w-full border rounded p-2">
+                  <option value=""></option>
                   <option value="Single">Single</option>
                   <option value="Married">Married</option>
                 </select>
