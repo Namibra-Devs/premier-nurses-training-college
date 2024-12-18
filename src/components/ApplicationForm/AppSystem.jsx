@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState} from "react";
 import Sidebar from "./Sidebar";
 import Dashboard from "./Dashboard/Dashboard";
 import PersonalDetailsForm from "./PersonalDetails/PersonalDetailsForm";
@@ -10,14 +10,14 @@ import Referee from "./Referee";
 import Declaration from "./Declaration";
 import FinalSubmit from "./FinalSubmit";
 import ContactDetailsForm from "./ContactDetails/ContactDetailsForm";
-
 import { AiOutlineDashboard, AiOutlineUser, AiOutlineBook, AiOutlineFileText, AiOutlineUpload, AiOutlineCheckCircle,AiOutlineForm, AiOutlineSend,} from "react-icons/ai";
+import { useFormContext } from "./FormContext/FormProvider";
+import NavigationBar from "./NavigationBar";
 
-const AppSystem = ({ open, setOpen }) => {
+const AppSystem = () => {
   const [currentTab, setCurrentTab] = useState(0);
-  const [currentHandleSave, setCurrentHandleSave] = useState(null); //Store save function
-
-  //End of Dashboard
+  const {handleSubmit} = useFormContext();
+  const [open, setOpen] = useState(true);
 
   const tabs = [
     {
@@ -28,7 +28,7 @@ const AppSystem = ({ open, setOpen }) => {
     {
       label: "Personal Details",
       icon: <AiOutlineUser />,
-      component: <PersonalDetailsForm/>,
+      component: <PersonalDetailsForm />,
     },
     {
       label: "Contact Details",
@@ -38,7 +38,7 @@ const AppSystem = ({ open, setOpen }) => {
     {
       label: "Educational Background",
       icon: <AiOutlineBook />,
-      component: <EducationalBackground />,
+      component: <EducationalBackground  />,
     },
     { 
       label: "Results", 
@@ -67,21 +67,15 @@ const AppSystem = ({ open, setOpen }) => {
     {
       label: "Submit Application",
       icon: <AiOutlineSend />,
-      component: <FinalSubmit  />,
+      component: <FinalSubmit />,
     },
   ];
   
-
   const handleContinue = () => {
-    if (currentHandleSave) {
-      currentHandleSave(); //Call handleSave of the current Tab component
-    }
-
     if (currentTab < tabs.length - 1) {
       setCurrentTab(currentTab + 1); //Go to nex tab
     }
   };
-
 
   const handlePrevious = () => {
     if (currentTab > 1) {
@@ -89,17 +83,17 @@ const AppSystem = ({ open, setOpen }) => {
     }
   };
 
-
   return (
+
     <>
-    <div className="flex items-start mt-3 bg-gray-100 h-screen">
-      <Sidebar tabs={tabs} currentTab={currentTab} setCurrentTab={setCurrentTab} open={open} setOpen={setOpen}/>
-      <div className="p-4 rounded w-full max-h-screen pb-32 overflow-y-auto">
-        <div className="">
+    <div className="bg-white fixed w-full h-screen px-2 md:px-4 flex flex-col border-x-2 border-primary">
+      <NavigationBar open={open} setOpen={setOpen} />
+      <div className="flex w-full h-full">
+        <Sidebar tabs={tabs} currentTab={currentTab} setCurrentTab={setCurrentTab} open={open}/>
+        <div className="bg-gray-100 w-full p-4">
 
-          {/* Render the current tab's component and*/}
-          {tabs[currentTab].component}
-
+            {/* Render the current tab's component and*/}
+            {tabs[currentTab].component}
             {/* Save and Save and Continue Buttons */}
             <div className="flex items-baseline justify-between gap-4 mt-4"> 
               {/* Previous Button */}
@@ -125,6 +119,7 @@ const AppSystem = ({ open, setOpen }) => {
               </div>
               {currentTab === tabs.length - 1 && (
                 <button
+                  onClick={handleSubmit}
                   className="bg-green-500 hover:bg-green-600 hover:shadow-custom-light text-white py-2 px-4 mt-4 rounded">
                   Submit Application
                 </button>
