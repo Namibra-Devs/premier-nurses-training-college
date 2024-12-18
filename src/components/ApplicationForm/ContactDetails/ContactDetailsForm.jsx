@@ -1,25 +1,26 @@
 import React, { useState, useEffect } from "react";
 import SaveButton from "../Buttons/SaveButton";
-import OverlayAlert from "../FormControls/OverlayAlert";
+import OverlayAlert from "../FormControls/SuccessAlert";
+import { useFormContext } from "../FormContext/FormProvider";
 
-const saveContactData = (contactData) => {
-  localStorage.setItem("contactData", JSON.stringify(contactData));
+const saveContactData = (contactDetails) => {
+  localStorage.setItem("contactDetails", JSON.stringify(contactDetails));
 };
 
 const retrivecontactData = () => {
-  const contactData = localStorage.getItem("contactData");
-  if (contactData) {
-    return JSON.parse(contactData);
+  const contactDetails = localStorage.getItem("contactDetails");
+  if (contactDetails) {
+    return JSON.parse(contactDetails);
   }
   return {};
 };
 
-const ContactDetailsForm = ({ }) => {
+const ContactDetailsForm = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [contactData, setContactData] = useState(retrivecontactData());
+  const [contactDetails, setContactDetails] = useState(retrivecontactData());
   const [showAlert, setShowAlert] = useState(false);
   const [errors, setErrors] = useState({});
-
+  const { updateFormData } = useFormContext();
 
   // Load program data on component mount
   useEffect(() => {
@@ -27,47 +28,47 @@ const ContactDetailsForm = ({ }) => {
   }, []);
 
   const handleChange = (e) => {
-    setContactData({ ...contactData, [e.target.name]: e.target.value });
+    setContactDetails({ ...contactDetails, [e.target.name]: e.target.value });
   };
 
-  // useEffect(() => {
-  //   setCurrentHandleSave(() => handleSave); // Pass the function reference to the parent
-  // }, [setCurrentHandleSave]);
+  useEffect(() => {
+    updateFormData("contactDetails", contactDetails);
+  }, [contactDetails]);
 
   const validateContactDetails = () => {
     const newErrors = {};
   
     // Validate Email
-    if (!contactData.emailAddress?.trim()) {
+    if (!contactDetails.emailAddress?.trim()) {
       newErrors.emailAddress = "Email is required.";
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contactData.emailAddress)) {
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(contactDetails.emailAddress)) {
       newErrors.emailAddress = "Please enter a valid email address.";
     }
   
     // Validate Phone Number
-    if (!contactData.phoneNumber?.trim()) {
+    if (!contactDetails.phoneNumber?.trim()) {
       newErrors.phoneNumber = "Phone number is required.";
-    } else if (!/^\d{10}$/.test(contactData.phoneNumber)) {
+    } else if (!/^\d{10}$/.test(contactDetails.phoneNumber)) {
       newErrors.phoneNumber = "Phone number must be a valid 10-digit number.";
     }
   
     // Validate Permanent Address
-    if (!contactData.permanentAddress?.trim()) {
+    if (!contactDetails.permanentAddress?.trim()) {
       newErrors.permanentAddress = "Permanent address is required.";
     }
   
     // Validate Postal Address
-    if (!contactData.postalAddress?.trim()) {
+    if (!contactDetails.postalAddress?.trim()) {
       newErrors.postalAddress = "Postal address is required.";
     }
   
     // Validate Postal Region
-    if (!contactData.postalRegion) {
+    if (!contactDetails.postalRegion) {
       newErrors.postalRegion = "Please select a postal region.";
     }
   
     // Validate Postal Town
-    if (!contactData.postalTown?.trim()) {
+    if (!contactDetails.postalTown?.trim()) {
       newErrors.postalTown = "Postal town is required.";
     }
     // Return the errors
@@ -80,7 +81,7 @@ const ContactDetailsForm = ({ }) => {
       if (Object.keys(validation).length > 0) {
         setErrors(validation);
       } else {
-        saveContactData(contactData); // Save the data
+        saveContactData(contactDetails); // Save the data
         setShowAlert(true); // Show success alert
         setTimeout(() => setShowAlert(false), 1000); // Hide after 3 second
       }
@@ -88,7 +89,6 @@ const ContactDetailsForm = ({ }) => {
       console.error("Save failed:", error);
     }
   };
-
 
   return (
     <div>
@@ -105,7 +105,7 @@ const ContactDetailsForm = ({ }) => {
           <input
               type="email"
               name="emailAddress"
-              value={contactData?.emailAddress}
+              value={contactDetails?.emailAddress}
               onChange={handleChange}
               className="w-full border rounded p-2"
           />
@@ -116,7 +116,7 @@ const ContactDetailsForm = ({ }) => {
           <input
               type="number"
               name="phoneNumber"
-              value={contactData?.phoneNumber}
+              value={contactDetails?.phoneNumber}
               onChange={handleChange}
               className="w-full border rounded p-2"
           />
@@ -127,7 +127,7 @@ const ContactDetailsForm = ({ }) => {
           <input
               type="text"
               name="permanentAddress"
-              value={contactData?.permanentAddress}
+              value={contactDetails?.permanentAddress}
               onChange={handleChange}
               className="w-full border rounded p-2"
           />
@@ -138,7 +138,7 @@ const ContactDetailsForm = ({ }) => {
           <input
               type="text"
               name="postalAddress"
-              value={contactData?.postalAddress}
+              value={contactDetails?.postalAddress}
               onChange={handleChange}
               className="w-full border rounded p-2"
           />
@@ -148,7 +148,7 @@ const ContactDetailsForm = ({ }) => {
           <label className="block font-medium mb-2">Postal Region</label>
           <select
               name="postalRegion"
-              value={contactData?.postalRegion}
+              value={contactDetails?.postalRegion}
               onChange={handleChange}
               className="w-full p-2 border border-gray-300 rounded mb-2">
             
@@ -177,7 +177,7 @@ const ContactDetailsForm = ({ }) => {
           <input
               type="text"
               name="postalTown"
-              value={contactData?.postalTown}
+              value={contactDetails?.postalTown}
               onChange={handleChange}
               className="w-full border rounded p-2"
           />

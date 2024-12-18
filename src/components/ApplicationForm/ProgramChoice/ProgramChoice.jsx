@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import programsData from "./programs";
 import SaveButton from "../Buttons/SaveButton";
-import OverlayAlert from "../FormControls/OverlayAlert";
+import OverlayAlert from "../FormControls/SuccessAlert";
+import { useFormContext } from "../FormContext/FormProvider";
 
 // Save selected program to localStorage
 const saveProgram = (selectedProgram) => {
@@ -27,12 +28,17 @@ const ProgramChoice = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [errors, setErrors] = useState({});
   const [showAlert, setShowAlert] = useState(false);
+  const {updateFormData} = useFormContext();
 
   // Load program data on component mount
   useEffect(() => {
     setPrograms(programsData);
     setTimeout(() => setIsVisible(true), 100);
   }, []);
+
+  useEffect(() => {
+    updateFormData("selectedProgram", selectedProgram);
+  }, [updateFormData]);
 
   // Validation function
   const validate = () => {

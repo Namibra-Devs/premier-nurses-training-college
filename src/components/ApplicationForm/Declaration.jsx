@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import SaveButton from "./Buttons/SaveButton";
-import OverlayAlert from "./FormControls/OverlayAlert";
+import OverlayAlert from "./FormControls/SuccessAlert";
+import { useFormContext } from "./FormContext/FormProvider";
 
 const saveDeclaration = (declaration) => {
   localStorage.setItem("declaration", JSON.stringify(declaration));
@@ -19,11 +20,16 @@ const Declaration = () => {
   const [showAlert, setShowAlert] = useState(false);
   const [errors, setErrors] = useState({});
   const [declaration, setDeclarationData] = useState(retriveDeclaration()); // Start with an empty object if no data is found in localStorage
+  const {updateFormData} = useFormContext();
 
   // Load program data on component mount
   useEffect(() => {
     setTimeout(() => setIsVisible(true), 100); // Trigger the animation
   }, []);
+
+  useEffect(() => {
+    updateFormData("declaration", declaration);
+  }, [updateFormData]);
 
   const validateDeclaration = () => {
     const newErrors = {};
@@ -79,8 +85,7 @@ const Declaration = () => {
           <div>
             <label
               htmlFor="name"
-              className="block text-gray-700 font-medium mb-2"
-            >
+              className="block text-gray-700 font-medium mb-2">
               Name
             </label>
             <input

@@ -11,7 +11,7 @@ import RegistrationPage from "./components/Pages/Admissions/Application/Register
 import LoginPage from "./components/Pages/Admissions/Application/Login/LoginPage";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import ApplicationPage from "./components/ApplicationForm/ApplicationPage";
+import AppSystem from "./components/ApplicationForm/AppSystem";
 
 
 const App = () => {
@@ -32,7 +32,7 @@ const App = () => {
 
         <Route path="/registration-page" element={<RegistrationPage />} />
         <Route path="/login-page" element={<LoginPage />} />
-        <Route path="/application-page" element={<ApplicationPage/>} />
+        <Route path="/application-page" element={<AppSystem /> } />
       </Routes>
 
       {/* Conditionally render Footer */}

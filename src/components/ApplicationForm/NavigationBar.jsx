@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import ProfileDropdown from "./PersonalDetails/ProfileDropdown";
 
-const NavigationBar = () => {
-  const [open, setOpen] = useState(true);
-
+const NavigationBar = ({open, setOpen }) => {
   return (
-    <div className="flex items-center justify-between gap-5 md:gap-10">
+    <div className="flex items-center justify-between gap-5 md:gap-10 py-3">
         <div className="flex items-center">
           <div
             className="flex items-center text-3xl cursor-pointer mr-3"
