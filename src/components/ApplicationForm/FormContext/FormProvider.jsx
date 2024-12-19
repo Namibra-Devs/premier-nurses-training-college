@@ -46,7 +46,7 @@ export const FormProvider = ({ children }) => {
   return (
     <>
     {isSubmitting && <LoadingOverlay message="Processing..." />}
-    {showSuccessAlert && <OverlayAlert message="Application Submitted Successfully!" />}
+    {showSuccessAlert && <OverlayAlert message="Submitted Successfully!" />}
     <FormContext.Provider value={{ formData, updateFormData, handleSubmit }}>
       {children}
     </FormContext.Provider>
