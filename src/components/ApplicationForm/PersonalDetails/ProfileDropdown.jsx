@@ -14,7 +14,7 @@ const ProfileDropdown = () => {
     <div className="relative">
       {/* Profile Picture */}
       <span
-        className="current flex items-center justify-center h-8 w-8 rounded-full overflow-hidden border border-primary cursor-pointer"
+        className="current flex items-center justify-center h-8 w-8 rounded-full overflow-hidden cursor-pointer"
         onClick={() => setDropdownOpen(!isDropdownOpen)}
       >
         {profilePicture ? (
