@@ -68,7 +68,7 @@ const Dashboard = () => {
         </div>
 
         {/* Admission Materials Section */}
-        <div className="p-4 bg-white flex flex-col items-center justify-center rounded border">
+        <div className="p-4 bg-white flex flex-col items-center justify-center rounded border overflow-hidden">
           <h2 className="text-xl text-center font-semibold flex flex-col items-center gap-2">
             <AiOutlineDownload className="text-blue-500 text-3xl" />
             Admission Materials
