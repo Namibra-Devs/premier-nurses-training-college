@@ -3,10 +3,9 @@ import ProfileDropdown from "./PersonalDetails/ProfileDropdown";
 
 const NavigationBar = ({open, setOpen }) => {
   return (
-    <div className="flex items-center justify-between gap-5 md:gap-10 py-3 ">
+    <div className="bg-white flex items-center justify-between gap-5 md:gap-10 py-3 ">
         <div className="flex items-center overflow-hidden">
-          <div
-            className="flex items-center text-2xl cursor-pointer mr-2 md:mr-3 bg-blue-100 p-1 rounded-full"
+          <div className="flex items-center text-2xl cursor-pointer mr-2 md:mr-3 bg-blue-100 p-1 rounded-full"
             onClick={() => setOpen(!open)}>
             <ion-icon name={`${open ? "menu" : "menu"}`}></ion-icon>
           </div>
