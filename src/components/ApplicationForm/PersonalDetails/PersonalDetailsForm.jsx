@@ -136,7 +136,7 @@ const PersonalDetailsForm = ({ preview, setPreview }) => {
     <div>
       {showAlert && <OverlayAlert message="Data saved!" />}
       <div
-        className={`bg-white p-4 rounded transform transition-transform duration-500 ${
+        className={`bg-white p-4 rounded transform transition-transform duration-500 overflow-hidden ${
           isVisible ? "scale-100 opacity-100" : "scale-90 opacity-0"
         }`}>
         <div className="flex flex-col md:flex-row justify-between items-center">
