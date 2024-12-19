@@ -71,7 +71,7 @@ const Declaration = () => {
     <>
       {showAlert && <OverlayAlert message="Declaration saved!" />}
       <div
-        className={`bg-white p-4 rounded transform transition-transform duration-500 ${
+        className={`bg-white p-4 rounded transform transition-transform duration-500 overflow-hidden ${
           isVisible ? "scale-100 opacity-100" : "scale-90 opacity-0"
         }`}>
         <h2 className="text-2xl font-semibold mb-6">Declaration</h2>

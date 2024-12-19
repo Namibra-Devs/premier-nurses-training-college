@@ -133,7 +133,7 @@ const Results = () => {
       {showAlert && <OverlayAlert message="Data saved!"/>}
       {/* Input Form */}
       <div
-        className={`grid gap-4 mb-6 bg-white p-4 rounded transform transition-transform duration-500 ${
+        className={`grid gap-4 mb-6 bg-white p-4 rounded transform transition-transform duration-500 overflow-hidden ${
           isVisible ? "scale-100 opacity-100" : "scale-90 opacity-0"
         }`}>
         <h2 className="text-2xl font-semibold mb-3">Results</h2>
