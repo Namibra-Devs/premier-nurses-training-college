@@ -1,10 +1,10 @@
 import React from "react";
 
-const Sidebar = ({ tabs, currentTab, setCurrentTab, open }) => {
+const Sidebar = ({ tabs, currentTab, setCurrentTab, close }) => {
   return (
     <div
       className={`bg-white h-full overflow-hidden pr-2 flex flex-col items-start justify-start transition-all duration-700 ease-in-out ${
-        open ? "w-[40px] " : "w-[700px] md:w-[350px]"
+        close ? "w-[40px]" : "w-[700px] md:w-[350px]"
       }`}>
       <div className="flex flex-col items-start justify-start gap-2 w-full">
         {tabs.map((tab, index) => (
@@ -17,7 +17,7 @@ const Sidebar = ({ tabs, currentTab, setCurrentTab, open }) => {
             } `}
             onClick={() => setCurrentTab(index)}>
             <span className="text-2xl">{tab.icon}</span>
-            <span className={`${open ? "opacity-0" : "opacity-100"} transition-opacity duration-200`}>{tab.label}</span>
+            <span className={`${close ? "opacity-0" : "opacity-100"} transition-opacity duration-200`}>{tab.label}</span>
           </button>
         ))}
       </div>

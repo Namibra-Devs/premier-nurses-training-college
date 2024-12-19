@@ -17,7 +17,7 @@ import NavigationBar from "./NavigationBar";
 const AppSystem = () => {
   const [currentTab, setCurrentTab] = useState(0);
   const {handleSubmit} = useFormContext();
-  const [open, setOpen] = useState(true);
+  const [close, setOpen] = useState(true);
 
   const tabs = [
     {
@@ -86,10 +86,10 @@ const AppSystem = () => {
   return (
     <>
     <div className="bg-white w-full px-2 md:px-4 flex flex-col border-x-2 border-primary overflow-y-hidden">
-      <NavigationBar open={open} setOpen={setOpen} />
+      <NavigationBar close={close} setOpen={setOpen} />
       <div className="flex w-full min-h-screen">
-        <Sidebar tabs={tabs} currentTab={currentTab} setCurrentTab={setCurrentTab} open={open}/>
-        <div className="bg-gray-100 w-full p-2 md:p-4 rounded overflow-y-scroll min-h-screen">
+        <Sidebar tabs={tabs} currentTab={currentTab} setCurrentTab={setCurrentTab} close={close}/>
+        <div className="bg-gray-100 w-full p-3 md:p-4 rounded overflow-y-scroll min-h-screen">
 
             {/* Render the current tab's component and*/}
             {tabs[currentTab].component}
