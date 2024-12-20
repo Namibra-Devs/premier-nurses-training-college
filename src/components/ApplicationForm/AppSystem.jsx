@@ -85,11 +85,11 @@ const AppSystem = () => {
 
   return (
     <>
-    <div className="bg-white w-full px-2 md:px-4 flex flex-col border-x-2 border-primary overflow-y-hidden">
+    <div className="bg-white w-full h-screen px-2 md:px-4 flex flex-col border-x-2 border-primary overflow-y-hidden">
       <NavigationBar close={close} setOpen={setOpen} />
       <div className="flex w-full min-h-screen">
         <Sidebar tabs={tabs} currentTab={currentTab} setCurrentTab={setCurrentTab} close={close}/>
-        <div className="bg-gray-100 w-full p-3 md:p-4 rounded overflow-y-scroll min-h-screen">
+        <div className="bg-gray-100 w-full px-3 md:px-4 pt-3 md:pt-4 pb-20 rounded overflow-y-scroll max-h-screen">
 
             {/* Render the current tab's component and*/}
             {tabs[currentTab].component}
