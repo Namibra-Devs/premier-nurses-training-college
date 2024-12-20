@@ -3,7 +3,7 @@ import React from "react";
 const Sidebar = ({ tabs, currentTab, setCurrentTab, close }) => {
   return (
     <div
-      className={`bg-white h-full overflow-hidden pr-2 flex flex-col items-start justify-start transition-all duration-700 ease-in-out ${
+      className={`bg-white h-screen overflow-hidden pr-2 flex flex-col items-start justify-start transition-all duration-700 ease-in-out ${
         close ? "w-[40px]" : "w-[700px] md:w-[350px]"
       }`}>
       <div className="flex flex-col items-start justify-start gap-2 w-full">
