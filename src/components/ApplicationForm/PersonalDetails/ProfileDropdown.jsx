@@ -15,8 +15,7 @@ const ProfileDropdown = () => {
       {/* Profile Picture */}
       <span
         className="current flex items-center justify-center h-8 w-8 rounded-full overflow-hidden cursor-pointer"
-        onClick={() => setDropdownOpen(!isDropdownOpen)}
-      >
+        onClick={() => setDropdownOpen(!isDropdownOpen)}>
         {profilePicture ? (
           <img
             src={profilePicture}
