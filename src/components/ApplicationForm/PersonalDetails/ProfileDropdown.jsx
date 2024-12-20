@@ -14,7 +14,7 @@ const ProfileDropdown = () => {
     <div className="relative">
       {/* Profile Picture */}
       <span
-        className="current flex items-center justify-center h-8 w-8 rounded-full overflow-hidden cursor-pointer"
+        className="current flex items-center justify-center h-8 w-8 rounded-full overflow-hidden cursor-pointer border border-primary"
         onClick={() => setDropdownOpen(!isDropdownOpen)}>
         {profilePicture ? (
           <img
@@ -27,20 +27,21 @@ const ProfileDropdown = () => {
             <ion-icon name="person-circle-outline"></ion-icon>
           </div>
         )}
+        <span className="absolute -bottom-2 right-0 bg-blue-50 text-primary text-xs rounded-full p-0.5 flex items-center"><ion-icon name="chevron-down-outline"></ion-icon></span>
       </span>
 
       {/* Dropdown Menu */}
       <div className="relative">
         <div
-          className={`absolute right-0 mt-2 bg-gray-50 shadow-custom-light rounded w-40 z-10 overflow-hidden transition-transform duration-300 ease-in-out ${
+          className={`absolute right-0 mt-2 bg-gray-50 border-t border-primary shadow-custom-light rounded w-40 z-10 overflow-hidden transition-transform duration-300 ease-in-out ${
             isDropdownOpen
-              ? "scale-100 opacity-100"
+              ? "scale-90 opacity-100"
               : "scale-75 opacity-0 pointer-events-none"
           }`}
         >
           {/* Blue Arrow */}
           <div
-            className="absolute top-[-10px] right-2 w-4 h-4 bg-blue-500 transform rotate-45"
+            className="absolute top-[-10px] right-2 w-3.5 h-3.5 bg-primary transform rotate-45"
             style={{ zIndex: -1 }}
           ></div>
 
