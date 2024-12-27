@@ -3,9 +3,11 @@ import logo from "../../../../../assets/Logo.png";
 import SubmitButton from "../../../../Buttons/SubmitButton";
 import OverlayAlert from "../OverlayAlert";
 import ButtonLogin from "../Login/ButtonLogin";
+import ErrorAlert from "../Login/ErrorAlert";
+import SuccessAlert from "../../../../ApplicationForm/FormControls/SuccessAlert";
 
 const RegistrationPage = () => {
-  //Form Validation Starts Here
+  // Form Validation State
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -15,6 +17,10 @@ const RegistrationPage = () => {
   });
 
   const [errors, setErrors] = useState({});
+  const [errorAlert, setErrorAlert] = useState(false);
+  const [successAlert, setSuccessAlert] = useState(false);
+  const [showAlert, setShowAlert] = useState(false);
+
 
   const validate = () => {
     const newErrors = {};
@@ -46,32 +52,59 @@ const RegistrationPage = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  // Handle Registration Alert
-  const [showAlert, setShowAlert] = useState(false);
-  const handleFormSubmit = (e) => {
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
+  
     if (validate()) {
-      setShowAlert(true);
-      // Show the alert for 3 seconds, then navigate
-      setTimeout(() => {
-        setShowAlert(false);
-        navigate("/application-page");
-      }, 3000);
-      setFormData({
-        firstName: "",
-        lastName: "",
-        phone: "",
-        email: "",
-        password: "",
-      });
+      setErrorAlert(false); // Ensure error alert is hidden
+      setSuccessAlert(false); // Ensure success alert is hidden
+      setShowAlert(false); // Ensure Show "Processing" alert is hidden
+  
+      try {
+        setShowAlert(true); // Show "Processing" alert
+        // Simulate or make the actual API request
+        const response = await fetch("api/register", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        });
+  
+        if (response.ok) {
+          // Assume a successful registration response
+          setSuccessAlert(true); // Show success alert
+          setTimeout(() => setSuccessAlert(false), 3000); // Hide after 3 seconds
+          setFormData({
+            firstName: "",
+            lastName: "",
+            phone: "",
+            email: "",
+            password: "",
+          });
+        } else {
+          // Handle server-side validation or unexpected errors
+          const errorData = await response.json();
+          const errorMessage = errorData.message || "Something went wrong, please try again later.";
+          setErrorAlert(errorMessage); // Show error alert
+          setTimeout(() => setErrorAlert(false), 3000); // Hide after 3 seconds
+        }
+      } catch (error) {
+        setErrorAlert("Network error. Please try again later."); // Show network error
+        setTimeout(() => setErrorAlert(false), 3000); // Hide after 3 seconds
+      } finally {
+        setShowAlert(false); // Always hide "Processing" alert after completion
+      }
     }
   };
+  
 
   return (
     <div className="flex flex-col md:flex-row min-h-screen items-center justify-center bg-gray-100">
-      {/* Overlay Alert! */}
-      {/* Render the overly "message" to change to "successful!" when Registration is successful. */}
+      {/* Alerts */}
       {showAlert && <OverlayAlert message="Processing your Registration..." />}
+      {errorAlert && <ErrorAlert message={errorAlert} />}
+      {successAlert && <SuccessAlert message="Registration successful!" />}
 
       <div className="md:w-4/5 max-w-6xl grid grid-cols-1 md:grid-cols-2 my-6 bg-white shadow-lg rounded-xl overflow-hidden">
         {/* Left Column */}

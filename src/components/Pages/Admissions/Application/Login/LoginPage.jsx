@@ -96,7 +96,7 @@ const LoginPage = () => {
       {showAlert && <OverlayAlert message="Processing your login..." />}
       {error && errorAlert && <ErrorAlert message={error} />}
       
-      <div className="max-h-full grid grid-cols-1 md:grid-cols-2 my-6 shadow-lg rounded-xl overflow-hidden">
+      <div className="md:w-4/5 max-w-4xl max-h-full grid grid-cols-1 md:grid-cols-2 my-6 shadow-lg rounded-xl overflow-hidden">
         {/* Left Column */}
         <div className="relative bg-RegLoginBg bg-cover bg-center py-56">
           <div className="absolute z-50 top-6 w-full flex justify-center">
