@@ -4,6 +4,7 @@ import logo from "../../../../../assets/Logo.png";
 import SubmitButton from "../../../../Buttons/SubmitButton";
 import OverlayAlert from "../OverlayAlert";
 import ButtonLogin from "./ButtonLogin";
+import ErrorAlert from "./ErrorAlert";
 
 const LoginPage = () => {
   const [formData, setFormData] = useState({
@@ -12,7 +13,12 @@ const LoginPage = () => {
     rememberMe: false,
   });
 
+  const [error, setError] = useState("");
   const [errors, setErrors] = useState({});
+  const [showAlert, setShowAlert] = useState(false);
+  const [errorAlert, setErrorAlert] = useState(false);
+
+  const navigate = useNavigate();
 
   const validate = () => {
     const newErrors = {};
@@ -35,27 +41,62 @@ const LoginPage = () => {
     });
   };
 
-  // Handle Login Alert
-  const [showAlert, setShowAlert] = useState(false);
-  const navigate = useNavigate(); // Initialize navigate function
-  const handleFormSubmit = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    if (validate()) {
-      setShowAlert(true);
-      // Show the alert for 3 seconds, then navigate
+    setError("");
+    setErrors({});
+    setShowAlert(false);
+    setErrorAlert(false);
+
+    if (!validate()) return;
+
+    const { pin, password } = formData;
+
+    try {
+      setShowAlert(true); // Show processing alert
+      const response = await fetch("https://your-api-endpoint.com/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ pin, password }),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+
+        // Store token securely
+        localStorage.setItem("accessToken", data.token);
+
+        // Navigate after 3 seconds
+        setTimeout(() => {
+          setShowAlert(false);
+          navigate("/application-page");
+        }, 3000);
+      } else {
+        const errorData = await response.json();
+        setError(errorData.message || "Login failed. Please try again.");
+        setErrorAlert(true); // Show error alert
+      }
+    } catch (err) {
+      console.error("Error during login:", err);
+      setError("Something went wrong. Please try again.");
+      setErrorAlert(true); // Show error alert
       setTimeout(() => {
-        setShowAlert(false);
-        navigate("/application-page");
+        setErrorAlert(false);
       }, 3000);
+    } finally {
+      setShowAlert(false); // Ensure processing alert hides after attempt
     }
   };
 
   return (
     <div className="flex flex-col md:flex-row min-h-screen items-center justify-center bg-gray-100">
-      {/* Overlay Alert! */}
-      {/* Render the overly "message" to change to "successful!" when Registration is successful. */}
+      {/* Overlay Alert */}
       {showAlert && <OverlayAlert message="Processing your login..." />}
-      <div className="w-4/3 max-w-6xl max-h-full grid grid-cols-1 md:grid-cols-2 my-6 shadow-lg rounded-xl overflow-hidden">
+      {error && errorAlert && <ErrorAlert message={error} />}
+      
+      <div className="md:w-4/5 max-w-4xl max-h-full grid grid-cols-1 md:grid-cols-2 my-6 shadow-lg rounded-xl overflow-hidden">
         {/* Left Column */}
         <div className="relative bg-RegLoginBg bg-cover bg-center py-56">
           <div className="absolute z-50 top-6 w-full flex justify-center">
@@ -68,7 +109,7 @@ const LoginPage = () => {
               Welcome Back to PNTC!
             </h1>
             <p className="text-sm leading-tight text-gray-200 text-center">
-              Log in with the Voucher PIN you purchase and the new account
+              Log in with the Voucher PIN you purchased and the new account
               password to continue your application process or access your
               account.
             </p>
@@ -91,7 +132,7 @@ const LoginPage = () => {
           <h2 className="text-2xl font-semibold text-gray-800 mb-6 text-center">
             Login to Your Account
           </h2>
-          <form className="space-y-4" onSubmit={handleFormSubmit}>
+          <form className="space-y-4" onSubmit={handleLogin}>
             {/* PIN */}
             <div>
               <label
@@ -153,7 +194,7 @@ const LoginPage = () => {
 
             {/* Login Button */}
             <div>
-              <SubmitButton handleAccess={handleFormSubmit} label="Login" />
+              <SubmitButton handleAccess={handleLogin} label="Login" />
             </div>
           </form>
         </div>
