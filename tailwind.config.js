@@ -21,8 +21,7 @@ module.exports = {
         TotalsBg: "url('assets/sections/totals-bg.jpg')",
         AccreditedImg: "url('assets/sections/accredited.jpg')",
         AccreditedShowBg: "url('assets/sections/accreditation-bg.jpg')",
-        AccreditedShowBgMobile:
-          "url('assets/sections/accreditation-bg-mobile.jpg')",
+        AccreditedShowBgMobile:"url('assets/sections/accreditation-bg-mobile.jpg')",
         StudentsGroup: "url('assets/sections/student-group.jpg')",
         AboutusBgImg: "url('assets/foreign/image2.jpg')",
         PntcStoryBg: "url('assets/Aboutus/Pntcstorybg.jpg')",
@@ -30,8 +29,7 @@ module.exports = {
         StudentsBg: "url('assets/Students/students-bg.jpg')",
         ContactusBg: "url('assets/contactus/contactus-bg.jpg')",
         RegLoginBg: "url('assets/Admissions/bg-image.jpg')",
-        "topnav-gradient":
-          "linear-gradient(90deg, #440f14, #5e1219 15%, #000 35%, #000 45%, #5e1219 85%, #440f14)",
+        "topnav-gradient":"linear-gradient(90deg, #440f14, #5e1219 15%, #000 35%, #000 45%, #5e1219 85%, #440f14)",
       },
       keyframes: {
        'infinite-scroll': {
