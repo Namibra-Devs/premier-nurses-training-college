@@ -18,9 +18,9 @@ const retrieveResultsList = () => {
   return [];
 };
 
-const Results = () => {
+const Results = ({ data, onSave }) => {
   const [isVisible, setIsVisible] = useState(false);
-  const [results, setResults] = useState(retrieveResultsList());
+  const [results, setResults] = useState(data || {});
   const [form, setForm] = useState({
     examType: "WAEC",
     indexNumber: "",
@@ -119,7 +119,7 @@ const Results = () => {
       if(results.length < 1){
         alert("No results to save!");
       }else{
-        saveResultsList(results); // Save the data
+        onSave(results); // Save the data
         setShowAlert(true); // Show success alert
         setTimeout(() => setShowAlert(false), 1000); // Hide after 3 seconds
       }

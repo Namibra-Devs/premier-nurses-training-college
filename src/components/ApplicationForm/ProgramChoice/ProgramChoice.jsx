@@ -20,10 +20,8 @@ const retrieveProgram = () => {
   }
 };
 
-const ProgramChoice = () => {
-  const [selectedProgram, setSelectedProgram] = useState(
-    retrieveProgram() || { program: "" }
-  );
+const ProgramChoice = ({ data, onSave }) => {
+  const [selectedProgram, setSelectedProgram] = useState(data || { program: "" });
   const [programs, setPrograms] = useState([]);
   const [isVisible, setIsVisible] = useState(false);
   const [errors, setErrors] = useState({});
@@ -57,7 +55,7 @@ const ProgramChoice = () => {
       setErrors(validationErrors);
     } else {
       try {
-        saveProgram(selectedProgram); // Save to localStorage
+        onSave(selectedProgram); // Save to localStorage
         setErrors({});
         setShowAlert(true); // Show success alert
         setTimeout(() => setShowAlert(false), 1000); // Hide after 1 second

@@ -15,11 +15,11 @@ const retriveDeclaration = () => {
   return {}; // Return an empty object instead of an empty string
 };
 
-const Declaration = () => {
+const Declaration = ({ data, onSave }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
   const [errors, setErrors] = useState({});
-  const [declaration, setDeclarationData] = useState(retriveDeclaration()); // Start with an empty object if no data is found in localStorage
+  const [declaration, setDeclarationData] = useState(data || {}); // Start with an empty object if no data is found in localStorage
   const {updateFormData} = useFormContext();
 
   // Load program data on component mount
@@ -58,7 +58,7 @@ const Declaration = () => {
         setErrors(validate);
         return;
       } else {
-        saveDeclaration(declaration); // Save the data
+        onSave(declaration); // Save the data
         setShowAlert(true); // Show success alert
         setTimeout(() => setShowAlert(false), 1000); // Hide after 3 second
       }

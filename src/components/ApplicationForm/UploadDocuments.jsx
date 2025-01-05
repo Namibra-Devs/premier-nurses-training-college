@@ -27,8 +27,8 @@ const retrieveDocumentDetails = () => {
   }
 };
 
-const UploadDocuments = () => {
-  const [documents, setDocuments] = useState(retrieveDocumentDetails());
+const UploadDocuments = ({ data, onSave }) => {
+  const [documents, setDocuments] = useState(data || {});
   const [isVisible, setIsVisible] = useState(false);
   const {updateFormData} = useFormContext();
 
@@ -68,7 +68,7 @@ const UploadDocuments = () => {
   const handleSave = (e) => {
     e.preventDefault();
     try {
-      saveDocumentDetails(documents); // Save the data
+      onSave(documents); // Save the data
       setShowAlert(true); // Show success alert
       setTimeout(() => setShowAlert(false), 3000); // Hide after 3 seconds
     } catch (error) {

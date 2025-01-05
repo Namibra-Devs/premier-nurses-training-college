@@ -18,7 +18,7 @@ const retrieveEducationList = () => {
   return [];
 };
 
-const EducationalBackground = () => {
+const EducationalBackground = ({ data, onSave }) => {
   const [isVisible, setIsVisible] = useState(false);
 
   // Load program data on component mount
@@ -26,7 +26,7 @@ const EducationalBackground = () => {
     setTimeout(() => setIsVisible(true), 100); // Trigger the animation
   }, []);
 
-  const [educations, setEducations] = useState(retrieveEducationList()); // Initialize from localStorage
+  const [educations, setEducations] = useState(data || {}); // Initialize from localStorage
   const [formData, setFormData] = useState({});
   const [errors, setErrors] = useState({});
   const { updateFormData} = useFormContext();
@@ -110,7 +110,7 @@ const EducationalBackground = () => {
   const handleSave = () => {
     try {
       if(educations.length >= 1){
-        saveEducationList(educations); // Save the data
+        onSave(educations); // Save the data
         setShowAlert(true); // Show success alert
         setTimeout(() => setShowAlert(false), 1000); // Hide after 3 seconds
       }else{
