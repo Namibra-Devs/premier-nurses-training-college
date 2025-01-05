@@ -19,9 +19,9 @@ const retrieveRefereeDetails = () => {
   }
 };
 
-const Referee = () => {
+const Referee = ({ data, onSave }) => {
   const [isVisible, setIsVisible] = useState(false);
-  const [referee, setReferee] = useState(retrieveRefereeDetails() || {});
+  const [referee, setReferee] = useState(data || {});
   const [errors, setErrors] = useState({});
   const [showAlert, setShowAlert] = useState(false);
   const {updateFormData} = useFormContext();
@@ -91,7 +91,7 @@ const Referee = () => {
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
     } else {
-      saveRefereeDetails(referee);
+      onSave(referee);
       setShowAlert(true);
       setTimeout(() => setShowAlert(false), 3000);
     }

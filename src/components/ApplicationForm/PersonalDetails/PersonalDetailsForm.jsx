@@ -16,19 +16,18 @@ const retrivePersonalDetails = () => {
   return {};
 };
 
-const PersonalDetailsForm = ({ preview, setPreview }) => {
+const PersonalDetailsForm = ({ preview, setPreview, data, onSave }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [errors, setErrors] = useState({});
+  const [showAlert, setShowAlert] = useState(false);
   const { updateFormData } = useFormContext();
+  const [personalDetail, setPersonalDetail] = useState(data || {});
 
   // Load program data on component mount
   useEffect(() => {
     setTimeout(() => setIsVisible(true), 100); // Trigger the animation
   }, []);
 
-  const [personalDetail, setPersonalDetail] = useState(
-    retrivePersonalDetails()
-  );
 
   useEffect(() => {
     updateFormData("personalDetail", personalDetail);
@@ -115,7 +114,6 @@ const PersonalDetailsForm = ({ preview, setPreview }) => {
     // Return true if no errors
   };
 
-  const [showAlert, setShowAlert] = useState(false);
   const handleSave = (e) => {
     e.preventDefault();
     const validation = validate();
@@ -123,7 +121,7 @@ const PersonalDetailsForm = ({ preview, setPreview }) => {
       if (Object.keys(validation).length > 0) {
         setErrors(validation);
       } else {
-        savePersonalDetails(personalDetail); // Save the data
+        onSave(personalDetail); // Save the data
         setShowAlert(true); // Show success alert
         setTimeout(() => setShowAlert(false), 1000); // Hide after 3 seconds
       }

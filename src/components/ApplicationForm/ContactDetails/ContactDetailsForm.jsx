@@ -15,9 +15,9 @@ const retrivecontactData = () => {
   return {};
 };
 
-const ContactDetailsForm = () => {
+const ContactDetailsForm = ({ data, onSave }) => {
   const [isVisible, setIsVisible] = useState(false);
-  const [contactDetails, setContactDetails] = useState(retrivecontactData());
+  const [contactDetails, setContactDetails] = useState(data || {});
   const [showAlert, setShowAlert] = useState(false);
   const [errors, setErrors] = useState({});
   const { updateFormData } = useFormContext();
@@ -76,12 +76,13 @@ const ContactDetailsForm = () => {
   };
 
   const handleSave = () => {
+    console.log("Saving contact details:", contactDetails);
     const validation = validateContactDetails();
     try {
       if (Object.keys(validation).length > 0) {
         setErrors(validation);
       } else {
-        saveContactData(contactDetails); // Save the data
+        onSave(contactDetails); // Save the data
         setShowAlert(true); // Show success alert
         setTimeout(() => setShowAlert(false), 1000); // Hide after 3 second
       }
@@ -105,7 +106,7 @@ const ContactDetailsForm = () => {
           <input
               type="email"
               name="emailAddress"
-              value={contactDetails?.emailAddress}
+              value={contactDetails?.emailAddress || ""}
               onChange={handleChange}
               className="w-full border rounded p-2"
           />
@@ -116,7 +117,7 @@ const ContactDetailsForm = () => {
           <input
               type="number"
               name="phoneNumber"
-              value={contactDetails?.phoneNumber}
+              value={contactDetails?.phoneNumber || ""}
               onChange={handleChange}
               className="w-full border rounded p-2"
           />
@@ -127,7 +128,7 @@ const ContactDetailsForm = () => {
           <input
               type="text"
               name="permanentAddress"
-              value={contactDetails?.permanentAddress}
+              value={contactDetails?.permanentAddress || ""}
               onChange={handleChange}
               className="w-full border rounded p-2"
           />
@@ -138,7 +139,7 @@ const ContactDetailsForm = () => {
           <input
               type="text"
               name="postalAddress"
-              value={contactDetails?.postalAddress}
+              value={contactDetails?.postalAddress || ""}
               onChange={handleChange}
               className="w-full border rounded p-2"
           />
@@ -148,7 +149,7 @@ const ContactDetailsForm = () => {
           <label className="block font-medium mb-2">Postal Region</label>
           <select
               name="postalRegion"
-              value={contactDetails?.postalRegion}
+              value={contactDetails?.postalRegion || ""}
               onChange={handleChange}
               className="w-full p-2 border border-gray-300 rounded mb-2">
                 
@@ -177,7 +178,7 @@ const ContactDetailsForm = () => {
           <input
               type="text"
               name="postalTown"
-              value={contactDetails?.postalTown}
+              value={contactDetails?.postalTown || ""}
               onChange={handleChange}
               className="w-full border rounded p-2"
           />
