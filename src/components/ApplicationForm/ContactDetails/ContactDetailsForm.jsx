@@ -76,7 +76,6 @@ const ContactDetailsForm = ({ data, onSave }) => {
   };
 
   const handleSave = () => {
-    console.log("Saving contact details:", contactDetails);
     const validation = validateContactDetails();
     try {
       if (Object.keys(validation).length > 0) {
