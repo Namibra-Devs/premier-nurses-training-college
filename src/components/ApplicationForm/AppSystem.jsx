@@ -43,7 +43,6 @@ const AppSystem = () => {
       setCurrentTab(currentTab + 1);
     }
   };
-  
 
   const handlePrevious = () => {
     if (currentTab > 1) {
@@ -148,8 +147,6 @@ const AppSystem = () => {
       ),
     },
   ];
-  
-  
   
   return (
     <>
