@@ -151,7 +151,7 @@ const ContactDetailsForm = ({ data, onSave }) => {
               value={contactDetails?.postalRegion || ""}
               onChange={handleChange}
               className="w-full p-2 border border-gray-300 rounded mb-2">
-                
+            
               <option value="">--Select a Region--</option>
               <option value="Ashanti">Ashanti</option>
               <option value="Greater Accra">Greater Accra</option>
