@@ -1,5 +1,6 @@
 import React from "react";
 
+import { FaLinkedin, FaFacebook, FaTwitter } from "react-icons/fa"; // Social Icons
 const Footer = () => {
   return (
     <footer className="bg-gradient-to-r from-blue-800 to bg-primary text-gray-200 pt-24 overflow-hidden rounded-t-3xl">
@@ -76,7 +77,7 @@ const Footer = () => {
                   ></ion-icon>
                 </span>
                 <a
-                  href="/#programs"
+                  href="/academics#programs"
                   className="hover:text-yellow-400 duration-500 ease"
                 >
                   Programs
@@ -135,7 +136,7 @@ const Footer = () => {
                   <ion-icon name="caret-forward-outline"></ion-icon>
                 </span>
                 <a
-                  href="/#alumni"
+                  href="/students#alumni"
                   className="hover:text-yellow-400 duration-500 ease"
                 >
                   Alumni
@@ -215,7 +216,7 @@ const Footer = () => {
               rel="noopener noreferrer"
               className="text-white hover:text-yellow-400 text-3xl hover:transition-transform duration-700 transform hover:-translate-y-2"
             >
-              <ion-icon name="logo-facebook"></ion-icon>
+              <FaFacebook/>
             </a>
             <a
               href="https://twitter.com"
@@ -223,7 +224,7 @@ const Footer = () => {
               rel="noopener noreferrer"
               className="text-white hover:text-yellow-400 text-3xl hover:transition-transform duration-700 transform hover:-translate-y-2"
             >
-              <ion-icon name="logo-twitter"></ion-icon>
+              <FaTwitter/>
             </a>
             <a
               href="https://instagram.com"
@@ -239,7 +240,7 @@ const Footer = () => {
               rel="noopener noreferrer"
               className="text-white hover:text-yellow-400 text-3xl hover:transition-transform duration-700 transform hover:-translate-y-2"
             >
-              <ion-icon name="logo-linkedin"></ion-icon>
+              <FaLinkedin/>
             </a>
           </div>
         </div>

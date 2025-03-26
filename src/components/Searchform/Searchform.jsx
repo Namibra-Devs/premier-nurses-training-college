@@ -1,4 +1,5 @@
 import React from "react";
+import { MdClose } from "react-icons/md";
 
 const Searchform = ({ searchb_open, setSearchbOpen }) => {
   return (
@@ -16,7 +17,7 @@ const Searchform = ({ searchb_open, setSearchbOpen }) => {
             onClick={() => setSearchbOpen(false)}
             className="absolute -right-6 top-3 bg-slate-200 h-8 w-8 rounded-full hover:bg-primary hover:text-white duration-200 text-slate-500 text-xl flex justify-center items-center cursor-pointer"
           >
-            <ion-icon name="close"></ion-icon>
+            <MdClose/>
           </div>
         </div>
         <div className="flex justify-center items-center h-screen">
