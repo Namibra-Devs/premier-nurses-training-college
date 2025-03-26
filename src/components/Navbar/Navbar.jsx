@@ -5,6 +5,7 @@ import NavLinks from "./NavLinks";
 import Searchform from "../Searchform/Searchform";
 import NavButtonApply from "../Buttons/NavButtonApply";
 import { MdMenu, MdClose } from "react-icons/md";
+import { CiSearch } from "react-icons/ci";
 
 
 import { AiOutlineMail } from "react-icons/ai";  // Mail
@@ -213,9 +214,10 @@ const Navbar = () => {
 
               {/* Mobile version of SearchIcon (visible on mobile, hidden on desktop) */}
               <div
-                className="block md:hidden cursor-pointer text-2xl"
+                className="flex md:hidden cursor-pointer text-2xl"
                 onClick={() => setSearchbOpen(!searchb_open)}>
-                <ion-icon name={`${searchb_open ? "search" : "search"}`}></ion-icon>
+  
+                 <CiSearch />
               </div>
             </div>
           </div>
@@ -244,7 +246,7 @@ const Navbar = () => {
               } cursor-pointer text-2xl `}
               onClick={() => setSearchbOpen(true)}
             >
-              <ion-icon name="search"></ion-icon>
+              <CiSearch/>
             </div>
           </div>
           {/* ----------------------------------------------------- */}
