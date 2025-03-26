@@ -4,6 +4,15 @@ import Logo from "../../assets/Logo.png";
 import NavLinks from "./NavLinks";
 import Searchform from "../Searchform/Searchform";
 import NavButtonApply from "../Buttons/NavButtonApply";
+import { MdMenu, MdClose } from "react-icons/md";
+
+
+import { AiOutlineMail } from "react-icons/ai";  // Mail
+import { FiPhone } from "react-icons/fi";        // Phone
+import { BsClock } from "react-icons/bs";        // Time
+import { GoLocation } from "react-icons/go";     // Location
+import { FaLinkedin, FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa"; // Social Icons
+
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -36,25 +45,25 @@ const Navbar = () => {
         <div className="hidden md:flex justify-between items-center font-medium ">
           <ul className="flex items-center justify-between text-sm gap-4 list-none text-white font-medium">
             <li className="flex items-center gap-1">
-              <ion-icon name="mail"></ion-icon>
+              <AiOutlineMail />
               <a href="#" className="text-[13px]">
                 info@pntc.edu.gh
               </a>
             </li>
             <li className="flex items-center gap-1">
-              <ion-icon name="location"></ion-icon>
+              <GoLocation />
               <a href="#" className="text-[13px]">
                 Adum Kumasi
               </a>
             </li>
             <li className="flex items-center gap-1">
-              <ion-icon name="call"></ion-icon>
+              <FiPhone/>
               <a href="#" className="text-[13px]">
                 +233264256825, +233243519083
               </a>
             </li>
             <li className="flex items-center gap-1">
-              <ion-icon name="time"></ion-icon>
+              <BsClock/>
               <p className="text-[13px]">Mon - Fri: 9:00am - 5:00pm</p>
             </li>
           </ul>
@@ -63,7 +72,7 @@ const Navbar = () => {
               href="#"
               className="hover:text-yellow-400 hover:scale-110 duration-500 ease"
             >
-              <ion-icon name="logo-linkedin"></ion-icon>
+              <FaLinkedin/>
             </a>
             <a
               href="#"
@@ -75,7 +84,7 @@ const Navbar = () => {
               href="#"
               className="hover:text-yellow-400 hover:scale-110 duration-500 ease"
             >
-              <ion-icon name="logo-facebook"></ion-icon>
+            <FaFacebook/>
             </a>
             <a
               href="#"
@@ -87,7 +96,7 @@ const Navbar = () => {
               href="#"
               className="hover:text-yellow-400 hover:scale-110 duration-500 ease"
             >
-              <ion-icon name="logo-twitter"></ion-icon>
+              <FaTwitter/>
             </a>
           </ul>
         </div>
@@ -106,7 +115,7 @@ const Navbar = () => {
             className="bg-slate-200 h-8 w-8 rounded-full hover:bg-primary hover:text-white duration-200 text-slate-500 text-xl flex justify-center items-center md:hidden cursor-pointer"
             onClick={() => setTnOpen(!tn_open)}
           >
-            <ion-icon name={`${tn_open ? "close" : "close"}`}></ion-icon>
+            {tn_open ? <MdClose /> : <MdClose/> }
           </div>
         </div>
 
@@ -125,7 +134,7 @@ const Navbar = () => {
               </a>
             </li>
             <li className="flex items-center gap-1 mb-3 md:mb-0 w-full group hover:text-primary duration-500">
-              <ion-icon name="location"></ion-icon>
+              <GoLocation/>
               <a href="#" className="ml-3 md:ml-0">
                 Adum Kumasi{" "}
               </a>
@@ -137,7 +146,7 @@ const Navbar = () => {
               </a>
             </li>
             <li className="flex items-center gap-1 mb-3 md:mb-0 w-full">
-              <ion-icon name="time"></ion-icon>
+              <BsClock/>
               <p className="text-[13px] ml-3 md:ml-0">
                 Mon - Fri: 9:00am - 5:00pm
               </p>
@@ -146,33 +155,33 @@ const Navbar = () => {
           <ul className="bg-white w-full p-4 rounded-md text-slate-600 text-md flex items-center gap-3">
             <a
               href="#"
-              className="hover:text-primary duration-500 text-3xl mr-5 md:mr-0"
+              className="hover:text-primary duration-500 text-3xl mr-1 md:mr-0"
             >
-              <ion-icon name="logo-linkedin"></ion-icon>
+              <FaLinkedin/>
             </a>
             <a
               href="#"
-              className="hover:text-primary duration-500 text-3xl mr-5 md:mr-0"
+              className="hover:text-primary duration-500 text-3xl mr-1 md:mr-0"
             >
-              <ion-icon name="logo-instagram"></ion-icon>
+              <FaInstagram/>
             </a>
             <a
               href="#"
-              className="hover:text-primary duration-500 text-3xl mr-5 md:mr-0"
+              className="hover:text-primary duration-500 text-3xl mr-1 md:mr-0"
             >
-              <ion-icon name="logo-facebook"></ion-icon>
+              <FaFacebook/>
             </a>
             <a
               href="#"
-              className="hover:text-primary duration-500 text-3xl mr-5 md:mr-0"
+              className="hover:text-primary duration-500 text-3xl mr-1 md:mr-0"
             >
               <ion-icon name="logo-whatsapp"></ion-icon>
             </a>
             <a
               href="#"
-              className="hover:text-primary duration-500 text-3xl mr-5 md:mr-0"
+              className="hover:text-primary duration-500 text-3xl mr-1 md:mr-0"
             >
-              <ion-icon name="logo-twitter"></ion-icon>
+             <FaTwitter/>
             </a>
           </ul>
         </div>
@@ -199,7 +208,7 @@ const Navbar = () => {
               <div
                 className="text-3xl cursor-pointer md:hidden ml-2 md:ml-0"
                 onClick={() => setOpen(!open)}>
-                <ion-icon name={`${open ? "menu" : "menu"}`}></ion-icon>
+               {open ? <MdMenu /> : <MdMenu/>}
               </div>
 
               {/* Mobile version of SearchIcon (visible on mobile, hidden on desktop) */}
@@ -253,7 +262,7 @@ const Navbar = () => {
                 onClick={() => setOpen(false)}
                 className="absolute right-4 top-3 bg-slate-200 h-8 w-8 rounded-full hover:bg-primary hover:text-white duration-200 text-slate-500 text-xl flex justify-center items-center cursor-pointer"
               >
-                <ion-icon name="close"></ion-icon>
+                <MdClose />
               </div>
             </div>
             <div className="py-24 pl-4">
