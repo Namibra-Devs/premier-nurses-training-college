@@ -32,8 +32,8 @@ const Navbar = () => {
   }, []);
 
   return (
-    <>
-      <div className="">
+    <main className="relative z-50">
+      
         {/*Desktop Info Nav ----------------------------------------------------- */}
         <div className="top-nav z-50 backdrop-brightness-90 text-center md:px-40 py-2">
           {/* Info nav menu toggle */}
@@ -178,7 +178,6 @@ const Navbar = () => {
           </div>
         </nav>
         {/*End Main Nav ----------------------------------------------------- */}
-      </div>
 
       {/* Mobile nav  ----------------------------------------------------- */}
       <div
@@ -309,7 +308,7 @@ const Navbar = () => {
       {/* Search Component ----------------------------------------------------- */}
       <Searchform searchb_open={searchb_open} setSearchbOpen={setSearchbOpen} />
       {/*End Search Component ----------------------------------------------------- */}
-    </>
+    </main>
   );
 };
 
