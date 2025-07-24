@@ -7,10 +7,9 @@ const Searchform = ({ searchb_open, setSearchbOpen }) => {
     <>
       {/* Search Form */}
       <div
-        className={`z-50 fixed md:w-[600px] w-full h-full top-0 overflow-y-auto bottom-0 px-10
+        className={`z-50 fixed inset-0 h-full top-0 overflow-y-auto bottom-0 px-10
           transform duration-500 ease border-l-4 border-primary 
-          ${searchb_open ? "translate-x-0" : "-translate-x-full"} 
-          bg-white md:bg-transparent md:backdrop-brightness-75`}
+          ${searchb_open ? "translate-y-0" : "-translate-y-full"} backdrop-blur-md`}
       >
         {/* Close Icon */}
         <div className="relative">
@@ -22,16 +21,16 @@ const Searchform = ({ searchb_open, setSearchbOpen }) => {
           </div>
         </div>
         <div className="flex justify-center items-center h-screen">
-          <div className="flex items-center rounded-full bg-gray-100 border-2 border-primary w-full pl-4 overflow-hidden">
+          <div className="flex items-center rounded-full bg-slate-950/20 border-2 border-primary pl-4 overflow-hidden">
             <input
               type="text"
-              className="w-full bg-transparent font-[Poppins] outline-none focus:outline-none flex px-4 text-gray-600 text-base"
-              placeholder="Search Here"
+              className="w-full bg-transparent font-[Poppins] outline-none focus:outline-none flex py-3 px-4 text-white"
+              placeholder="Search anything here..."
             />
             {/* Search icon button */}
             <button
               type="submit"
-              className="relative py-2 px-4 bg-primary text-white cursor-pointer text-2xl"
+              className="relative py-4 px-4 bg-primary text-white cursor-pointer text-2xl"
             >
               <RiSearch2Line />
             </button>
