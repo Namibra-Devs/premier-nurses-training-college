@@ -12,7 +12,7 @@ const NavLinks = () => {
               to={menu.link}
               className="block hover:text-yellow-400 duration-500 group"
             >
-              <h1 className="font-normal flex justify-between items-center mr-4 py-3 md:py-0 group relative">
+              <h1 className="flex justify-between items-center mr-4 py-3 md:py-0 group relative">
                 {menu.name}
               </h1>
               <span className="hidden md:flex absolute group-hover:text-yellow-400 opacity-0 group-hover:opacity-100 duration-700 ease-in-out">
