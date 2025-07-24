@@ -37,8 +37,8 @@ const App = () => {
         <Route path="/application-page" element={<AppSystem /> } />
       </Routes>
 
-      {/* Conditionally render Footer */}
-      {!hideFooterRoutes.includes(location.pathname) && <Footer />}
+        {/* Conditionally render Footer */}
+        {!hideFooterRoutes.includes(location.pathname) && <Footer />}
     </>
   );
 };
