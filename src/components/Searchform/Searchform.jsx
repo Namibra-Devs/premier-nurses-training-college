@@ -1,5 +1,6 @@
 import React from "react";
 import { MdClose } from "react-icons/md";
+import { RiSearch2Line} from "react-icons/ri";
 
 const Searchform = ({ searchb_open, setSearchbOpen }) => {
   return (
@@ -32,7 +33,7 @@ const Searchform = ({ searchb_open, setSearchbOpen }) => {
               type="submit"
               className="relative py-2 px-4 bg-primary text-white cursor-pointer text-2xl"
             >
-              <ion-icon name="search"></ion-icon>
+              <RiSearch2Line />
             </button>
           </div>
         </div>
