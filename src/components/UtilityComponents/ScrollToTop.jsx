@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { IoArrowUpCircle } from "react-icons/io5";
 
 const ScrollToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -29,9 +30,9 @@ const ScrollToTop = () => {
       {isVisible && (
         <button
           onClick={scrollToTop}
-          className="bg-gradient-to-r from-teal to bg-primary text-white p-3 rounded-full shadow-lg hover:bg-gold focus:outline-none focus:ring-2 focus:ring-blue-400 transition"
+          className="bg-gradient-to-r from-teal to bg-primary text-white p-2 rounded-full shadow-lg hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-white transition"
         >
-          ↑
+          <IoArrowUpCircle size={20} />
         </button>
       )}
     </div>

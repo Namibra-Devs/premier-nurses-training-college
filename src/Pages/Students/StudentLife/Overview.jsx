@@ -35,8 +35,8 @@ const Overview = () => {
             }`}
           />
         ))}
-        <div className="absolute -bottom-32 md:-bottom-20 left-10 right-10 p-6 bg-gradient-to-r from-blue-800 to bg-primary rounded-3xl">
-          <p className="text-white">
+        <div className="absolute -bottom-32 md:-bottom-20 left-4 right-4 p-4 bg-gradient-to-r from-blue-800 to bg-primary rounded-3xl">
+          <p className="text-white text-sm">
             {studentLifeData.overview.content}
           </p>
         </div>
