@@ -2,8 +2,22 @@ import React, { useState, useEffect } from "react";
 import Navbar from "../Navbar/Navbar";
 import ButtonOutline from "../Buttons/ButtonOutline";
 import HeroButtonApply from "../Buttons/HeroButtonApply";
+import { HeroSliders } from "../../assets/data/data";
 
 const Hero = () => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => 
+        prevIndex === HeroSliders.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 5000); // Change image every 5 seconds
+
+    return () => clearInterval(interval);
+  }, [HeroSliders.length]);
+
+
   // Array of messages to rotate through
   const messages = [
     "Empowering Tomorrow’s Healthcare Leaders.",
@@ -30,9 +44,21 @@ const Hero = () => {
   }, []);
 
   return (
-    <header className="h-screen bg-Hero bg-cover md:bg-top bg-center overflow-hidden rounded-b-3xl">
+    <header className="relative h-screen overflow-hidden rounded-b-3xl">
       <Navbar />
-      <div className="flex flex-col justify-center text-center items-center gap-3 h-full">
+
+      {/* Background images with fade transition */}
+      {HeroSliders.map((slide, index) => (
+        <div
+          key={index}
+          className={`absolute inset-0 bg-cover md:bg-top bg-center transition-opacity duration-1000 ${
+            index === currentImageIndex ? 'opacity-100' : 'opacity-0'
+          }`}
+          style={{ backgroundImage: `url(${slide})` }}
+        />
+      ))}
+
+      <div className="relative flex flex-col justify-center text-center items-center gap-3 h-full">
         <h2
           className={`text-white text-lg md:text-2xl font-light px-4 md:px-52 transition-opacity duration-700 ${
             fade ? "opacity-100 -z-5" : "opacity-0 -z-5"
@@ -53,7 +79,7 @@ const Hero = () => {
             <HeroButtonApply label="Apply Now" />
           </a>
           <a href="/admissions">
-            <ButtonOutline label="Admissions" />
+            <ButtonOutline label="Admission List" />
           </a>
         </div>
       </div>

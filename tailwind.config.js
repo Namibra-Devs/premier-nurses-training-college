@@ -17,7 +17,6 @@ module.exports = {
         "custom-dark": "0 10px 15px -3px rgba(0, 0, 0, 0.3)",
       },
       backgroundImage: {
-        Hero: "url('assets/Hero1.jpg')",
         TotalsBg: "url('assets/sections/totals-bg.jpg')",
         AccreditedImg: "url('assets/sections/accredited.jpg')",
         AccreditedShowBg: "url('assets/sections/accreditation-bg.jpg')",
