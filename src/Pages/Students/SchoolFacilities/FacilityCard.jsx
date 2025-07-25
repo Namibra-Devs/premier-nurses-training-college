@@ -8,8 +8,8 @@ const FacilityCard = ({ image, title, description }) => (
     <img src={image} alt={title} className="w-full h-full object-cover" />
     <div className="p-4 absolute inset-0 bg-gradient-to-t from-primary to-transparent flex flex-col justify-end">
       <div className="backdrop-blur-sm">
-        <h3 className="text-xl font-semibold text-white">{title}</h3>
-        <p className="text-gray-100 font-medium text-sm mt-1">{description}</p>
+        <h3 className="text-lg font-semibold text-white">{title}</h3>
+        <p className="text-gray-100 font-medium text-xs mt-1">{description}</p>
       </div>
     </div>
   </div>
