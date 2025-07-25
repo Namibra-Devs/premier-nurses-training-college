@@ -33,7 +33,6 @@ const Navbar = () => {
 
   return (
     <main className="relative z-50">
-      
       {/*Desktop Info Nav ----------------------------------------------------- */}
       <div className="top-nav z-50 backdrop-brightness-75 text-center md:px-40 py-2">
         {/* Info nav menu toggle */}
@@ -123,7 +122,6 @@ const Navbar = () => {
                 className="md:cursor-pointer h-8"
               />
             </Link>
-
             <div
               className={`flex items-center gap-3 flex-row-reverse ${
                 isScrolled ? "text-gray-600" : "text-white"
@@ -136,7 +134,18 @@ const Navbar = () => {
               >
                 {open ? <MdMenu /> : <MdMenu />}
               </div>
+            </div>
+            {/* ----------------------------------------------------- */}
 
+            {/* Menu menus or links display here ----------------------------------------------------- */}
+            <ul
+              className={`hidden md:flex capitalize text-sm ${
+                isScrolled ? "text-gray-500" : "text-white/80"
+              } font-medium items-center gap-3`}
+            >
+              <NavLinks />
+            </ul>
+            {/* ----------------------------------------------------- */}
               {/* Mobile version of SearchIcon (visible on mobile, hidden on desktop) */}
               <div
                 className="flex md:hidden cursor-pointer text-2xl"
