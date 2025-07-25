@@ -7,7 +7,7 @@ const Accordion = ({ question, answer }) => {
   const toggleAccordion = () => setIsOpen(!isOpen);
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col gap-2">
       <button
         onClick={toggleAccordion}
         className="flex justify-between w-full p-4 text-left text-sm font-semibold mb-4 md:mb-0

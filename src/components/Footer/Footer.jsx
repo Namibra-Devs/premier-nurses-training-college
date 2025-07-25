@@ -8,7 +8,7 @@ const Footer = () => {
         <div className="flex flex-wrap justify-between mb-4 md:mb-8">
           {/* Contact Information */}
           <div className="w-full md:w-1/3 mb-8">
-            <h2 className="text-4xl font-bold text-yellow-400">
+            <h2 className="text-2xl font-bold text-yellow-400">
               PNTC.
               <span className="text-white text-sm ml-2">
                 Nurses' Training College
@@ -18,7 +18,7 @@ const Footer = () => {
               We are dedicated to shaping the future of healthcare by educating
               and inspiring the next generation of skillednurses.
             </p>
-            <p className="flex items-center mb-2">
+            <p className="flex items-center text-sm mb-2">
               <span className="mr-4 text-yellow-400">
                 <ion-icon
                   name="call"
@@ -27,7 +27,7 @@ const Footer = () => {
               </span>
               +233264256825, +233243519083
             </p>
-            <p className="flex items-center mb-2">
+            <p className="flex items-center text-sm mb-2">
               <span className="mr-4 text-yellow-400">
                 <ion-icon
                   name="mail"
@@ -40,7 +40,7 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div className="w-full md:w-1/5 mb-8">
-            <h2 className="text-2xl font-semibold mb-4 text-white">
+            <h2 className="text-xl font-semibold mb-4 text-white">
               Quick Links
             </h2>
             <ul>
@@ -116,7 +116,7 @@ const Footer = () => {
 
           {/* Useful Links */}
           <div className="w-full md:w-1/5 mb-8">
-            <h2 className="text-2xl font-semibold mb-4 text-white">
+            <h2 className="text-xl font-semibold mb-4 text-white">
               Useful Links
             </h2>
             <ul className="">
@@ -182,7 +182,7 @@ const Footer = () => {
           <div className="w-full md:w-1/4 mb-8">
             <div className="flex flex-col items-start">
               <div className="flex flex-col items-start mb-8">
-                <h2 className="text-2xl font-semibold mb-2 text-white">
+                <h2 className="text-xl font-semibold mb-2 text-white">
                   PNTC Adress
                 </h2>
                 <p className="flex items-center">
@@ -190,7 +190,7 @@ const Footer = () => {
                 </p>
               </div>
               <div className="flex flex-col items-start">
-                <h2 className="text-2xl font-semibold mb-2 text-white">
+                <h2 className="text-xl font-semibold mb-2 text-white">
                   Working Hours
                 </h2>
                 <p className="flex items-center">Mon - Fri 9:00 AM - 5:00 PM</p>
