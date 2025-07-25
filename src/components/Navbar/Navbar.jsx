@@ -34,155 +34,155 @@ const Navbar = () => {
   return (
     <main className="relative z-50">
       
-        {/*Desktop Info Nav ----------------------------------------------------- */}
-        <div className="top-nav z-50 backdrop-brightness-75 text-center md:px-40 py-2">
-          {/* Info nav menu toggle */}
-          <div
-            className="text-white text-sm flex items-center justify-center md:hidden cursor-pointer"
-            onClick={() => setTnOpen(!tn_open)}
-          >
-            <ion-icon name={`${tn_open ? "list" : "apps"}`}></ion-icon>{" "}
-            <span className="uppercase text-sm font-semibold">Menu</span>
-          </div>
-          <div className="hidden md:flex justify-between items-center font-medium ">
-            <ul className="flex items-center justify-between text-sm gap-4 list-none text-white/80 font-medium">
-              <li className="flex items-center gap-1">
-                <AiOutlineMail />
-                <a href="#" className="text-[11px]">
-                  info@pntc.edu.gh
-                </a>
-              </li>
-              <li className="flex items-center gap-1">
-                <GoLocation />
-                <a href="#" className="text-[11px]">
-                  Adum Kumasi
-                </a>
-              </li>
-              <li className="flex items-center gap-1">
-                <FiPhone />
-                <a href="#" className="text-[11px]">
-                  +233264256825, +233243519083
-                </a>
-              </li>
-              <li className="flex items-center gap-1">
-                <BsClock />
-                <p className="text-[11px]">Mon - Fri: 9:00am - 5:00pm</p>
-              </li>
-            </ul>
-            <ul className="text-white flex items-center gap-3">
-              <a
-                href="#"
-                className="hover:text-yellow-400 hover:scale-110 duration-500 ease"
-              >
-                <FaLinkedin />
-              </a>
-              <a
-                href="#"
-                className="hover:text-yellow-400 hover:scale-110 duration-500 ease"
-              >
-                <RiInstagramLine />
-              </a>
-              <a
-                href="#"
-                className="hover:text-yellow-400 hover:scale-110 duration-500 ease"
-              >
-                <FaFacebook />
-              </a>
-              <a
-                href="#"
-                className="hover:text-yellow-400 hover:scale-110 duration-500 ease"
-              >
-                <FaWhatsapp />
-              </a>
-              <a
-                href="#"
-                className="hover:text-yellow-400 hover:scale-110 duration-500 ease"
-              >
-                <RiTwitterXFill />
-              </a>
-            </ul>
-          </div>
-        </div>
-        {/* End Desktop Info Nav ----------------------------------------------------- */}
-
-        {/* Main Nav ----------------------------------------------------- */}
-        <nav
-          className={`fixed left-0 right-0 w-full transition-all duration-700 ${
-            isScrolled
-              ? "top-0 z-50 py-5 bg-white border-b-2 border-primary"
-              : "bg-transparent border-b-2 border-transparent"
-          }`}
+      {/*Desktop Info Nav ----------------------------------------------------- */}
+      <div className="top-nav z-50 backdrop-brightness-75 text-center md:px-40 py-2">
+        {/* Info nav menu toggle */}
+        <div
+          className="text-white text-sm flex items-center justify-center md:hidden cursor-pointer"
+          onClick={() => setTnOpen(!tn_open)}
         >
-          <div className="flex justify-between items-center font-medium md:px-40 py-1">
-            {/* ----------------------------------------------------- */}
-            <div className="z-40 px-5 md:px-0 md:w-auto w-full flex justify-between">
-              <Link to="/">
-                <img
-                  src={isScrolled ? LogoBlack : LogoWhite}
-                  alt="logo"
-                  className="md:cursor-pointer h-8"
-                />
-              </Link>
-
-              <div
-                className={`flex items-center gap-3 flex-row-reverse ${
-                  isScrolled ? "text-gray-600" : "text-white"
-                } `}
-              >
-                {/* Menu ----------------------------------------------------- */}
-                <div
-                  className="text-3xl cursor-pointer md:hidden ml-2 md:ml-0"
-                  onClick={() => setOpen(!open)}
-                >
-                  {open ? <MdMenu /> : <MdMenu />}
-                </div>
-
-                {/* Mobile version of SearchIcon (visible on mobile, hidden on desktop) */}
-                <div
-                  className="flex md:hidden cursor-pointer text-2xl"
-                  onClick={() => setSearchbOpen(!searchb_open)}
-                >
-                  <RiSearch2Line />
-                </div>
-              </div>
-            </div>
-            {/* ----------------------------------------------------- */}
-
-            {/* Menu menus or links display here ----------------------------------------------------- */}
-            <ul
-              className={`hidden md:flex capitalize text-sm ${
-                isScrolled ? "text-gray-500" : "text-white/80"
-              } font-medium items-center gap-3`}
+          <ion-icon name={`${tn_open ? "list" : "apps"}`}></ion-icon>{" "}
+          <span className="uppercase text-sm font-semibold">Menu</span>
+        </div>
+        <div className="hidden md:flex justify-between items-center font-medium ">
+          <ul className="flex items-center justify-between text-sm gap-4 list-none text-white/80 font-medium">
+            <li className="flex items-center gap-1">
+              <AiOutlineMail />
+              <a href="#" className="text-[11px]">
+                info@pntc.edu.gh
+              </a>
+            </li>
+            <li className="flex items-center gap-1">
+              <GoLocation />
+              <a href="#" className="text-[11px]">
+                Adum Kumasi
+              </a>
+            </li>
+            <li className="flex items-center gap-1">
+              <FiPhone />
+              <a href="#" className="text-[11px]">
+                +233264256825, +233243519083
+              </a>
+            </li>
+            <li className="flex items-center gap-1">
+              <BsClock />
+              <p className="text-[11px]">Mon - Fri: 9:00am - 5:00pm</p>
+            </li>
+          </ul>
+          <ul className="text-white flex items-center gap-3">
+            <a
+              href="#"
+              className="hover:text-yellow-400 hover:scale-110 duration-500 ease"
             >
-              <NavLinks />
-            </ul>
-            {/* ----------------------------------------------------- */}
+              <FaLinkedin />
+            </a>
+            <a
+              href="#"
+              className="hover:text-yellow-400 hover:scale-110 duration-500 ease"
+            >
+              <RiInstagramLine />
+            </a>
+            <a
+              href="#"
+              className="hover:text-yellow-400 hover:scale-110 duration-500 ease"
+            >
+              <FaFacebook />
+            </a>
+            <a
+              href="#"
+              className="hover:text-yellow-400 hover:scale-110 duration-500 ease"
+            >
+              <FaWhatsapp />
+            </a>
+            <a
+              href="#"
+              className="hover:text-yellow-400 hover:scale-110 duration-500 ease"
+            >
+              <RiTwitterXFill />
+            </a>
+          </ul>
+        </div>
+      </div>
+      {/* End Desktop Info Nav ----------------------------------------------------- */}
 
-            {/* ----------------------------------------------------- */}
-            <div className="flex items-center gap-4">
-              {/* Apply button */}
-              <div className="md:block hidden">
-                <NavButtonApply />
-              </div>
-              {/* Desktop version of SearchIcon (hidden on mobile, visible on desktop) */}
+      {/* Main Nav ----------------------------------------------------- */}
+      <nav
+        className={`fixed left-0 right-0 w-full transition-all duration-700 ${
+          isScrolled
+            ? "top-0 z-50 py-5 bg-white shadow-custom-light"
+            : "bg-transparent border-b-2 border-transparent"
+        }`}
+      >
+        <div className="flex justify-between items-center font-medium md:px-40 py-1">
+          {/* ----------------------------------------------------- */}
+          <div className="z-40 px-5 md:px-0 md:w-auto w-full flex justify-between">
+            <Link to="/">
+              <img
+                src={isScrolled ? LogoBlack : LogoWhite}
+                alt="logo"
+                className="md:cursor-pointer h-8"
+              />
+            </Link>
+
+            <div
+              className={`flex items-center gap-3 flex-row-reverse ${
+                isScrolled ? "text-gray-600" : "text-white"
+              } `}
+            >
+              {/* Menu ----------------------------------------------------- */}
               <div
-                className={`hidden md:block ${
-                  isScrolled ? "md:text-gray-600" : "text-white"
-                } cursor-pointer text-2xl `}
-                onClick={() => setSearchbOpen(true)}
+                className="text-3xl cursor-pointer md:hidden ml-2 md:ml-0"
+                onClick={() => setOpen(!open)}
+              >
+                {open ? <MdMenu /> : <MdMenu />}
+              </div>
+
+              {/* Mobile version of SearchIcon (visible on mobile, hidden on desktop) */}
+              <div
+                className="flex md:hidden cursor-pointer text-2xl"
+                onClick={() => setSearchbOpen(!searchb_open)}
               >
                 <RiSearch2Line />
               </div>
             </div>
-            {/* ----------------------------------------------------- */}
           </div>
-        </nav>
-        {/*End Main Nav ----------------------------------------------------- */}
+          {/* ----------------------------------------------------- */}
+
+          {/* Menu menus or links display here ----------------------------------------------------- */}
+          <ul
+            className={`hidden md:flex capitalize text-sm ${
+              isScrolled ? "text-gray-500" : "text-white/80"
+            } font-medium items-center gap-3`}
+          >
+            <NavLinks />
+          </ul>
+          {/* ----------------------------------------------------- */}
+
+          {/* ----------------------------------------------------- */}
+          <div className="flex items-center gap-4">
+            {/* Apply button */}
+            <div className="md:block hidden">
+              <NavButtonApply />
+            </div>
+            {/* Desktop version of SearchIcon (hidden on mobile, visible on desktop) */}
+            <div
+              className={`hidden md:block ${
+                isScrolled ? "md:text-gray-600" : "text-white"
+              } cursor-pointer text-2xl `}
+              onClick={() => setSearchbOpen(true)}
+            >
+              <RiSearch2Line />
+            </div>
+          </div>
+          {/* ----------------------------------------------------- */}
+        </div>
+      </nav>
+      {/*End Main Nav ----------------------------------------------------- */}
 
       {/* Mobile nav  ----------------------------------------------------- */}
       <div
         className={`z-50
-          md:hidden bg-white fixed w-full top-0 overflow-y-auto bottom-0
+          md:hidden bg-white fixed w-full top-0 overflow-y-auto bottom-0 border-l-2 border-primary
           duration-500 ${open ? "left-0" : "left-[-100%]"}
           `}
       >
