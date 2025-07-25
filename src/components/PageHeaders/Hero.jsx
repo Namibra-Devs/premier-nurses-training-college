@@ -44,17 +44,16 @@ const Hero = () => {
   }, []);
 
   return (
-    <header className="relative h-screen overflow-hidden rounded-b-3xl">
+    <header className="relative h-[80vh] md:h-screen overflow-hidden rounded-b-3xl">
       <Navbar />
-
       {/* Background images with fade transition */}
       {HeroSliders.map((slide, index) => (
         <div
           key={index}
-          className={`absolute inset-0 bg-cover md:bg-top bg-center transition-opacity duration-1000 ${
+          className={`absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000 ${
             index === currentImageIndex ? 'opacity-100' : 'opacity-0'
-          }`}
-          style={{ backgroundImage: `url(${slide})` }}
+          } md:bg-top bg-cover`}
+          style={{ backgroundImage: `url(${slide})`}}
         />
       ))}
 
@@ -74,13 +73,9 @@ const Hero = () => {
           Nursing is a work of heart. Discover eight reason to transform your
           nursing carrier.
         </p>
-        <div className="text-xl flex items-center gap-4">
-          <a href="/apply">
-            <HeroButtonApply label="Apply Now" />
-          </a>
-          <a href="/admissions">
-            <ButtonOutline label="Admission List" />
-          </a>
+        <div className="text-xl flex items-center gap-0 md:gap-4">
+          <HeroButtonApply label="Apply Now" link="/registration-page" />
+          <ButtonOutline label="Admission List" link="admissions" />
         </div>
       </div>
     </header>

@@ -35,7 +35,7 @@ const Navbar = () => {
     <main className="relative z-50">
       
         {/*Desktop Info Nav ----------------------------------------------------- */}
-        <div className="top-nav z-50 backdrop-brightness-90 text-center md:px-40 py-2">
+        <div className="top-nav z-50 backdrop-brightness-75 text-center md:px-40 py-2">
           {/* Info nav menu toggle */}
           <div
             className="text-white text-sm flex items-center justify-center md:hidden cursor-pointer"
@@ -45,28 +45,28 @@ const Navbar = () => {
             <span className="uppercase text-sm font-semibold">Menu</span>
           </div>
           <div className="hidden md:flex justify-between items-center font-medium ">
-            <ul className="flex items-center justify-between text-sm gap-4 list-none text-white font-medium">
+            <ul className="flex items-center justify-between text-sm gap-4 list-none text-white/80 font-medium">
               <li className="flex items-center gap-1">
                 <AiOutlineMail />
-                <a href="#" className="text-[13px]">
+                <a href="#" className="text-[11px]">
                   info@pntc.edu.gh
                 </a>
               </li>
               <li className="flex items-center gap-1">
                 <GoLocation />
-                <a href="#" className="text-[13px]">
+                <a href="#" className="text-[11px]">
                   Adum Kumasi
                 </a>
               </li>
               <li className="flex items-center gap-1">
                 <FiPhone />
-                <a href="#" className="text-[13px]">
+                <a href="#" className="text-[11px]">
                   +233264256825, +233243519083
                 </a>
               </li>
               <li className="flex items-center gap-1">
                 <BsClock />
-                <p className="text-[13px]">Mon - Fri: 9:00am - 5:00pm</p>
+                <p className="text-[11px]">Mon - Fri: 9:00am - 5:00pm</p>
               </li>
             </ul>
             <ul className="text-white flex items-center gap-3">
@@ -120,7 +120,7 @@ const Navbar = () => {
                 <img
                   src={isScrolled ? LogoBlack : LogoWhite}
                   alt="logo"
-                  className="md:cursor-pointer h-10"
+                  className="md:cursor-pointer h-8"
                 />
               </Link>
 
@@ -151,8 +151,8 @@ const Navbar = () => {
             {/* Menu menus or links display here ----------------------------------------------------- */}
             <ul
               className={`hidden md:flex capitalize text-sm ${
-                isScrolled ? "text-gray-600" : "text-white"
-              } font-medium items-center gap-4`}
+                isScrolled ? "text-gray-500" : "text-white/80"
+              } font-medium items-center gap-3`}
             >
               <NavLinks />
             </ul>
@@ -192,7 +192,7 @@ const Navbar = () => {
             <img
               src={LogoBlack}
               alt="logo"
-              className="md:cursor-pointer h-10"
+              className="md:cursor-pointer h-8"
             />
           </Link>
           {/* Close Icon */}
