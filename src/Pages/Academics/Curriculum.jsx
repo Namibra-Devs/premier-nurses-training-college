@@ -26,11 +26,11 @@ const Curriculum = () => {
         {/* Curriculum 1 */}
         <div className="relative bg-blue-100 rounded-3xl overflow-hidden hover:shadow-custom-light group">
           <img src={curriculum1} className="w-full object-cover rounded-3xl group-hover:brightness-75 duration-700" alt="" />
-          <div className="absolute bottom-0 left-0 right-0 rounded-3xl bg-blue-100 shadow-inner shadow-slate-100 p-4 h-14 group-hover:h-[70%] transition-all duration-700 ease-in-out">
-            <h3 className="text-base md:text-sm lg:text-base tracking-tight text-gray-600 font-semibold ">
+          <div className="absolute bottom-0 left-0 right-0 group-hover:rounded-xl backdrop-brightness-75 py-2 px-4 h-10 group-hover:h-[70%] transition-all duration-700 ease-in-out">
+            <h3 className="text-base md:text-sm tracking-tight text-white font-semibold ">
               Patient Care Fundamentals
             </h3>
-            <p className="text-gray-500 text-sm opacity-0 group-hover:opacity-100 duration-700 ease-in-out">
+            <p className="text-white/90 text-sm opacity-0 group-hover:opacity-100 duration-700 ease-in-out">
               Training on patient assessment, communication, and care.
             </p>
           </div>
@@ -38,11 +38,11 @@ const Curriculum = () => {
         {/* Curriculum 2 */}
         <div className="relative bg-blue-100 rounded-3xl overflow-hidden hover:shadow-custom-light group">
           <img src={curriculum2} className="w-full object-cover rounded-3xl group-hover:brightness-75 duration-700" alt="" />
-          <div className="absolute bottom-0 left-0 right-0 rounded-3xl bg-blue-100 shadow-inner shadow-slate-100 p-4 h-14 group-hover:h-[70%] transition-all duration-700 ease-in-out">
-            <h3 className="text-base md:text-sm lg:text-base tracking-tight text-gray-600 font-semibold ">
+          <div className="absolute bottom-0 left-0 right-0 group-hover:rounded-xl backdrop-brightness-75 py-2 px-4 h-10 group-hover:h-[70%] transition-all duration-700 ease-in-out">
+            <h3 className="text-base md:text-sm tracking-tight text-white font-semibold ">
               Clinical Skills and Specializations
             </h3>
-            <p className="text-gray-500 text-sm opacity-0 group-hover:opacity-100 duration-700 ease-in-out">
+            <p className="text-white/90 text-sm opacity-0 group-hover:opacity-100 duration-700 ease-in-out">
               Specialties like geriatric care, mental health, and surgical
               nursing.
             </p>
@@ -51,11 +51,11 @@ const Curriculum = () => {
         {/* Curriculum 3 */}
         <div className="relative bg-blue-100 rounded-3xl overflow-hidden hover:shadow-custom-light group">
           <img src={curriculum3} className="w-full object-cover rounded-3xl group-hover:brightness-75 duration-700" alt="" />
-          <div className="absolute bottom-0 left-0 right-0 rounded-3xl bg-blue-100 shadow-inner shadow-slate-100 p-4 h-14 group-hover:h-[70%] transition-all duration-700 ease-in-out">
-            <h3 className="text-base md:text-sm lg:text-base tracking-tight text-gray-600 font-semibold ">
+          <div className="absolute bottom-0 left-0 right-0 group-hover:rounded-xl backdrop-brightness-75 py-2 px-4 h-10 group-hover:h-[70%] transition-all duration-700 ease-in-out">
+            <h3 className="text-base md:text-sm tracking-tight text-white font-semibold ">
               Ethics and Professionalism
             </h3>
-            <p className="text-gray-500 text-sm opacity-0 group-hover:opacity-100 duration-700 ease-in-out">
+            <p className="text-white/90 text-sm opacity-0 group-hover:opacity-100 duration-700 ease-in-out">
               Emphasis on ethical decision-making and patient advocacy.
               Graduates will leave with competencies in clinical practice,
               critical thinking, and compassionate care.
