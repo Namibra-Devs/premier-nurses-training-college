@@ -15,7 +15,7 @@ const FDirectories = () => {
             <img
               src={faculty.image}
               alt={faculty.name}
-              className="w-full object-cover rounded-2xl mx-auto mb-4"
+              className="w-full h-[225px] object-cover rounded-2xl mx-auto mb-4"
             />
             <span className="absolute inset-0 m-auto text-4xl text-white flex items-center justify-center">
               <ion-icon name="add-outline"></ion-icon>
@@ -30,22 +30,22 @@ const FDirectories = () => {
               </span>
               {/* Details */}
               <div className="mt-8">
-                <h3 className="text-base font-semibold">
+                <h3 className="text-xs font-semibold">
                   Name: {faculty.name}
                 </h3>
-                <p className="text-sm text-gray-50 font-medium">
+                <p className="text-xs text-gray-50 font-medium">
                   Title: {faculty.title}
                 </p>
-                <p className="text-sm text-gray-50 font-medium">
+                <p className="text-xs text-gray-50 font-medium">
                   Qualification: {faculty.qualifications}
                 </p>
-                <p className="text-sm text-gray-50 font-medium">
+                <p className="text-xs text-gray-50 font-medium">
                   Speciality {faculty.specialization}
                 </p>
-                <p className="text-sm text-gray-50 font-medium">
+                <p className="text-xs text-gray-50 font-medium">
                   Email: {faculty.email}
                 </p>
-                <p className="text-sm text-gray-50 font-medium">
+                <p className="text-xs text-gray-50 font-medium">
                   Phone: {faculty.phone}
                 </p>
               </div>
