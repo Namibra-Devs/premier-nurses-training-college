@@ -1,27 +1,21 @@
 const ProgramsData = [
   {
-    name: "Nursing",
+    name: "Registered General Nursing",
     description:
       "A comprehensive program that prepares students for entry-level positions in healthcare.",
-      url: "/programs/nursing",
+    url: "/programs/nursing",
   },
   {
-    name: "Pharmacy",
+    name: "Registered Midwifery",
     description:
       "Focused on specific skills like emergency care, maternal health, and pediatric nursing.",
-      url: "/programs/pharmacy",
+    url: "/programs/midwifery/",
   },
   {
-    name: "Midwifery",
+    name: "Nursing Assistant Clinical",
     description:
-      "Focused on specific skills like emergency care, maternal health, and pediatric nursing.",
-      url: "/programs/midwifery/",
-  },
-  {
-    name: "Program 04",
-    description:
-      "Our college provides a range of programs to meet diverse career",
-      url: "/programs/nursing/",
+      "Prepares students to assist nurses and provide basic patient care in clinical settings.",
+    url: "/programs/nursing/",
   },
 ];
 

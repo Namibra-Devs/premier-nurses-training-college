@@ -55,13 +55,13 @@ const Navbar = () => {
             <li className="flex items-center gap-1">
               <GoLocation />
               <a href="#" className="text-[11px]">
-                Adum Kumasi
+                Moshie Zongo-Kumasi
               </a>
             </li>
             <li className="flex items-center gap-1">
               <FiPhone />
               <a href="#" className="text-[11px]">
-                +233264256825, +233243519083
+                +233545897944, +233248520715
               </a>
             </li>
             <li className="flex items-center gap-1">
@@ -294,16 +294,16 @@ const Navbar = () => {
           </ul>
         </div>
       </div>
-      {/* End Info Nav ----------------------------------------------------- */}
+      {/* End Info Nav --------------------------------------------------------- */}
 
-      {/* Overlay ----------------------------------------------------- */}
+      {/* Overlay -------------------------------------------------------------- */}
       {searchb_open && (
         <div
           className="fixed inset-0 bg-black bg-opacity-30 z-50"
           onClick={() => setSearchbOpen(false)}
         ></div>
       )}
-      {/* ----------------------------------------------------- */}
+      {/* ----------------------------------------------------------------------- */}
 
       {/* Search Component ----------------------------------------------------- */}
       <Searchform searchb_open={searchb_open} setSearchbOpen={setSearchbOpen} />
