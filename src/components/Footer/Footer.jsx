@@ -25,7 +25,7 @@ const Footer = () => {
                   className="mr-2 text-yellow-400"
                 ></ion-icon>
               </span>
-              +233264256825, +233243519083
+              +233545897944, +233248520715
             </p>
             <p className="flex items-center text-sm mb-2">
               <span className="mr-4 text-yellow-400">
@@ -186,7 +186,7 @@ const Footer = () => {
                   PNTC Adress
                 </h2>
                 <p className="flex items-center">
-                  Box KS3797, Kumasi, Ghana, 00233
+                  P. O. Box 3797, Kumasi, Ghana, 00233
                 </p>
               </div>
               <div className="flex flex-col items-start">

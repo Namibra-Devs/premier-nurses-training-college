@@ -13,7 +13,7 @@ const RequirementsAndEligibility = () => {
           </h3>
           {/* Subtitle */}
           <h1 className="text-gray-700 text-2xl leading-2 tracking-tight font-semibold max-w-full mt-3 mb-0 md:mb-5">
-            Requirements And Eligibility
+            Requirements & Eligibility
           </h1>
         </div>
         <p className="font-normal text-base text-left md:text-right text-gray-600 max-w-lg">

@@ -9,11 +9,11 @@ const FLeadership01 = () => {
           <img
             src={faculty.image}
             alt={faculty.name}
-            className="w-full object-cover rounded-2xl mx-auto mb-4"
+            className="w-full h-[220px] object-cover rounded-2xl mx-auto mb-4"
           />
-          <h3 className="text-xl font-semibold">{faculty.name}</h3>
+          <h3 className="text-xl font-semibold text-gray-600">{faculty.name}</h3>
           <p className="text-sm text-gray-600">{faculty.title}</p>
-          <p className="mt-2 text-sm text-gray-700">{faculty.bio}</p>
+          {/* <p className="mt-2 text-sm text-gray-700">{faculty.bio}</p> */}
         </div>
       ))}
     </div>

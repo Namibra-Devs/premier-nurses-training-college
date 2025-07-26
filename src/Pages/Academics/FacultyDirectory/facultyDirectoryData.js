@@ -1,34 +1,29 @@
 // facultyData.j
-import facultyD01 from "../../../assets/Aboutus/Faculty/faculty01.jpg";
+import facultyD01 from "../../../assets/Aboutus/Faculty/faculty03.jpg";
 import facultyD02 from "../../../assets/Aboutus/Faculty/faculty02.jpg";
+
+//Avatar profile
+import femaleAvatar from "../../../assets/Aboutus/Faculty/female-avatar.png";
+import maleAvatar from "../../../assets/Aboutus/Faculty/male-avatar.png";
 
 const facultyDirectoryData = [
   {
-    name: "Dr. Jane Doe",
-    title: "Dean of Nursing",
+    name: "Mr. Musah Abubakari",
+    title: "HOD, Department of Nursing",
     image: facultyD01,
-    qualifications: "Ph.D. in Nursing, MSN",
+    qualifications: "MSc. Nursing",
     specialization: "Clinical Practice, Nursing Education",
-    email: "sarah.johnson@example.com",
-    phone: "0205651119",
+    email: "musah@pntc.edu.gh",
+    phone: "+233 24 571 4882",
   },
   {
-    name: "Prof. Kimberly Annbor",
-    title: "Professor of Nursing",
-    image: facultyD02,
+    name: "Ms. Vivian Adjei",
+    title: "HOD, Department of Midwifery",
+    image: femaleAvatar,
     qualifications: "MSN, BSN",
     specialization: "Research, Advanced Nursing",
     email: "john.smith@example.com",
     phone: "0545613456",
-  },
-  {
-    name: "Prof. Kendrick Boston",
-    title: "Tutor",
-    image: facultyD02,
-    qualifications: "MSN, BSN",
-    specialization: "Research, Advanced Nursing",
-    email: "john.smith@example.com",
-    phone: "0245655516",
   },
   // Add more faculty members as needed
 ];
