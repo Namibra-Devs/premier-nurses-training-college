@@ -25,15 +25,6 @@ const facultyDirectoryData = [
     email: "john.smith@example.com",
     phone: "0545613456",
   },
-  {
-    name: "John Doe",
-    title: "Tutor",
-    image: maleAvatar,
-    qualifications: "MSN, BSN",
-    specialization: "Research, Advanced Nursing",
-    email: "john.smith@example.com",
-    phone: "024563355516",
-  },
   // Add more faculty members as needed
 ];
 export default facultyDirectoryData;
