@@ -56,9 +56,9 @@ const FDirectories = () => {
           </div>
         ))}
       </div>
-      <a href="/" className="self-end mt-10">
-        <ButtonView label="View More" />
-      </a>
+      <div className="self-end mt-10">
+        <ButtonView link='#' label="View More" />
+      </div>
     </>
   );
 };

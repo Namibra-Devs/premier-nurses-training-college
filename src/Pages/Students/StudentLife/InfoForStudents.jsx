@@ -1,6 +1,6 @@
 import React from "react";
 import infoForStudentsData from "./infoForStudentsData";
-import freshersimg from "../../../assets/Students/freshers.jpg";
+import freshersimg from "../../../assets/gallery/students/freshers.jpg";
 import Accreditation from "./Accreditation";
 import ButtonView from "../../../components/Buttons/ButtonView";
 
@@ -34,9 +34,8 @@ const InfoForStudents = () => {
           <br />
           <Accreditation />
           <br />
-          <a href="/academicaffairs">
-            <ButtonView label="Academic Affairs" />
-          </a>
+      
+          <ButtonView link="/academicaffairs" label="Academic Affairs" />
         </div>
       </div>
     </div>

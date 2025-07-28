@@ -99,7 +99,6 @@ const RegistrationPage = () => {
     }
   };
   
-
   return (
     <div className="flex flex-col md:flex-row min-h-screen items-center justify-center bg-gray-100">
       {/* Alerts */}
@@ -111,7 +110,7 @@ const RegistrationPage = () => {
         {/* Left Column */}
         <div className="relative bg-RegLoginBg bg-cover bg-center py-56">
           <div className="absolute z-50 top-6 w-full flex justify-center">
-            <Link href="/">
+            <Link to="/">
               <img src={logo} className="h-8" alt="pntc-logo" />
             </Link>
           </div>

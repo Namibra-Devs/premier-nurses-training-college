@@ -1,15 +1,16 @@
 import React from "react";
 import { Blogs } from "./BlogData";
+import { Link } from "react-router-dom";
 
 const BlogCard = () => {
   return (
     <>
       {Blogs.map((blog, index) => (
         // Blog item
-        <a
+        <Link
           data-aos="fade-up"
           data-aos-duration="800"
-          href={blog.url} // Use the URL from each blog item
+          to={blog.url} // Use the URL from each blog item
           key={index}
           className="blog-item relative group rounded-3xl overflow-hidden transition-transform duration-500 transform hover:-translate-y-2"
         >
@@ -36,7 +37,7 @@ const BlogCard = () => {
                 {blog.description}
               </p> */}
           </div>
-        </a>
+        </Link>
       ))}
     </>
   );

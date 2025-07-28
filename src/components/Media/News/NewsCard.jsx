@@ -1,11 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const NewsCard = ({ url, image, title, date, description }) => {
   return (
     <div>
       {/* Wrap the entire content in an anchor tag */}
-      <a
-        href={url}
+      <Link
+        to={url}
         className="rounded-3xl overflow-hidden group hover:border-b transition-transform duration-500 transform hover:-translate-y-2 block"
       >
         <div className="overflow-hidden rounded-3xl">
@@ -31,15 +32,15 @@ const NewsCard = ({ url, image, title, date, description }) => {
             </p>
 
             {/* Read More Button */}
-            <a
-              href={url}
+            <Link
+              to={url}
               className="text-primary text-xs font-normal flex items-center gap-2 group-hover:gap-4 duration-500 ease mt-5"
             >
               Read More<ion-icon name="chevron-forward-outline"></ion-icon>
-            </a>
+            </Link>
           </div>
         </div>
-      </a>
+      </Link>
     </div>
   );
 };

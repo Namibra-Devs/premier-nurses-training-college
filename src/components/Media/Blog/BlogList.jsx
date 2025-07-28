@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import ButtonView from "../../Buttons/ButtonView";
 import BlogCard from "./BlogCard";
 
@@ -32,9 +33,9 @@ const BlogList = () => {
           >
             Sorround yourself with the community and resources.
           </h3>
-          <a data-aos-duration="800" href="/">
+          <Link data-aos-duration="800" to="/">
             <ButtonView label="View More" />
-          </a>
+          </Link>
         </div>
       </div>
     </div>

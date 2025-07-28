@@ -1,5 +1,6 @@
 // NewsList.jsx
 import React from "react";
+import { Link } from "react-router-dom";
 import ButtonView from "../../Buttons/ButtonView";
 import NewsCarousel from "./NewsCarousel";
 
@@ -26,14 +27,14 @@ const NewsList = () => {
             vision to life and keep you updated.
           </p>
         </div>
-        <a
+        <Link
           data-aos="fade-up"
           data-aos-duration="700"
-          href="/"
+          to="/"
           className="max-w-[60%] text-right mt-5 md:mt-0"
         >
           <ButtonView label="View More" />
-        </a>
+        </Link>
       </div>
 
       {/* Swiper Carousel */}
