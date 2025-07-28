@@ -138,7 +138,7 @@ const KeyStatisticsII = () => {
             <h3 className="text-base tracking-tight text-white font-semibold my-1">
               Accredited and Recognized Programs
             </h3>
-            <p className="text-gray-50 text-sm font-medium">
+            <p className="text-gray-50 text-sm font-normal">
               We are fully accredited by the National Nursing Accreditation
               Board, ensuring our programs meet the highest standards of nursing
               education and healthcare training.
