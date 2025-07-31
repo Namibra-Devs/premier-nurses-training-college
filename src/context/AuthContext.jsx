@@ -1,3 +1,4 @@
+import React from 'react';
 // context/AuthContext.js
 import { createContext, useContext, useState, useEffect } from 'react';
 
