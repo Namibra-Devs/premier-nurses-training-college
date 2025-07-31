@@ -1,6 +1,6 @@
 import React from "react";
 import Navbar from "../Navbar/Navbar";
-import ButtonLogin from "../Pages/Admissions/Application/Login/ButtonLogin";
+import ButtonLogin from "../../features/ApplicationForm/Login/ButtonLogin";
 
 const AdmissionsHeader = () => {
   return (

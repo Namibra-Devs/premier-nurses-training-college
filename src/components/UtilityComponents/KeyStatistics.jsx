@@ -48,7 +48,7 @@ const KeyStatistics = () => {
         >
           <div className="mt-14">
             <div className="absolute top-0 left-0 p-4  bg-primary rounded-br-3xl text-lg font-bold text-white">
-              <span className="">92%</span>
+              <span className="">65%</span>
             </div>
             <h3 className="text-base tracking-tight text-gray-600 font-semibold my-1">
               Student-to-Faculty Ratio
@@ -67,7 +67,7 @@ const KeyStatistics = () => {
         >
           <div className="mt-14">
             <div className="absolute top-0 left-0 p-4  bg-primary rounded-br-3xl text-lg font-bold text-white">
-              <span className="">92%</span>
+              <span className="">83%</span>
             </div>
             <h3 className="text-base tracking-tight text-gray-600 font-semibold my-1">
               Alumni Network

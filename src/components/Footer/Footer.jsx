@@ -1,5 +1,6 @@
 import React from "react";
 
+import { FaLinkedin, FaFacebook, FaTwitter } from "react-icons/fa"; // Social Icons
 const Footer = () => {
   return (
     <footer className="bg-gradient-to-r from-blue-800 to bg-primary text-gray-200 pt-24 overflow-hidden rounded-t-3xl">
@@ -7,7 +8,7 @@ const Footer = () => {
         <div className="flex flex-wrap justify-between mb-4 md:mb-8">
           {/* Contact Information */}
           <div className="w-full md:w-1/3 mb-8">
-            <h2 className="text-4xl font-bold text-yellow-400">
+            <h2 className="text-2xl font-bold text-yellow-400">
               PNTC.
               <span className="text-white text-sm ml-2">
                 Nurses' Training College
@@ -17,16 +18,16 @@ const Footer = () => {
               We are dedicated to shaping the future of healthcare by educating
               and inspiring the next generation of skillednurses.
             </p>
-            <p className="flex items-center mb-2">
+            <p className="flex items-center text-sm mb-2">
               <span className="mr-4 text-yellow-400">
                 <ion-icon
                   name="call"
                   className="mr-2 text-yellow-400"
                 ></ion-icon>
               </span>
-              +233264256825, +233243519083
+              +233545897944, +233248520715
             </p>
-            <p className="flex items-center mb-2">
+            <p className="flex items-center text-sm mb-2">
               <span className="mr-4 text-yellow-400">
                 <ion-icon
                   name="mail"
@@ -39,7 +40,7 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div className="w-full md:w-1/5 mb-8">
-            <h2 className="text-2xl font-semibold mb-4 text-white">
+            <h2 className="text-xl font-semibold mb-4 text-white">
               Quick Links
             </h2>
             <ul>
@@ -76,7 +77,7 @@ const Footer = () => {
                   ></ion-icon>
                 </span>
                 <a
-                  href="/#programs"
+                  href="/academics#programs"
                   className="hover:text-yellow-400 duration-500 ease"
                 >
                   Programs
@@ -115,7 +116,7 @@ const Footer = () => {
 
           {/* Useful Links */}
           <div className="w-full md:w-1/5 mb-8">
-            <h2 className="text-2xl font-semibold mb-4 text-white">
+            <h2 className="text-xl font-semibold mb-4 text-white">
               Useful Links
             </h2>
             <ul className="">
@@ -135,7 +136,7 @@ const Footer = () => {
                   <ion-icon name="caret-forward-outline"></ion-icon>
                 </span>
                 <a
-                  href="/#alumni"
+                  href="/students#alumni"
                   className="hover:text-yellow-400 duration-500 ease"
                 >
                   Alumni
@@ -181,15 +182,15 @@ const Footer = () => {
           <div className="w-full md:w-1/4 mb-8">
             <div className="flex flex-col items-start">
               <div className="flex flex-col items-start mb-8">
-                <h2 className="text-2xl font-semibold mb-2 text-white">
+                <h2 className="text-xl font-semibold mb-2 text-white">
                   PNTC Adress
                 </h2>
                 <p className="flex items-center">
-                  Box KS3797, Kumasi, Ghana, 00233
+                  P. O. Box 3797, Kumasi, Ghana, 00233
                 </p>
               </div>
               <div className="flex flex-col items-start">
-                <h2 className="text-2xl font-semibold mb-2 text-white">
+                <h2 className="text-xl font-semibold mb-2 text-white">
                   Working Hours
                 </h2>
                 <p className="flex items-center">Mon - Fri 9:00 AM - 5:00 PM</p>
@@ -215,7 +216,7 @@ const Footer = () => {
               rel="noopener noreferrer"
               className="text-white hover:text-yellow-400 text-3xl hover:transition-transform duration-700 transform hover:-translate-y-2"
             >
-              <ion-icon name="logo-facebook"></ion-icon>
+              <FaFacebook/>
             </a>
             <a
               href="https://twitter.com"
@@ -223,7 +224,7 @@ const Footer = () => {
               rel="noopener noreferrer"
               className="text-white hover:text-yellow-400 text-3xl hover:transition-transform duration-700 transform hover:-translate-y-2"
             >
-              <ion-icon name="logo-twitter"></ion-icon>
+              <FaTwitter/>
             </a>
             <a
               href="https://instagram.com"
@@ -239,7 +240,7 @@ const Footer = () => {
               rel="noopener noreferrer"
               className="text-white hover:text-yellow-400 text-3xl hover:transition-transform duration-700 transform hover:-translate-y-2"
             >
-              <ion-icon name="logo-linkedin"></ion-icon>
+              <FaLinkedin/>
             </a>
           </div>
         </div>
