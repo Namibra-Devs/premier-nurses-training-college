@@ -1,8 +1,8 @@
-import library from "../../../assets/Students/facilities/library.jpg";
-import ictlab from "../../../assets/Students/facilities/ictlab.jpg";
-import class01 from "../../../assets/Students/facilities/class01.jpg";
-import auditorium from "../../../assets/Students/facilities/auditorium.jpg";
-import class03 from "../../../assets/Students/facilities/class03.jpg";
+import library from "../../../assets/gallery/facilities/library.jpg";
+import ictlab from "../../../assets/gallery/facilities/ictlab.jpg";
+import class01 from "../../../assets/gallery/facilities/class01.jpg";
+import auditorium from "../../../assets/gallery/facilities/auditorium.jpg";
+import class03 from "../../../assets/gallery/facilities/class03.jpg";
 
 export const facilitiesData = [
     {

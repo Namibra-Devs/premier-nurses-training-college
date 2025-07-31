@@ -1,6 +1,6 @@
 const contactusData = {
   email: "info@pntc.edu.gh",
-  phoneNumbers: ["+233264256825", "+233243519083"],
+  phoneNumbers: ["+233545897944", "+233248520715"],
   officeLocation: {
     addressLine1: "123 University Ave",
     addressLine2: "City Campus",

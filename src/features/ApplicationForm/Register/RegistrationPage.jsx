@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import logo from "../../../assets/Logo.png";
+import { Link } from "react-router-dom";
+import logo from "../../../assets/logo-white.png";
 import SubmitButton from "../../../components/Buttons/SubmitButton";
 import OverlayAlert from "../../../Pages/Admissions/Application/OverlayAlert";
 import ButtonLogin from "../Login/ButtonLogin";
@@ -98,7 +99,6 @@ const RegistrationPage = () => {
     }
   };
   
-
   return (
     <div className="flex flex-col md:flex-row min-h-screen items-center justify-center bg-gray-100">
       {/* Alerts */}
@@ -110,12 +110,12 @@ const RegistrationPage = () => {
         {/* Left Column */}
         <div className="relative bg-RegLoginBg bg-cover bg-center py-56">
           <div className="absolute z-50 top-6 w-full flex justify-center">
-            <a href="/">
-              <img src={logo} alt="pntc-logo" />
-            </a>
+            <Link to="/">
+              <img src={logo} className="h-8" alt="pntc-logo" />
+            </Link>
           </div>
           <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center p-8">
-            <h1 className="text-4xl text-white text-center font-bold mb-4">
+            <h1 className="text-3xl text-white text-center font-semibold mb-4">
               Join PNTC Today!
             </h1>
             <p className="text-sm leading-tight text-gray-200 text-center">
@@ -139,7 +139,7 @@ const RegistrationPage = () => {
 
         {/* Right Column */}
         <div className="p-8">
-          <h2 className="text-3xl font-semibold text-gray-800 mb-6 text-center">
+          <h2 className="text-2xl font-semibold text-gray-600 mb-6 text-center">
             Create An Account
           </h2>
           <form className="space-y-4" onSubmit={handleFormSubmit}>

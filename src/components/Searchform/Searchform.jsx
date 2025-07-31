@@ -49,20 +49,6 @@ const SearchForm = ({ searchb_open, setSearchbOpen }) => {
 
   return (
     <>
-<<<<<<< HEAD
-      {/* Search Form */}
-      <div
-        className={`z-50 fixed md:w-[600px] w-full h-full top-0 overflow-y-auto bottom-0 px-10
-          transform duration-500 ease border-l-4 border-primary 
-          ${searchb_open ? "translate-x-0" : "-translate-x-full"} 
-          bg-white md:bg-transparent md:backdrop-brightness-75`}
-      >
-        {/* Close Icon */}
-        <div className="relative">
-          <div
-            onClick={() => setSearchbOpen(false)}
-            className="absolute -right-6 top-3 bg-slate-200 h-8 w-8 rounded-full hover:bg-primary hover:text-white duration-200 text-slate-500 text-xl flex justify-center items-center cursor-pointer"
-=======
       {/* Search Overlay */}
       <div
         className={`fixed inset-0 z-50 h-full w-full transform overflow-y-auto bg-black/80 backdrop-blur-md transition-all duration-500 ease-in-out ${
@@ -75,7 +61,6 @@ const SearchForm = ({ searchb_open, setSearchbOpen }) => {
             onClick={() => setSearchbOpen(false)}
             className="absolute right-4 top-4 rounded-full bg-white/10 p-2 text-white transition hover:bg-white/20"
             aria-label="Close search"
->>>>>>> 7e909f27151b1990c9e64a9636036206250b1195
           >
             <MdClose className="h-6 w-6" />
           </button>

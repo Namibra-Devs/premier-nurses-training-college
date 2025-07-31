@@ -1,15 +1,15 @@
-import ow1 from "../../../assets/Students/01.jpg";
-import ow2 from "../../../assets/Students/02.jpg";
-import ow3 from "../../../assets/Students/03.jpg";
-import ow4 from "../../../assets/Students/04.jpg";
-import ow5 from "../../../assets/Students/05.jpg";
-import ow6 from "../../../assets/Students/06.jpg";
-import ow7 from "../../../assets/Students/07.jpg";
-import ow8 from "../../../assets/Students/08.jpg";
-import ow9 from "../../../assets/Students/09.jpg";
-import ow10 from "../../../assets/Students/10.jpg";
-import ow11 from "../../../assets/Students/11.jpg";
-import ow12 from "../../../assets/Students/12.jpg";
+import ow1 from "../../../assets/gallery/students/01.jpg";
+import ow2 from "../../../assets/gallery/students/02.jpg";
+import ow3 from "../../../assets/gallery/students/03.jpg";
+import ow4 from "../../../assets/gallery/students/04.jpg";
+import ow5 from "../../../assets/gallery/students/05.jpg";
+import ow6 from "../../../assets/gallery/students/06.jpg";
+import ow7 from "../../../assets/gallery/students/07.jpg";
+import ow8 from "../../../assets/gallery/students/08.jpg";
+import ow9 from "../../../assets/gallery/students/09.jpg";
+import ow10 from "../../../assets/gallery/students/10.jpg";
+import ow11 from "../../../assets/gallery/students/11.jpg";
+import ow12 from "../../../assets/gallery/students/12.jpg";
 
 const studentLifeData = {
   overview: {

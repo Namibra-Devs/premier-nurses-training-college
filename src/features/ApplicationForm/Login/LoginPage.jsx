@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import logo from "../../../assets/Logo.png";
+import { useNavigate, Link } from "react-router-dom";
+import logo from "../../../assets/logo-white.png";
 import SubmitButton from "../../../components/Buttons/SubmitButton";
 import OverlayAlert from "../../../Pages/Admissions/Application/OverlayAlert";
 import ButtonLogin from "./ButtonLogin";
@@ -100,13 +100,13 @@ const LoginPage = () => {
         {/* Left Column */}
         <div className="relative bg-RegLoginBg bg-cover bg-center py-56">
           <div className="absolute z-50 top-6 w-full flex justify-center">
-            <a href="/">
-              <img src={logo} alt="pntc-logo" />
-            </a>
+            <Link to="/">
+              <img src={logo} className="h-8" alt="pntc-logo" />
+            </Link>
           </div>
           <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center p-8">
-            <h1 className="text-3xl text-white text-center font-bold mb-4">
-              Welcome Back to PNTC!
+            <h1 className="text-3xl text-white text-center font-semibold mb-4">
+              Welcome Back!
             </h1>
             <p className="text-sm leading-tight text-gray-200 text-center">
               Log in with the Voucher PIN you purchased and the new account
@@ -129,7 +129,7 @@ const LoginPage = () => {
 
         {/* Right Column */}
         <div className="p-8">
-          <h2 className="text-2xl font-semibold text-gray-800 mb-6 text-center">
+          <h2 className="text-xl font-semibold text-gray-600 mb-6 text-center">
             Login to Your Account
           </h2>
           <form className="space-y-4" onSubmit={handleLogin}>
@@ -187,9 +187,9 @@ const LoginPage = () => {
                 />
                 Remember Me
               </label>
-              <a href="/reset-password" className="text-sm text-primary hover:underline">
+              <Link to="/reset-password" className="text-sm text-primary hover:underline">
                 Forgot Your Password?
-              </a>
+              </Link>
             </div>
 
             {/* Login Button */}
