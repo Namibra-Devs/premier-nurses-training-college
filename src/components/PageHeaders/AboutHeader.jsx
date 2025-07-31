@@ -9,8 +9,8 @@ const AboutHeader = () => {
         <div className="px-4 md:px-14 lg:px-24 xl:px-40 py-32">
           <div className="mission-right md:max-w-[50%]">
             {/* Subtitle */}
-            <h1 className="text-white text-5xl leading-2 font-semibold max-w-full lg:max-w-3xl mb-3">
-              About Us
+            <h1 className="text-white text-5xl leading-2 font-normal max-w-full lg:max-w-3xl mb-3">
+              About us
             </h1>
             <p className="font-normal text-base text-gray-200 max-w-xl">
               Discover Our Story: Empowering Healthcare Education for a Better

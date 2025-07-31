@@ -1,4 +1,3 @@
-import React from "react";
 import { News } from "./NewsData";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.min.css";
@@ -20,8 +19,8 @@ const NewsCarousel = () => {
         disableOnInteraction: false, // Keeps autoplay running after interaction
         pauseOnMouseEnter: true, // Pauses autoplay on hover
       }}
-      pagination={{ clickable: true }} // Enable pagination
-      Lazy={true}
+      pagination={{ clickable: true }} // Enable pagination // Enable pagination
+      lazy={true}
       breakpoints={{
         640: { slidesPerView: 1 }, // 1 slide on mobile
         1024: { slidesPerView: 2 }, // 2 slides on desktop
