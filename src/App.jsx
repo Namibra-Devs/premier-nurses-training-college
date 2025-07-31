@@ -1,3 +1,4 @@
+import React from 'react';
 import { BrowserRouter as Router, useLocation } from 'react-router-dom';
 import AOS from 'aos';
 import 'aos/dist/aos.css';

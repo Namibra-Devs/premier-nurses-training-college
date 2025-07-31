@@ -311,3 +311,5 @@ const Navbar = () => {
     </main>
   );
 }
+
+export default Navbar;
