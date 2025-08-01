@@ -1,5 +1,6 @@
 import React from "react";
 import contactusData from "./contactusData";
+import MapSection from "../../components/map/MapSection";
 
 const ContactInfo = () => {
   return (
@@ -63,6 +64,7 @@ const ContactInfo = () => {
           </div>
         </div>
       </div>
+      <MapSection/>
     </>
   );
 };
