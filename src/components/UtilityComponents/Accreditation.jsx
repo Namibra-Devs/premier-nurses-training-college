@@ -12,10 +12,10 @@ const Accreditation = () => {
               <span className="">01</span>
             </div>
             <h3 className="text-base tracking-tight text-gray-600 font-semibold my-1">
-              University For Development Studies (UDS)
+              University For Development Studies
             </h3>
             <p className="text-gray-500 text-sm">
-              Of our student graduate every year
+              Gives the affiliates institution
             </p>
           </div>
         </div>
@@ -30,7 +30,7 @@ const Accreditation = () => {
               Nursing And Midwifery Council
             </h3>
             <p className="text-gray-500 text-sm">
-              of our graduates secure employment within six months.
+              Provides professional accreditation and regulations
             </p>
           </div>
         </div>
@@ -45,8 +45,7 @@ const Accreditation = () => {
               Ghana Tertiary Education Commission
             </h3>
             <p className="text-gray-500 text-sm">
-              15:1, ensuring personalized attention and support for every
-              student.
+              Is to give the institutional and program accreditations
             </p>
           </div>
         </div>

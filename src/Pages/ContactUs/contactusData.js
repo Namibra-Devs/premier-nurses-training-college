@@ -2,8 +2,8 @@ const contactusData = {
   email: "info@pntc.edu.gh",
   phoneNumbers: ["+233545897944", "+233248520715"],
   officeLocation: {
-    addressLine1: "P. O. Box 3797",
-    addressLine2: "",
+    addressLine1: "Moshie Zongo",
+    addressLine2: "Digital Address: AK - 075 - 8022",
     city: "Kumasi",
     region: "Ashanti Region",
     country: "Ghana",

@@ -1,6 +1,7 @@
 import React from "react";
 
 import { FaWhatsapp, FaFacebook } from "react-icons/fa"; // Social Icons
+import contactData from "../../Pages/Admissions/ContactAdmissions/contactData";
 const Footer = () => {
   return (
     <footer className="bg-gradient-to-r from-blue-800 to bg-primary text-gray-200 pt-24 overflow-hidden rounded-t-3xl">
@@ -247,7 +248,9 @@ const Footer = () => {
                   PNTC Adress
                 </h2>
                 <p className="flex items-center">
-                  P. O. Box 3797, Kumasi, Ghana
+                  {contactData.officeLocation.addressLine1},<br />
+                  {contactData.officeLocation.addressLine2},<br />
+                  {contactData.officeLocation.city}, {contactData.officeLocation.country}
                 </p>
               </div>
               <div className="flex flex-col items-start">
