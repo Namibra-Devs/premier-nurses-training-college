@@ -74,7 +74,7 @@ const Hero = () => {
           nursing carrier.
         </p>
         <div className="text-xl flex items-center gap-0 md:gap-4">
-          <HeroButtonApply label="Apply Now" link="/registration-page" />
+          <HeroButtonApply label="Apply Now" link="https://apply.pntc.edu.gh/register" isExternal={true} />
           <ButtonOutline label="Admission List" link="admissions" />
         </div>
       </div>

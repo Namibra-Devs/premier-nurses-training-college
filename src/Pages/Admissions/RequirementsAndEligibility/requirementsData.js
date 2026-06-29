@@ -10,9 +10,9 @@ const requirementsData = [
       "Completion of subjects relevant to the chosen field of study (e.g., Biology, Chemistry, and Physics for healthcare programs).",
   },
   {
-    requirement: "Entrance Exams",
+    requirement: "Interview",
     answer:
-      "Passing the West African Senior School Certificate Examination (WASSCE) or equivalent is necessary for admission.",
+      "Shortlisted candidates will be invited for an interview to assess their suitability, motivation, and commitment to pursuing a career in healthcare.",
   },
 ];
 

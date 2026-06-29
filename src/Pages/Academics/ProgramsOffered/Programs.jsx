@@ -1,13 +1,14 @@
 import React from "react";
 import ProgramsData from "./ProgramsData";
+import {Link} from 'react-router-dom';
 
 const Programs = () => {
   return (
     <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-4">
       {/* Key Statics 1 */}
       {ProgramsData.map((program, index) => (
-        <a
-          href={program.url}
+        <Link
+          to={program.url}
           key={index}
           className="relative bg-blue-100 rounded-3xl overflow-hidden group p-6 border border-transparent hover:border-blue-200 hover:shadow-custom-light transition-transform duration-700 transform hover:-translate-y-2"
         >
@@ -25,7 +26,7 @@ const Programs = () => {
             </h3>
             <p className="text-gray-600 text-sm">{program.description}</p>
           </div>
-        </a>
+        </Link>
       ))}
     </div>
   );

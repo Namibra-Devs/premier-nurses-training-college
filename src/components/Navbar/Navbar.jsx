@@ -61,45 +61,47 @@ const Navbar = () => {
             <li className="flex items-center gap-1">
               <FiPhone />
               <a href="#" className="text-[11px]">
-                +233545897944, +233248520715
+               +233248520715
               </a>
             </li>
             <li className="flex items-center gap-1">
               <BsClock />
-              <p className="text-[11px]">Mon - Fri: 9:00am - 5:00pm</p>
+              <p className="text-[11px]">Mon - Fri: 8:00am - 5:00pm</p>
             </li>
           </ul>
           <ul className="text-white flex items-center gap-3">
-            <a
+            {/* <a
               href="#"
               className="hover:text-yellow-400 hover:scale-110 duration-500 ease"
             >
               <FaLinkedin />
-            </a>
-            <a
+            </a> */}
+            {/* <a
               href="#"
               className="hover:text-yellow-400 hover:scale-110 duration-500 ease"
             >
               <RiInstagramLine />
-            </a>
+            </a> */}
             <a
-              href="#"
+              href="https://www.facebook.com/PremierNursesTrainingCollege"
               className="hover:text-yellow-400 hover:scale-110 duration-500 ease"
             >
               <FaFacebook />
             </a>
             <a
-              href="#"
+              href="https://wa.me/233248520715"
+              target="_blank"
+              rel="noopener noreferrer"
               className="hover:text-yellow-400 hover:scale-110 duration-500 ease"
             >
               <FaWhatsapp />
             </a>
-            <a
+            {/* <a
               href="#"
               className="hover:text-yellow-400 hover:scale-110 duration-500 ease"
             >
               <RiTwitterXFill />
-            </a>
+            </a> */}
           </ul>
         </div>
       </div>

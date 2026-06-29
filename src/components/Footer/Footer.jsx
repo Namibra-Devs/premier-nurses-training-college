@@ -1,6 +1,6 @@
 import React from "react";
 
-import { FaLinkedin, FaFacebook, FaTwitter } from "react-icons/fa"; // Social Icons
+import { FaWhatsapp, FaFacebook } from "react-icons/fa"; // Social Icons
 const Footer = () => {
   return (
     <footer className="bg-gradient-to-r from-blue-800 to bg-primary text-gray-200 pt-24 overflow-hidden rounded-t-3xl">
@@ -25,7 +25,7 @@ const Footer = () => {
                   className="mr-2 text-yellow-400"
                 ></ion-icon>
               </span>
-              +233545897944, +233248520715
+              +233248520715
             </p>
             <p className="flex items-center text-sm mb-2">
               <span className="mr-4 text-yellow-400">
@@ -114,6 +114,67 @@ const Footer = () => {
             </ul>
           </div>
 
+          {/* Portals & Applications */}
+          <div className="w-full md:w-1/5 mb-8">
+            <h2 className="text-xl font-semibold mb-4 text-white">
+              Portals
+            </h2>
+            <ul className="">
+              <li className="flex items-center font-medium mb-2">
+                <span className="mr-4 text-yellow-400">
+                  <ion-icon name="caret-forward-outline"></ion-icon>
+                </span>
+                <a
+                  href="https://apply.pntc.edu.gh/register"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-yellow-400 duration-500 ease"
+                >
+                  Apply Online
+                </a>
+              </li>
+              <li className="flex items-center font-medium mb-2">
+                <span className="mr-4 text-yellow-400">
+                  <ion-icon name="caret-forward-outline"></ion-icon>
+                </span>
+                <a
+                  href="https://apply.pntc.edu.gh/purchase-voucher"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-yellow-400 duration-500 ease"
+                >
+                  Buy Voucher
+                </a>
+              </li>
+              <li className="flex items-center font-medium mb-2">
+                <span className="mr-4 text-yellow-400">
+                  <ion-icon name="caret-forward-outline"></ion-icon>
+                </span>
+                <a
+                  href="https://mis.pntc.edu.gh/login"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-yellow-400 duration-500 ease"
+                >
+                  Student Login
+                </a>
+              </li>
+              <li className="flex items-center font-medium mb-2">
+                <span className="mr-4 text-yellow-400">
+                  <ion-icon name="caret-forward-outline"></ion-icon>
+                </span>
+                <a
+                  href="https://mis.pntc.edu.gh/login"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-yellow-400 duration-500 ease"
+                >
+                  Staff Login
+                </a>
+              </li>
+            </ul>
+          </div>
+
           {/* Useful Links */}
           <div className="w-full md:w-1/5 mb-8">
             <h2 className="text-xl font-semibold mb-4 text-white">
@@ -193,7 +254,7 @@ const Footer = () => {
                 <h2 className="text-xl font-semibold mb-2 text-white">
                   Working Hours
                 </h2>
-                <p className="flex items-center">Mon - Fri 9:00 AM - 5:00 PM</p>
+                <p className="flex items-center">Mon - Fri 8:00 AM - 5:00 PM</p>
               </div>
             </div>
           </div>
@@ -211,7 +272,7 @@ const Footer = () => {
           {/* Social media */}
           <div className="flex space-x-4 mb-4 md:mb-0  mt-6 md:mt-0">
             <a
-              href="https://facebook.com"
+              href="https://www.facebook.com/PremierNursesTrainingCollege"
               target="_blank"
               rel="noopener noreferrer"
               className="text-white hover:text-yellow-400 text-3xl hover:transition-transform duration-700 transform hover:-translate-y-2"
@@ -219,6 +280,14 @@ const Footer = () => {
               <FaFacebook/>
             </a>
             <a
+              href="https://wa.me/233248520715"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:text-yellow-400 text-3xl hover:transition-transform duration-700 transform hover:-translate-y-2"
+            >
+              <FaWhatsapp />
+            </a>
+            {/* <a
               href="https://twitter.com"
               target="_blank"
               rel="noopener noreferrer"
@@ -241,7 +310,7 @@ const Footer = () => {
               className="text-white hover:text-yellow-400 text-3xl hover:transition-transform duration-700 transform hover:-translate-y-2"
             >
               <FaLinkedin/>
-            </a>
+            </a> */}
           </div>
         </div>
       </div>

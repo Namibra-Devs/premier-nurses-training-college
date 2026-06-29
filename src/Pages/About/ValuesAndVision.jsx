@@ -17,21 +17,16 @@ const ValuesAndVision = () => {
         {/* title */}
         <h3 data-aos="fade-up"
           data-aos-duration="800" className="text-primary text-sm text-left uppercase font-medium">
-          Our Vision And Values
+          Vision Statement
         </h3>
         {/* Subtitle */}
         <h1 data-aos="fade-up"
           data-aos-duration="800" className="text-gray-700 text-3xl md:text-2xl xl:text-3xl leading-2 tracking-tight font-semibold my-2">
-          Our vision is to create a community of professionals through
-          innovative education and practical training...
+          To be a continentally acclaimed nursing training institution.
         </h1>
         <p data-aos="fade-up"
           data-aos-duration="800" className="font-normal text-base text-gray-500 max-w-xl mt-5 mb-5">
-          Driven by our core values of empathy, excellence, and integrity,
-          Premier Nurses' Training College is committed to academic rigor and
-          clinical precision. Our vision is to create a community of
-          professionals dedicated to improving patient care through innovation,
-          continuous learning, and ethical practice.
+          We aspire to become a beacon of excellence in nursing education across Africa, recognized for producing highly skilled, compassionate, and innovative healthcare professionals. Through cutting-edge training, research, and community engagement, we envision shaping the future of healthcare by equipping our graduates with the knowledge, skills, and values needed to transform healthcare delivery across the continent and beyond.
         </p>
         <Accreditation />
       </div>

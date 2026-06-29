@@ -1,6 +1,6 @@
 import React from "react";
 import Navbar from "../Navbar/Navbar";
-import ButtonLogin from "../../features/ApplicationForm/Login/ButtonLogin";
+import ButtonLogin from "../Buttons/ButtonLogin";
 
 const AdmissionsHeader = () => {
   return (
@@ -23,7 +23,7 @@ const AdmissionsHeader = () => {
             <p className="animate-pulse underline mb-3 md:mb-0 z-10">
               Already have an account?{" "}
             </p>{" "}
-            <ButtonLogin url="/login-page" label="Login" />
+            <ButtonLogin url="https://mis.pntc.edu.gh/login" label="Login" isExternal={true} />
           </div>
         </div>
       </div>

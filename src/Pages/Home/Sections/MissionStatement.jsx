@@ -57,9 +57,7 @@ const MissionStatement = () => {
               data-aos-duration="800"
               className="font-normal text-base text-gray-500 max-w-xl"
             >
-              We are dedicated to shaping the future of healthcare by educating
-              and inspiring the next generation of skilled and empathetic
-              nurses.
+              To offer a holistic nursing training using a highly motivated and skilled staff that prepares or students to work in any environment.
             </p>
             <br />
             <KeyStatistics />

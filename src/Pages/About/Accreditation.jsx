@@ -12,7 +12,7 @@ const Accreditation = () => {
               <span className="">01</span>
             </div>
             <h3 className="text-base tracking-tight text-gray-600 font-semibold my-1">
-              University For Development Studies (UDS)
+              University For Development Studies
             </h3>
           </div>
         </div>

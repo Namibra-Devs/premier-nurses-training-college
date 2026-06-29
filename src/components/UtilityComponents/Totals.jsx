@@ -30,7 +30,7 @@ const Totals = () => {
             {/* Total 1 */}
             <div data-aos="fade-up"
         data-aos-duration="800" className='flex flex-col items-center gap-2 relative text-center rounded-3xl p-4'>
-                <h1 className='font-bold text-5xl text-yellow-400'>2015</h1>
+                <h1 className='font-bold text-5xl text-yellow-400'>2004</h1>
                 <h3 className='font-semibold text-base text-white'>College Inauguration</h3>
             </div>
             {/* Total 1 */}
@@ -51,7 +51,7 @@ const Totals = () => {
             <div data-aos="fade-up"
         data-aos-duration="800" className='flex flex-col items-center gap-2 relative text-center rounded-3xl p-4'>
                 <span className='absolute right-8 top-2 text-lg text-white'>+</span>
-                <h1 className='font-bold text-5xl text-yellow-400'><Counter end={25}></Counter></h1>
+                <h1 className='font-bold text-5xl text-yellow-400'><Counter end={3}></Counter></h1>
                 <h3 className='font-semibold text-base text-white'>Programmes</h3>
             </div>
         </div>
