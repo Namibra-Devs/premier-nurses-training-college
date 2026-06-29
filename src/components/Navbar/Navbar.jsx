@@ -188,7 +188,7 @@ const Navbar = () => {
           duration-500 ${open ? "left-0" : "left-[-100%]"}
           `}
       >
-        <div className="flex justify-between items-center p-3">
+        <div className="flex justify-between items-center px-3 py-6 border-b border-gray-200 md:border-none">
           {/* Logo */}
           <Link to="/">
             <img
@@ -252,13 +252,13 @@ const Navbar = () => {
             <li className="flex items-center gap-1 mb-3 md:mb-0 w-full group hover:text-primary duration-500">
               <ion-icon name="call"></ion-icon>
               <a href="#" className="ml-3 md:ml-0">
-                +233264256825, +233243519083
+                +233243519083
               </a>
             </li>
             <li className="flex items-center gap-1 mb-3 md:mb-0 w-full">
               <BsClock />
               <p className="text-[13px] ml-3 md:ml-0">
-                Mon - Fri: 9:00am - 5:00pm
+                Mon - Fri: 8:00am - 5:00pm
               </p>
             </li>
           </ul>
@@ -267,31 +267,7 @@ const Navbar = () => {
               href="#"
               className="hover:text-primary duration-500 text-3xl mr-1 md:mr-0"
             >
-              <FaLinkedin />
-            </a>
-            <a
-              href="#"
-              className="hover:text-primary duration-500 text-3xl mr-1 md:mr-0"
-            >
-              <FaInstagram />
-            </a>
-            <a
-              href="#"
-              className="hover:text-primary duration-500 text-3xl mr-1 md:mr-0"
-            >
               <FaFacebook />
-            </a>
-            <a
-              href="#"
-              className="hover:text-primary duration-500 text-3xl mr-1 md:mr-0"
-            >
-              <ion-icon name="logo-whatsapp"></ion-icon>
-            </a>
-            <a
-              href="#"
-              className="hover:text-primary duration-500 text-3xl mr-1 md:mr-0"
-            >
-              <FaTwitter />
             </a>
           </ul>
         </div>

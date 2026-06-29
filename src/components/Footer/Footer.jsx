@@ -272,6 +272,20 @@ const Footer = () => {
             &copy; {new Date().getFullYear()} Premier Nurses' Training College.
             All Rights Reserved.
           </p>
+          {/* Namibra Credit */}
+          <div className="text-center">
+            <p className="text-ink-soft text-sm">
+              Built with love by{' '}
+              <a 
+                href="https://namibra.io" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="font-semibold text-jade hover:text-jade-deep transition-colors"
+              >
+                Namibra
+              </a>
+            </p>
+          </div>
           {/* Social media */}
           <div className="flex space-x-4 mb-4 md:mb-0  mt-6 md:mt-0">
             <a

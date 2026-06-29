@@ -1,6 +1,6 @@
 const contactusData = {
   email: "info@pntc.edu.gh",
-  phoneNumbers: ["+233545897944", "+233248520715"],
+  phoneNumbers: ["+233248520715"],
   officeLocation: {
     addressLine1: "Moshie Zongo",
     addressLine2: "Digital Address: AK - 075 - 8022",
@@ -13,9 +13,8 @@ const contactusData = {
     weekends: "Closed",
   },
   socialMedia: {
-    facebook: "https://facebook.com/pntc",
-    twitter: "https://twitter.com/pntc",
-    instagram: "https://instagram.com/pntc",
+    facebook: "https://www.facebook.com/PremierNursesTrainingCollege",
+    whatsapp: "https://wa.me/233248520715",
   },
 };
 export default contactusData;

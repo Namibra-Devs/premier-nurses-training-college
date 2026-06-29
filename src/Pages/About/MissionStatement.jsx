@@ -47,7 +47,7 @@ const MissionStatement = () => {
                       Graduation Rate
                     </h3>
                     <p className="text-gray-50 font-normal text-sm">
-                      Of our student graduate
+                      90% of our student graduate
                     </p>
                   </div>
                 </div>
@@ -58,10 +58,10 @@ const MissionStatement = () => {
                   </div>
                   <div>
                     <h3 className="text-lg tracking-tight text-white font-semibold mb-1">
-                      Graduation Rate
+                      Job Placement Rate
                     </h3>
                     <p className="text-gray-50 font-normal text-sm">
-                      Of our student graduate{" "}
+                     80% of our graduates secure employment{" "}
                     </p>
                   </div>
                 </div>
@@ -72,10 +72,10 @@ const MissionStatement = () => {
                   </div>
                   <div>
                     <h3 className="text-lg tracking-tight text-white font-semibold mb-1">
-                      Graduation Rate
+                      Student-to-Faculty Ratio
                     </h3>
                     <p className="text-gray-50 font-normal text-sm">
-                      Of our student graduate
+                      15:1, ensuring personalized attention and support for every student.
                     </p>
                   </div>
                 </div>

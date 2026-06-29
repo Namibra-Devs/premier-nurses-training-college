@@ -1,12 +1,12 @@
 import React from "react";
 
-import { FaLinkedin, FaFacebook, FaTwitter, FaInstagram } from "react-icons/fa"; // Social Icons
+import { FaFacebook, FaWhatsapp } from "react-icons/fa"; // Social Icons
 const SocialMediaHandles = ({iconColor, gap}) => {
   return (
     <>
       <div className="flex space-x-4 mb-4 md:mb-0  mt-6 md:mt-0">
         <a
-          href="https://facebook.com"
+          href="https://www.facebook.com/PremierNursesTrainingCollege"
           target="_blank"
           rel="noopener noreferrer"
           className="text-gray-700 hover:text-yellow-400 text-3xl hover:transition-transform duration-700 transform hover:-translate-y-2"
@@ -14,6 +14,14 @@ const SocialMediaHandles = ({iconColor, gap}) => {
           <FaFacebook/>
         </a>
         <a
+          href="https://wa.me/233248520715"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="ext-gray-700 hover:text-yellow-400 text-3xl hover:transition-transform duration-700 transform hover:-translate-y-2"
+        >
+          <FaWhatsapp />
+        </a>
+        {/* <a
           href="https://twitter.com"
           target="_blank"
           rel="noopener noreferrer"
@@ -36,7 +44,7 @@ const SocialMediaHandles = ({iconColor, gap}) => {
           className="text-gray-700 hover:text-yellow-400 text-3xl hover:transition-transform duration-700 transform hover:-translate-y-2"
         >
           <FaLinkedin className="text-gray-700" />
-        </a>
+        </a> */}
       </div>
     </>
   );

@@ -15,14 +15,14 @@ const NavLinks = () => {
       {links.map((menu, linkIndex) => (
         <div key={linkIndex}>
           {/* Desktop menus or links */}
-          <div className="text-left md:cursor-pointer">
+          <div className="text-left md:cursor-pointer border-b border-gray-200 md:border-none">
             <Link
               to={menu.link}
               className={`block hover:text-yellow-400 duration-500 group ${
                 isActive(menu.link) ? "text-yellow-400 font-semibold" : ""
               }`}
             >
-              <h1 className="flex justify-between items-center mr-4 py-3 md:py-0 group relative">
+              <h1 className="flex justify-between items-center mr-4 py-4 md:py-0 text-xl md:text-sm group relative">
                 {menu.name}
               </h1>
               <span className={`hidden md:flex absolute group-hover:text-yellow-400 ${
