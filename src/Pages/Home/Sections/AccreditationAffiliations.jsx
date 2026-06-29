@@ -25,8 +25,8 @@ const AccreditationAffiliations = () => {
               className="absolute bottom-4 text-white font-medium text-lg m-5 
             leading-tight translate-x-1 opacity-0 group-hover:opacity-100 duration-700 ease-linear transform group-hover:translate-y-2"
             >
-              We are fully accredited by the National Nursing Accreditation
-              Board and proudly affiliated with leading healthcare institutions,
+              We are fully accredited by the Nursing and Midwifery Council
+              and proudly affiliated with leading healthcare institutions,
               including.
             </h4>
           </div>
@@ -45,8 +45,7 @@ const AccreditationAffiliations = () => {
               data-aos-duration="800"
               className="text-gray-700 text-3xl md:text-2xl xl:text-3xl leading-2 tracking-tight font-semibold max-w-xl my-2"
             >
-              We are fully accredited by the National Nursing Accreditation
-              Board and proudly affiliated with leading healthcare institutions,
+              We are fully accredited by the Nursing and Midwifery Council and proudly affiliated with leading healthcare institutions,
               including.
             </h1>
             <p className="font-normal text-sm text-gray-500 max-w-xl"></p>

@@ -139,8 +139,7 @@ const KeyStatisticsII = () => {
               Accredited and Recognized Programs
             </h3>
             <p className="text-gray-50 text-sm font-normal">
-              We are fully accredited by the National Nursing Accreditation
-              Board, ensuring our programs meet the highest standards of nursing
+              We are fully accredited by the Nursing and Midwifery Council, ensuring our programs meet the highest standards of nursing
               education and healthcare training.
             </p>
           </div>

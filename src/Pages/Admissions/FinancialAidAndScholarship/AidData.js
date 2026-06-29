@@ -22,7 +22,7 @@ const AidData = [
     options: [
       {
         name: "Student Loans",
-        url: "https://example.com/student-loans",
+        url: "https://www.sltf.gov.gh/",
       },
       {
         name: "Flexible Payment Plans",

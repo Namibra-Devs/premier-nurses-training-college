@@ -70,8 +70,7 @@ const Hero = () => {
           College - PNTC
         </h1>
         <p className="text-white mb-4 text-sm md:text-[15px] px-4">
-          Nursing is a work of heart. Discover eight reason to transform your
-          nursing carrier.
+          Disci Mus Servire (We learn to serve)
         </p>
         <div className="text-xl flex items-center gap-0 md:gap-4">
           <HeroButtonApply label="Apply Now" link="https://apply.pntc.edu.gh/register" isExternal={true} />
